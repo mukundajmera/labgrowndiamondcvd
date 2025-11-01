@@ -15,31 +15,32 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function astra_child_b2b_registration_fields() {
     ?>
+    <?php wp_nonce_field( 'astra_child_b2b_registration', 'astra_child_b2b_registration_nonce' ); ?>
     <p class="form-row form-row-wide">
         <label for="reg_company_name"><?php _e( 'Company Name', 'astra-child-diamond' ); ?> <span class="required">*</span></label>
-        <input type="text" class="input-text" name="company_name" id="reg_company_name" value="<?php echo esc_attr( $_POST['company_name'] ?? '' ); ?>" />
+        <input type="text" class="input-text" name="company_name" id="reg_company_name" value="<?php echo esc_attr( isset($_POST['company_name']) ? sanitize_text_field($_POST['company_name']) : '' ); ?>" />
     </p>
     
     <p class="form-row form-row-wide">
         <label for="reg_business_type"><?php _e( 'Business Type', 'astra-child-diamond' ); ?> <span class="required">*</span></label>
         <select name="business_type" id="reg_business_type" class="input-text">
             <option value=""><?php _e( 'Select Business Type', 'astra-child-diamond' ); ?></option>
-            <option value="retailer"><?php _e( 'Retailer', 'astra-child-diamond' ); ?></option>
-            <option value="wholesaler"><?php _e( 'Wholesaler', 'astra-child-diamond' ); ?></option>
-            <option value="jewelry_designer"><?php _e( 'Jewelry Designer', 'astra-child-diamond' ); ?></option>
-            <option value="manufacturer"><?php _e( 'Manufacturer', 'astra-child-diamond' ); ?></option>
-            <option value="other"><?php _e( 'Other', 'astra-child-diamond' ); ?></option>
+            <option value="retailer" <?php selected( isset($_POST['business_type']) ? sanitize_text_field($_POST['business_type']) : '', 'retailer' ); ?>><?php _e( 'Retailer', 'astra-child-diamond' ); ?></option>
+            <option value="wholesaler" <?php selected( isset($_POST['business_type']) ? sanitize_text_field($_POST['business_type']) : '', 'wholesaler' ); ?>><?php _e( 'Wholesaler', 'astra-child-diamond' ); ?></option>
+            <option value="jewelry_designer" <?php selected( isset($_POST['business_type']) ? sanitize_text_field($_POST['business_type']) : '', 'jewelry_designer' ); ?>><?php _e( 'Jewelry Designer', 'astra-child-diamond' ); ?></option>
+            <option value="manufacturer" <?php selected( isset($_POST['business_type']) ? sanitize_text_field($_POST['business_type']) : '', 'manufacturer' ); ?>><?php _e( 'Manufacturer', 'astra-child-diamond' ); ?></option>
+            <option value="other" <?php selected( isset($_POST['business_type']) ? sanitize_text_field($_POST['business_type']) : '', 'other' ); ?>><?php _e( 'Other', 'astra-child-diamond' ); ?></option>
         </select>
     </p>
     
     <p class="form-row form-row-wide">
         <label for="reg_tax_id"><?php _e( 'Tax ID / Business License', 'astra-child-diamond' ); ?> <span class="required">*</span></label>
-        <input type="text" class="input-text" name="tax_id" id="reg_tax_id" value="<?php echo esc_attr( $_POST['tax_id'] ?? '' ); ?>" />
+        <input type="text" class="input-text" name="tax_id" id="reg_tax_id" value="<?php echo esc_attr( isset($_POST['tax_id']) ? sanitize_text_field($_POST['tax_id']) : '' ); ?>" />
     </p>
     
     <p class="form-row form-row-wide">
         <label for="reg_phone"><?php _e( 'Business Phone', 'astra-child-diamond' ); ?> <span class="required">*</span></label>
-        <input type="tel" class="input-text" name="business_phone" id="reg_phone" value="<?php echo esc_attr( $_POST['business_phone'] ?? '' ); ?>" />
+        <input type="tel" class="input-text" name="business_phone" id="reg_phone" value="<?php echo esc_attr( isset($_POST['business_phone']) ? sanitize_text_field($_POST['business_phone']) : '' ); ?>" />
     </p>
     <?php
 }
@@ -49,6 +50,12 @@ add_action( 'woocommerce_register_form', 'astra_child_b2b_registration_fields' )
  * Validate B2B registration fields
  */
 function astra_child_validate_b2b_registration( $errors, $username, $email ) {
+    // Verify nonce
+    if ( ! isset( $_POST['astra_child_b2b_registration_nonce'] ) || 
+         ! wp_verify_nonce( $_POST['astra_child_b2b_registration_nonce'], 'astra_child_b2b_registration' ) ) {
+        return $errors;
+    }
+    
     if ( isset( $_POST['company_name'] ) && empty( $_POST['company_name'] ) ) {
         $errors->add( 'company_name_error', __( 'Please enter your company name.', 'astra-child-diamond' ) );
     }

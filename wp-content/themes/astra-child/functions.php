@@ -58,6 +58,15 @@ function astra_child_enqueue_scripts() {
         'ajaxurl' => admin_url( 'admin-ajax.php' ),
         'nonce' => wp_create_nonce( 'diamond-search-nonce' )
     ) );
+    
+    // Localize jewelry builder pricing configuration
+    wp_localize_script( 'jewelry-builder', 'jewelryBuilderConfig', array(
+        'pricing' => array(
+            'engraving_base' => get_option( 'astra_child_engraving_base_price', 50 ),
+            'engraving_per_char' => get_option( 'astra_child_engraving_per_char', 2 ),
+            'engraving_free_chars' => get_option( 'astra_child_engraving_free_chars', 20 )
+        )
+    ) );
 }
 add_action( 'wp_enqueue_scripts', 'astra_child_enqueue_scripts' );
 
@@ -460,6 +469,54 @@ function astra_child_customizer_settings( $wp_customize ) {
         'section' => 'diamond_theme_settings',
         'type' => 'url',
     ) );
+    
+    // Engraving Base Price
+    $wp_customize->add_setting( 'astra_child_engraving_base_price', array(
+        'default' => 50,
+        'sanitize_callback' => 'absint',
+    ) );
+    
+    $wp_customize->add_control( 'astra_child_engraving_base_price', array(
+        'label' => __( 'Engraving Base Price ($)', 'astra-child-diamond' ),
+        'section' => 'diamond_theme_settings',
+        'type' => 'number',
+        'input_attrs' => array(
+            'min' => 0,
+            'step' => 1,
+        ),
+    ) );
+    
+    // Engraving Per Character Price
+    $wp_customize->add_setting( 'astra_child_engraving_per_char', array(
+        'default' => 2,
+        'sanitize_callback' => 'absint',
+    ) );
+    
+    $wp_customize->add_control( 'astra_child_engraving_per_char', array(
+        'label' => __( 'Engraving Price per Extra Character ($)', 'astra-child-diamond' ),
+        'section' => 'diamond_theme_settings',
+        'type' => 'number',
+        'input_attrs' => array(
+            'min' => 0,
+            'step' => 1,
+        ),
+    ) );
+    
+    // Engraving Free Characters
+    $wp_customize->add_setting( 'astra_child_engraving_free_chars', array(
+        'default' => 20,
+        'sanitize_callback' => 'absint',
+    ) );
+    
+    $wp_customize->add_control( 'astra_child_engraving_free_chars', array(
+        'label' => __( 'Free Characters for Engraving', 'astra-child-diamond' ),
+        'section' => 'diamond_theme_settings',
+        'type' => 'number',
+        'input_attrs' => array(
+            'min' => 0,
+            'step' => 1,
+        ),
+    ) );
 }
 add_action( 'customize_register', 'astra_child_customizer_settings' );
 
@@ -495,7 +552,7 @@ function astra_child_product_schema() {
             );
         }
         
-        echo '<script type="application/ld+json">' . json_encode( $schema ) . '</script>';
+        echo '<script type="application/ld+json">' . json_encode( $schema, JSON_UNESCAPED_SLASHES ) . '</script>';
     }
 }
 add_action( 'wp_head', 'astra_child_product_schema' );

@@ -403,4 +403,4 @@ function astra_child_flush_rewrite_rules() {
     
     flush_rewrite_rules();
 }
-register_activation_hook( __FILE__, 'astra_child_flush_rewrite_rules' );
+add_action( 'after_switch_theme', 'astra_child_flush_rewrite_rules' );

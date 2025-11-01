@@ -357,12 +357,15 @@
             e.preventDefault();
             
             // Apple Pay implementation
+            const priceText = $('.total-price').text().replace(/[$,]/g, '');
+            const amount = parseFloat(priceText).toFixed(2);
+            
             const paymentRequest = {
                 countryCode: 'US',
                 currencyCode: 'USD',
                 total: {
                     label: 'Lab Grown Diamond CVD',
-                    amount: $('.total-price').text().replace('$', '')
+                    amount: amount
                 }
             };
 
@@ -385,6 +388,9 @@
             e.preventDefault();
             
             // Google Pay implementation
+            const priceText = $('.total-price').text().replace(/[$,]/g, '');
+            const amount = parseFloat(priceText).toFixed(2);
+            
             const supportedPaymentMethods = [{
                 supportedMethods: 'https://google.com/pay',
                 data: {
@@ -398,7 +404,7 @@
                     label: 'Total',
                     amount: {
                         currency: 'USD',
-                        value: $('.total-price').text().replace('$', '')
+                        value: amount
                     }
                 }
             };

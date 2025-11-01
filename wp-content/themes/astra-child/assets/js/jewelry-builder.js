@@ -237,11 +237,18 @@
             const text = $(e.target).val();
             this.selections.engraving = text;
 
+            // Get pricing configuration from localized script
+            const config = typeof jewelryBuilderConfig !== 'undefined' ? jewelryBuilderConfig.pricing : {
+                engraving_base: 50,
+                engraving_per_char: 2,
+                engraving_free_chars: 20
+            };
+
             // Calculate engraving price
             if (text.length > 0) {
-                this.prices.engraving = 50; // Base engraving price
-                if (text.length > 20) {
-                    this.prices.engraving += (text.length - 20) * 2; // $2 per extra character
+                this.prices.engraving = config.engraving_base;
+                if (text.length > config.engraving_free_chars) {
+                    this.prices.engraving += (text.length - config.engraving_free_chars) * config.engraving_per_char;
                 }
             } else {
                 this.prices.engraving = 0;

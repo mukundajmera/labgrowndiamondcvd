@@ -198,12 +198,21 @@ function astra_child_filter_by_price( $args, $query ) {
     $price_max = get_query_var( 'price_max' ) ? floatval( get_query_var( 'price_max' ) ) : PHP_INT_MAX;
     
     if ( $price_min > 0 || $price_max < PHP_INT_MAX ) {
-        $args['join'] .= " INNER JOIN {$wpdb->postmeta} AS pm_price ON {$wpdb->posts}.ID = pm_price.post_id ";
-        $args['where'] .= $wpdb->prepare(
-            " AND pm_price.meta_key = '_price' AND CAST(pm_price.meta_value AS DECIMAL) BETWEEN %f AND %f ",
-            $price_min,
-            $price_max
-        );
+        // Prevent duplicate JOIN
+        $join_fragment = "INNER JOIN {$wpdb->postmeta} AS pm_price ON {$wpdb->posts}.ID = pm_price.post_id";
+        if ( strpos( $args['join'], $join_fragment ) === false ) {
+            $args['join'] .= " $join_fragment ";
+        }
+        
+        // Prevent duplicate WHERE
+        $where_fragment = "pm_price.meta_key = '_price'";
+        if ( strpos( $args['where'], $where_fragment ) === false ) {
+            $args['where'] .= $wpdb->prepare(
+                " AND pm_price.meta_key = '_price' AND CAST(pm_price.meta_value AS DECIMAL) BETWEEN %f AND %f ",
+                $price_min,
+                $price_max
+            );
+        }
     }
     
     remove_filter( 'posts_clauses', 'astra_child_filter_by_price', 10 );

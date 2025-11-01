@@ -307,6 +307,11 @@ function astra_child_ajax_contact_form() {
         wp_send_json_error( array( 'message' => __( 'Invalid email address', 'astra-child-diamond' ) ) );
     }
     
+    // Prevent email header injection by checking for newline characters
+    if ( preg_match( "/[\r\n]/", $email ) || preg_match( "/[\r\n]/", $name ) ) {
+        wp_send_json_error( array( 'message' => __( 'Invalid characters detected.', 'astra-child-diamond' ) ) );
+    }
+    
     // Send email
     $to = get_option( 'admin_email' );
     $email_subject = 'Contact Form: ' . $subject;
