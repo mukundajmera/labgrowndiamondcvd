@@ -13,7 +13,7 @@
  * @since 1.0.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
 }
 
@@ -23,9 +23,10 @@ get_header(); ?>
     <main id="main" class="site-main">
 
         <!-- IMMERSIVE HERO SECTION -->
-        <section class="luxury-hero" style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/hero/hero-bg.png');">
+        <section class="luxury-hero"
+            style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/hero/hero-bg.png');">
             <div class="luxury-hero__overlay"></div>
-            
+
             <div class="luxury-hero__content">
                 <h1 class="luxury-hero__headline">Ethical Brilliance. Lab-Perfected.</h1>
                 <p class="luxury-hero__subheadline">GIA-Certified Diamonds, Minus the Mining.</p>
@@ -81,7 +82,8 @@ get_header(); ?>
                 <div class="trust-triumvirate__grid">
                     <div class="trust-triumvirate__item">
                         <div class="trust-triumvirate__icon">
-                            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                                 <polyline points="14 2 14 8 20 8"></polyline>
                                 <line x1="16" y1="13" x2="8" y2="13"></line>
@@ -93,8 +95,11 @@ get_header(); ?>
                     </div>
                     <div class="trust-triumvirate__item">
                         <div class="trust-triumvirate__icon">
-                            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z">
+                                </path>
                                 <circle cx="12" cy="12" r="3"></circle>
                             </svg>
                         </div>
@@ -102,14 +107,61 @@ get_header(); ?>
                     </div>
                     <div class="trust-triumvirate__item">
                         <div class="trust-triumvirate__icon">
-                            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"></path>
-                                <path d="M12 11.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path>
+                            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z">
+                                </path>
+                                <path
+                                    d="M12 11.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z">
+                                </path>
                                 <path d="M7 13.5c.83.61 2.35 1.5 5 1.5s4.17-.89 5-1.5"></path>
                             </svg>
                         </div>
                         <h3 class="trust-triumvirate__title">100% CONFLICT FREE</h3>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MOSAIC CATEGORIES -->
+        <section class="lgd-mosaic">
+            <div class="ast-container">
+                <div class="lgd-mosaic__banner"
+                    style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/categories/loose-diamonds.png');">
+                    <div class="lgd-mosaic__overlay"></div>
+                    <div class="lgd-mosaic__content">
+                        <span class="lgd-mosaic__eyebrow">Discover</span>
+                        <h3 class="lgd-mosaic__title">Loose Diamonds</h3>
+                        <a href="/shop/loose-diamonds/" class="lgd-mosaic__cta">Shop Collection &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="lgd-mosaic__grid"
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px;">
+                    <a href="/engagement-rings/" class="lgd-mosaic__banner"
+                        style="height: 300px; background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/categories/engagement-rings.png');">
+                        <div class="lgd-mosaic__overlay"></div>
+                        <div class="lgd-mosaic__content">
+                            <h3 class="lgd-mosaic__title" style="font-size: 1.5rem;">Engagement Rings</h3>
+                            <span class="lgd-mosaic__cta">Explore &rarr;</span>
+                        </div>
+                    </a>
+                    <a href="/jewelry/" class="lgd-mosaic__banner"
+                        style="height: 300px; background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/categories/jewelry.png');">
+                        <div class="lgd-mosaic__overlay"></div>
+                        <div class="lgd-mosaic__content">
+                            <h3 class="lgd-mosaic__title" style="font-size: 1.5rem;">Fine Jewelry</h3>
+                            <span class="lgd-mosaic__cta">Explore &rarr;</span>
+                        </div>
+                    </a>
+                    <a href="/custom-design/" class="lgd-mosaic__banner"
+                        style="height: 300px; background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/categories/custom-design.png');">
+                        <div class="lgd-mosaic__overlay"></div>
+                        <div class="lgd-mosaic__content">
+                            <h3 class="lgd-mosaic__title" style="font-size: 1.5rem;">Custom Design</h3>
+                            <span class="lgd-mosaic__cta">Start Creating &rarr;</span>
+                        </div>
+                    </a>
                 </div>
             </div>
         </section>
