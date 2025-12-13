@@ -7,6 +7,7 @@
  */
 
 // Exit if accessed directly
+// Exit if accessed directly
 if (!defined('ABSPATH')) {
     exit;
 }
@@ -17,6 +18,11 @@ if (!defined('ABSPATH')) {
 define('LGD_LUXURY_VERSION', '1.0.0');
 define('LGD_LUXURY_DIR', get_stylesheet_directory());
 define('LGD_LUXURY_URI', get_stylesheet_directory_uri());
+
+/**
+ * Auto-Setup (Themes & Homepage)
+ */
+require_once LGD_LUXURY_DIR . '/inc/auto-setup.php';
 
 /**
  * Enqueue Google Fonts
