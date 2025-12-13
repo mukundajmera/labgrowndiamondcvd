@@ -1,0 +1,570 @@
+/**
+ * Product Detail Page (PDP) Styles
+ * Lab Grown Diamond CVD - Phase 1
+ */
+
+/* ===========================
+   PDP Wrapper
+   =========================== */
+.lgd-pdp-wrapper {
+    padding: 40px 0;
+}
+
+.lgd-pdp {
+    background: #ffffff;
+}
+
+/* ===========================
+   Main Product Section
+   =========================== */
+.lgd-pdp__main {
+    padding: 40px 0;
+}
+
+.lgd-pdp__layout {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    gap: 60px;
+}
+
+/* ===========================
+   Media Gallery
+   =========================== */
+.lgd-pdp__media {
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+}
+
+.lgd-pdp__media .woocommerce-product-gallery {
+    margin: 0;
+}
+
+.lgd-pdp__media .woocommerce-product-gallery__wrapper {
+    margin: 0;
+}
+
+.lgd-pdp__media .woocommerce-product-gallery__image {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #e5e5e5;
+}
+
+.lgd-pdp__360-viewer {
+    background: #f8f8f8;
+    border-radius: 8px;
+    padding: 60px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.lgd-pdp__360-placeholder svg {
+    stroke: #999999;
+    margin-bottom: 16px;
+}
+
+.lgd-pdp__360-placeholder p {
+    color: #999999;
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* ===========================
+   Product Summary
+   =========================== */
+.lgd-pdp__summary {
+    padding: 0;
+}
+
+.lgd-pdp__summary .product_title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    color: #212121;
+    font-family: 'Playfair Display', serif;
+    line-height: 1.3;
+}
+
+.lgd-pdp__summary .price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #212121;
+    margin: 0 0 8px 0;
+}
+
+.lgd-pdp__summary .price del {
+    font-size: 1.5rem;
+    color: #999999;
+    font-weight: 400;
+    margin-right: 12px;
+}
+
+.lgd-pdp__summary .price ins {
+    text-decoration: none;
+    color: #e74c3c;
+}
+
+.lgd-pdp__tax-note {
+    font-size: 0.875rem;
+    color: #666666;
+    margin: 0 0 24px 0;
+}
+
+/* 4Cs Summary */
+.lgd-pdp__4cs-summary {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    padding: 24px;
+    background: #f8f8f8;
+    border-radius: 8px;
+    margin: 24px 0;
+}
+
+.lgd-pdp__4cs-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.lgd-pdp__4cs-label {
+    font-size: 0.813rem;
+    color: #666666;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.lgd-pdp__4cs-value {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #212121;
+}
+
+/* Product Description */
+.lgd-pdp__summary .woocommerce-product-details__short-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666666;
+    margin: 0 0 24px 0;
+}
+
+/* Add to Cart */
+.lgd-pdp__summary .cart {
+    margin: 24px 0;
+}
+
+.lgd-pdp__summary .cart .quantity {
+    display: inline-block;
+    margin-right: 12px;
+}
+
+.lgd-pdp__summary .cart .quantity input {
+    width: 60px;
+    padding: 12px;
+    border: 1px solid #d0d0d0;
+    border-radius: 4px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.lgd-pdp__summary .cart .single_add_to_cart_button {
+    background: #0047AB;
+    color: #ffffff;
+    border: none;
+    padding: 16px 40px;
+    font-size: 1.125rem;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.lgd-pdp__summary .cart .single_add_to_cart_button:hover {
+    background: #003380;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 71, 171, 0.3);
+}
+
+/* Consultation */
+.lgd-pdp__consultation {
+    margin: 24px 0;
+}
+
+.lgd-pdp__consultation-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background: transparent;
+    color: #0047AB;
+    border: 2px solid #0047AB;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.lgd-pdp__consultation-btn:hover {
+    background: #0047AB;
+    color: #ffffff;
+}
+
+.lgd-pdp__consultation-btn svg {
+    stroke: currentColor;
+}
+
+/* Product Meta */
+.lgd-pdp__summary .product_meta {
+    font-size: 0.875rem;
+    color: #666666;
+    margin: 24px 0;
+    padding: 24px 0;
+    border-top: 1px solid #e5e5e5;
+}
+
+.lgd-pdp__summary .product_meta > span {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.lgd-pdp__summary .product_meta a {
+    color: #0047AB;
+    text-decoration: none;
+}
+
+.lgd-pdp__summary .product_meta a:hover {
+    text-decoration: underline;
+}
+
+/* ===========================
+   Trust & Service Blocks
+   =========================== */
+.lgd-pdp__trust-blocks {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    padding: 60px 0;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.lgd-trust-block {
+    display: flex;
+    gap: 16px;
+    padding: 24px;
+    background: #f8f8f8;
+    border-radius: 8px;
+}
+
+.lgd-trust-block__icon {
+    flex-shrink: 0;
+}
+
+.lgd-trust-block__icon svg {
+    stroke: #0047AB;
+}
+
+.lgd-trust-block__content h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 6px 0;
+    color: #212121;
+}
+
+.lgd-trust-block__content p {
+    font-size: 0.875rem;
+    color: #666666;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Pincode Checker */
+.lgd-pincode-input {
+    padding: 8px 12px;
+    border: 1px solid #d0d0d0;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    width: 120px;
+    margin-right: 8px;
+}
+
+.lgd-pincode-check {
+    padding: 8px 16px;
+    background: #0047AB;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.lgd-pincode-check:hover {
+    background: #003380;
+}
+
+.lgd-delivery-eta {
+    font-size: 0.875rem;
+    color: #27ae60;
+    margin-top: 8px !important;
+    font-weight: 600;
+}
+
+/* ===========================
+   Specifications Section
+   =========================== */
+.lgd-pdp__specs-section {
+    padding: 60px 0;
+}
+
+.lgd-pdp__tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 2px solid #e5e5e5;
+    margin-bottom: 40px;
+}
+
+.lgd-pdp__tab {
+    padding: 16px 32px;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #666666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    top: 2px;
+}
+
+.lgd-pdp__tab:hover {
+    color: #212121;
+}
+
+.lgd-pdp__tab.active {
+    color: #0047AB;
+    border-bottom-color: #0047AB;
+}
+
+.lgd-pdp__tab-content {
+    min-height: 300px;
+}
+
+.lgd-pdp__tab-panel {
+    display: none;
+}
+
+.lgd-pdp__tab-panel.active {
+    display: block;
+}
+
+/* Specifications Table */
+.lgd-specs-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.lgd-specs-table tr {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.lgd-specs-table tr:last-child {
+    border-bottom: none;
+}
+
+.lgd-specs-table td {
+    padding: 16px 0;
+    font-size: 0.938rem;
+}
+
+.lgd-specs-table td:first-child {
+    color: #666666;
+    font-weight: 500;
+    width: 40%;
+}
+
+.lgd-specs-table td:last-child {
+    color: #212121;
+    font-weight: 600;
+}
+
+/* Certificate Viewer */
+.lgd-certificate-viewer {
+    padding: 40px;
+    background: #f8f8f8;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.lgd-certificate-viewer p {
+    font-size: 1rem;
+    color: #666666;
+    margin: 0 0 16px 0;
+}
+
+.lgd-certificate-viewer p strong {
+    color: #212121;
+}
+
+.lgd-view-certificate-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    background: #0047AB;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.lgd-view-certificate-btn:hover {
+    background: #003380;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 71, 171, 0.3);
+}
+
+.lgd-view-certificate-btn svg {
+    stroke: currentColor;
+}
+
+/* ===========================
+   Related Products
+   =========================== */
+.related.products {
+    padding: 60px 0;
+    border-top: 1px solid #e5e5e5;
+}
+
+.related.products > h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 40px 0;
+    color: #212121;
+    font-family: 'Playfair Display', serif;
+}
+
+/* ===========================
+   Reviews
+   =========================== */
+#reviews {
+    padding: 60px 0;
+    border-top: 1px solid #e5e5e5;
+}
+
+#reviews .woocommerce-Reviews-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 40px 0;
+    color: #212121;
+    font-family: 'Playfair Display', serif;
+}
+
+/* ===========================
+   Responsive Design
+   =========================== */
+@media (max-width: 1024px) {
+    .lgd-pdp__layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .lgd-pdp__media {
+        position: relative;
+        top: 0;
+    }
+
+    .lgd-pdp__trust-blocks {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .lgd-pdp__4cs-summary {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .lgd-pdp__main {
+        padding: 20px 0;
+    }
+
+    .lgd-pdp__summary .product_title {
+        font-size: 1.5rem;
+    }
+
+    .lgd-pdp__summary .price {
+        font-size: 2rem;
+    }
+
+    .lgd-pdp__4cs-summary {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        padding: 16px;
+    }
+
+    .lgd-pdp__trust-blocks {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .lgd-pdp__tabs {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .lgd-pdp__tab {
+        padding: 14px 20px;
+        font-size: 0.938rem;
+        white-space: nowrap;
+    }
+
+    .lgd-specs-table td {
+        display: block;
+        padding: 12px 0;
+    }
+
+    .lgd-specs-table td:first-child {
+        width: 100%;
+        padding-bottom: 4px;
+    }
+
+    .lgd-specs-table td:last-child {
+        padding-top: 4px;
+    }
+}
+
+@media (max-width: 480px) {
+    .lgd-pdp__summary .cart {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .lgd-pdp__summary .cart .quantity {
+        margin-right: 0;
+    }
+
+    .lgd-pdp__summary .cart .single_add_to_cart_button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .lgd-pdp__4cs-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .lgd-pdp__consultation-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
