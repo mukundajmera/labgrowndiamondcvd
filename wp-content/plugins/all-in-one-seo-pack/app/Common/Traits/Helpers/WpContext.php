@@ -357,7 +357,7 @@ trait WpContext {
 		// The order of the function calls below is intentional and should NOT change.
 		$postContent = $this->doBlocks( $postContent );
 		$postContent = wpautop( $postContent );
-		$postContent = $this->doShortcodes( $postContent );
+		$postContent = @$this->doShortcodes( $postContent );
 
 		$this->restoreWpQuery();
 
@@ -661,7 +661,6 @@ trait WpContext {
 	 */
 	public function attachmentUrlToPostId( $url ) {
 		$cacheName = 'attachment_url_to_post_id_' . sha1( "aioseo_attachment_url_to_post_id_$url" );
-
 		$cachedId = aioseo()->core->cache->get( $cacheName );
 		if ( $cachedId ) {
 			return 'none' !== $cachedId && is_numeric( $cachedId ) ? (int) $cachedId : false;

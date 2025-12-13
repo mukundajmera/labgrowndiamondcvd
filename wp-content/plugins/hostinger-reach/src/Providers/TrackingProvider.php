@@ -2,9 +2,9 @@
 
 namespace Hostinger\Reach\Providers;
 
-use Hostinger\Reach\Api\Handlers\IntegrationsApiHandler;
-use Hostinger\Reach\Api\Handlers\ReachApiHandler;
+use Hostinger\Reach\Api\Webhooks\Handlers\CartAbandoned;
 use Hostinger\Reach\Container;
+use Hostinger\Reach\Functions;
 use Hostinger\Reach\Repositories\CartRepository;
 use Hostinger\Reach\Tracking\AbandonedCarts;
 
@@ -19,8 +19,8 @@ class TrackingProvider implements ProviderInterface {
             function () use ( $container ) {
                 return new AbandonedCarts(
                     $container->get( CartRepository::class ),
-                    $container->get( ReachApiHandler::class ),
-                    $container->get( IntegrationsApiHandler::class )
+                    $container->get( CartAbandoned::class ),
+                    $container->get( Functions::class )
                 );
             }
         );

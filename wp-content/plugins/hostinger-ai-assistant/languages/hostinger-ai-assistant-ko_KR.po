@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2024-08-19T12:02:35+00:00\n"
-"PO-Revision-Date: 2025-10-28 07:42+0000\n"
+"PO-Revision-Date: 2025-11-18 07:58+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: hostinger-ai-assistant\n"
 "Language: ko_KR\n"
@@ -27,27 +27,27 @@ msgstr ""
 msgid "Active"
 msgstr "활성화"
 
-#: admin/class-hostinger-ai-assistant-translations.php:118
+#: admin/class-hostinger-ai-assistant-translations.php:119
 #, fuzzy
 msgid "Add a new page to my WordPress website"
 msgstr "내 워드프레스 웹사이트에 새 페이지 추가"
 
-#: admin/class-hostinger-ai-assistant-translations.php:138
+#: admin/class-hostinger-ai-assistant-translations.php:139
 #, fuzzy
 msgid "Add a new post to my WordPress website"
 msgstr "내 워드프레스 웹사이트에 새 글 추가"
 
-#: admin/class-hostinger-ai-assistant-translations.php:162
+#: admin/class-hostinger-ai-assistant-translations.php:163
 #, fuzzy
 msgid "Add a new product to your WooCommerce store"
 msgstr "WooCommerce 스토어에 새 제품 추가하기"
 
-#: admin/class-hostinger-ai-assistant-translations.php:161
+#: admin/class-hostinger-ai-assistant-translations.php:162
 #, fuzzy
 msgid "Add a product"
 msgstr "제품 추가"
 
-#: admin/class-hostinger-ai-assistant-translations.php:166
+#: admin/class-hostinger-ai-assistant-translations.php:167
 #, fuzzy
 msgid "Add a product category"
 msgstr "제품 카테고리 추가"
@@ -56,29 +56,29 @@ msgstr "제품 카테고리 추가"
 msgid "Add an image inside my content"
 msgstr "내 콘텐츠에 이미지 추가"
 
-#: admin/class-hostinger-ai-assistant-translations.php:136
+#: admin/class-hostinger-ai-assistant-translations.php:137
 #, fuzzy
 msgid "Add blog post"
 msgstr "블로그 게시물 추가"
 
-#: admin/class-hostinger-ai-assistant-translations.php:116
+#: admin/class-hostinger-ai-assistant-translations.php:117
 #, fuzzy
 msgid "Add WordPress page"
 msgstr "워드프레스 페이지 추가"
 
-#: admin/class-hostinger-ai-assistant-translations.php:89
+#: admin/class-hostinger-ai-assistant-translations.php:90
 msgid "After clearing history you won't be able to access previous chats."
 msgstr "대화 내용을 지우고 나면 이전 대화에 액세스할 수 없습니다."
 
-#: admin/class-hostinger-ai-assistant-translations.php:94
+#: admin/class-hostinger-ai-assistant-translations.php:95
 msgid ""
 "After starting new chat, you will be able to access previous chats from the "
 "history."
 msgstr "새 채팅을 시작하면 기록에서 이전 채팅에 액세스할 수 있습니다."
 
-#: admin/class-hostinger-ai-assistant-admin.php:175
-#: admin/class-hostinger-ai-assistant-admin.php:176
-#: admin/class-hostinger-ai-assistant-admin.php:189
+#: admin/class-hostinger-ai-assistant-admin.php:178
+#: admin/class-hostinger-ai-assistant-admin.php:179
+#: admin/class-hostinger-ai-assistant-admin.php:192
 #: admin/partials/hostinger-ai-assistant-tab-view.php:24
 #: gutenberg-block/dist/index.js:1 gutenberg-block/src/index.js:10
 msgid "AI Content Creator"
@@ -92,7 +92,7 @@ msgstr "AI는 부정확한 정보를 생성할 수 있습니다"
 msgid "AI-generated image"
 msgstr "AI 생성 이미지"
 
-#: admin/class-hostinger-ai-assistant-translations.php:109
+#: admin/class-hostinger-ai-assistant-translations.php:110
 msgid "Allow Kodee to manage your site"
 msgstr "Kodee가 사이트를 관리하도록 허용"
 
@@ -114,6 +114,13 @@ msgstr "코디에게 물어보세요"
 msgid "Attention:"
 msgstr "주의:"
 
+#: includes/mcp/class-hostinger-ai-assistant-mcp-jwt-auth.php:224
+#, fuzzy
+msgid ""
+"Authentication required. Please provide a Bearer token or log in as an "
+"administrator."
+msgstr "인증이 필요합니다. 무기명 토큰을 제공하거나 관리자로 로그인하세요."
+
 #: admin/partials/hostinger-ai-assistant-tab-view.php:139
 msgid "Balances depth and readability, engaging audiences and driving leads."
 msgstr "깊이 있는 내용과 가독성 사이 균형을 맞춰 독자의 관심을 끌고 잠재 고객을 이끌어냅니다"
@@ -122,7 +129,7 @@ msgstr "깊이 있는 내용과 가독성 사이 균형을 맞춰 독자의 관�
 msgid "Brewing content with magic"
 msgstr "마법으로 콘텐츠 제작하기"
 
-#: admin/class-hostinger-ai-assistant-translations.php:90
+#: admin/class-hostinger-ai-assistant-translations.php:91
 #: admin/partials/hostinger-ai-assistant-tab-view.php:251
 msgid "Cancel"
 msgstr "취소"
@@ -155,8 +162,8 @@ msgstr "생성할 콘텐츠 유형을 선택하세요"
 msgid "Choose your desired emotional impact on readers"
 msgstr "독자에게 원하는 감정적 효과를 선택하세요"
 
-#: admin/class-hostinger-ai-assistant-translations.php:88
-#: admin/class-hostinger-ai-assistant-translations.php:91
+#: admin/class-hostinger-ai-assistant-translations.php:89
+#: admin/class-hostinger-ai-assistant-translations.php:92
 msgid "Clear chat"
 msgstr "채팅 지우기"
 
@@ -168,7 +175,7 @@ msgstr ""
 "<b>새 콘텐츠 생성</b>을 클릭하면 기존 콘텐츠가 영구적으로 삭제되고, 최근 입력한 내용을 바탕으로 새로운 콘텐츠가 생성됩니다."
 
 #: admin/class-hostinger-ai-assistant-translations.php:55
-#: admin/class-hostinger-ai-assistant-translations.php:101
+#: admin/class-hostinger-ai-assistant-translations.php:102
 msgid "Close"
 msgstr "닫기"
 
@@ -186,36 +193,36 @@ msgstr "콘텐츠 주요 아이디어"
 msgid "Content Type"
 msgstr "콘텐츠 유형"
 
-#: admin/class-hostinger-ai-assistant-translations.php:73
+#: admin/class-hostinger-ai-assistant-translations.php:74
 msgid "Conversation was closed"
 msgstr "대화가 종료되었습니다"
 
-#: admin/class-hostinger-ai-assistant-translations.php:167
+#: admin/class-hostinger-ai-assistant-translations.php:168
 #, fuzzy
 msgid "Create a new product category in WooCommerce"
 msgstr "WooCommerce에서 새 제품 카테고리 만들기"
 
-#: admin/class-hostinger-ai-assistant-translations.php:168
+#: admin/class-hostinger-ai-assistant-translations.php:169
 #, fuzzy
 msgid "Create a new WooCommerce product category for my store"
 msgstr "내 스토어에 새 WooCommerce 제품 카테고리 만들기"
 
-#: admin/class-hostinger-ai-assistant-translations.php:163
+#: admin/class-hostinger-ai-assistant-translations.php:164
 #, fuzzy
 msgid "Create a new WooCommerce product for my store"
 msgstr "내 스토어에 새 WooCommerce 제품 만들기"
 
-#: admin/class-hostinger-ai-assistant-translations.php:177
+#: admin/class-hostinger-ai-assistant-translations.php:178
 #, fuzzy
 msgid "Create a WooCommerce sales report for a chosen period"
 msgstr "선택한 기간에 대한 WooCommerce 판매 보고서 만들기"
 
-#: admin/class-hostinger-ai-assistant-translations.php:117
+#: admin/class-hostinger-ai-assistant-translations.php:118
 #, fuzzy
 msgid "Create and publish a new page on your WordPress site"
 msgstr "워드프레스 사이트에 새 페이지 만들기 및 게시하기"
 
-#: admin/class-hostinger-ai-assistant-translations.php:137
+#: admin/class-hostinger-ai-assistant-translations.php:138
 #, fuzzy
 msgid "Create and publish a new post on your WordPress site"
 msgstr "워드프레스 사이트에 새 글 작성 및 게시하기"
@@ -253,22 +260,22 @@ msgstr "AI 도구를 개선하기 위한 의견이나 제안이 있으신가요?
 msgid "Drop files here"
 msgstr "여기에 파일 드롭"
 
-#: admin/class-hostinger-ai-assistant-translations.php:157
+#: admin/class-hostinger-ai-assistant-translations.php:158
 #, fuzzy
 msgid "Edit a WordPress post category by ID"
 msgstr "ID로 워드프레스 글 카테고리 편집"
 
-#: admin/class-hostinger-ai-assistant-translations.php:152
+#: admin/class-hostinger-ai-assistant-translations.php:153
 #, fuzzy
 msgid "Edit a WordPress post tag (e.g., rename or update it)"
 msgstr "워드프레스 글 태그 편집(예: 이름 바꾸기 또는 업데이트)"
 
-#: admin/class-hostinger-ai-assistant-translations.php:122
+#: admin/class-hostinger-ai-assistant-translations.php:123
 #, fuzzy
 msgid "Edit an existing WordPress page by its ID"
 msgstr "ID로 기존 워드프레스 페이지 편집"
 
-#: admin/class-hostinger-ai-assistant-translations.php:142
+#: admin/class-hostinger-ai-assistant-translations.php:143
 #, fuzzy
 msgid "Edit an existing WordPress post by its ID"
 msgstr "기존 워드프레스 글의 ID로 해당 글 수정하기"
@@ -294,7 +301,7 @@ msgstr "10자 이상 입력"
 msgid "Example: website development, WordPress tutorial, ..."
 msgstr "예: 웹사이트 개발, 워드프레스 튜토리얼, ..."
 
-#: admin/class-hostinger-ai-assistant-translations.php:82
+#: admin/class-hostinger-ai-assistant-translations.php:83
 msgid "Excellent"
 msgstr "훌륭함"
 
@@ -306,7 +313,7 @@ msgstr "외부 추천 이미지"
 msgid "External featured image"
 msgstr "외부 추천 이미지"
 
-#: admin/class-hostinger-ai-assistant-translations.php:147
+#: admin/class-hostinger-ai-assistant-translations.php:148
 #, fuzzy
 msgid "Find and filter posts with pagination options"
 msgstr "페이지 매김 옵션으로 글 찾기 및 필터링"
@@ -329,12 +336,12 @@ msgstr "친절"
 msgid "Generate new content"
 msgstr "새로운 콘텐츠 생성"
 
-#: admin/class-hostinger-ai-assistant-translations.php:176
+#: admin/class-hostinger-ai-assistant-translations.php:177
 #, fuzzy
 msgid "Generate sales report"
 msgstr "판매 보고서 생성"
 
-#: admin/class-hostinger-ai-assistant-translations.php:178
+#: admin/class-hostinger-ai-assistant-translations.php:179
 #, fuzzy
 msgid "Generate WooCommerce sales report for my store"
 msgstr "내 스토어에 대한 WooCommerce 판매 보고서 생성"
@@ -344,21 +351,21 @@ msgstr "내 스토어에 대한 WooCommerce 판매 보고서 생성"
 msgid "Generating content..."
 msgstr "콘텐츠 생성하기..."
 
-#: admin/class-hostinger-ai-assistant-translations.php:171
+#: admin/class-hostinger-ai-assistant-translations.php:172
 #, fuzzy
 msgid "Get a list of orders"
 msgstr "주문 목록 가져오기"
 
-#: admin/class-hostinger-ai-assistant-translations.php:126
+#: admin/class-hostinger-ai-assistant-translations.php:127
 #, fuzzy
 msgid "Get WordPress site information"
 msgstr "워드프레스 사이트 정보 얻기"
 
-#: admin/class-hostinger-ai-assistant-translations.php:112
+#: admin/class-hostinger-ai-assistant-translations.php:113
 msgid "Grant Permission"
 msgstr "권한 부여"
 
-#: admin/class-hostinger-ai-assistant-translations.php:69
+#: admin/class-hostinger-ai-assistant-translations.php:70
 #, fuzzy
 msgid "Hello 👋"
 msgstr "안녕하세요 👋"
@@ -395,12 +402,12 @@ msgstr "호스팅어 AI"
 msgid "Hostinger AI plugin for WordPress."
 msgstr "워드프레스 전용 호스팅어 AI 플러그인."
 
-#: admin/class-hostinger-ai-assistant-translations.php:70
+#: admin/class-hostinger-ai-assistant-translations.php:71
 #, fuzzy
 msgid "How can I help you today?"
 msgstr "오늘은 무엇을 도와드릴까요?"
 
-#: admin/class-hostinger-ai-assistant-translations.php:80
+#: admin/class-hostinger-ai-assistant-translations.php:81
 msgid "How can we improve your experience?"
 msgstr "사용자 경험을 개선하려면 어떻게 해야 하나요?"
 
@@ -416,7 +423,7 @@ msgstr "AI 어시스턴트 플러그인으로 콘텐츠를 만들어본 경험�
 msgid "https://hostinger.com"
 msgstr "https://hostinger.com"
 
-#: admin/class-hostinger-ai-assistant-translations.php:106
+#: admin/class-hostinger-ai-assistant-translations.php:107
 msgid ""
 "I'm sorry, I didn't understand your question. Could you please rephrase it "
 "or ask something different?"
@@ -435,6 +442,11 @@ msgstr "이미지 URL:"
 #: admin/class-hostinger-ai-assistant-translations.php:37
 msgid "Insert this image inside content"
 msgstr "콘텐츠 안에 이 이미지 삽입"
+
+#: includes/mcp/class-hostinger-ai-assistant-mcp-jwt-auth.php:236
+#, fuzzy
+msgid "Invalid Authorization header format. Expected \"Bearer <token>\"."
+msgstr "잘못된 권한 부여 헤더 형식입니다. \"무기명 <토큰>\"이 예상되었습니다."
 
 #: includes/mcp/class-hostinger-ai-assistant-mcp-hooks.php:26
 #, fuzzy
@@ -456,7 +468,7 @@ msgid "Kodee only supports JPEG, JPG, PNG, GIF, HEIC, and DNG files"
 msgstr "코디는 JPEG, JPG, PNG, GIF, HEIC 및 DNG 파일만 지원합니다"
 
 #: admin/class-hostinger-ai-assistant-translations.php:51
-#: admin/class-hostinger-ai-assistant-translations.php:76
+#: admin/class-hostinger-ai-assistant-translations.php:77
 msgid "Leave feedback"
 msgstr "피드백 남기기"
 
@@ -474,7 +486,7 @@ msgid ""
 "Let us now more about your post idea. Share more details for better results"
 msgstr "이제 여러분의 포스트 아이디어에 대해 자세히 알려주세요. 더 나은 결과를 위해 세부 사항을 최대한 공유 해주세요"
 
-#: admin/class-hostinger-ai-assistant-translations.php:131
+#: admin/class-hostinger-ai-assistant-translations.php:132
 #, fuzzy
 msgid "List users with their roles"
 msgstr "역할이 있는 사용자 목록"
@@ -512,7 +524,7 @@ msgstr "메타 디스크립션은 검색 결과에 페이지 내용을 간단히
 msgid "Neutral"
 msgstr "중립"
 
-#: admin/class-hostinger-ai-assistant-translations.php:111
+#: admin/class-hostinger-ai-assistant-translations.php:112
 msgid "No, thanks"
 msgstr "아니요, 괜찮습니다"
 
@@ -528,7 +540,7 @@ msgstr "선택 사항"
 msgid "Personalize your content"
 msgstr "콘텐츠 개인화"
 
-#: admin/class-hostinger-ai-assistant-translations.php:81
+#: admin/class-hostinger-ai-assistant-translations.php:82
 msgid "Poor"
 msgstr "불편함"
 
@@ -552,37 +564,37 @@ msgstr "게시"
 msgid "Restart chatbot"
 msgstr "챗봇 다시 시작"
 
-#: admin/class-hostinger-ai-assistant-translations.php:172
+#: admin/class-hostinger-ai-assistant-translations.php:173
 #, fuzzy
 msgid "Retrieve a list of WooCommerce orders with filters"
 msgstr "필터를 사용하여 WooCommerce 주문 목록 검색하기"
 
-#: admin/class-hostinger-ai-assistant-translations.php:128
+#: admin/class-hostinger-ai-assistant-translations.php:129
 #, fuzzy
 msgid "Retrieve detailed information about my WordPress site"
 msgstr "내 워드프레스 사이트에 대한 자세한 정보 검색"
 
-#: admin/class-hostinger-ai-assistant-translations.php:132
+#: admin/class-hostinger-ai-assistant-translations.php:133
 #, fuzzy
 msgid "Search and filter WordPress users with pagination"
 msgstr "페이지 매김으로 워드프레스 사용자 검색 및 필터링"
 
-#: admin/class-hostinger-ai-assistant-translations.php:146
+#: admin/class-hostinger-ai-assistant-translations.php:147
 #, fuzzy
 msgid "Search blog posts"
 msgstr "블로그 게시물 검색"
 
-#: admin/class-hostinger-ai-assistant-translations.php:148
+#: admin/class-hostinger-ai-assistant-translations.php:149
 #, fuzzy
 msgid "Search posts on my WordPress website"
 msgstr "내 워드프레스 웹사이트의 글 검색"
 
-#: admin/class-hostinger-ai-assistant-translations.php:173
+#: admin/class-hostinger-ai-assistant-translations.php:174
 #, fuzzy
 msgid "Search WooCommerce orders for my store"
 msgstr "내 스토어에 대한 WooCommerce 주문 검색"
 
-#: admin/class-hostinger-ai-assistant-translations.php:133
+#: admin/class-hostinger-ai-assistant-translations.php:134
 #, fuzzy
 msgid "Search WordPress users on my website"
 msgstr "내 웹사이트의 워드프레스 사용자 검색"
@@ -591,7 +603,7 @@ msgstr "내 웹사이트의 워드프레스 사용자 검색"
 msgid "Selected file type is not supported"
 msgstr "선택한 파일 형식이 지원되지 않습니다"
 
-#: admin/class-hostinger-ai-assistant-translations.php:84
+#: admin/class-hostinger-ai-assistant-translations.php:85
 msgid "Send"
 msgstr "보내기"
 
@@ -608,33 +620,33 @@ msgstr "SEO 키워드를 자연스럽고 연관성 있게 사용하면 구글 �
 msgid "Short"
 msgstr "짧은"
 
-#: admin/class-hostinger-ai-assistant-translations.php:104
+#: admin/class-hostinger-ai-assistant-translations.php:105
 msgid "Sorry, the AI Chatbot is currently unavailable. Please try again later."
 msgstr "죄송합니다. 현재 AI 챗봇을 사용할 수 없습니다. 나중에 다시 시도해 주세요."
 
-#: admin/class-hostinger-ai-assistant-translations.php:105
+#: admin/class-hostinger-ai-assistant-translations.php:106
 msgid "Sorry, the AI Chatbot request timed out. Please try again later."
 msgstr "AI 챗봇 요청 시간이 초과되었습니다. 나중에 다시 시도해 주세요."
 
 #: admin/class-hostinger-ai-assistant-translations.php:54
-#: admin/class-hostinger-ai-assistant-translations.php:93
-#: admin/class-hostinger-ai-assistant-translations.php:95
+#: admin/class-hostinger-ai-assistant-translations.php:94
+#: admin/class-hostinger-ai-assistant-translations.php:96
 msgid "Start new chat"
 msgstr "새 채팅 시작하기"
 
-#: admin/class-hostinger-ai-assistant-translations.php:100
+#: admin/class-hostinger-ai-assistant-translations.php:101
 msgid "Talking to Kodee is in the works, we'll keep you posted once it's out!"
 msgstr "코디와의 대화는 준비 중이며, 출시되면 계속 알려드리겠습니다!"
 
-#: admin/class-hostinger-ai-assistant-translations.php:85
+#: admin/class-hostinger-ai-assistant-translations.php:86
 msgid "Thank you for your feedback"
 msgstr "피드백을 보내주셔서 감사합니다"
 
-#: admin/class-hostinger-ai-assistant-translations.php:78
+#: admin/class-hostinger-ai-assistant-translations.php:79
 msgid "Thanks for letting us know"
 msgstr "알려주셔서 감사합니다"
 
-#: admin/class-hostinger-ai-assistant-translations.php:77
+#: admin/class-hostinger-ai-assistant-translations.php:78
 msgid ""
 "Thanks for letting us know. Click the button below if you want to leave "
 "additional feedback."
@@ -655,6 +667,11 @@ msgid ""
 "These keywords can help your article and website rank higher in search "
 "engines. You can input up to 5 keywords."
 msgstr "이 키워드들은 검색엔진에서 콘텐츠와 웹사이트 순위를 높이는 데 도움이 됩니다. 키워드는 최대 5개까지 입력 가능합니다."
+
+#: admin/class-hostinger-ai-assistant-translations.php:67
+#, fuzzy
+msgid "Thinking"
+msgstr "사고"
 
 #: admin/partials/hostinger-ai-assistant-tab-view.php:270
 msgid "This will only take a moment"
@@ -678,6 +695,50 @@ msgid ""
 "unique API token, which is exclusively provided to Hostinger clients"
 msgstr "<b>호스팅어 AI</b>의 고급 기능은 호스팅어 고객에게만 제공되는 API 토큰으로 이용하실 수 있습니다."
 
+#. translators: 1: minimum expiration time in seconds, 2: maximum expiration time in seconds
+#: includes/mcp/class-hostinger-ai-assistant-mcp-jwt-auth.php:66
+#, fuzzy, php-format
+msgid ""
+"Token expiration must be between %1$d seconds (1 hour) and %2$d seconds (1 "
+"day)"
+msgstr "토큰 만료는 %1$d초(1시간)에서 %2$d초(1일) 사이여야 합니다"
+
+#: includes/mcp/class-hostinger-ai-assistant-mcp-jwt-auth.php:31
+#, fuzzy
+msgid "Token expiration time in seconds (3600-86400)"
+msgstr "토큰 만료 시간(초)(3600-86400)"
+
+#: includes/mcp/class-hostinger-ai-assistant-mcp-jwt-auth.php:87
+#, fuzzy
+msgid "Token ID is required."
+msgstr "토큰 ID가 필요합니다."
+
+#: includes/mcp/class-hostinger-ai-assistant-mcp-jwt-auth.php:253
+#, fuzzy
+msgid "Token is invalid, expired, or has been revoked."
+msgstr "토큰이 유효하지 않거나 만료되었거나 해지되었습니다."
+
+#: includes/mcp/class-hostinger-ai-assistant-mcp-jwt-auth.php:262
+#, fuzzy
+msgid "Token is malformed: missing user_id."
+msgstr "토큰이 잘못되었습니다: 사용자 아이디가 누락되었습니다."
+
+#: includes/mcp/class-hostinger-ai-assistant-mcp-jwt-auth.php:98
+#, fuzzy
+msgid "Token not found in registry."
+msgstr "레지스트리에서 토큰을 찾을 수 없습니다."
+
+#: includes/mcp/class-hostinger-ai-assistant-mcp-jwt-auth.php:110
+#, fuzzy
+msgid "Token revoked successfully."
+msgstr "토큰이 성공적으로 해지되었습니다."
+
+#. translators: %s: error message from JWT library
+#: includes/mcp/class-hostinger-ai-assistant-mcp-jwt-auth.php:288
+#, fuzzy, php-format
+msgid "Token validation failed: %s"
+msgstr "토큰 유효성 검사에 실패했습니다: %s"
+
 #: admin/partials/hostinger-ai-assistant-tab-view.php:100
 #: includes/woocommerce/class-hostinger-ai-assistant-product-ai-metabox.php:86
 #: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:420
@@ -699,42 +760,42 @@ msgstr "신뢰할 수 있는"
 msgid "Unknown error code."
 msgstr "알 수 없는 오류 코드입니다."
 
-#: admin/class-hostinger-ai-assistant-translations.php:158
+#: admin/class-hostinger-ai-assistant-translations.php:159
 #, fuzzy
 msgid "Update a post category on my WordPress website"
 msgstr "내 워드프레스 웹사이트의 글 카테고리 업데이트"
 
-#: admin/class-hostinger-ai-assistant-translations.php:153
+#: admin/class-hostinger-ai-assistant-translations.php:154
 #, fuzzy
 msgid "Update a post tag on my WordPress website"
 msgstr "내 워드프레스 웹사이트의 글 태그 업데이트"
 
-#: admin/class-hostinger-ai-assistant-translations.php:123
+#: admin/class-hostinger-ai-assistant-translations.php:124
 #, fuzzy
 msgid "Update an existing page on my WordPress website"
 msgstr "내 워드프레스 웹사이트의 기존 페이지 업데이트"
 
-#: admin/class-hostinger-ai-assistant-translations.php:143
+#: admin/class-hostinger-ai-assistant-translations.php:144
 #, fuzzy
 msgid "Update an existing post on my WordPress site"
 msgstr "내 워드프레스 사이트의 기존 글 업데이트"
 
-#: admin/class-hostinger-ai-assistant-translations.php:141
+#: admin/class-hostinger-ai-assistant-translations.php:142
 #, fuzzy
 msgid "Update blog post"
 msgstr "블로그 게시물 업데이트"
 
-#: admin/class-hostinger-ai-assistant-translations.php:156
+#: admin/class-hostinger-ai-assistant-translations.php:157
 #, fuzzy
 msgid "Update post category"
 msgstr "게시물 카테고리 업데이트"
 
-#: admin/class-hostinger-ai-assistant-translations.php:151
+#: admin/class-hostinger-ai-assistant-translations.php:152
 #, fuzzy
 msgid "Update post tag"
 msgstr "게시물 태그 업데이트"
 
-#: admin/class-hostinger-ai-assistant-translations.php:121
+#: admin/class-hostinger-ai-assistant-translations.php:122
 #, fuzzy
 msgid "Update WordPress page"
 msgstr "워드프레스 페이지 업데이트"
@@ -747,6 +808,11 @@ msgstr "이 콘텐츠 사용"
 msgid "Use this image as:"
 msgstr "이 이미지를 다음과 같이 사용합니다:"
 
+#: includes/mcp/class-hostinger-ai-assistant-mcp-jwt-auth.php:272
+#, fuzzy
+msgid "User associated with token no longer exists."
+msgstr "토큰과 연결된 사용자가 더 이상 존재하지 않습니다."
+
 #: admin/partials/hostinger-ai-assistant-tab-view.php:133
 msgid "Usually used for video, infographics, or product descriptions"
 msgstr "일반적으로 동영상, 인포그래픽 또는 제품 설명에 사용됩니다"
@@ -755,14 +821,14 @@ msgstr "일반적으로 동영상, 인포그래픽 또는 제품 설명에 사�
 msgid "Usually used to make high-ranked articles that will generate more leads"
 msgstr "검색 순위가 높은 글을 작성하여 더 많은 잠재 고객을 확보하는 데 주로 사용됩니다"
 
-#: admin/class-hostinger-ai-assistant-translations.php:127
+#: admin/class-hostinger-ai-assistant-translations.php:128
 #, fuzzy
 msgid ""
 "View site details like name, URL, description, admin email, plugins, themes, "
 "and users"
 msgstr "이름, URL, 설명, 관리자 이메일, 플러그인, 테마, 사용자 등의 사이트 세부 정보 보기"
 
-#: admin/class-hostinger-ai-assistant-translations.php:99
+#: admin/class-hostinger-ai-assistant-translations.php:100
 msgid "Voice feature is coming soon"
 msgstr "음성 기능 곧 출시 예정"
 
@@ -828,7 +894,7 @@ msgstr "에 대한 기사 작성 ..."
 msgid "Write promotional content about..."
 msgstr "다음에 대한 홍보 콘텐츠 작성"
 
-#: admin/class-hostinger-ai-assistant-translations.php:83
+#: admin/class-hostinger-ai-assistant-translations.php:84
 msgid "Write your feedback (optional)"
 msgstr "피드백 작성(선택 사항)"
 
@@ -846,7 +912,7 @@ msgstr "<b>%s</b> PHP 버전을 실행 중입니다."
 msgid "You can only upload up to 6 files"
 msgstr "최대 6개 파일만 업로드할 수 있습니다"
 
-#: admin/class-hostinger-ai-assistant-translations.php:79
+#: admin/class-hostinger-ai-assistant-translations.php:80
 msgid "You rated your conversation"
 msgstr "대화를 평가했습니다"
 

@@ -115,7 +115,7 @@ export const SelectTemplatePageBuilderDropdown = ( {
 	) {
 		buildersList.push( {
 			id: 'elementor',
-			title: __( 'Elementor (Beta)', 'ai-builder' ),
+			title: __( 'Elementor', 'ai-builder' ),
 			image: `${ imageDir }elementor.svg`,
 		} );
 	}

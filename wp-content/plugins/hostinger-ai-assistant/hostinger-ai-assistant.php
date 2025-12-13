@@ -16,11 +16,11 @@
  * Plugin Name:       Hostinger AI
  * Plugin URI:        https://hostinger.com
  * Description:       Hostinger AI plugin for WordPress.
- * Version: 3.0.13
+ * Version:           3.0.19
  * Author:            Hostinger
  * Requires PHP:      8.0
  * Requires at least: 5.0
- * Tested up to:      6.5
+ * Tested up to:      6.9
  * Author URI:        https://hostinger.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
@@ -40,7 +40,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Currently plugin version.
  */
 
-define( 'HOSTINGER_AI_ASSISTANT_VERSION', '3.0.13' );
+define( 'HOSTINGER_AI_ASSISTANT_VERSION', '3.0.19' );
 
 /**
  * Plugin path.
@@ -194,20 +194,20 @@ function run_hostinger_ai_assistant() {
     }
 
     $plugin->run();
-
-    if ( class_exists( 'Hostinger_Ai_Assistant_Mcp_Endpoints' ) ) {
-        $mcp_endpoints = new Hostinger_Ai_Assistant_Mcp_Endpoints();
-        $mcp_endpoints->init();
-    }
-
-    if ( class_exists( 'Hostinger_Ai_Assistant_Mcp_Hooks' ) ) {
-        $mcp_hooks = new Hostinger_Ai_Assistant_Mcp_Hooks();
-        $mcp_hooks->init();
-    }
 }
 
 if ( ! has_action( 'plugins_loaded', 'run_hostinger_ai_assistant' ) ) {
     add_action( 'plugins_loaded', 'run_hostinger_ai_assistant' );
+}
+
+if ( class_exists( 'Hostinger\AiAssistant\Boot' ) ) {
+    add_action(
+        'plugins_loaded',
+        function (): void {
+            $boot = Hostinger\AiAssistant\Boot::get_instance();
+            $boot->plugins_loaded();
+        }
+    );
 }
 
 if ( ! function_exists( 'hostinger_load_menus' ) ) {

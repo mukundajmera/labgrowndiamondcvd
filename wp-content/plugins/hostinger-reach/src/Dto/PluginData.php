@@ -18,6 +18,15 @@ class PluginData {
     private string $id;
 
     /**
+     * Integration type (forms or ecommerce).
+     * Default forms
+     *
+     * @var string
+     */
+    private string $type;
+
+
+    /**
      * Plugin folder name.
      *
      * @var string
@@ -101,6 +110,18 @@ class PluginData {
      */
     private bool $can_toggle_forms;
 
+    /**
+     * Whether the integration is active.
+     * @var bool
+     */
+    private bool $is_active;
+
+    /**
+     * Whether the Import feature is enabled.
+     * @var bool
+     */
+    private bool $import_enabled;
+
     public function __construct(
         string $id,
         string $title,
@@ -114,9 +135,13 @@ class PluginData {
         string $icon = null,
         bool $is_view_form_hidden = true,
         bool $is_edit_form_hidden = false,
-        bool $can_toggle_forms = true
+        bool $can_toggle_forms = true,
+        string $type = 'forms',
+        bool $is_active = false,
+        bool $import_enabled = false,
     ) {
         $this->id                  = $id;
+        $this->type                = $type;
         $this->title               = $title;
         $this->folder              = $folder ?? $this->id;
         $this->file                = $file ?? $this->id . '.php';
@@ -129,10 +154,13 @@ class PluginData {
         $this->is_view_form_hidden = $is_view_form_hidden;
         $this->is_edit_form_hidden = $is_edit_form_hidden;
         $this->can_toggle_forms    = $can_toggle_forms;
+        $this->is_active           = $is_active;
+        $this->import_enabled      = $import_enabled;
     }
 
     public static function from_array( array $data = array() ): PluginData {
         $id                  = $data['id'] ?? '';
+        $type                = $data['type'] ?? 'forms';
         $title               = $data['title'] ?? '';
         $folder              = $data['folder'] ?? $id;
         $file                = $data['file'] ?? $id . '.php';
@@ -145,6 +173,8 @@ class PluginData {
         $is_view_form_hidden = $data['is_view_form_hidden'] ?? true;
         $is_edit_form_hidden = $data['is_edit_form_hidden'] ?? false;
         $can_toggle_forms    = $data['can_toggle_forms'] ?? true;
+        $is_active           = $data['is_active'] ?? false;
+        $import_enabled      = $data['import_enabled'] ?? false;
 
         return new self(
             $id,
@@ -159,7 +189,10 @@ class PluginData {
             $icon,
             $is_view_form_hidden,
             $is_edit_form_hidden,
-            $can_toggle_forms
+            $can_toggle_forms,
+            $type,
+            $is_active,
+            $import_enabled
         );
     }
 
@@ -167,6 +200,7 @@ class PluginData {
     public function to_array(): array {
         return array(
             'id'                  => $this->id,
+            'type'                => $this->type,
             'folder'              => $this->folder,
             'file'                => $this->file,
             'admin_url'           => $this->admin_url,
@@ -179,7 +213,8 @@ class PluginData {
             'is_view_form_hidden' => $this->is_view_form_hidden,
             'is_edit_form_hidden' => $this->is_edit_form_hidden,
             'can_toggle_forms'    => $this->can_toggle_forms,
-
+            'is_active'           => $this->is_active,
+            'import_enabled'      => $this->import_enabled,
         );
     }
 }

@@ -7,11 +7,11 @@ namespace Composer\Autoload;
 class ComposerStaticInit313e69f9685b56c2f319d1e3f6f39c52
 {
     public static $prefixLengthsPsr4 = array (
-        'P' => 
+        'P' =>
         array (
             'Psr\\Container\\' => 14,
         ),
-        'H' => 
+        'H' =>
         array (
             'Hostinger\\WpMenuManager\\' => 24,
             'Hostinger\\WpHelper\\' => 19,
@@ -19,38 +19,38 @@ class ComposerStaticInit313e69f9685b56c2f319d1e3f6f39c52
             'Hostinger\\Surveys\\' => 18,
             'Hostinger\\Reach\\' => 16,
         ),
-        'A' => 
+        'A' =>
         array (
             'Automattic\\Jetpack\\Autoloader\\' => 30,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Psr\\Container\\' => 
+        'Psr\\Container\\' =>
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
         ),
-        'Hostinger\\WpMenuManager\\' => 
+        'Hostinger\\WpMenuManager\\' =>
         array (
             0 => __DIR__ . '/..' . '/hostinger/hostinger-wp-menu-manager/src',
         ),
-        'Hostinger\\WpHelper\\' => 
+        'Hostinger\\WpHelper\\' =>
         array (
             0 => __DIR__ . '/..' . '/hostinger/hostinger-wp-helper/src',
         ),
-        'Hostinger\\Tests\\' => 
+        'Hostinger\\Tests\\' =>
         array (
             0 => __DIR__ . '/..' . '/hostinger/hostinger-wp-helper/tests/phpunit',
         ),
-        'Hostinger\\Surveys\\' => 
+        'Hostinger\\Surveys\\' =>
         array (
             0 => __DIR__ . '/..' . '/hostinger/hostinger-wp-surveys/src',
         ),
-        'Hostinger\\Reach\\' => 
+        'Hostinger\\Reach\\' =>
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),
-        'Automattic\\Jetpack\\Autoloader\\' => 
+        'Automattic\\Jetpack\\Autoloader\\' =>
         array (
             0 => __DIR__ . '/..' . '/automattic/jetpack-autoloader/src',
         ),
@@ -92,22 +92,30 @@ class ComposerStaticInit313e69f9685b56c2f319d1e3f6f39c52
         'Hostinger\\Reach\\Dto\\Cart' => __DIR__ . '/../..' . '/src/Dto/Cart.php',
         'Hostinger\\Reach\\Dto\\CartItem' => __DIR__ . '/../..' . '/src/Dto/CartItem.php',
         'Hostinger\\Reach\\Dto\\PluginData' => __DIR__ . '/../..' . '/src/Dto/PluginData.php',
+        'Hostinger\\Reach\\Dto\\ReachContact' => __DIR__ . '/../..' . '/src/Dto/ReachContact.php',
         'Hostinger\\Reach\\Dto\\Totals' => __DIR__ . '/../..' . '/src/Dto/Totals.php',
         'Hostinger\\Reach\\Functions' => __DIR__ . '/../..' . '/src/Functions.php',
         'Hostinger\\Reach\\Integrations\\ContactForm7\\ContactForm7Integration' => __DIR__ . '/../..' . '/src/Integrations/ContactForm7/ContactForm7Integration.php',
         'Hostinger\\Reach\\Integrations\\Elementor\\ElementorIntegration' => __DIR__ . '/../..' . '/src/Integrations/Elementor/ElementorIntegration.php',
         'Hostinger\\Reach\\Integrations\\Elementor\\SubscriptionFormElementorWidget' => __DIR__ . '/../..' . '/src/Integrations/Elementor/SubscriptionFormElementorWidget.php',
+        'Hostinger\\Reach\\Integrations\\Forminator\\ForminatorIntegration' => __DIR__ . '/../..' . '/src/Integrations/Forminator/ForminatorIntegration.php',
+        'Hostinger\\Reach\\Integrations\\ImportManager' => __DIR__ . '/../..' . '/src/Integrations/ImportManager.php',
         'Hostinger\\Reach\\Integrations\\Integration' => __DIR__ . '/../..' . '/src/Integrations/Integration.php',
         'Hostinger\\Reach\\Integrations\\IntegrationInterface' => __DIR__ . '/../..' . '/src/Integrations/IntegrationInterface.php',
         'Hostinger\\Reach\\Integrations\\IntegrationWithForms' => __DIR__ . '/../..' . '/src/Integrations/IntegrationWithForms.php',
+        'Hostinger\\Reach\\Integrations\\NinjaForms\\NinjaFormsIntegration' => __DIR__ . '/../..' . '/src/Integrations/NinjaForms/NinjaFormsIntegration.php',
         'Hostinger\\Reach\\Integrations\\PluginManager' => __DIR__ . '/../..' . '/src/Integrations/PluginManager.php',
         'Hostinger\\Reach\\Integrations\\Reach\\ReachFormIntegration' => __DIR__ . '/../..' . '/src/Integrations/Reach/ReachFormIntegration.php',
+        'Hostinger\\Reach\\Integrations\\SureForms\\SureFormsIntegration' => __DIR__ . '/../..' . '/src/Integrations/SureForms/SureFormsIntegration.php',
         'Hostinger\\Reach\\Integrations\\WPFormsLite\\WpFormsLiteIntegration' => __DIR__ . '/../..' . '/src/Integrations/WPFormsLite/WpFormsLiteIntegration.php',
+        'Hostinger\\Reach\\Integrations\\WSForms\\WSFormsIntegration' => __DIR__ . '/../..' . '/src/Integrations/WSForms/WSFormsIntegration.php',
         'Hostinger\\Reach\\Integrations\\WooCommerce\\WooCommerceIntegration' => __DIR__ . '/../..' . '/src/Integrations/WooCommerce/WooCommerceIntegration.php',
         'Hostinger\\Reach\\Jobs\\AbandonedCartsJob' => __DIR__ . '/../..' . '/src/Jobs/AbandonedCartsJob.php',
         'Hostinger\\Reach\\Jobs\\AbstractBatchedJob' => __DIR__ . '/../..' . '/src/Jobs/AbstractBatchedJob.php',
         'Hostinger\\Reach\\Jobs\\AbstractJob' => __DIR__ . '/../..' . '/src/Jobs/AbstractJob.php',
         'Hostinger\\Reach\\Jobs\\ActionScheduler' => __DIR__ . '/../..' . '/src/Jobs/ActionScheduler.php',
+        'Hostinger\\Reach\\Jobs\\CleanupCartsJob' => __DIR__ . '/../..' . '/src/Jobs/CleanupCartsJob.php',
+        'Hostinger\\Reach\\Jobs\\ImportJob' => __DIR__ . '/../..' . '/src/Jobs/ImportJob.php',
         'Hostinger\\Reach\\Jobs\\JobInterface' => __DIR__ . '/../..' . '/src/Jobs/JobInterface.php',
         'Hostinger\\Reach\\Jobs\\RecurringJobInterface' => __DIR__ . '/../..' . '/src/Jobs/RecurringJobInterface.php',
         'Hostinger\\Reach\\Models\\Cart' => __DIR__ . '/../..' . '/src/Models/Cart.php',
@@ -139,6 +147,7 @@ class ComposerStaticInit313e69f9685b56c2f319d1e3f6f39c52
         'Hostinger\\Reach\\Setup\\Assets' => __DIR__ . '/../..' . '/src/Setup/Assets.php',
         'Hostinger\\Reach\\Setup\\Blocks' => __DIR__ . '/../..' . '/src/Setup/Blocks.php',
         'Hostinger\\Reach\\Setup\\Database' => __DIR__ . '/../..' . '/src/Setup/Database.php',
+        'Hostinger\\Reach\\Setup\\Encrypt' => __DIR__ . '/../..' . '/src/Setup/Encrypt.php',
         'Hostinger\\Reach\\Tracking\\AbandonedCarts' => __DIR__ . '/../..' . '/src/Tracking/AbandonedCarts.php',
         'Hostinger\\Surveys\\Ajax' => __DIR__ . '/..' . '/hostinger/hostinger-wp-surveys/src/Ajax.php',
         'Hostinger\\Surveys\\Assets' => __DIR__ . '/..' . '/hostinger/hostinger-wp-surveys/src/Assets.php',

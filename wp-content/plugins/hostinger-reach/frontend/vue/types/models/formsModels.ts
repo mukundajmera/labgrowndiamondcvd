@@ -1,3 +1,5 @@
+import type { HColor, HIconUnion } from "@hostinger/hcomponents";
+
 export interface ContactList {
 	id: number;
 	name: string;
@@ -55,8 +57,35 @@ export interface FormsFilter {
 	offset?: number;
 }
 
+export const IMPORT_STATUSES = {
+	PARTIALLY_IMPORTED: "partially_imported",
+	NOT_IMPORTED: "not_imported",
+	IMPORTING: "importing",
+	IMPORTED: "imported",
+} as const;
+
+export type ImportStatusType =
+	(typeof IMPORT_STATUSES)[keyof typeof IMPORT_STATUSES];
+
+export interface ImportSummaryItem {
+	title: string;
+	contacts: string;
+	status: ImportStatusType;
+}
+
+export interface ImportSummary {
+	[key: string]: ImportSummaryItem;
+}
+
+export interface ImportStatus {
+	status: ImportStatusType;
+	total: number;
+	summary: ImportSummary | [];
+}
+
 export interface Integration {
 	id: string;
+	type: string;
 	icon: string;
 	isActive: boolean;
 	title: string;
@@ -71,8 +100,15 @@ export interface Integration {
 	canToggleForms: boolean;
 	editUrl?: string;
 	forms?: Form[];
+	importEnabled: boolean;
+	importStatus: ImportStatus;
 }
 
 export interface IntegrationsResponse {
 	[key: string]: Integration;
+}
+
+export interface StatusIcon {
+	icon: HIconUnion;
+	color: HColor;
 }

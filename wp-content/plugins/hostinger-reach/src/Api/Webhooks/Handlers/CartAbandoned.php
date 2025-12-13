@@ -7,6 +7,7 @@ use Hostinger\Reach\Api\Handlers\ReachApiHandler;
 use Hostinger\Reach\Models\Cart;
 use Hostinger\Reach\Dto\Cart as CartDto;
 use Hostinger\Reach\Repositories\CartRepository;
+use Hostinger\Reach\Repositories\FormRepository;
 use WC_Customer;
 use Exception;
 
@@ -16,8 +17,8 @@ class CartAbandoned extends WebhookHandler {
     private CartRepository $cart_repository;
     private IntegrationsApiHandler $integrations_api_handler;
 
-    public function __construct( ReachApiHandler $reach_api_handler, IntegrationsApiHandler $integrations_api_handler, CartRepository $cart_repository ) {
-        parent::__construct( $reach_api_handler );
+    public function __construct( ReachApiHandler $reach_api_handler, IntegrationsApiHandler $integrations_api_handler, CartRepository $cart_repository, FormRepository $form_repository ) {
+        parent::__construct( $reach_api_handler, $form_repository );
         $this->integrations_api_handler = $integrations_api_handler;
         $this->cart_repository          = $cart_repository;
     }
@@ -35,10 +36,6 @@ class CartAbandoned extends WebhookHandler {
     }
 
     public function send( string $cart_hash ): void {
-        if ( ! $this->is_enabled() ) {
-            return;
-        }
-
         try {
             $cart  = $this->cart_repository->get( $cart_hash );
             $email = $this->get_customer_email( $cart );
@@ -46,6 +43,8 @@ class CartAbandoned extends WebhookHandler {
                 $result = $this->handle( $email, CartDto::from_array( $cart ) );
                 if ( $result ) {
                     $this->cart_repository->set_status( $cart_hash, Cart::STATUS_ABANDONED );
+                } else {
+                    $this->cart_repository->set_status( $cart_hash, Cart::STATUS_ERROR );
                 }
             }
         } catch ( Exception $e ) {
@@ -62,6 +61,7 @@ class CartAbandoned extends WebhookHandler {
 
         if ( $customer_id > 0 ) {
             $customer = new WC_Customer( $customer_id );
+
             return $customer->get_email();
         }
 

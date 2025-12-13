@@ -248,16 +248,17 @@ class Helper {
 
 		if ( defined( 'WP_CLI' ) ) {
 			if ( ! $permissions['is_readable'] || ! $permissions['is_writable'] || ! $permissions['is_wp_filesystem'] ) {
-				\WP_CLI::error( esc_html__( 'Please contact the hosting service provider to help you update the permissions so that you can successfully import a complete template.', 'astra-sites' ) );
+				self::error_response( esc_html__( 'Please contact the hosting service provider to help you update the permissions so that you can successfully import a complete template.', 'astra-sites' ) );
+				return;
 			}
-		} else {
-			wp_send_json_success(
-				array(
-					'permissions' => $permissions,
-					'directory'   => $wp_upload_path['basedir'],
-				)
-			);
 		}
+
+		self::success_response(
+			array(
+				'permissions' => $permissions,
+				'directory'   => $wp_upload_path['basedir'],
+			)
+		);
 	}
 
 	/**
@@ -293,21 +294,24 @@ class Helper {
 		$id     = isset( $_POST['id'] ) ? absint( $_POST['id'] ) : '';
 		$screen = isset( $_POST['screen'] ) ? sanitize_text_field( $_POST['screen'] ) : '';
 
-		if ( 'elementor' === $screen ) {
-			$imported_demo_data = get_option( 'astra_sites_import_elementor_data_' . $id, array() );
-			if ( isset( $imported_demo_data['type'] ) && 'astra-blocks' === $imported_demo_data['type'] ) { // @phpstan-ignore-line
-					// phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.serialize_unserialize
-					$plugins          = unserialize( $imported_demo_data['post-meta']['astra-blocks-required-plugins'] ); // @phpstan-ignore-line
-					$required_plugins = false !== $plugins ? $plugins : array();
+		if ( ! isset( $_POST['ai_plugin_permission'] ) ) {
+			if ( 'elementor' === $screen ) {
+				$imported_demo_data = get_option( 'astra_sites_import_elementor_data_' . $id, array() );
+				if ( isset( $imported_demo_data['type'] ) && 'astra-blocks' === $imported_demo_data['type'] ) { // @phpstan-ignore-line
+						// phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.serialize_unserialize
+						$plugins          = unserialize( $imported_demo_data['post-meta']['astra-blocks-required-plugins'] ); // @phpstan-ignore-line
+						$required_plugins = false !== $plugins ? $plugins : array();
+				} else {
+						$required_plugins = isset( $imported_demo_data['site-pages-required-plugins'] ) ? $imported_demo_data['site-pages-required-plugins'] : array(); // @phpstan-ignore-line
+				}
 			} else {
-					$required_plugins = isset( $imported_demo_data['site-pages-required-plugins'] ) ? $imported_demo_data['site-pages-required-plugins'] : array(); // @phpstan-ignore-line
+				$required_plugins = astra_get_site_data( 'required-plugins' );
 			}
-		} else {
-			$required_plugins = astra_get_site_data( 'required-plugins' );
 		}
 
 		if ( ! empty( $_POST['feature_plugins'] ) ) {
-			$feature_plugins = is_string( $_POST['feature_plugins'] ) ? json_decode( wp_unslash( $_POST['feature_plugins'] ), true ) : array();
+			$feature_plugins  = is_string( $_POST['feature_plugins'] ) ? json_decode( wp_unslash( $_POST['feature_plugins'] ), true ) : array();
+			$required_plugins = '' === $required_plugins ? [] : $required_plugins;
 
 			if ( is_array( $feature_plugins ) && is_array( $required_plugins ) ) {
 				// Create a set of existing plugin slugs.
@@ -325,11 +329,8 @@ class Helper {
 
 		$data = self::get_required_plugins_data( $response, $required_plugins ); // @phpstan-ignore-line
 
-		if ( wp_doing_ajax() ) {
-			wp_send_json_success( $data );
-		} else {
-			return $data;
-		}
+		self::success_response( $data );
+		return $data;
 	}
 
 	/**
@@ -338,7 +339,7 @@ class Helper {
 	 * @param array<string, array<string, mixed>> $response            The response containing the plugin data.
 	 * @param array<int, array<string, string>>   $required_plugins    The list of required plugins.
 	 * @since 3.2.5
-	 * @return array<string, mixed>                     The array of required plugins data.
+	 * @return array<string, mixed>|null                The array of required plugins data or null on error.
 	 */
 	public static function get_required_plugins_data( $response, $required_plugins ) {
 
@@ -475,10 +476,25 @@ class Helper {
 		$can_activate     = current_user_can( 'activate_plugins' );
 
 		if ( is_multisite() ) {
-			// For multisite: Super admins can handle both, subsite admins need activation capability.
-			$is_error = $can_activate
-				? $has_notinstalled
-				: ( $has_notinstalled || $has_inactive );
+			/**
+			 * For multisite: Super admins can handle both, subsite admins need activation capability.
+			 * Determine if there is a permission error based on plugin installation/activation needs and user capabilities.
+			 * Scenarios:
+			 * 1. User has no permissions (can't install or activate) and plugins need to be installed or activated.
+			 * 2. User can activate but not install:
+			 *    - If plugins need installation -> error.
+			 *    - If plugins only need activation -> no error.
+			 * 3. User can install but not activate:
+			 *    - If plugins need activation -> error.
+			 *    - If plugins only need installation -> no error.
+			 * 4. User has both permissions -> no error.
+			 */
+			$is_error = false;
+			if ( $has_notinstalled && ! $can_install ) {
+				$is_error = true;
+			} elseif ( $has_inactive && ! $can_activate ) {
+				$is_error = true;
+			}
 		} else {
 			// For single site: Check install and activate permissions separately.
 			$is_error = ( ! $can_install && $has_notinstalled ) || ( ! $can_activate && $has_inactive );
@@ -488,8 +504,13 @@ class Helper {
 			( ! defined( 'WP_CLI' ) && wp_doing_ajax() ) && $is_error ) {
 			$message               = __( 'Insufficient Permission. Please contact your Super Admin to allow the install required plugin permissions.', 'astra-sites' );
 			$required_plugins_list = array_merge( $response['notinstalled'], $response['inactive'] );
-			$markup                = $message;
-			$markup               .= '<ul>';
+
+			// Show only not installed plugins if user can activate plugins.
+			if ( $can_activate ) {
+				$required_plugins_list = $response['notinstalled'];
+			}
+			$markup  = $message;
+			$markup .= '<ul>';
 			foreach ( $required_plugins_list as $key => $required_plugin ) {
 				$markup .= '<li>' . esc_html( $required_plugin['name'] ) . '</li>';
 			}
@@ -501,8 +522,10 @@ class Helper {
 				'third_party_required_plugins' => $third_party_required_plugins,
 				'update_avilable_plugins'      => $update_avilable_plugins,
 				'incompatible_plugins'         => $incompatible_plugins,
+				'error'                        => $is_error,
 			);
-			wp_send_json_error( $data );
+			self::error_response( $data );
+			return null;
 		}
 
 		return array(
@@ -510,6 +533,7 @@ class Helper {
 			'third_party_required_plugins' => $third_party_required_plugins,
 			'update_avilable_plugins'      => $update_avilable_plugins,
 			'incompatible_plugins'         => $incompatible_plugins,
+			'error'                        => $is_error,
 		);
 	}
 
@@ -572,10 +596,10 @@ class Helper {
 				$message = __( 'This plugin requires WooCommerce to be installed and activated first.', 'astra-sites' );
 
 				if ( defined( 'WP_CLI' ) ) {
-					\WP_CLI::error( $message );
+					self::error_response( $message );
 				} elseif ( wp_doing_ajax() ) {
 					// Send deprioritize response instead of error.
-					wp_send_json_success(
+					self::success_response(
 						array(
 							'success'     => false,
 							'status'      => 'deprioritize',
@@ -607,16 +631,16 @@ class Helper {
 		Ai_Builder_Error_Handler::Instance()->stop_error_handler();
 
 		if ( is_wp_error( $activate ) ) {
-			if ( defined( 'WP_CLI' ) ) {
-				\WP_CLI::error( 'Plugin Activation Error: ' . $activate->get_error_message() );
-			} elseif ( wp_doing_ajax() ) {
-				wp_send_json_error(
-					array(
-						'success' => false,
-						'message' => $activate->get_error_message(),
+			self::error_response(
+				defined( 'WP_CLI' )
+					? sprintf(
+						// translators: 1: Error message.
+						__( 'Plugin Activation Error: %s', 'astra-sites' ),
+						$activate->get_error_message()
 					)
-				);
-			}
+					: $activate->get_error_message()
+			);
+			return;
 		}
 
 		$options            = astra_get_site_data( 'astra-site-options-data' );
@@ -627,17 +651,13 @@ class Helper {
 
 		self::after_plugin_activate( $plugin_init, $options, $enabled_extensions, $plugin_slug, $was_plugin_active );
 
-		if ( defined( 'WP_CLI' ) ) {
-			\WP_CLI::line( 'Plugin Activated!' );
-		} elseif ( wp_doing_ajax() ) {
-			wp_send_json_success(
-				array(
-					'success' => true,
-					'status'  => 'activated',
-					'message' => __( 'Plugin Activated', 'astra-sites' ),
-				)
-			);
-		}
+		$success_data = array(
+			'success' => true,
+			'status'  => 'activated',
+			'message' => __( 'Plugin Activated', 'astra-sites' ),
+		);
+
+		self::success_response( $success_data );
 	}
 
 	/**
@@ -656,16 +676,14 @@ class Helper {
 		}
 
 		if ( ! class_exists( 'STImporter\Resetter\ST_Resetter' ) ) {
-			wp_send_json_error( __( 'Required class not found.', 'astra-sites' ) );
+			self::error_response( __( 'Required class not found.', 'astra-sites' ) );
+			return;
 		}
 
 		$log_file_path = ST_Resetter::backup_settings();
 
-		if ( defined( 'WP_CLI' ) ) {
-			\WP_CLI::line( 'File generated at ' . $log_file_path );
-		} elseif ( wp_doing_ajax() ) {
-			wp_send_json_success();
-		}
+		// translators: %s: Log file path.
+		self::success_response( sprintf( __( 'File generated at %s', 'astra-sites' ), $log_file_path ) );
 	}
 
 	/**
@@ -692,24 +710,18 @@ class Helper {
 		}
 
 		if ( ! class_exists( 'STImporter\Importer\ST_Importer' ) || ! class_exists( 'STImporter\Importer\ST_Option_Importer' ) ) {
-			wp_send_json_error( __( 'Required class not found.', 'astra-sites' ) );
+			self::error_response( __( 'Required class not found.', 'astra-sites' ) );
+			return;
 		}
 
 		$result = ST_Importer::import_options( $options_data );
 
 		if ( false === $result['status'] ) {
-			if ( defined( 'WP_CLI' ) ) {
-				\WP_CLI::line( $result['error'] );
-			} elseif ( wp_doing_ajax() ) {
-				wp_send_json_error( $result['error'] );
-			}
+			self::error_response( $result['error'] );
+			return;
 		}
 
-		if ( defined( 'WP_CLI' ) ) {
-			\WP_CLI::line( 'Site options Imported!' );
-		} elseif ( wp_doing_ajax() ) {
-			wp_send_json_success( __( 'Site options Imported!', 'astra-sites' ) );
-		}
+		self::success_response( __( 'Site options Imported!', 'astra-sites' ) );
 	}
 
 	/**
@@ -734,25 +746,23 @@ class Helper {
 
 		$data = astra_get_site_data( 'astra-site-widgets-data' );
 
+		if ( defined( 'WP_CLI' ) ) {
+			$data = $widgets_data;
+		}
+
 		if ( ! class_exists( 'STImporter\Importer\ST_Importer' ) ) {
-			wp_send_json_error( __( 'Required class not found.', 'astra-sites' ) );
+			self::error_response( __( 'Required class not found.', 'astra-sites' ) );
+			return;
 		}
 
 		$result = ST_Importer::import_widgets( $widgets_data, $data );
 
 		if ( false === $result['status'] ) {
-			if ( defined( 'WP_CLI' ) ) {
-				\WP_CLI::line( $result['error'] );
-			} elseif ( wp_doing_ajax() ) {
-				wp_send_json_error( $result['error'] );
-			}
-		} else {
-			if ( defined( 'WP_CLI' ) ) {
-				\WP_CLI::line( 'Widget Imported!' );
-			} elseif ( wp_doing_ajax() ) {
-				wp_send_json_success( 'Widget Imported!' );
-			}
+			self::error_response( $result['error'] );
+			return;
 		}
+
+		self::success_response( __( 'Widget Imported!', 'astra-sites' ) );
 	}
 
 	/**
@@ -773,7 +783,8 @@ class Helper {
 		}
 
 		if ( ! class_exists( 'STImporter\Importer\ST_Importer_File_System' ) ) {
-			wp_send_json_error( __( 'Import failed: ST_Importer_File_System class not found. Please ensure the importer is properly loaded.', 'astra-sites' ) );
+			self::error_response( __( 'Import failed: ST_Importer_File_System class not found. Please ensure the importer is properly loaded.', 'astra-sites' ) );
+			return;
 		}
 
 		// Handle demo content retrieval with specific error handling.
@@ -785,10 +796,12 @@ class Helper {
 		} catch ( \Exception $e ) {
 			astra_sites_error_log( 'Import End: Exception getting demo content - ' . $e->getMessage() );
 			// translators: %s: Error message.
-			wp_send_json_error( sprintf( __( 'Import failed: Unexpected error - %s', 'astra-sites' ), $e->getMessage() ) );
+			self::error_response( sprintf( __( 'Import failed: Unexpected error - %s', 'astra-sites' ), $e->getMessage() ) );
+			return;
 		} catch ( \Error $e ) {
 			// translators: %s: Error message.
-			wp_send_json_error( sprintf( __( 'Import failed: Fatal error - %s', 'astra-sites' ), $e->getMessage() ) );
+			self::error_response( sprintf( __( 'Import failed: Fatal error - %s', 'astra-sites' ), $e->getMessage() ) );
+			return;
 		}
 
 		// Set permalink structure to use post name.
@@ -803,9 +816,7 @@ class Helper {
 			// Continue execution - don't fail the entire import for hook issues.
 		}
 
-		if ( wp_doing_ajax() ) {
-			wp_send_json_success();
-		}
+		self::success_response( __( 'Import completed successfully!', 'astra-sites' ) );
 	}
 
 	/**
@@ -828,16 +839,13 @@ class Helper {
 		Ai_Builder_Importer_Log::add( 'Deleted customizer Settings ' . wp_json_encode( get_option( 'astra-settings', array() ) ) );
 
 		if ( ! class_exists( 'STImporter\Resetter\ST_Resetter' ) ) {
-			wp_send_json_error( __( 'Required class not found.', 'astra-sites' ) );
+			self::error_response( __( 'Required class not found.', 'astra-sites' ) );
+			return;
 		}
 
 		ST_Resetter::reset_customizer_data();
 
-		if ( defined( 'WP_CLI' ) ) {
-			\WP_CLI::line( 'Deleted Customizer Settings!' );
-		} elseif ( wp_doing_ajax() ) {
-			wp_send_json_success();
-		}
+		self::success_response( __( 'Deleted Customizer Settings!', 'astra-sites' ) );
 	}
 
 	/**
@@ -862,16 +870,13 @@ class Helper {
 		Ai_Builder_Importer_Log::add( 'Deleted - Site Options ' . wp_json_encode( $options ) );
 
 		if ( ! class_exists( 'STImporter\Resetter\ST_Resetter' ) ) {
-			wp_send_json_error( __( 'Required class not found.', 'astra-sites' ) );
+			self::error_response( __( 'Required class not found.', 'astra-sites' ) );
+			return;
 		}
 
 		ST_Resetter::reset_site_options( $options );
 
-		if ( defined( 'WP_CLI' ) ) {
-			\WP_CLI::line( 'Deleted Site Options!' );
-		} elseif ( wp_doing_ajax() ) {
-			wp_send_json_success();
-		}
+		self::success_response( __( 'Deleted Site Options!', 'astra-sites' ) );
 	}
 
 	/**
@@ -895,16 +900,13 @@ class Helper {
 		$old_widgets_data = (array) get_option( '_astra_sites_old_widgets_data', array() );
 
 		if ( ! class_exists( 'STImporter\Resetter\ST_Resetter' ) ) {
-			wp_send_json_error( __( 'Required class not found.', 'astra-sites' ) );
+			self::error_response( __( 'Required class not found.', 'astra-sites' ) );
+			return;
 		}
 
 		ST_Resetter::reset_widgets_data( $old_widgets_data );
 
-		if ( defined( 'WP_CLI' ) ) {
-			\WP_CLI::line( 'Deleted Widgets!' );
-		} elseif ( wp_doing_ajax() ) {
-			wp_send_json_success( __( 'Deleted Widgets!', 'astra-sites' ) );
-		}
+		self::success_response( __( 'Deleted Widgets!', 'astra-sites' ) );
 	}
 
 	/**
@@ -931,22 +933,155 @@ class Helper {
 			$customizer_data = astra_get_site_data( 'astra-site-customizer-data' );
 		}
 
-		if ( defined( 'WP_CLI' ) && empty( $customizer_data ) ) {
-			\WP_CLI::line( 'Customizer data is empty!' );
-		} elseif ( wp_doing_ajax() && empty( $customizer_data ) ) {
-			wp_send_json_error( __( 'Customizer data is empty!', 'astra-sites' ) );
+		if ( empty( $customizer_data ) ) {
+			self::error_response( __( 'Customizer data is empty!', 'astra-sites' ) );
+			return;
 		}
 
 		if ( ! class_exists( 'STImporter\Importer\ST_Importer' ) ) {
-			wp_send_json_error( __( 'Required class not found.', 'astra-sites' ) );
+			self::error_response( __( 'Required class not found.', 'astra-sites' ) );
+			return;
 		}
 
 		$result = ST_Importer::import_customizer_settings( $customizer_data );
 
 		if ( false === $result['status'] ) {
-			wp_send_json_error( $result['error'] );
+			self::error_response( $result['error'] );
+			return;
 		}
 
-		wp_send_json_success();
+		self::success_response();
+	}
+
+	/**
+	 * Send error response for both WP_CLI and AJAX contexts.
+	 *
+	 * @param string|array<string, mixed>|mixed|null $data Error message or data to display.
+	 *
+	 * @since 1.2.63
+	 * @return void
+	 */
+	public static function error_response( $data = null ) {
+		if ( defined( 'WP_CLI' ) ) {
+			$error = is_array( $data ) && isset( $data['error'] ) ? $data['error'] : $data;
+			$error = is_array( $error ) ? wp_json_encode( $error ) : $error;
+
+			\WP_CLI::error( $error );
+		} elseif ( wp_doing_ajax() ) {
+			wp_send_json_error( $data );
+		}
+	}
+
+	/**
+	 * Send success response for both WP_CLI and AJAX contexts.
+	 *
+	 * @param string|array<string|int, mixed>|null $data Success message or data to send.
+	 *
+	 * @since 1.2.63
+	 * @return void
+	 */
+	public static function success_response( $data = null ) {
+		if ( defined( 'WP_CLI' ) ) {
+			$message = is_array( $data ) && isset( $data['message'] ) ? $data['message'] : $data;
+			$message = is_array( $message ) ? wp_json_encode( $message ) : $message;
+
+			\WP_CLI::line( $message );
+			return;
+		}
+
+		if ( wp_doing_ajax() ) {
+			$response = empty( $data ) ? null : $data;
+			wp_send_json_success( $response );
+		}
+	}
+
+	/**
+	 * Get the server's country code using its public IP.
+	 *
+	 * @param string $provider Optional. GeoIP provider: 'ipwhois', 'ipapi', or 'ipinfo'. Default 'ipwhois'.
+	 * @param string $token    Optional. API token (only needed for ipapi/ipinfo).
+	 *
+	 * @since 1.2.59
+	 * @return string Two-letter ISO country code (e.g., 'RU', 'US'), or 'unknown' on failure.
+	 */
+	public static function get_server_country_code( $provider = 'ipwhois', $token = '' ) {
+		// Step 1: Get server's public IP.
+		$response = wp_remote_get( 'https://api.ipify.org' );
+		if ( is_wp_error( $response ) ) {
+			return 'unknown';
+		}
+
+		$ip = wp_remote_retrieve_body( $response );
+		if ( empty( $ip ) ) {
+			return 'unknown';
+		}
+
+		// Step 2: Select provider endpoint.
+		switch ( strtolower( $provider ) ) {
+			case 'ipapi':
+				// Requires token for higher limits.
+				$url = "https://ipapi.co/{$ip}/country/";
+				if ( ! empty( $token ) ) {
+					$url = "https://ipapi.co/{$ip}/country/?key={$token}";
+				}
+				break;
+
+			case 'ipinfo':
+				$url = "https://ipinfo.io/{$ip}/country";
+				if ( ! empty( $token ) ) {
+					$url .= "?token={$token}";
+				}
+				break;
+
+			case 'ipwhois':
+			default:
+				// Default: ipwho.is (no token needed).
+				$url = "https://ipwho.is/{$ip}";
+				break;
+		}
+
+		// Step 3: Make request.
+		$response = wp_remote_get( $url );
+		if ( is_wp_error( $response ) ) {
+			return 'unknown';
+		}
+
+		$body = wp_remote_retrieve_body( $response );
+
+		// Step 4: Parse response based on provider.
+		if ( 'ipwhois' === $provider ) {
+			$data = json_decode( $body, true );
+			if ( is_array( $data ) && isset( $data['country_code'] ) && is_string( $data['country_code'] ) ) {
+				return $data['country_code'];
+			}
+			return 'unknown';
+		}
+
+		// ipapi and ipinfo return plain text country code.
+		$country = trim( $body );
+		return ! empty( $country ) ? $country : 'unknown';
+	}
+
+	/**
+	 * Get Images Engine
+	 *
+	 * @since 1.2.59
+	 * @return string Image Engine.
+	 */
+	public static function get_images_engine() {
+		$country_code = get_transient( 'zipwp_images_server_country_code' );
+
+		if ( false === $country_code ) {
+			$country_code = self::get_server_country_code();
+			set_transient( 'zipwp_images_server_country_code', $country_code, MONTH_IN_SECONDS );
+		}
+
+		// Use Unsplash for Russia as Pexels is blocked there.
+		if ( 'RU' === $country_code ) {
+			return 'unsplash';
+		}
+
+		// Default to Pexels.
+		return 'pexels';
 	}
 }

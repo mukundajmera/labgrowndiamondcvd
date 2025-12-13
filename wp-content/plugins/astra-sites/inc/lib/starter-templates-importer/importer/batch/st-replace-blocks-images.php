@@ -217,7 +217,9 @@ if ( ! class_exists( 'ST_Replace_Blocks_Images' ) ) :
 
 						$svg_pattern = '/<svg.*?>.*?<\/svg>/s'; // The 's' modifier allows the dot (.) to match newline characters.
 						preg_match( $svg_pattern, $new_inner_block['innerHTML'], $matches );
-						$new_inner_block['innerHTML'] = str_replace( $matches[0], $yelp_google_item, $new_inner_block['innerHTML'] );
+						if ( ! empty( $matches[0] ) ) {
+							$new_inner_block['innerHTML'] = str_replace( $matches[0], $yelp_google_item, $new_inner_block['innerHTML'] );
+						}
 
 						$href_pattern = '/href=".*?"/s'; // The 's' modifier allows the dot (.) to match newline characters.
 						preg_match( $href_pattern, $new_inner_block['innerHTML'], $href_matches );
@@ -464,7 +466,9 @@ if ( ! class_exists( 'ST_Replace_Blocks_Images' ) ) :
 				$block['innerHTML'] = str_replace( 'alt=""', 'alt="' . esc_attr( $alt_text ) . '"', $block['innerHTML'] );
 			}
 
-			$block['innerHTML'] = str_replace( $block['alt'], $attachment['alt'], $block['innerHTML'] );
+			if ( isset( $block['alt'] ) && ! empty( $attachment['alt'] ) ) {
+				$block['innerHTML'] = str_replace( $block['alt'], $attachment['alt'], $block['innerHTML'] );
+			}
 
 			$tablet_size_slug = ! empty( $block['attrs']['sizeSlugTablet'] ) ? $block['attrs']['sizeSlugTablet'] : '';
 			$mobile_size_slug = ! empty( $block['attrs']['sizeSlugMobile'] ) ? $block['attrs']['sizeSlugMobile'] : '';

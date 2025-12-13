@@ -7,6 +7,7 @@ use Hostinger\Reach\Api\Handlers\ReachApiHandler;
 
 use Hostinger\Reach\Dto\CartItem;
 use Hostinger\Reach\Dto\Totals;
+use Hostinger\Reach\Repositories\FormRepository;
 use WC_Order;
 
 class OrderPurchased extends WebhookHandler {
@@ -14,8 +15,8 @@ class OrderPurchased extends WebhookHandler {
 
     private IntegrationsApiHandler $integrations_api_handler;
 
-    public function __construct( ReachApiHandler $reach_api_handler, IntegrationsApiHandler $integrations_api_handler ) {
-        parent::__construct( $reach_api_handler );
+    public function __construct( ReachApiHandler $reach_api_handler, IntegrationsApiHandler $integrations_api_handler, FormRepository $form_repository ) {
+        parent::__construct( $reach_api_handler, $form_repository );
         $this->integrations_api_handler = $integrations_api_handler;
     }
 

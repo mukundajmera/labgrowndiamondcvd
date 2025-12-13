@@ -1,9 +1,9 @@
 === Hostinger Easy Onboarding ===
 Tags: onboarding, hostinger
 Requires at least: 5.5
-Tested up to: 6.8
+Tested up to: 6.9
 Requires PHP: 8.0
-Stable tag: 2.0.96
+Stable tag: 2.1.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -507,3 +507,25 @@ Watching for Changes: During development, you can use "npm run watch" to continu
 
 2.0.96 (2025-10-30)
 - Feature: Update onboarding rest endpoints
+
+2.0.97 (2025-11-06)
+- Feature: Update hComponents library
+
+2.0.98 (2025-12-02)
+- Feature: New onboarding changes
+- Fix: Add missing workflow permissions
+- Fix: AI step infinite loader of button
+
+2.0.99 (2025-12-09)
+- Feature: Add WP Proxy client to new hosting calls
+- Feature: New onboarding redirect
+- Fix: New onboarding link
+- Fix: Remove legacy code regarding ratings
+- Fix: Popover not visible
+- Fix: Onboarding redirect 
+- Fix: Prevent Cartflow onboarding redirect 
+- Dev: Add dex code automation workflow
+
+2.1.0 (2025-12-11)
+- Fix: Onboarding: Add missing param on 'Go to wordpress' button
+- Fix: domain and plan details endpoint fetch

@@ -30,7 +30,11 @@ import Dropdown from '../components/dropdown';
 import AISitesNotice from '../components/ai-sites-notice';
 import { WooCommerceIcon, SureCartIcon } from '../ui/icons';
 import CreditConfirmModal from '../components/CreditConfirmModal';
-import { getFeaturePluginList } from '../utils/import-site/import-utils';
+import {
+	getFeaturePluginList,
+	fetchRequiredPlugins,
+	checkMultisiteImportPermissions,
+} from '../utils/import-site/import-utils';
 import RequiredPlugins from '../components/RequiredPlugins';
 
 const fetchStatus = {
@@ -153,7 +157,11 @@ const ICON_SET = {
 	'arrow-trending-up': ArrowTrendingUpIcon,
 };
 
-const Features = ( { handleClickStartBuilding, isInProgress } ) => {
+const Features = ( {
+	handleClickStartBuilding,
+	isInProgress,
+	setMultisitePermissionModal,
+} ) => {
 	const { previousStep } = useNavigateSteps();
 	const disabledFeatures = aiBuilderVars?.hide_site_features;
 	const { setSiteFeatures, storeSiteFeatures } = useDispatch( STORE_KEY );
@@ -264,7 +272,33 @@ const Features = ( { handleClickStartBuilding, isInProgress } ) => {
 			: [];
 	}, [ siteFeatures, disabledFeatures, isFetchingStatus ] );
 
-	const handleClickNext = ( { skipFeature = false } ) => {
+	// State for tracking if we're checking multisite permissions
+	const [ isCheckingMultisite, setIsCheckingMultisite ] = useState( false );
+
+	// Check multisite permissions when user clicks Start Building
+	const checkMultisitePermissions = async () => {
+		// Only check in multisite environments
+		if ( ! aiBuilderVars.isMultisite ) {
+			return { allowed: true };
+		}
+		setIsCheckingMultisite( true );
+
+		const requiredPluginsResponse = await fetchRequiredPlugins(
+			featurePluginsList,
+			true
+		);
+
+		// Check permissions
+		const permissionResult = checkMultisiteImportPermissions(
+			requiredPluginsResponse.data,
+			aiBuilderVars
+		);
+		setIsCheckingMultisite( false );
+
+		return permissionResult;
+	};
+
+	const handleClickNext = async ( { skipFeature = false } ) => {
 		if ( ! authenticated ) {
 			setSignupLoginModal( {
 				open: true,
@@ -274,6 +308,21 @@ const Features = ( { handleClickStartBuilding, isInProgress } ) => {
 				isPremiumTemplate: selectedTemplateIsPremium,
 			} );
 			return;
+		}
+
+		// Check multisite permissions when user clicks Start Building in multisite env.
+		if ( aiBuilderVars.isMultisite ) {
+			const permissionResult = await checkMultisitePermissions();
+
+			// If permissions are not met, show blocking modal
+			if ( ! permissionResult.allowed ) {
+				setMultisitePermissionModal( {
+					open: true,
+					missingThemes: permissionResult.missingThemes || [],
+					missingPlugins: permissionResult.missingPlugins || [],
+				} );
+				return;
+			}
 		}
 
 		// get the start building function from the parent component
@@ -314,6 +363,10 @@ const Features = ( { handleClickStartBuilding, isInProgress } ) => {
 					? 'elementor'
 					: 'ultimate-addons-for-gutenberg',
 			compulsory: true,
+			init:
+				pageBuilder === 'elementor'
+					? 'elementor/elementor.php'
+					: 'ultimate-addons-for-gutenberg/ultimate-addons-for-gutenberg.php',
 		};
 
 		const formPlugin = {
@@ -322,6 +375,7 @@ const Features = ( { handleClickStartBuilding, isInProgress } ) => {
 			compulsory: siteFeatures?.find(
 				( feature ) => feature.id === 'contact-form'
 			)?.compulsory,
+			init: 'sureforms/sureforms.php',
 		};
 
 		return [
@@ -476,7 +530,7 @@ const Features = ( { handleClickStartBuilding, isInProgress } ) => {
 					onClickSkip={ () =>
 						handleClickNext( { skipFeature: true } )
 					}
-					loading={ isInProgress }
+					loading={ isInProgress || isCheckingMultisite }
 					skipButtonText={ __(
 						'Skip & Start Building',
 						'ai-builder'

@@ -505,15 +505,15 @@ if ( ! class_exists( 'Astra_Sites_Analytics' ) ) {
 		}
 
 		/**
-		 * Checks if SureRank optimization is done on any post.
+		 * Checks if SureRank optimization is done on any post or 3+ site level SEO settings.
 		 *
 		 * ACTIVE CONDITION:
-		 * - Optimizations of 3+ pages/posts (update meta, etc. of 3+ pages)
+		 * - Optimization of any pages/posts (update SureRank meta, etc. of any posts/pages)
 		 * - Optimize 3+ things in "site level" SEO settings (change configuration of 3 things from default values)
 		 *
 		 * @since 4.4.39
 		 *
-		 * @return bool True if optimization is done on 3+ posts/pages, false otherwise.
+		 * @return bool True if optimization is done on any post or 3+ site level SEO settings, false otherwise.
 		 */
 		public static function is_surerank_optimization_done() {
 			if ( ! defined( 'SURERANK_VERSION' ) || ! is_plugin_active( 'surerank/surerank.php' ) ) {
@@ -545,7 +545,7 @@ if ( ! class_exists( 'Astra_Sites_Analytics' ) ) {
 						INNER JOIN {$wpdb->posts} p ON pm.post_id = p.ID
 						WHERE pm.meta_key IN (%s, %s, %s, %s, %s, %s)
 						AND p.post_status = 'publish'
-						LIMIT 3
+						LIMIT 1
 					",
 					'surerank_settings_general',
 					'surerank_settings_schemas',
@@ -556,7 +556,32 @@ if ( ! class_exists( 'Astra_Sites_Analytics' ) ) {
 				)
 			);
 
-			return count( $posts ) >= 3;
+			return count( $posts ) >= 1;
+		}
+
+		/**
+		 * Checks if ModernCart is enabled.
+		 *
+		 * ACTIVE CONDITION: Modern Cart setting is enabled.
+		 *
+		 * @since 4.4.41
+		 *
+		 * @return bool True if ModernCart is enabled, false otherwise.
+		 */
+		public static function is_modern_cart_enabled() {
+			if ( ! defined( 'MODERNCART_VER' ) || ! is_plugin_active( 'modern-cart/modern-cart.php' ) ) {
+				return false;
+			}
+
+			$option_name = defined( 'MODERNCART_MAIN_SETTINGS' ) ? MODERNCART_MAIN_SETTINGS : 'moderncart_settings';
+			$settings    = get_option( $option_name, array() );
+
+			if ( ! is_array( $settings ) || ! isset( $settings['enable_moderncart'] ) ) {
+				return true; // Default is set to `all` which indicates that Modern Cart is enabled everywhere.
+			}
+
+			// Check if Modern Cart is enabled on WooCommerce pages or everywhere.
+			return 'wc_pages' === $settings['enable_moderncart'] || 'all' === $settings['enable_moderncart'];
 		}
 
 		/**
@@ -597,6 +622,7 @@ if ( ! class_exists( 'Astra_Sites_Analytics' ) ) {
 					'latepoint_booking_managed'   => self::is_latepoint_booking_managed(),
 					'presto_player_used'          => self::is_presto_player_used(),
 					'surerank_optimization_done'  => self::is_surerank_optimization_done(),
+					'modern_cart_enabled'         => self::is_modern_cart_enabled(),
 				)
 			);
 		}
@@ -683,6 +709,7 @@ if ( ! class_exists( 'Astra_Sites_Analytics' ) ) {
 				'numeric_values' => array(
 					'woopayments_banner_dismissed_count' => Astra_Sites_Page::get_instance()->get_setting( 'woopayments_banner_dismissed_count' ),
 				),
+				'steps_visited' => Astra_Sites_Page::get_instance()->get_setting( 'steps_visited' ),
 			);
 
 			if ( $import_complete ) {

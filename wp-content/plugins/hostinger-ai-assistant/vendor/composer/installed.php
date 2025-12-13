@@ -3,7 +3,7 @@
         'name' => '__root__',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'fcfeda71c949cbf1c7cd878c0d3552b31fe3754b',
+        'reference' => 'cc133749577561c22cec39ae3569c874eb533665',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         '__root__' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'fcfeda71c949cbf1c7cd878c0d3552b31fe3754b',
+            'reference' => 'cc133749577561c22cec39ae3569c874eb533665',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -49,7 +49,7 @@
         'automattic/jetpack-autoloader' => array(
             'pretty_version' => 'dev-trunk',
             'version' => 'dev-trunk',
-            'reference' => '0a50ea406e3abd88c4cfac136c643a9f4b40f194',
+            'reference' => '36bda1b09f11ed4c5cac294cff78e6141a7782e8',
             'type' => 'composer-plugin',
             'install_path' => __DIR__ . '/../automattic/jetpack-autoloader',
             'aliases' => array(
@@ -58,9 +58,9 @@
             'dev_requirement' => false,
         ),
         'brick/math' => array(
-            'pretty_version' => '0.14.0',
-            'version' => '0.14.0.0',
-            'reference' => '113a8ee2656b882d4c3164fa31aa6e12cbb7aaa2',
+            'pretty_version' => '0.14.1',
+            'version' => '0.14.1.0',
+            'reference' => 'f05858549e5f9d7bb45875a75583240a38a281d0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../brick/math',
             'aliases' => array(),
@@ -89,9 +89,18 @@
         'doctrine/inflector' => array(
             'pretty_version' => '2.2.x-dev',
             'version' => '2.2.9999999.9999999-dev',
-            'reference' => '6d6c96277ea252fc1304627204c3d5e6e15faa3b',
+            'reference' => '8fd1e3289f1b04747427c4f1fd7af1e9c5364cb6',
             'type' => 'library',
             'install_path' => __DIR__ . '/../doctrine/inflector',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'firebase/php-jwt' => array(
+            'pretty_version' => 'v6.11.1',
+            'version' => '6.11.1.0',
+            'reference' => 'd1e91ecf8c598d073d0995afa8cd5c75c6e19e66',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../firebase/php-jwt',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
@@ -140,6 +149,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'laravel/serializable-closure' => array(
+            'pretty_version' => '2.x-dev',
+            'version' => '2.9999999.9999999.9999999-dev',
+            'reference' => '29f1806b11fdda42b6023b38450d6974b40b7e1d',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../laravel/serializable-closure',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'league/commonmark' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
@@ -154,7 +172,7 @@
         'league/config' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'e6df2a81a60d3054d96cd69eef0d2d472441f9bf',
+            'reference' => 'af46987110f9c3aec257f06b0d77a8e97db2ef85',
             'type' => 'library',
             'install_path' => __DIR__ . '/../league/config',
             'aliases' => array(
@@ -165,7 +183,7 @@
         'league/uri' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'aab5883938c78b553f1f5eaa42221b6df01bcc62',
+            'reference' => '3ce3c19061dd78ea1ca2269a7bcdefadd51dce27',
             'type' => 'library',
             'install_path' => __DIR__ . '/../league/uri',
             'aliases' => array(
@@ -176,7 +194,7 @@
         'league/uri-interfaces' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '851d237741c11914f7cecdba67823e40c1a74300',
+            'reference' => 'ccbfb51c0445298e7e0b7f4481b942f589665368',
             'type' => 'library',
             'install_path' => __DIR__ . '/../league/uri-interfaces',
             'aliases' => array(
@@ -187,7 +205,7 @@
         'mantle-framework/contracts' => array(
             'pretty_version' => '1.x-dev',
             'version' => '1.9999999.9999999.9999999-dev',
-            'reference' => 'af2a0bcafbb5ec58dccf963497ebf9fcbd0570d1',
+            'reference' => '008283403d4e112026c18d20201cb23eae1eb7b0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../mantle-framework/contracts',
             'aliases' => array(),
@@ -196,7 +214,7 @@
         'mantle-framework/support' => array(
             'pretty_version' => '1.x-dev',
             'version' => '1.9999999.9999999.9999999-dev',
-            'reference' => '1cd42cd4caf87faffaebab526d4e689e101e286d',
+            'reference' => '93142bbb574f71a57643c3b0459c3e3c5b5cc563',
             'type' => 'library',
             'install_path' => __DIR__ . '/../mantle-framework/support',
             'aliases' => array(),
@@ -223,7 +241,7 @@
         'nesbot/carbon' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'fa9852e9fd7be89313f492786ee643856618e112',
+            'reference' => '3302bf5ce479c3b0533a9ecf64a1b935d9d96eed',
             'type' => 'library',
             'install_path' => __DIR__ . '/../nesbot/carbon',
             'aliases' => array(
@@ -234,7 +252,7 @@
         'nette/schema' => array(
             'pretty_version' => 'v1.3.x-dev',
             'version' => '1.3.9999999.9999999-dev',
-            'reference' => '8c36c043c775254e7a27987f82336e36ca923e0a',
+            'reference' => '2befc2f42d7c715fd9d95efc31b1081e5d765004',
             'type' => 'library',
             'install_path' => __DIR__ . '/../nette/schema',
             'aliases' => array(),
@@ -243,7 +261,7 @@
         'nette/utils' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '8ee89b19f7a1adcaa59c4aaaf6b5525588a40d4e',
+            'reference' => '0a8ad30f966c6be80b08d8f05cb5718f804401c5',
             'type' => 'library',
             'install_path' => __DIR__ . '/../nette/utils',
             'aliases' => array(
@@ -376,7 +394,7 @@
         'symfony/clock' => array(
             'pretty_version' => '7.4.x-dev',
             'version' => '7.4.9999999.9999999-dev',
-            'reference' => '9a2e07a0fcc4c76cc356e28942e515a3b388c8cb',
+            'reference' => '9169f24776edde469914c1e7a1442a50f7a4e110',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/clock',
             'aliases' => array(),
@@ -396,7 +414,7 @@
         'symfony/dom-crawler' => array(
             'pretty_version' => '7.4.x-dev',
             'version' => '7.4.9999999.9999999-dev',
-            'reference' => '0d3f44fcff7ca353e3122ddcd901a1598bf2eff6',
+            'reference' => '8f3e7464fe7e77294686e935956a6a8ccf7442c4',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/dom-crawler',
             'aliases' => array(),
@@ -405,7 +423,7 @@
         'symfony/finder' => array(
             'pretty_version' => '7.4.x-dev',
             'version' => '7.4.9999999.9999999-dev',
-            'reference' => '38665c9607ce1fd17beaab3ea5d68e87ac5ed385',
+            'reference' => '340b9ed7320570f319028a2cbec46d40535e94bd',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/finder',
             'aliases' => array(),
@@ -450,7 +468,7 @@
         'symfony/translation' => array(
             'pretty_version' => '7.4.x-dev',
             'version' => '7.4.9999999.9999999-dev',
-            'reference' => '7d843af0451b4a94ab380eea4f8aaf7ba17d28af',
+            'reference' => '2f2de9fa0b9221d663f8bedc9e541fbc489c0f26',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/translation',
             'aliases' => array(),
@@ -499,6 +517,24 @@
             'reference' => 'b1d923f88091c6bf09699efcd7c8a1b1bfd7351d',
             'type' => 'library',
             'install_path' => __DIR__ . '/../voku/portable-ascii',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'wordpress/abilities-api' => array(
+            'pretty_version' => 'v0.4.0',
+            'version' => '0.4.0.0',
+            'reference' => '0759075aed37c4247adbf273bdebec096d52e825',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../wordpress/abilities-api',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'wordpress/mcp-adapter' => array(
+            'pretty_version' => 'v0.3.0',
+            'version' => '0.3.0.0',
+            'reference' => '653ca8d95180b25809b1a1dc489d8305ec5beb63',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../wordpress/mcp-adapter',
             'aliases' => array(),
             'dev_requirement' => false,
         ),

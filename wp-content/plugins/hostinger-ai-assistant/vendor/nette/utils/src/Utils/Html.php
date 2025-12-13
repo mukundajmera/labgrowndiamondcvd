@@ -531,7 +531,7 @@ class Html implements \ArrayAccess, \Countable, \IteratorAggregate, HtmlStringab
 	/**
 	 * Sets element's HTML content.
 	 */
-	final public function setHtml(mixed $html): static
+	final public function setHtml(HtmlStringable|string $html): static
 	{
 		$this->children = [(string) $html];
 		return $this;
@@ -550,7 +550,7 @@ class Html implements \ArrayAccess, \Countable, \IteratorAggregate, HtmlStringab
 	/**
 	 * Sets element's textual content.
 	 */
-	final public function setText(mixed $text): static
+	final public function setText(\Stringable|string $text): static
 	{
 		if (!$text instanceof HtmlStringable) {
 			$text = htmlspecialchars((string) $text, ENT_NOQUOTES, 'UTF-8');
@@ -573,7 +573,7 @@ class Html implements \ArrayAccess, \Countable, \IteratorAggregate, HtmlStringab
 	/**
 	 * Adds new element's child.
 	 */
-	final public function addHtml(mixed $child): static
+	final public function addHtml(HtmlStringable|string $child): static
 	{
 		return $this->insert(null, $child);
 	}
@@ -582,7 +582,7 @@ class Html implements \ArrayAccess, \Countable, \IteratorAggregate, HtmlStringab
 	/**
 	 * Appends plain-text string to element content.
 	 */
-	public function addText(mixed $text): static
+	public function addText(\Stringable|string $text): static
 	{
 		if (!$text instanceof HtmlStringable) {
 			$text = htmlspecialchars((string) $text, ENT_NOQUOTES, 'UTF-8');

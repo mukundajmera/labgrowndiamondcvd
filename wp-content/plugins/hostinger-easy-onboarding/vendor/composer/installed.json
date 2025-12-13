@@ -7,12 +7,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Automattic/jetpack-autoloader.git",
-                "reference": "0a50ea406e3abd88c4cfac136c643a9f4b40f194"
+                "reference": "914283e28ab4443c637b0044f708916707c8facb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Automattic/jetpack-autoloader/zipball/0a50ea406e3abd88c4cfac136c643a9f4b40f194",
-                "reference": "0a50ea406e3abd88c4cfac136c643a9f4b40f194",
+                "url": "https://api.github.com/repos/Automattic/jetpack-autoloader/zipball/914283e28ab4443c637b0044f708916707c8facb",
+                "reference": "914283e28ab4443c637b0044f708916707c8facb",
                 "shasum": ""
             },
             "require": {
@@ -20,12 +20,12 @@
                 "php": ">=7.2"
             },
             "require-dev": {
-                "automattic/jetpack-changelogger": "^6.0.7",
+                "automattic/jetpack-changelogger": "^6.0.11",
                 "automattic/phpunit-select-config": "^1.0.3",
                 "composer/composer": "^2.2",
                 "yoast/phpunit-polyfills": "^4.0.0"
             },
-            "time": "2025-10-23T12:28:25+00:00",
+            "time": "2025-12-09T13:52:32+00:00",
             "default-branch": true,
             "type": "composer-plugin",
             "extra": {

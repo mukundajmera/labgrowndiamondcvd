@@ -14,11 +14,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 class ReachApiHandler extends ApiHandler {
-
-    public const HOSTINGER_REACH_API_STATUS_TRANSIENT    = 'hostinger_reach_api_status';
-    public const HOSTINGER_REACH_API_STATUS_CONNECTED    = 'connected';
-    public const HOSTINGER_REACH_API_STATUS_DISCONNECTED = 'disconnected';
-
     protected string $hostinger_auth_url;
     protected string $reach_domain;
     public ApiKeyManager $api_key_manager;
@@ -35,15 +30,14 @@ class ReachApiHandler extends ApiHandler {
         add_filter(
             'allowed_http_origins',
             function ( $origins ) {
-                $origins[] = HOSTINGER_REACH_PLUGIN_URL;
+                $origins[] = HOSTINGER_REACH_REST_URI;
+
                 return $origins;
             }
         );
 
         /**
          * Submits a contact to Reach
-         *
-         * @since 1.1.0
          *
          * @param array $data The data to be sent
          * email: string - - Contact email
@@ -67,6 +61,8 @@ class ReachApiHandler extends ApiHandler {
          *
          * @fires hostinger_reach_contact_submitted when the contact is submitted successfully
          * @fires hostinger_reach_contact_failed when the contact submission fails
+         * @since 1.1.0
+         *
          */
         if ( ! has_action( 'hostinger_reach_submit' ) ) {
             add_action( 'hostinger_reach_submit', array( $this, 'post_contact' ) );
@@ -80,21 +76,7 @@ class ReachApiHandler extends ApiHandler {
     }
 
     public function is_connected(): bool {
-        if ( empty( $this->api_key_manager->get_token() ) ) {
-            return false;
-        }
-
-        $cached_status = get_transient( self::HOSTINGER_REACH_API_STATUS_TRANSIENT );
-
-        if ( $cached_status ) {
-            return $cached_status === self::HOSTINGER_REACH_API_STATUS_CONNECTED;
-        }
-
-        $is_connected = wp_remote_retrieve_response_code( $this->get( 'overview' ) ) === 200;
-        $status       = $is_connected ? self::HOSTINGER_REACH_API_STATUS_CONNECTED : self::HOSTINGER_REACH_API_STATUS_DISCONNECTED;
-        set_transient( self::HOSTINGER_REACH_API_STATUS_TRANSIENT, $status, MINUTE_IN_SECONDS * 5 );
-
-        return $is_connected;
+        return ! empty( $this->api_key_manager->get_token() );
     }
 
     public function post_contact_handler( WP_REST_Request $request ): WP_REST_Response {
@@ -124,7 +106,7 @@ class ReachApiHandler extends ApiHandler {
     public function is_authorized( WP_REST_Request $request ): bool {
         $nonce = $request->get_header( 'X-WP-Nonce' );
 
-        return wp_verify_nonce( $nonce, 'wp_rest' );
+        return wp_verify_nonce( $nonce, 'wp_rest' ) && $this->get_connection_status_handler();
     }
 
     public function post_generate_auth_url( WP_REST_Request $request = null ): WP_REST_Response {
@@ -146,7 +128,6 @@ class ReachApiHandler extends ApiHandler {
             $this->hostinger_auth_url
         );
 
-        delete_transient( self::HOSTINGER_REACH_API_STATUS_TRANSIENT );
         return new WP_REST_Response(
             array(
                 'auth_url' => $auth_url,
@@ -154,6 +135,19 @@ class ReachApiHandler extends ApiHandler {
             ),
             200
         );
+    }
+
+    public function get_connection_status_handler(): bool {
+        if ( ! $this->is_connected() ) {
+            return false;
+        }
+
+        $status = $this->get( 'connection/status' );
+        if ( is_wp_error( $status ) || wp_remote_retrieve_response_code( $status ) >= 400 ) {
+            return false;
+        }
+
+        return true;
     }
 
     public function post_token_handler( WP_REST_Request $request ): WP_REST_Response {
@@ -165,12 +159,17 @@ class ReachApiHandler extends ApiHandler {
 
         $this->api_key_manager->store_token( $token );
         $this->api_key_manager->clear_csrf();
-        delete_transient( self::HOSTINGER_REACH_API_STATUS_TRANSIENT );
 
         return new WP_REST_Response( array( 'success' => true ) );
     }
 
     public function get_overview_handler(): WP_REST_Response {
+        if ( ! $this->get_connection_status_handler() ) {
+            $this->api_key_manager->clear_token();
+
+            return $this->handle_wp_error( new WP_Error( 'Not authorized', 'You cannot perform this action', array( 'status' => 403 ) ) );
+        }
+
         $response = $this->get( 'overview' );
 
         if ( is_wp_error( $response ) ) {
@@ -181,6 +180,99 @@ class ReachApiHandler extends ApiHandler {
     }
 
     public function post_contact( array $data ): WP_REST_Response {
+        if ( ! $this->get_connection_status_handler() ) {
+            $this->api_key_manager->clear_token();
+
+            return $this->handle_wp_error( new WP_Error( 'Not authorized', 'You cannot perform this action' ) );
+        }
+
+        $contact = $this->parse_contact( $data );
+        $args    = array(
+            'groupName' => $data['group'] ? $data['group'] : HOSTINGER_REACH_DEFAULT_CONTACT_LIST,
+            'contacts'  => array( $contact ),
+        );
+
+        $response = $this->post(
+            'contacts',
+            $args
+        );
+
+        if ( is_wp_error( $response ) ) {
+            do_action( 'hostinger_reach_contact_failed', $data );
+
+            return $this->handle_wp_error( $response );
+        }
+
+        do_action( 'hostinger_reach_contact_submitted', $data );
+
+        return $this->handle_response( $response );
+    }
+
+    public function post_import_contacts( array $contacts_data ): WP_REST_Response {
+        if ( ! $this->get_connection_status_handler() ) {
+            $this->api_key_manager->clear_token();
+
+            return $this->handle_wp_error( new WP_Error( 'Not authorized', 'You cannot perform this action' ) );
+        }
+
+        $group = $contacts_data[0]['metadata']['group'] ?? HOSTINGER_REACH_DEFAULT_CONTACT_LIST;
+
+        $contacts = array();
+        foreach ( $contacts_data as $contact_data ) {
+            $contacts[] = $this->parse_contact( $contact_data );
+        }
+
+        $args = array(
+            'groupName' => $group,
+            'contacts'  => $contacts,
+        );
+
+        $response = $this->post(
+            'contacts',
+            $args
+        );
+
+        if ( is_wp_error( $response ) ) {
+            do_action( 'hostinger_reach_imports_contact_failed' );
+
+            return $this->handle_wp_error( $response );
+        }
+
+        do_action( 'hostinger_reach_contacts_imported', count( $contacts ), $group );
+
+        return $this->handle_response( $response );
+    }
+
+    public function post_webhook_event( array $webhook_payload ): WP_REST_Response {
+        if ( ! $this->get_connection_status_handler() ) {
+            $this->api_key_manager->clear_token();
+
+            return $this->handle_wp_error( new WP_Error( 'Not authorized', 'You cannot perform this action' ) );
+        }
+
+        if ( ! isset( $webhook_payload['name'] ) ) {
+            return $this->handle_wp_error( new WP_Error( 'Bad request', 'Missing parameter [name] in the WebHook data' ) );
+        }
+
+        if ( ! isset( $webhook_payload['contact']['email'] ) ) {
+            return $this->handle_wp_error( new WP_Error( 'Bad request', 'Missing parameter [contact.email] in the WebHook data' ) );
+        }
+
+        $webhook_payload['timestamp'] = gmdate( 'Y-m-d\TH:i:s\Z' );
+
+        $response = $this->post(
+            'webhooks',
+            $webhook_payload
+        );
+
+        if ( is_wp_error( $response ) ) {
+            return $this->handle_wp_error( $response );
+        }
+
+        return $this->handle_response( $response );
+    }
+
+    private function parse_contact( array $data ): array {
         $contact = array(
             'email' => sanitize_email( $data['email'] ),
         );
@@ -206,48 +298,8 @@ class ReachApiHandler extends ApiHandler {
         }
 
         $contact['metadata'] = $metadata;
-        $args                = array(
-            'groupName' => $data['group'] ? $data['group'] : HOSTINGER_REACH_DEFAULT_CONTACT_LIST,
-            'contacts'  => array( $contact ),
-        );
 
-        $response = $this->post(
-            'contacts',
-            $args
-        );
-
-        if ( is_wp_error( $response ) ) {
-            do_action( 'hostinger_reach_contact_failed', $data );
-
-            return $this->handle_wp_error( $response );
-        }
-
-        do_action( 'hostinger_reach_contact_submitted', $data );
-
-        return $this->handle_response( $response );
-    }
-
-    public function post_webhook_event( array $webhook_payload ): WP_REST_Response {
-        if ( ! isset( $webhook_payload['name'] ) ) {
-            return $this->handle_wp_error( new WP_Error( 'Bad request', 'Missing parameter [name] in the WebHook data' ) );
-        }
-
-        if ( ! isset( $webhook_payload['contact']['email'] ) ) {
-            return $this->handle_wp_error( new WP_Error( 'Bad request', 'Missing parameter [contact.email] in the WebHook data' ) );
-        }
-
-        $webhook_payload['timestamp'] = gmdate( 'Y-m-d\TH:i:s\Z' );
-
-        $response = $this->post(
-            'webhooks',
-            $webhook_payload
-        );
-
-        if ( is_wp_error( $response ) ) {
-            return $this->handle_wp_error( $response );
-        }
-
-        return $this->handle_response( $response );
+        return $contact;
     }
 
     private function set_api_base_name(): void {

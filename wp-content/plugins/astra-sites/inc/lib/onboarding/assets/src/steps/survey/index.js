@@ -455,6 +455,7 @@ const Survey = () => {
 		// Cache frequently accessed properties for better performance
 		const isMultisite = starterTemplates?.isMultisite;
 		const canActivatePlugins = starterTemplates?.canActivatePlugins;
+		const canInstallPlugins = starterTemplates?.canInstallPlugins;
 		const themeStatus = starterTemplates?.themeStatus;
 
 		// Helper function to determine if theme is missing based on user permissions
@@ -466,8 +467,9 @@ const Survey = () => {
 
 		// Helper function to check if plugins are missing
 		const checkPluginsMissing = () => {
-			console.table( { notInstalled, allPuginList } );
-
+			if ( canInstallPlugins ) {
+				return false;
+			}
 			return canActivatePlugins
 				? ( notInstalled?.length || 0 ) > 0
 				: ( allPuginList?.length || 0 ) > 0;

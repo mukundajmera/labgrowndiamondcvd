@@ -4,6 +4,7 @@ namespace Hostinger\Reach\Jobs;
 
 use Hostinger\Reach\Api\Handlers\ReachApiHandler;
 use Hostinger\Reach\Api\Webhooks\Handlers\CartAbandoned;
+use Hostinger\Reach\Models\Cart;
 use Hostinger\Reach\Repositories\CartRepository;
 
 class AbandonedCartsJob extends AbstractBatchedJob implements RecurringJobInterface {
@@ -20,12 +21,23 @@ class AbandonedCartsJob extends AbstractBatchedJob implements RecurringJobInterf
         $this->cart_abandoned_webhook = $cart_abandoned_webhook;
     }
 
+    public function handle_create_batch_action( int $batch_number, array $args ): void {
+        if ( ! $this->cart_abandoned_webhook->is_enabled() ) {
+            $this->handle_complete( $batch_number, $args );
+
+            return;
+        }
+
+        parent::handle_create_batch_action( $batch_number, $args );
+    }
+
     public function can_schedule_recurrent(): bool {
         return $this->cart_abandoned_webhook->is_enabled() && count( $this->cart_repository->active_abandoned_carts( 1 ) ) && parent::can_schedule_recurrent();
     }
 
     protected function get_batch( int $batch_number, array $args ): array {
         $limit = $this->get_batch_size();
+
         return $this->cart_repository->active_abandoned_carts( $limit, array( 'hash' ) );
     }
 
@@ -34,10 +46,6 @@ class AbandonedCartsJob extends AbstractBatchedJob implements RecurringJobInterf
     }
 
     protected function process_items( array $args = array() ): void {
-        if ( ! $this->cart_abandoned_webhook->is_enabled() ) {
-            return;
-        }
-
         $items = $args['items'] ?? array();
 
         if ( empty( $items ) ) {
@@ -46,6 +54,12 @@ class AbandonedCartsJob extends AbstractBatchedJob implements RecurringJobInterf
 
         foreach ( $items as $item ) {
             $this->cart_abandoned_webhook->send( $item['hash'] );
+        }
+    }
+
+    protected function set_items_as_processing( array $items ): void {
+        foreach ( $items as $cart ) {
+            $this->cart_repository->set_status( $cart['hash'], Cart::STATUS_PROCESSING );
         }
     }
 

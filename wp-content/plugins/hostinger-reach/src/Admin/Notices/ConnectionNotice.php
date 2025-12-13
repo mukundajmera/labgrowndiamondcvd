@@ -10,9 +10,9 @@ defined( 'ABSPATH' ) || exit;
 
 class ConnectionNotice {
 
-    private const NOTICE_NAME              = 'hostinger_reach_connection_notice';
-    private const NOTICE_DISMISS_TRANSIENT = self::NOTICE_NAME . '_dismissed';
-    private const NOTICE_ACTION            = self::NOTICE_NAME . '_action';
+    public const NOTICE_DISMISS_TRANSIENT = self::NOTICE_NAME . '_dismissed';
+    private const NOTICE_NAME             = 'hostinger_reach_connection_notice';
+    private const NOTICE_ACTION           = self::NOTICE_NAME . '_action';
 
 
     private ReachApiHandler $reach_api_handler;

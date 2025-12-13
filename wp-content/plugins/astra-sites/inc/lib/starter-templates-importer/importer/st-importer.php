@@ -64,7 +64,7 @@ class ST_Importer {
 		}
 
 		if ( ! empty( $uuid ) ) {
-			update_option( 'astra_sites_ai_import_started', 'yes', 'no' );
+			update_option( 'astra_sites_ai_import_started', 'yes', false );
 		}
 		do_action( 'st_before_start_import_process' );
 		update_option( 'astra_sites_import_started', 'yes' );
@@ -164,7 +164,6 @@ class ST_Importer {
 
 		$data = array(
 			'email'            => empty( $email ) ? get_option( 'admin_email' ) : $email,
-			'seed'             => true,
 			'account_currency' => $currency,
 		);
 
@@ -190,10 +189,71 @@ class ST_Importer {
 			);
 		}
 
+		$template_data = ST_Importer_File_System::get_instance()->get_demo_content();
+		$products      = $template_data['astra-site-surecart-settings']['products'] ?? null;
+
+		// If no products, set seed to true to create sample products.
+		if ( empty( $products ) || ! is_array( $products ) ) {
+			$data['seed'] = true;
+		} else {
+			// Collect all image hash URLs first to minimize DB hits.
+			$hash_urls = [];
+			foreach ( $products as $product ) {
+				foreach ( $product['gallery'] ?? [] as $attachment ) {
+					if ( ! empty( $attachment['url'] ) ) {
+						$hash_urls[] = ST_Importer_Helper::get_hash_image( $attachment['url'] );
+					}
+				}
+			}
+
+			// Filter out empty hashes and get unique ones.
+			$hash_urls = array_filter( array_unique( $hash_urls ) );
+
+			// Map all hashes to their attachment IDs in one query.
+			global $wpdb;
+			$hash_map = [];
+			if ( ! empty( $hash_urls ) ) {
+				$placeholders = implode( ',', array_fill( 0, count( $hash_urls ), '%s' ) );
+				$results      = $wpdb->get_results(
+					$wpdb->prepare(
+						// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare -- $wpdb->postmeta is a table name, and $placeholders is dynamically created based on array size.
+						"SELECT post_id, meta_value FROM {$wpdb->postmeta} WHERE meta_key = '_astra_sites_image_hash' AND meta_value IN ($placeholders)",
+						$hash_urls
+					),
+					ARRAY_A
+				);
+
+				foreach ( $results as $row ) {
+					$hash_map[ $row['meta_value'] ] = (int) $row['post_id'];
+				}
+			}
+
+			// Build final products array with resolved gallery IDs.
+			foreach ( $products as $index => $product ) {
+				$gallery_ids = [];
+
+				foreach ( $product['gallery'] ?? [] as $attachment ) {
+					$hash_url = ST_Importer_Helper::get_hash_image( $attachment['url'] ?? '' );
+					if ( ! empty( $hash_url ) && isset( $hash_map[ $hash_url ] ) ) {
+						$gallery_ids[] = $hash_map[ $hash_url ];
+					}
+				}
+
+				$products[ $index ]['gallery_ids'] = $gallery_ids;
+
+				// Map nested data arrays if they exist, else set to empty arrays or default values.
+				$products[ $index ]['prices']              = ! empty( $product['prices']['data'] ) ? $product['prices']['data'] : array( array( 'amount' => 9900 ) );
+				$products[ $index ]['variants']            = ! empty( $product['variants']['data'] ) ? $product['variants']['data'] : array();
+				$products[ $index ]['variant_options']     = ! empty( $product['variant_options']['data'] ) ? $product['variant_options']['data'] : array();
+				$products[ $index ]['product_collections'] = ! empty( $product['product_collections']['data'] ) ? $product['product_collections']['data'] : array();
+			}
+
+			$data['products'] = $products;
+		}
+
 		return \SureCart\Models\ProvisionalAccount::create(  // @phpstan-ignore-line
 			$data
 		);
-
 	}
 
 	/**
@@ -213,7 +273,7 @@ class ST_Importer {
 			);
 		}
 
-		update_option( '_astra_sites_old_customizer_data', $customizer_data, 'no' );
+		update_option( '_astra_sites_old_customizer_data', $customizer_data, false );
 
 		// Update Astra Theme customizer settings.
 		if ( isset( $customizer_data['astra-settings'] ) ) {
@@ -282,7 +342,7 @@ class ST_Importer {
 					'error'  => __( 'There was an error downloading the XML file.', 'astra-sites' ),
 				);
 			} else {
-				update_option( 'astra_sites_imported_wxr_id', $post_id, 'no' );
+				update_option( 'astra_sites_imported_wxr_id', $post_id, false );
 				$attachment_metadata = wp_generate_attachment_metadata( $post_id, $xml_path['data']['file'] );
 				wp_update_attachment_metadata( $post_id, $attachment_metadata );
 				$data        = ST_WXR_Importer::get_xml_data( $xml_path['data']['file'], $post_id );
@@ -357,7 +417,7 @@ class ST_Importer {
 
 			// Set meta for tracking the post.
 		if ( is_array( $options ) ) {
-			update_option( '_astra_sites_old_site_options', $options, 'no' );
+			update_option( '_astra_sites_old_site_options', $options, false );
 		}
 
 		try {
@@ -382,7 +442,12 @@ class ST_Importer {
 							break;
 
 						case 'site_title':
-							update_option( 'blogname', $option_value );
+							try {
+								update_option( 'blogname', $option_value );
+							} catch ( \Exception $e ) {
+								// Failed silently: sometimes Elementor throws exception as it hooks into `update_option_blogname`.
+								astra_sites_error_log( 'Handled exception while updating blogname: ' . $e->getMessage() );
+							}
 							break;
 
 						case 'elementor_active_kit':
@@ -441,7 +506,7 @@ class ST_Importer {
 
 		ST_Widget_Importer::import_widgets_data( $widgets_data );
 		$sidebars_widgets = get_option( 'sidebars_widgets', array() );
-		update_option( '_astra_sites_old_widgets_data', $sidebars_widgets, 'no' );
+		update_option( '_astra_sites_old_widgets_data', $sidebars_widgets, false );
 		return array(
 			'status'  => true,
 			'message' => __( 'Widgets imported successfully.', 'astra-sites' ),

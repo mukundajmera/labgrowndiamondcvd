@@ -15,6 +15,10 @@ abstract class Integration {
 
     public const HOSTINGER_REACH_SUBMISSIONS_META_KEY = '_hostinger_reach_submissions';
     public const HOSTINGER_REACH_IS_ACTIVE_META_KEY   = '_hostinger_reach_is_active';
+    public const HOSTINGER_INTEGRATION_TYPE_ECOMMERCE = 'ecommerce';
+
+    public const INTEGRATION_IS_ACTIVE      = 'is_active';
+    public const INTEGRATION_IMPORT_ENABLED = 'import_enabled';
 
     /**
      * Unique name for your integration
@@ -49,8 +53,6 @@ abstract class Integration {
      * Method to return the forms of the integration.
      *
      * If your integration is based on post-types, DONT override this method. Override get_post_type() instead.
-     * @see Hostinger\Reach\Models\Form
-     *
      * @return array An array of forms based on Hostinger\Reach\Models\Form
      *
      * 'form_id'     => The Form Unique ID
@@ -58,6 +60,8 @@ abstract class Integration {
      * 'type'        => $this->get_name(), (Your integration name)
      * 'is_active'   => True or false indicating the state of the form
      * 'submissions' =>Number indicating the submission counter
+     * @see Hostinger\Reach\Models\Form
+     *
      */
     public function get_forms(): array {
         $posts = get_posts(
@@ -108,7 +112,10 @@ abstract class Integration {
     public function init(): void {
         add_filter( 'hostinger_reach_integrations', array( $this, 'load_integration' ) );
         add_filter( 'hostinger_reach_plugin_data', array( $this, 'load_plugin_data' ) );
-        add_action( 'hostinger_reach_after_form_state_is_set', array( $this, 'on_form_activation_change' ), 10, 3 );
+        add_filter( 'hostinger_reach_after_form_state_is_set', array( $this, 'on_form_state_changed' ), 10, 4 );
+        add_filter( 'hostinger_reach_contacts_' . $this->get_name(), array( $this, 'get_contacts' ), 10, 3 );
+        add_filter( 'hostinger_reach_import_summary_' . $this->get_name(), array( $this, 'get_import_summary' ), 10, 0 );
+        add_filter( 'hostinger_reach_import_enabled', array( $this, 'get_is_import_enabled' ), 10, 2 );
         add_action( 'hostinger_reach_integrations_loaded', array( $this, 'init_active_integration' ) );
         add_action( 'hostinger_reach_contact_submitted', array( $this, 'on_contact_form_submission' ) );
     }
@@ -126,12 +133,21 @@ abstract class Integration {
     }
 
     public function init_active_integration( array $integrations ): void {
-        $integration_is_active = $integrations[ $this->get_name() ]['is_active'] ?? false;
+        $integration_is_active = $integrations[ $this->get_name() ][ self::INTEGRATION_IS_ACTIVE ] ?? false;
 
         if ( $integration_is_active ) {
             add_filter( 'hostinger_reach_forms', array( $this, 'load_forms' ), 10, 2 );
             $this->active_integration_hooks();
         }
+    }
+
+    public function get_is_import_enabled( bool $value, string $integration ): bool {
+        if ( $integration === $this->get_name() ) {
+            $plugin_data = $this->get_plugin_data()->to_array();
+            return $plugin_data[ self::INTEGRATION_IMPORT_ENABLED ] ?? false;
+        }
+
+        return $value;
     }
 
     public function load_forms( array $forms, array $args ): array {
@@ -144,11 +160,15 @@ abstract class Integration {
         return $forms;
     }
 
-    public function on_form_activation_change( bool $repository_form_was_updated, string $form_id, bool $is_active ): bool {
-        if ( $repository_form_was_updated ) {
+    public function on_form_state_changed( bool $repository_form_was_updated, string $form_id, bool $is_active, string $type ): bool {
+        if ( $type !== $this->get_name() ) {
             return $repository_form_was_updated;
         }
 
+        return $this->on_form_activation_change( $repository_form_was_updated, $form_id, $is_active, $type );
+    }
+
+    public function on_form_activation_change( bool $repository_form_was_updated, string $form_id, bool $is_active, string $type ): bool {
         $post = get_post( $form_id );
         if ( ! $post || $this->get_post_type() !== $post->post_type ) {
             return $repository_form_was_updated;
@@ -181,5 +201,13 @@ abstract class Integration {
 
     public function is_form_valid( WP_Post $post ): bool {
         return true;
+    }
+
+    public function get_contacts( ?int $form_id = null, ?int $limit = 100, ?int $offset = 0 ): array {
+        return array();
+    }
+
+    public function get_import_summary(): array {
+        return array();
     }
 }
