@@ -1,0 +1,79 @@
+# ===================
+# Composer
+# ===================
+/vendor/
+composer.lock
+
+# ===================
+# WordPress
+# ===================
+# Ignore WordPress core files (managed by hosting)
+/wp-admin/
+/wp-includes/
+/wp-*.php
+/index.php
+/license.txt
+/readme.html
+/xmlrpc.php
+
+# Keep wp-config-sample.php for reference
+!wp-config-sample.php
+
+# Ignore database exports
+*.sql
+*.sql.gz
+
+# ===================
+# Uploads (optional - uncomment if you want to ignore)
+# ===================
+# /wp-content/uploads/
+
+# ===================
+# Cache & Temp Files
+# ===================
+/wp-content/cache/
+/wp-content/upgrade/
+/wp-content/backup-db/
+/wp-content/backups/
+/wp-content/blogs.dir/
+/wp-content/debug.log
+
+# Litespeed Cache
+/wp-content/litespeed/
+
+# ===================
+# Environment & Secrets
+# ===================
+.env
+.env.local
+.env.*.local
+wp-config.php
+
+# ===================
+# IDE & OS
+# ===================
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===================
+# Logs
+# ===================
+*.log
+npm-debug.log*
+
+# ===================
+# Build artifacts
+# ===================
+/node_modules/
+*.map
+
+# ===================
+# Private/Sensitive
+# ===================
+/.private/
