@@ -1,0 +1,490 @@
+/*
+Theme Name: LGD Luxury - Lab Grown Diamond
+Theme URI: https://labgrowndiamondcvd.com
+Description: World-class minimalist luxury child theme for Lab-Grown CVD Diamonds. Premium design inspired by James Allen and Vrai with Playfair Display headings and Montserrat body text.
+Author: Lab Grown Diamond CVD
+Author URI: https://labgrowndiamondcvd.com
+Template: astra
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: lgd-luxury
+*/
+
+/* ==========================================================================
+   Google Fonts Import
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+/* ==========================================================================
+   CSS Variables - Global Design System
+   ========================================================================== */
+:root {
+    /* Color Palette */
+    --navy: #001f3f;           /* Primary Brand */
+    --cobalt: #0047AB;         /* Call to Actions */
+    --platinum: #F5F5F5;       /* Backgrounds */
+    --white: #ffffff;          /* White */
+    --gold: #D4AF37;           /* Accents/Borders */
+    
+    /* Typography */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
+    
+    /* Spacing */
+    --spacing-luxury: 80px;
+    --spacing-section: 100px;
+    
+    /* Effects */
+    --shadow-luxury: 0 20px 40px rgba(0, 0, 0, 0.1);
+    --transition-smooth: all 0.3s ease;
+}
+
+/* ==========================================================================
+   Global Body Styles
+   ========================================================================== */
+body {
+    font-family: var(--font-body);
+    color: var(--navy);
+    line-height: 1.7;
+    font-weight: 400;
+}
+
+/* ==========================================================================
+   Typography - Headings
+   ========================================================================== */
+h1, h2, h3, h4, h5, h6,
+.entry-title,
+.page-title,
+.section-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.3;
+}
+
+h1 {
+    font-size: 3.5rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+h4 {
+    font-size: 1.5rem;
+}
+
+/* ==========================================================================
+   Buttons - Primary & Secondary
+   ========================================================================== */
+.btn-primary,
+.button-primary {
+    background-color: var(--cobalt);
+    color: var(--white);
+    padding: 1rem 2.5rem;
+    border: none;
+    border-radius: 2px;
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    display: inline-block;
+    text-decoration: none;
+}
+
+.btn-primary:hover,
+.button-primary:hover {
+    background-color: var(--navy);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 71, 171, 0.3);
+}
+
+.btn-secondary,
+.button-secondary {
+    background-color: transparent;
+    color: var(--white);
+    padding: 1rem 2.5rem;
+    border: 2px solid var(--white);
+    border-radius: 2px;
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    display: inline-block;
+    text-decoration: none;
+}
+
+.btn-secondary:hover,
+.button-secondary:hover {
+    background-color: var(--white);
+    color: var(--navy);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   Hero Section - Static Luxury
+   ========================================================================== */
+.hero-section {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-bg {
+    /* Placeholder for background image - to be added via inline style */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 31, 63, 0.4), rgba(0, 31, 63, 0.7));
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 20px;
+    max-width: 900px;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--white);
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   Diamond Hunt Widget - Overlapping
+   ========================================================================== */
+.diamond-hunt {
+    position: relative;
+    margin-top: -50px;
+    z-index: 10;
+}
+
+.diamond-hunt-container {
+    background: var(--white);
+    box-shadow: var(--shadow-luxury);
+    padding: 2rem;
+    border-radius: 4px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.diamond-hunt-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.hunt-filter {
+    flex: 1;
+    min-width: 150px;
+    text-align: center;
+    padding: 1rem;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.hunt-filter:hover {
+    background: var(--platinum);
+}
+
+.hunt-label {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--navy);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.hunt-value {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--navy);
+    font-weight: 400;
+}
+
+.hunt-search-btn {
+    background-color: var(--cobalt);
+    color: var(--white);
+    padding: 1.5rem 3rem;
+    border: none;
+    border-radius: 2px;
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    white-space: nowrap;
+}
+
+.hunt-search-btn:hover {
+    background-color: var(--navy);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   Trust Indicators Section
+   ========================================================================== */
+.trust-section {
+    padding: var(--spacing-luxury) 0;
+    background: var(--white);
+}
+
+.trust-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.trust-item {
+    text-align: center;
+    padding: 2rem;
+}
+
+.trust-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.trust-icon img,
+.trust-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.trust-title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.75rem;
+}
+
+.trust-text {
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    color: var(--navy);
+    opacity: 0.8;
+}
+
+/* ==========================================================================
+   Category Mosaic - Bento Box Grid
+   ========================================================================== */
+.category-mosaic {
+    padding: var(--spacing-section) 0;
+    background: var(--platinum);
+}
+
+.mosaic-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.mosaic-item {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.mosaic-item.large {
+    grid-row: span 2;
+    height: auto;
+}
+
+.mosaic-bg {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.6s ease;
+}
+
+.mosaic-item:hover .mosaic-bg {
+    transform: scale(1.05);
+}
+
+.mosaic-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 31, 63, 0.7) 0%, rgba(0, 31, 63, 0.1) 100%);
+    display: flex;
+    align-items: flex-end;
+    padding: 2rem;
+}
+
+.mosaic-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--white);
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   Container & Layout
+   ========================================================================== */
+.site-container,
+.ast-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+@media (max-width: 992px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .diamond-hunt-row {
+        flex-direction: column;
+    }
+    
+    .hunt-filter {
+        width: 100%;
+    }
+    
+    .hunt-search-btn {
+        width: 100%;
+    }
+    
+    .trust-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .mosaic-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .mosaic-item.large {
+        grid-row: span 1;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.75rem;
+    }
+    
+    h3 {
+        font-size: 1.5rem;
+    }
+    
+    .hero-section {
+        min-height: 70vh;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+/* ==========================================================================
+   WooCommerce Overrides
+   ========================================================================== */
+.woocommerce ul.products li.product,
+.woocommerce-page ul.products li.product {
+    margin: 0 0 2rem;
+}
+
+.woocommerce ul.products li.product .price {
+    color: var(--navy);
+    font-family: var(--font-body);
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+.woocommerce ul.products li.product .button {
+    background-color: var(--cobalt);
+    color: var(--white);
+}
+
+.woocommerce ul.products li.product .button:hover {
+    background-color: var(--navy);
+}
+
+/* Gold Accent Elements */
+.gold-accent,
+.gold-border {
+    border-color: var(--gold);
+}
+
+.gold-text {
+    color: var(--gold);
+}

@@ -19,119 +19,117 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header(); ?>
 
-<div id="primary" class="content-area premium-home">
+<div id="primary" class="content-area luxury-home">
     <main id="main" class="site-main">
 
-        <!-- HERO SECTION -->
-        <section class="hero-section" style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/hero/hero-bg.png');">
-            <div class="hero-overlay"></div>
-            <div class="hero-content" data-aos="fade-up">
-                <h1 class="hero-title">Ethical Brilliance,<br>Lab-Perfected.</h1>
-                <p class="hero-subtitle">Indistinguishable from mined. 40% more brilliant.<br>100% conflict-free sustainability.</p>
-                <div class="hero-actions">
-                    <a href="/shop/" class="btn-premium">Explore Diamonds</a>
-                    <a href="/consultation/" class="btn-premium btn-outline">Book Consultation</a>
-                </div>
-            </div>
+        <!-- IMMERSIVE HERO SECTION -->
+        <section class="luxury-hero" style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/hero/hero-bg.png');">
+            <div class="luxury-hero__overlay"></div>
             
-            <!-- Shape Selector (Floating) -->
-            <div class="hero-shape-selector glass-panel">
-                <span class="shape-label">Select Your Cut</span>
-                <div class="shapes-scroll">
-                    <?php
-                    $shapes = [
-                        'round' => 'Round',
-                        'oval' => 'Oval',
-                        'emerald' => 'Emerald',
-                        'princess' => 'Princess',
-                        'cushion' => 'Cushion',
-                        'pear' => 'Pear'
-                    ];
-                    foreach ($shapes as $slug => $name) : ?>
-                        <a href="/shop/?filter_shape=<?php echo $slug; ?>" class="shape-item">
-                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/diamonds/<?php echo $slug; ?>.png" alt="<?php echo $name; ?> Cut">
-                            <span class="shape-name"><?php echo $name; ?></span>
-                        </a>
-                    <?php endforeach; ?>
+            <div class="luxury-hero__content">
+                <h1 class="luxury-hero__headline">Ethical Brilliance. Lab-Perfected.</h1>
+                <p class="luxury-hero__subheadline">GIA-Certified Diamonds, Minus the Mining.</p>
+                <div class="luxury-hero__ctas">
+                    <a href="/shop/" class="luxury-btn luxury-btn--primary">Shop Loose Diamonds</a>
+                    <a href="/custom-design/" class="luxury-btn luxury-btn--secondary">Design Your Ring</a>
                 </div>
             </div>
         </section>
 
-        <!-- TRUST INDICATORS -->
-        <section class="trust-section bg-navy">
+        <!-- DIAMOND CONTROL PANEL -->
+        <section class="diamond-panel">
             <div class="ast-container">
-                <div class="trust-grid">
-                    <div class="trust-item">
-                        <span class="trust-icon">💎</span>
-                        <h4>GIA/IGI Certified</h4>
-                        <p>Every stone graded by world experts</p>
+                <div class="diamond-panel__bar">
+                    <div class="diamond-panel__filter" data-filter="shape">
+                        <span class="diamond-panel__label">Shape</span>
+                        <span class="diamond-panel__value">All Shapes</span>
+                        <span class="diamond-panel__arrow">▼</span>
                     </div>
-                    <div class="trust-item">
-                        <span class="trust-icon">🌿</span>
-                        <h4>Eco-Friendly</h4>
-                        <p>Zero mining impact, 100% renewable</p>
+                    <div class="diamond-panel__divider"></div>
+                    <div class="diamond-panel__filter" data-filter="carat">
+                        <span class="diamond-panel__label">Carat</span>
+                        <span class="diamond-panel__value">Any</span>
+                        <span class="diamond-panel__arrow">▼</span>
                     </div>
-                    <div class="trust-item">
-                        <span class="trust-icon">⭐</span>
-                        <h4>Lifetime Warranty</h4>
-                        <p>Quality guaranteed forever</p>
+                    <div class="diamond-panel__divider"></div>
+                    <div class="diamond-panel__filter" data-filter="color">
+                        <span class="diamond-panel__label">Color</span>
+                        <span class="diamond-panel__value">Any</span>
+                        <span class="diamond-panel__arrow">▼</span>
                     </div>
-                    <div class="trust-item">
-                        <span class="trust-icon">↺</span>
-                        <h4>30-Day Returns</h4>
-                        <p>No-questions-asked refund policy</p>
+                    <div class="diamond-panel__divider"></div>
+                    <div class="diamond-panel__filter" data-filter="clarity">
+                        <span class="diamond-panel__label">Clarity</span>
+                        <span class="diamond-panel__value">Any</span>
+                        <span class="diamond-panel__arrow">▼</span>
+                    </div>
+                    <div class="diamond-panel__divider"></div>
+                    <div class="diamond-panel__filter" data-filter="price">
+                        <span class="diamond-panel__label">Price</span>
+                        <span class="diamond-panel__value">Any Budget</span>
+                        <span class="diamond-panel__arrow">▼</span>
+                    </div>
+                    <a href="/shop/" class="diamond-panel__search-btn">Search Diamonds</a>
+                </div>
+                <button class="diamond-panel__mobile-toggle">Search Diamonds</button>
+            </div>
+        </section>
+
+        <!-- TRUST TRIUMVIRATE -->
+        <section class="trust-triumvirate">
+            <div class="ast-container">
+                <div class="trust-triumvirate__grid">
+                    <div class="trust-triumvirate__item">
+                        <div class="trust-triumvirate__icon">
+                            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                        </div>
+                        <h3 class="trust-triumvirate__title">IGI & GIA CERTIFIED</h3>
+                    </div>
+                    <div class="trust-triumvirate__item">
+                        <div class="trust-triumvirate__icon">
+                            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                        </div>
+                        <h3 class="trust-triumvirate__title">360° INSPECTION</h3>
+                    </div>
+                    <div class="trust-triumvirate__item">
+                        <div class="trust-triumvirate__icon">
+                            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"></path>
+                                <path d="M12 11.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path>
+                                <path d="M7 13.5c.83.61 2.35 1.5 5 1.5s4.17-.89 5-1.5"></path>
+                            </svg>
+                        </div>
+                        <h3 class="trust-triumvirate__title">100% CONFLICT FREE</h3>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- CATEGORIES -->
-        <section class="category-section">
-            <div class="ast-container">
-                <div class="section-header text-center">
-                    <h2 class="section-title">Curated Collections</h2>
-                    <p class="section-desc">Discover the perfect expression of your love</p>
-                </div>
-                
-                <div class="category-grid">
-                    <div class="cat-card large" style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/categories/engagement-rings.png');">
-                        <div class="cat-content glass-panel">
-                            <h3>Engagement Rings</h3>
-                            <a href="/product-category/engagement-rings/" class="link-arrow">Shop Now →</a>
-                        </div>
-                    </div>
-                    <div class="cat-card" style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/categories/loose-diamonds.png');">
-                        <div class="cat-content glass-panel">
-                            <h3>Loose Diamonds</h3>
-                            <a href="/shop/" class="link-arrow">Browse Stones →</a>
-                        </div>
-                    </div>
-                    <div class="cat-card" style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/categories/jewelry.png');">
-                        <div class="cat-content glass-panel">
-                            <h3>Fine Jewelry</h3>
-                            <a href="/product-category/jewelry/" class="link-arrow">View Collection →</a>
-                        </div>
-                    </div>
-                    <div class="cat-card" style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/categories/custom-design.png');">
-                        <div class="cat-content glass-panel">
-                            <h3>Custom Design</h3>
-                            <a href="/custom-design/" class="link-arrow">Start Creation →</a>
-                        </div>
+        <!-- B2B / B2C HYBRID SPLIT -->
+        <section class="hybrid-split">
+            <div class="hybrid-split__container">
+                <div class="hybrid-split__panel hybrid-split__panel--b2b">
+                    <div class="hybrid-split__content">
+                        <h2 class="hybrid-split__heading">For Jewelers & Wholesalers</h2>
+                        <p class="hybrid-split__text">Access bulk pricing and live API inventory.</p>
+                        <a href="/trade-program/" class="luxury-btn luxury-btn--light">Join Trade Program</a>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- CTA SECTION -->
-        <section class="cta-banner">
-            <div class="ast-container">
-                <div class="cta-box glass-panel text-center">
-                    <h2>Expert Guidance at Your Fingertips</h2>
-                    <p>Schedule a free virtual consultation with our gemologists.</p>
-                    <a href="https://wa.me/919876543210" class="btn-premium">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118 1.571-.065 1.758-.758 2.006-1.49l.06-.32zM12 21.75c-5.325 0-9.656-4.291-9.75-9.634 0-1.87.52-3.615 1.439-5.127l-1.602-5.748 5.992 1.559c1.47-.852 3.166-1.341 4.973-1.341 5.384 0 9.75 4.366 9.75 9.75 0 5.385-4.366 9.75-9.75 9.75z"/></svg>
-                        Chat on WhatsApp
-                    </a>
+                <div class="hybrid-split__panel hybrid-split__panel--b2c">
+                    <div class="hybrid-split__content">
+                        <h2 class="hybrid-split__heading">For Couples</h2>
+                        <p class="hybrid-split__text">Craft the perfect symbol of your love.</p>
+                        <a href="/custom-design/" class="luxury-btn luxury-btn--dark">Start Customizing</a>
+                    </div>
                 </div>
             </div>
         </section>
