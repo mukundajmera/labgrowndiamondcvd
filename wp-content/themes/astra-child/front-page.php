@@ -31,9 +31,9 @@ get_header(); ?>
                 <h1 class="luxury-hero__headline">Lab-Grown CVD Diamond Brilliance, Mining-Free</h1>
                 <p class="luxury-hero__subheadline">IGI/GIA Certified | Up to 40% Savings vs Natural | 100% Sustainable</p>
                 <div class="luxury-hero__ctas">
-                    <a href="/shop/" class="luxury-btn luxury-btn--primary">Shop Loose Diamonds</a>
-                    <a href="/design-your-ring/" class="luxury-btn luxury-btn--secondary">Design Your Ring</a>
-                    <a href="/trade-program/" class="luxury-btn luxury-btn--tertiary">For Jewellers & Wholesalers</a>
+                    <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="luxury-btn luxury-btn--primary">Shop Loose Diamonds</a>
+                    <a href="<?php echo esc_url(home_url('/design-your-ring/')); ?>" class="luxury-btn luxury-btn--secondary">Design Your Ring</a>
+                    <a href="<?php echo esc_url(home_url('/trade-program/')); ?>" class="luxury-btn luxury-btn--tertiary">For Jewellers & Wholesalers</a>
                 </div>
             </div>
         </section>

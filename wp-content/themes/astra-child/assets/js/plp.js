@@ -6,6 +6,35 @@
 (function ($) {
     'use strict';
 
+    /**
+     * Utility function to show notifications
+     */
+    function showNotification(message, type) {
+        type = type || 'info';
+        var bgColor = type === 'error' ? '#e74c3c' : '#0047AB';
+        
+        var notification = $('<div class="lgd-notification">' + message + '</div>');
+        notification.css({
+            'position': 'fixed',
+            'top': '20px',
+            'right': '20px',
+            'background': bgColor,
+            'color': '#fff',
+            'padding': '15px 20px',
+            'border-radius': '4px',
+            'box-shadow': '0 4px 12px rgba(0,0,0,0.15)',
+            'z-index': '9999',
+            'max-width': '300px',
+            'font-size': '14px',
+            'line-height': '1.5'
+        });
+        
+        $('body').append(notification);
+        setTimeout(function() {
+            notification.fadeOut(300, function() { $(this).remove(); });
+        }, 3000);
+    }
+
     $(document).ready(function () {
 
         /**
@@ -217,7 +246,7 @@
             if ($(this).is(':checked')) {
                 // Add to compare list (max 4)
                 if (compareList.length >= 4) {
-                    alert('You can compare maximum 4 products');
+                    showNotification('You can compare maximum 4 products. Please remove one to add another.', 'error');
                     $(this).prop('checked', false);
                     return;
                 }

@@ -6,6 +6,35 @@
 (function ($) {
     'use strict';
 
+    /**
+     * Utility function to show notifications
+     */
+    function showNotification(message, type) {
+        type = type || 'info';
+        var bgColor = type === 'error' ? '#e74c3c' : '#0047AB';
+        
+        var notification = $('<div class="lgd-notification">' + message + '</div>');
+        notification.css({
+            'position': 'fixed',
+            'top': '20px',
+            'right': '20px',
+            'background': bgColor,
+            'color': '#fff',
+            'padding': '15px 20px',
+            'border-radius': '4px',
+            'box-shadow': '0 4px 12px rgba(0,0,0,0.15)',
+            'z-index': '9999',
+            'max-width': '300px',
+            'font-size': '14px',
+            'line-height': '1.5'
+        });
+        
+        $('body').append(notification);
+        setTimeout(function() {
+            notification.fadeOut(300, function() { $(this).remove(); });
+        }, 3000);
+    }
+
     $(document).ready(function () {
 
         /**
@@ -30,7 +59,7 @@
             var pincode = $('.lgd-pincode-input').val();
             
             if (!pincode || pincode.length !== 6) {
-                alert('Please enter a valid 6-digit pincode');
+                showNotification('Please enter a valid 6-digit pincode', 'error');
                 return;
             }
             
@@ -64,7 +93,7 @@
             var href = $(this).attr('href');
             if (href === '#' || !href) {
                 e.preventDefault();
-                alert('Certificate viewing feature coming soon! Certificate will be available once the order is confirmed.');
+                showNotification('Certificate will be available once the order is confirmed. Please contact us for more details.', 'info');
             }
         });
 
@@ -110,7 +139,7 @@
             var compareList = JSON.parse(localStorage.getItem('compareList') || '[]');
             
             if (compareList.length >= 4) {
-                alert('You can compare maximum 4 products');
+                showNotification('You can compare maximum 4 products. Please remove one to add another.', 'error');
                 return;
             }
             
@@ -150,7 +179,7 @@
             var href = $(this).attr('href');
             if (href === '#' || href.includes('book-consultation')) {
                 e.preventDefault();
-                alert('Virtual consultation booking feature coming soon! Please contact us via WhatsApp or phone for immediate assistance.');
+                showNotification('Virtual consultation booking coming soon! Please contact us via phone or WhatsApp for immediate assistance.', 'info');
             }
         });
 

@@ -47,6 +47,9 @@ function astra_child_enqueue_styles()
         wp_enqueue_style('diamond-pdp-css', get_stylesheet_directory_uri() . '/assets/css/pdp.css', array(), ASTRA_CHILD_THEME_VERSION);
     }
     
+    // Mobile enhancements - loaded globally for all pages
+    wp_enqueue_style('diamond-mobile-enhancements', get_stylesheet_directory_uri() . '/assets/css/mobile-enhancements.css', array(), ASTRA_CHILD_THEME_VERSION);
+    
     wp_enqueue_style('diamond-custom-css', get_stylesheet_directory_uri() . '/assets/css/custom.css', array(), ASTRA_CHILD_THEME_VERSION);
 
     // Enqueue Google Fonts - Playfair Display for headings and Montserrat for body
