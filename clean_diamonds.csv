@@ -1,0 +1,11 @@
+ID,Type,SKU,Name,Published,Is featured?,Visibility in catalog,Regular price,Meta: _diamond_shape,Meta: _diamond_carat,Meta: _diamond_color,Meta: _diamond_clarity,Meta: _diamond_cut,Meta: _diamond_certification
+,simple,LGD-RND-050-D-VVS1,Round Brilliant 0.50ct D VVS1,1,1,visible,1850,round,0.50,D,VVS1,excellent,igi
+,simple,LGD-OVL-075-E-VVS2,Oval 0.75ct E VVS2,1,0,visible,2450,oval,0.75,E,VVS2,excellent,gia
+,simple,LGD-EMR-100-F-VS1,Emerald Cut 1.00ct F VS1,1,1,visible,3200,emerald,1.00,F,VS1,very-good,igi
+,simple,LGD-RND-125-D-VVS2,Round Brilliant 1.25ct D VVS2,1,0,visible,4750,round,1.25,D,VVS2,excellent,gia
+,simple,LGD-OVL-150-G-VVS1,Oval 1.50ct G VVS1,1,1,visible,5100,oval,1.50,G,VVS1,excellent,igi
+,simple,LGD-EMR-175-E-VS1,Emerald Cut 1.75ct E VS1,1,0,visible,6800,emerald,1.75,E,VS1,very-good,gia
+,simple,LGD-RND-200-F-VVS1,Round Brilliant 2.00ct F VVS1,1,1,visible,8950,round,2.00,F,VVS1,excellent,igi
+,simple,LGD-OVL-225-D-VS1,Oval 2.25ct D VS1,1,0,visible,9850,oval,2.25,D,VS1,excellent,gia
+,simple,LGD-EMR-250-G-VVS2,Emerald Cut 2.50ct G VVS2,1,1,visible,10500,emerald,2.50,G,VVS2,very-good,igi
+,simple,LGD-RND-100-E-VVS1,Round Brilliant 1.00ct E VVS1,1,0,visible,3650,round,1.00,E,VVS1,excellent,gia
