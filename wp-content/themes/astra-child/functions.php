@@ -33,6 +33,7 @@ function astra_child_enqueue_styles()
     // Enqueue custom CSS files
     wp_enqueue_style('diamond-header-css', get_stylesheet_directory_uri() . '/assets/css/header.css', array(), ASTRA_CHILD_THEME_VERSION);
     wp_enqueue_style('diamond-footer-css', get_stylesheet_directory_uri() . '/assets/css/footer.css', array(), ASTRA_CHILD_THEME_VERSION);
+    wp_enqueue_style('diamond-homepage-css', get_stylesheet_directory_uri() . '/assets/css/homepage.css', array(), ASTRA_CHILD_THEME_VERSION);
     wp_enqueue_style('diamond-custom-css', get_stylesheet_directory_uri() . '/assets/css/custom.css', array(), ASTRA_CHILD_THEME_VERSION);
 
     // Enqueue Google Fonts - Playfair Display for headings and Montserrat for body
@@ -631,6 +632,40 @@ function astra_child_customizer_settings($wp_customize)
 
     $wp_customize->add_control('header_announcement', array(
         'label' => __('Header Announcement Bar Text', 'astra-child-diamond'),
+        'section' => 'diamond_theme_settings',
+        'type' => 'text',
+    ));
+
+    // Social Proof Stats
+    $wp_customize->add_setting('customer_reviews_count', array(
+        'default' => '500+',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+
+    $wp_customize->add_control('customer_reviews_count', array(
+        'label' => __('Customer Reviews Count', 'astra-child-diamond'),
+        'section' => 'diamond_theme_settings',
+        'type' => 'text',
+    ));
+
+    $wp_customize->add_setting('diamonds_sold_count', array(
+        'default' => '5,000+',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+
+    $wp_customize->add_control('diamonds_sold_count', array(
+        'label' => __('Diamonds Sold Count', 'astra-child-diamond'),
+        'section' => 'diamond_theme_settings',
+        'type' => 'text',
+    ));
+
+    $wp_customize->add_setting('jewellers_served_count', array(
+        'default' => '200+',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+
+    $wp_customize->add_control('jewellers_served_count', array(
+        'label' => __('Jewellers Served Count', 'astra-child-diamond'),
         'section' => 'diamond_theme_settings',
         'type' => 'text',
     ));
