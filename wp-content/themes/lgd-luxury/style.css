@@ -1,0 +1,1189 @@
+/*
+Theme Name: LGD-Luxury
+Theme URI: https://labgrowndiamondcvd.com
+Description: A premium luxury child theme for Astra, designed for lab-grown diamond e-commerce. Features a sophisticated navy and gold color palette with elegant typography.
+Author: Lab Grown Diamond CVD
+Author URI: https://labgrowndiamondcvd.com
+Template: astra
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: lgd-luxury
+*/
+
+/* ==========================================================================
+   Root Variables - Premium Luxury Palette
+   ========================================================================== */
+:root {
+    /* Primary Colors */
+    --navy: #001f3f;
+    --cobalt: #0047AB;
+    --charcoal: #333333;
+    --platinum: #E5E4E2;
+    --gold: #D4AF37;
+
+    /* Derived Colors */
+    --navy-light: #003366;
+    --navy-dark: #001529;
+    --gold-light: #E5C158;
+    --gold-dark: #B8972E;
+
+    /* Neutral Shades */
+    --white: #FFFFFF;
+    --off-white: #FAFAFA;
+    --light-grey: #F5F5F5;
+
+    /* Typography */
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2.5rem;
+    --spacing-xl: 4rem;
+
+    /* Border Radius - Sharp luxury look */
+    --radius-sharp: 2px;
+    --radius-sm: 4px;
+
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Shadows */
+    --shadow-subtle: 0 2px 8px rgba(0, 31, 63, 0.08);
+    --shadow-elevated: 0 4px 20px rgba(0, 31, 63, 0.12);
+}
+
+/* ==========================================================================
+   Typography - Headings
+   ========================================================================== */
+h1,
+h2,
+h3,
+.entry-title,
+.page-title,
+.section-title,
+.widget-title {
+    font-family: var(--font-heading);
+    color: var(--navy);
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+}
+
+h1 {
+    font-size: 2.75rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2.25rem;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1.75rem;
+    font-weight: 600;
+}
+
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    color: var(--charcoal);
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   Typography - Body
+   ========================================================================== */
+body {
+    font-family: var(--font-body);
+    color: var(--charcoal);
+    font-size: 16px;
+    line-height: 1.7;
+    background-color: var(--white);
+}
+
+p,
+li,
+td,
+th,
+span,
+label {
+    font-family: var(--font-body);
+}
+
+/* ==========================================================================
+   Buttons - Sharp Luxury Style
+   ========================================================================== */
+button,
+.button,
+.btn,
+input[type="submit"],
+input[type="button"],
+.wp-block-button__link,
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button,
+.woocommerce #respond input#submit,
+.woocommerce a.button.alt,
+.woocommerce button.button.alt,
+.woocommerce input.button.alt {
+    font-family: var(--font-body);
+    background-color: var(--navy);
+    color: var(--white);
+    border: none;
+    border-radius: var(--radius-sharp);
+    padding: 0.875rem 1.75rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: all var(--transition-smooth);
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+}
+
+button:hover,
+.button:hover,
+.btn:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover,
+.wp-block-button__link:hover,
+.woocommerce a.button:hover,
+.woocommerce button.button:hover,
+.woocommerce input.button:hover,
+.woocommerce #respond input#submit:hover,
+.woocommerce a.button.alt:hover,
+.woocommerce button.button.alt:hover,
+.woocommerce input.button.alt:hover {
+    background-color: var(--cobalt);
+    color: var(--white);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-elevated);
+}
+
+button:active,
+.button:active,
+.btn:active {
+    transform: translateY(0);
+}
+
+/* Secondary/Outline Button */
+.btn-secondary,
+.button-secondary,
+.woocommerce a.button.alt.disabled,
+.woocommerce button.button.alt.disabled {
+    background-color: transparent;
+    color: var(--navy);
+    border: 2px solid var(--navy);
+}
+
+.btn-secondary:hover,
+.button-secondary:hover {
+    background-color: var(--navy);
+    color: var(--white);
+}
+
+/* Gold Accent Button */
+.btn-gold,
+.button-gold {
+    background-color: var(--gold);
+    color: var(--navy);
+}
+
+.btn-gold:hover,
+.button-gold:hover {
+    background-color: var(--gold-dark);
+    color: var(--navy);
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+a {
+    color: var(--cobalt);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+a:hover {
+    color: var(--navy);
+}
+
+/* ==========================================================================
+   Gold Accent Elements
+   ========================================================================== */
+.accent-gold,
+.gold-text {
+    color: var(--gold);
+}
+
+.accent-border {
+    border-bottom: 3px solid var(--gold);
+}
+
+.gold-underline {
+    position: relative;
+}
+
+.gold-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--gold);
+}
+
+/* ==========================================================================
+   Form Inputs
+   ========================================================================== */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+input[type="number"],
+input[type="search"],
+textarea,
+select {
+    font-family: var(--font-body);
+    border: 1px solid var(--platinum);
+    border-radius: var(--radius-sharp);
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--cobalt);
+    box-shadow: 0 0 0 3px rgba(0, 71, 171, 0.1);
+}
+
+/* ==========================================================================
+   Utility Classes
+   ========================================================================== */
+.bg-navy {
+    background-color: var(--navy);
+}
+
+.bg-cobalt {
+    background-color: var(--cobalt);
+}
+
+.bg-charcoal {
+    background-color: var(--charcoal);
+}
+
+.bg-platinum {
+    background-color: var(--platinum);
+}
+
+.bg-gold {
+    background-color: var(--gold);
+}
+
+.text-navy {
+    color: var(--navy);
+}
+
+.text-cobalt {
+    color: var(--cobalt);
+}
+
+.text-charcoal {
+    color: var(--charcoal);
+}
+
+.text-platinum {
+    color: var(--platinum);
+}
+
+.text-gold {
+    color: var(--gold);
+}
+
+.text-white {
+    color: var(--white);
+}
+
+/* ==========================================================================
+   Responsive Typography
+   ========================================================================== */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    button,
+    .button,
+    .btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.8125rem;
+    }
+}
+
+/* ==========================================================================
+   Product Filter by WBW - Premium Blue Nile Styling
+   ========================================================================== */
+
+/* Remove all backgrounds and borders */
+.wbw-filter-widget,
+.wbw-filter-widget .wbw-filter-inner,
+.wbw-filter-widget .wbw-filter-group,
+.wbw-filter-widget .wbw-filter-content,
+.wbw-filter-widget .wbw-filter-item {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Attribute Titles - Shape, Color, etc. */
+.wbw-filter-widget .wbw-filter-title,
+.wbw-filter-widget .wbw-filter-group-title,
+.wbw-filter-widget .wbw-filter-heading,
+.wbw-filter-widget h4,
+.wbw-filter-widget h5 {
+    font-family: var(--font-body);
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--navy) !important;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--platinum) !important;
+}
+
+/* ==========================================================================
+   Range Slider Styling
+   ========================================================================== */
+
+/* Slider Track - Thin and Platinum */
+.wbw-filter-widget .noUi-target,
+.wbw-filter-widget .wbw-range-slider,
+.wbw-filter-widget .wbw-slider-track,
+.wbw-filter-widget input[type="range"] {
+    background: var(--platinum) !important;
+    border: none !important;
+    box-shadow: none !important;
+    height: 4px !important;
+    border-radius: 2px !important;
+}
+
+/* Slider Active/Connect Bar - Cobalt */
+.wbw-filter-widget .noUi-connect,
+.wbw-filter-widget .wbw-slider-progress,
+.wbw-filter-widget .wbw-range-active {
+    background: var(--cobalt) !important;
+}
+
+/* Slider Handles */
+.wbw-filter-widget .noUi-handle,
+.wbw-filter-widget .wbw-slider-handle {
+    width: 16px !important;
+    height: 16px !important;
+    background: var(--navy) !important;
+    border: 2px solid #fff !important;
+    border-radius: 50% !important;
+    box-shadow: 0 2px 6px rgba(0, 31, 63, 0.25) !important;
+    cursor: pointer;
+    top: -6px !important;
+}
+
+.wbw-filter-widget .noUi-handle::before,
+.wbw-filter-widget .noUi-handle::after {
+    display: none !important;
+}
+
+/* Slider Value Display */
+.wbw-filter-widget .wbw-range-values,
+.wbw-filter-widget .wbw-slider-values {
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: var(--charcoal);
+    margin-top: 12px;
+}
+
+/* ==========================================================================
+   Checkboxes & Button Filters - Square, Premium Style
+   ========================================================================== */
+
+/* Hide default checkbox */
+.wbw-filter-widget input[type="checkbox"],
+.wbw-filter-widget input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Custom Square Checkbox/Button */
+.wbw-filter-widget .wbw-filter-item label,
+.wbw-filter-widget .wbw-filter-option,
+.wbw-filter-widget .wbw-checkbox-label,
+.wbw-filter-widget .wbw-button-filter {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    padding: 8px 14px;
+    margin: 4px;
+    background: transparent;
+    border: 1px solid var(--navy) !important;
+    border-radius: 0 !important;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--navy);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Hover State */
+.wbw-filter-widget .wbw-filter-item label:hover,
+.wbw-filter-widget .wbw-filter-option:hover,
+.wbw-filter-widget .wbw-checkbox-label:hover,
+.wbw-filter-widget .wbw-button-filter:hover {
+    background: rgba(0, 31, 63, 0.05);
+}
+
+/* Selected/Active State - Navy with White Text */
+.wbw-filter-widget .wbw-filter-item.active label,
+.wbw-filter-widget .wbw-filter-item.selected label,
+.wbw-filter-widget input[type="checkbox"]:checked+label,
+.wbw-filter-widget input[type="radio"]:checked+label,
+.wbw-filter-widget .wbw-filter-option.active,
+.wbw-filter-widget .wbw-filter-option.selected,
+.wbw-filter-widget .wbw-checkbox-label.active,
+.wbw-filter-widget .wbw-button-filter.active,
+.wbw-filter-widget .wbw-button-filter.selected {
+    background: var(--navy) !important;
+    color: #fff !important;
+    border-color: var(--navy) !important;
+}
+
+/* Shape/Swatch Items Grid */
+.wbw-filter-widget .wbw-filter-items,
+.wbw-filter-widget .wbw-options-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+/* ==========================================================================
+   Clear/Reset Button
+   ========================================================================== */
+.wbw-filter-widget .wbw-clear-btn,
+.wbw-filter-widget .wbw-reset-btn,
+.wbw-filter-widget [class*="clear"],
+.wbw-filter-widget [class*="reset"] {
+    background: transparent !important;
+    border: none !important;
+    color: var(--cobalt) !important;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    padding: 4px 0;
+}
+
+.wbw-filter-widget .wbw-clear-btn:hover,
+.wbw-filter-widget .wbw-reset-btn:hover {
+    color: var(--navy) !important;
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   Apply Filter Button
+   ========================================================================== */
+.wbw-filter-widget .wbw-apply-btn,
+.wbw-filter-widget button[type="submit"] {
+    width: 100%;
+    background: var(--navy) !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 2px !important;
+    padding: 12px 20px;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 16px;
+}
+
+.wbw-filter-widget .wbw-apply-btn:hover,
+.wbw-filter-widget button[type="submit"]:hover {
+    background: var(--cobalt) !important;
+}
+
+/* ==========================================================================
+   Count Badges
+   ========================================================================== */
+.wbw-filter-widget .wbw-filter-count,
+.wbw-filter-widget .count {
+    font-size: 10px;
+    color: var(--charcoal);
+    opacity: 0.6;
+    margin-left: 4px;
+}
+
+/* Hide counts when selected */
+.wbw-filter-widget .wbw-filter-item.active .wbw-filter-count,
+.wbw-filter-widget input[type="checkbox"]:checked+label .count {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* ==========================================================================
+   HOMEPAGE STYLES - LGD-LUXURY
+   ========================================================================== */
+
+/* Global Homepage Spacing */
+.lgd-homepage section {
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   SECTION A: Hero - Immersive Video Background
+   ========================================================================== */
+.lgd-hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.lgd-hero__video-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.lgd-hero__video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.lgd-hero__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 31, 63, 0.3), rgba(0, 31, 63, 0.8));
+    z-index: 2;
+}
+
+.lgd-hero__content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    padding: 0 20px;
+    max-width: 900px;
+}
+
+.lgd-hero__headline {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+}
+
+.lgd-hero__subheadline {
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 2vw, 1.35rem);
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2.5rem;
+    font-weight: 400;
+    line-height: 1.6;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.lgd-hero__ctas {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.lgd-btn--hero {
+    padding: 1rem 2rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.lgd-btn--hero.btn-primary {
+    background-color: var(--cobalt);
+    color: var(--white);
+    border: 2px solid var(--cobalt);
+}
+
+.lgd-btn--hero.btn-primary:hover {
+    background-color: var(--navy);
+    border-color: var(--navy);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 71, 171, 0.4);
+}
+
+.lgd-btn--hero.btn-outline-white {
+    background-color: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+}
+
+.lgd-btn--hero.btn-outline-white:hover {
+    background-color: var(--white);
+    color: var(--navy);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   SECTION B: Diamond Discovery Bar
+   ========================================================================== */
+.lgd-discovery {
+    position: relative;
+    z-index: 10;
+    margin-top: -60px;
+    padding-bottom: 80px;
+}
+
+.lgd-discovery__bar {
+    background: var(--white);
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0, 31, 63, 0.15);
+    padding: 0;
+    display: flex;
+    align-items: stretch;
+    overflow: hidden;
+}
+
+.lgd-discovery__item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    text-align: center;
+    min-width: 100px;
+}
+
+.lgd-discovery__item:hover {
+    background: var(--light-grey);
+}
+
+.lgd-discovery__label {
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--navy);
+    margin-bottom: 6px;
+    opacity: 0.7;
+}
+
+.lgd-discovery__value {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 4px;
+}
+
+.lgd-discovery__arrow {
+    color: var(--navy);
+    opacity: 0.5;
+}
+
+.lgd-discovery__divider {
+    width: 1px;
+    background: var(--platinum);
+}
+
+.lgd-discovery__search-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--navy);
+    color: var(--white);
+    padding: 24px 32px;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    transition: background 0.3s ease;
+    white-space: nowrap;
+}
+
+.lgd-discovery__search-btn:hover {
+    background: var(--cobalt);
+    color: var(--white);
+}
+
+/* ==========================================================================
+   SECTION C: Trust Triumvirate
+   ========================================================================== */
+.lgd-trust {
+    background: var(--white);
+    padding: 100px 0;
+}
+
+.lgd-trust__item {
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.lgd-trust__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 24px;
+    color: var(--navy);
+}
+
+.lgd-trust__icon svg {
+    stroke: var(--navy);
+}
+
+.lgd-trust__title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 12px;
+}
+
+.lgd-trust__text {
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    color: var(--charcoal);
+    line-height: 1.7;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   SECTION D: Visual Category Navigation (Mosaic)
+   ========================================================================== */
+.lgd-mosaic {
+    background: var(--charcoal);
+}
+
+.lgd-mosaic__banner {
+    position: relative;
+    display: block;
+    height: 500px;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.lgd-mosaic__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.6s ease;
+}
+
+.lgd-mosaic__banner:hover .lgd-mosaic__image {
+    transform: scale(1.05);
+}
+
+.lgd-mosaic__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 31, 63, 0.8) 0%, rgba(0, 31, 63, 0.2) 100%);
+    z-index: 2;
+}
+
+.lgd-mosaic__content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 40px;
+    z-index: 3;
+    color: var(--white);
+}
+
+.lgd-mosaic__eyebrow {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    opacity: 0.8;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.lgd-mosaic__title {
+    font-family: var(--font-heading);
+    font-size: 2.25rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 16px;
+}
+
+.lgd-mosaic__cta {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* ==========================================================================
+   SECTION E: Educational Hook
+   ========================================================================== */
+.lgd-education {
+    background: var(--off-white);
+    padding: 120px 0;
+}
+
+.lgd-education__text {
+    padding-right: 60px;
+}
+
+.lgd-education__eyebrow {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--cobalt);
+    display: block;
+    margin-bottom: 16px;
+}
+
+.lgd-education__title {
+    font-family: var(--font-heading);
+    font-size: 2.75rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 24px;
+    line-height: 1.2;
+}
+
+.lgd-education__description {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--charcoal);
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.lgd-education__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--cobalt);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 16px;
+    transition: color 0.2s ease;
+}
+
+.lgd-education__link:hover {
+    color: var(--navy);
+}
+
+.lgd-education__image-wrapper {
+    position: relative;
+}
+
+.lgd-education__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    box-shadow: 0 20px 50px rgba(0, 31, 63, 0.15);
+}
+
+.lgd-education__accent {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 100px;
+    height: 100px;
+    background: var(--gold);
+    z-index: -1;
+}
+
+/* ==========================================================================
+   SECTION F: Instagram Feed
+   ========================================================================== */
+.lgd-instagram {
+    background: var(--white);
+    padding: 100px 0 80px;
+}
+
+.lgd-instagram__header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.lgd-instagram__eyebrow {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--cobalt);
+    display: block;
+    margin-bottom: 12px;
+}
+
+.lgd-instagram__title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--navy);
+}
+
+.lgd-instagram__feed-wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+
+.lgd-instagram__feed {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 4px;
+}
+
+.lgd-instagram__item {
+    aspect-ratio: 1;
+    overflow: hidden;
+}
+
+.lgd-instagram__placeholder {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s ease;
+}
+
+.lgd-instagram__item:hover .lgd-instagram__placeholder {
+    transform: scale(1.05);
+}
+
+.lgd-instagram__cta {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.btn-outline-navy {
+    display: inline-flex;
+    align-items: center;
+    background: transparent;
+    color: var(--navy);
+    border: 2px solid var(--navy);
+    padding: 12px 28px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-navy:hover {
+    background: var(--navy);
+    color: var(--white);
+}
+
+/* ==========================================================================
+   HOMEPAGE RESPONSIVE STYLES
+   ========================================================================== */
+
+/* Tablets and smaller desktops */
+@media (max-width: 992px) {
+    .lgd-hero__headline {
+        font-size: 2.5rem;
+    }
+
+    .lgd-discovery__bar {
+        flex-wrap: wrap;
+    }
+
+    .lgd-discovery__item {
+        flex: 1 1 33.333%;
+        border-bottom: 1px solid var(--platinum);
+    }
+
+    .lgd-discovery__divider {
+        display: none;
+    }
+
+    .lgd-discovery__search-btn {
+        flex: 1 1 100%;
+    }
+
+    .lgd-mosaic__banner {
+        height: 400px;
+    }
+
+    .lgd-education__text {
+        padding-right: 0;
+        margin-bottom: 50px;
+    }
+
+    .lgd-instagram__feed {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
+    .lgd-hero {
+        height: 90vh;
+        min-height: 500px;
+    }
+
+    .lgd-hero__headline {
+        font-size: 2rem;
+    }
+
+    .lgd-hero__subheadline {
+        font-size: 1rem;
+    }
+
+    .lgd-hero__ctas {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .lgd-btn--hero {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .lgd-discovery {
+        margin-top: -40px;
+        padding-bottom: 60px;
+    }
+
+    .lgd-discovery__bar {
+        flex-direction: column;
+    }
+
+    .lgd-discovery__item {
+        flex: none;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 16px 20px;
+        border-bottom: 1px solid var(--platinum);
+    }
+
+    .lgd-discovery__label {
+        margin-bottom: 0;
+        margin-right: 8px;
+    }
+
+    .lgd-trust {
+        padding: 60px 0;
+    }
+
+    .lgd-trust__item {
+        margin-bottom: 30px;
+    }
+
+    .lgd-mosaic__banner {
+        height: 350px;
+    }
+
+    .lgd-mosaic__title {
+        font-size: 1.75rem;
+    }
+
+    .lgd-education {
+        padding: 80px 0;
+    }
+
+    .lgd-education__title {
+        font-size: 2rem;
+    }
+
+    .lgd-education__accent {
+        display: none;
+    }
+
+    .lgd-instagram {
+        padding: 60px 0;
+    }
+
+    .lgd-instagram__feed {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
