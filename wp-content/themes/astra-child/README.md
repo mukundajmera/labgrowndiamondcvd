@@ -4,6 +4,8 @@ A premium WordPress ecommerce child theme for lab-grown CVD diamonds and curated
 
 ## Description
 
+**Deployment Update:** 2025-12-13
+
 This child theme transforms the Astra theme into a specialized ecommerce platform for lab-grown diamonds with:
 
 - **Modern Blue-Black-White-Grey Color Scheme**: Navy blue (#0D47A1), cobalt blue (#2962FF), charcoal black (#212121)
