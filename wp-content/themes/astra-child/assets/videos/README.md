@@ -1,12 +1,30 @@
-# Video Assets for Luxury Homepage
+# Hero Assets for Luxury Homepage
 
-## Required Video File
+## Current Implementation: Static Image
+
+The homepage currently uses a **static background image** for the hero section instead of a video for better performance and immediate availability.
+
+**Current File:** `/wp-content/themes/astra-child/assets/images/hero/hero-bg.png`
+
+### Image Specifications:
+- **Format:** PNG or JPG
+- **Resolution:** 1920x1080 (Full HD) minimum
+- **Aspect Ratio:** 16:9
+- **File Size:** Optimized for web (under 1MB recommended)
+- **Content:** High-quality diamond showcase or luxury aesthetic
+- **Important:** Ensure good contrast for white text overlay readability
+
+---
+
+## Optional: Upgrade to Video (Future Enhancement)
+
+If you want to upgrade to a video background in the future:
 
 **File Name:** `hero-diamond.mp4`
 
 **Location:** `/wp-content/themes/astra-child/assets/videos/hero-diamond.mp4`
 
-### Specifications:
+### Video Specifications:
 - **Format:** MP4 (H.264 codec recommended)
 - **Resolution:** 1920x1080 (Full HD) minimum
 - **Aspect Ratio:** 16:9
@@ -15,14 +33,16 @@
 - **Content:** Showcasing lab-grown diamonds with luxury aesthetic
 - **Audio:** Not required (video will be muted)
 
-### Optimization Tips:
-1. Use a high-quality diamond showcase or abstract luxury footage
-2. Ensure the video has good contrast for text overlay readability
-3. Compress the video for web delivery without losing quality
-4. Consider using a CDN for faster loading
+### To Switch to Video:
+Modify `front-page.php` hero section to replace the background-image with a video element:
 
-### Fallback Behavior:
-If the video file is not present, the page will display the overlay gradient on a solid background. For best results, ensure the video file is uploaded to the specified location.
+```php
+<div class="luxury-hero__video-container">
+    <video class="luxury-hero__video" autoplay muted loop playsinline>
+        <source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/videos/hero-diamond.mp4" type="video/mp4">
+    </video>
+    <div class="luxury-hero__overlay"></div>
+</div>
+```
 
-### Alternative: Use a Static Image
-If a video is not available, you can modify `front-page.php` to use a static hero image instead by replacing the video container section with a background image.
+And update CSS to restore video-specific styles.

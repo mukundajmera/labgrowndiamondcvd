@@ -23,13 +23,8 @@ get_header(); ?>
     <main id="main" class="site-main">
 
         <!-- IMMERSIVE HERO SECTION -->
-        <section class="luxury-hero">
-            <div class="luxury-hero__video-container">
-                <video class="luxury-hero__video" autoplay muted loop playsinline>
-                    <source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/videos/hero-diamond.mp4" type="video/mp4">
-                </video>
-                <div class="luxury-hero__overlay"></div>
-            </div>
+        <section class="luxury-hero" style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/hero/hero-bg.png');">
+            <div class="luxury-hero__overlay"></div>
             
             <div class="luxury-hero__content">
                 <h1 class="luxury-hero__headline">Ethical Brilliance. Lab-Perfected.</h1>
