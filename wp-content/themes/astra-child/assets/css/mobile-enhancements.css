@@ -1,0 +1,288 @@
+/**
+ * Mobile-Specific Enhancements
+ * Lab Grown Diamond CVD - Improved Touch & Mobile UX
+ */
+
+/* ===========================
+   Touch-Friendly Buttons
+   =========================== */
+@media (max-width: 768px) {
+    /* Ensure all buttons have minimum 44x44px touch target (WCAG 2.1 Level AAA) */
+    button,
+    .button,
+    .luxury-btn,
+    a.button,
+    input[type="submit"],
+    input[type="button"] {
+        min-height: 44px;
+        padding: 12px 20px;
+    }
+
+    /* Utility buttons in header */
+    .lgd-header__utility-btn {
+        min-width: 44px;
+        min-height: 44px;
+        padding: 12px;
+    }
+
+    /* Filter checkboxes */
+    .lgd-filter-checkbox input[type="checkbox"] {
+        min-width: 24px;
+        min-height: 24px;
+    }
+
+    /* Quick view button */
+    .lgd-product-card__quick-view {
+        min-height: 44px;
+        padding: 12px 20px;
+    }
+
+    /* Notification styles for mobile */
+    .lgd-notification {
+        left: 10px !important;
+        right: 10px !important;
+        max-width: calc(100% - 20px) !important;
+        top: 10px !important;
+    }
+}
+
+/* ===========================
+   Mobile Navigation Improvements
+   =========================== */
+@media (max-width: 768px) {
+    /* Make mobile menu items easier to tap */
+    .lgd-mobile-nav .menu-item > a {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+
+    /* Larger tap area for menu toggle */
+    .lgd-header__mobile-toggle {
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    /* Prevent text selection on mobile buttons */
+    button,
+    .button,
+    .luxury-btn,
+    a[role="button"] {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+}
+
+/* ===========================
+   Form Input Improvements
+   =========================== */
+@media (max-width: 768px) {
+    /* Ensure inputs are easily tappable */
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    input[type="search"],
+    select,
+    textarea {
+        min-height: 44px;
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+
+    /* Quantity inputs */
+    .quantity input[type="number"] {
+        min-height: 44px;
+        min-width: 60px;
+    }
+}
+
+/* ===========================
+   Product Card Improvements
+   =========================== */
+@media (max-width: 768px) {
+    /* Larger product cards for easier browsing */
+    .lgd-product-card {
+        margin-bottom: 20px;
+    }
+
+    /* Ensure product images are tappable */
+    .lgd-product-card__image a {
+        display: block;
+        min-height: 200px;
+    }
+
+    /* Compare checkbox larger on mobile */
+    .lgd-product-card__compare-icon {
+        width: 44px;
+        height: 44px;
+    }
+}
+
+/* ===========================
+   Smooth Scrolling
+   =========================== */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Disable on devices that prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ===========================
+   Focus Indicators for Accessibility
+   =========================== */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid #0047AB;
+    outline-offset: 2px;
+}
+
+/* Hide focus for mouse users, show for keyboard users */
+.js-focus-visible :focus:not(.focus-visible) {
+    outline: none;
+}
+
+/* ===========================
+   Safe Area Padding for Notched Devices
+   =========================== */
+@supports (padding: max(0px)) {
+    .lgd-header__top-bar,
+    .lgd-header__main,
+    .lgd-footer__main,
+    .lgd-footer__bottom {
+        padding-left: max(20px, env(safe-area-inset-left));
+        padding-right: max(20px, env(safe-area-inset-right));
+    }
+}
+
+/* ===========================
+   Landscape Mode Optimizations
+   =========================== */
+@media (max-width: 768px) and (orientation: landscape) {
+    /* Reduce header height in landscape */
+    .lgd-header__main {
+        padding: 10px 0;
+    }
+
+    /* Adjust hero section height */
+    .luxury-hero {
+        min-height: 70vh;
+    }
+
+    /* Make filter sidebar full-screen in landscape */
+    .lgd-plp-sidebar {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* ===========================
+   Loading States
+   =========================== */
+.loading {
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.loading::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid #0047AB;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ===========================
+   Sticky Elements on Mobile
+   =========================== */
+@media (max-width: 768px) {
+    /* Ensure sticky header doesn't overlap content */
+    .lgd-header.sticky + * {
+        padding-top: 60px;
+    }
+
+    /* Sticky toolbar in PLPs */
+    .lgd-plp-toolbar {
+        position: sticky;
+        top: 60px;
+        background: #fff;
+        z-index: 10;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+}
+
+/* ===========================
+   Pull-to-Refresh Compatibility
+   =========================== */
+body {
+    overscroll-behavior-y: contain;
+}
+
+/* ===========================
+   Image Loading Optimization
+   =========================== */
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Lazy-loaded images */
+img[loading="lazy"] {
+    background: #f0f0f0;
+}
+
+/* ===========================
+   Typography Readability on Mobile
+   =========================== */
+@media (max-width: 480px) {
+    /* Ensure minimum font sizes for readability */
+    body {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    /* Prevent tiny text */
+    * {
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+    }
+
+    /* Readable links */
+    a {
+        text-decoration: underline;
+    }
+
+    .luxury-btn,
+    .button,
+    button {
+        text-decoration: none;
+    }
+}

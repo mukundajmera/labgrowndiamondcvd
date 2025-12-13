@@ -11,6 +11,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Get cart count for header
+ */
+function astra_child_ajax_get_cart_count() {
+    $count = WC()->cart ? WC()->cart->get_cart_contents_count() : 0;
+    
+    wp_send_json_success(array(
+        'count' => $count
+    ));
+}
+add_action('wp_ajax_get_cart_count', 'astra_child_ajax_get_cart_count');
+add_action('wp_ajax_nopriv_get_cart_count', 'astra_child_ajax_get_cart_count');
+
+/**
  * Get diamond count based on filters
  */
 function astra_child_ajax_get_diamond_count() {

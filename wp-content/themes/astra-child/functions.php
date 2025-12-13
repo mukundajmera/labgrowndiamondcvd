@@ -31,6 +31,25 @@ function astra_child_enqueue_styles()
     wp_enqueue_style('astra-child-theme-css', get_stylesheet_directory_uri() . '/style.css', array('astra-theme-css'), ASTRA_CHILD_THEME_VERSION, 'all');
 
     // Enqueue custom CSS files
+    wp_enqueue_style('diamond-header-css', get_stylesheet_directory_uri() . '/assets/css/header.css', array(), ASTRA_CHILD_THEME_VERSION);
+    wp_enqueue_style('diamond-footer-css', get_stylesheet_directory_uri() . '/assets/css/footer.css', array(), ASTRA_CHILD_THEME_VERSION);
+    
+    // Conditional loading for page-specific styles
+    if (is_front_page()) {
+        wp_enqueue_style('diamond-homepage-css', get_stylesheet_directory_uri() . '/assets/css/homepage.css', array(), ASTRA_CHILD_THEME_VERSION);
+    }
+    
+    if (is_shop() || is_product_category() || is_product_tag()) {
+        wp_enqueue_style('diamond-plp-css', get_stylesheet_directory_uri() . '/assets/css/plp.css', array(), ASTRA_CHILD_THEME_VERSION);
+    }
+    
+    if (is_product()) {
+        wp_enqueue_style('diamond-pdp-css', get_stylesheet_directory_uri() . '/assets/css/pdp.css', array(), ASTRA_CHILD_THEME_VERSION);
+    }
+    
+    // Mobile enhancements - loaded globally for all pages
+    wp_enqueue_style('diamond-mobile-enhancements', get_stylesheet_directory_uri() . '/assets/css/mobile-enhancements.css', array(), ASTRA_CHILD_THEME_VERSION);
+    
     wp_enqueue_style('diamond-custom-css', get_stylesheet_directory_uri() . '/assets/css/custom.css', array(), ASTRA_CHILD_THEME_VERSION);
 
     // Enqueue Google Fonts - Playfair Display for headings and Montserrat for body
@@ -43,6 +62,9 @@ add_action('wp_enqueue_scripts', 'astra_child_enqueue_styles', 15);
  */
 function astra_child_enqueue_scripts()
 {
+    // Enqueue header JS
+    wp_enqueue_script('diamond-header', get_stylesheet_directory_uri() . '/assets/js/header.js', array('jquery'), ASTRA_CHILD_THEME_VERSION, true);
+    
     // Enqueue diamond search widget JS
     wp_enqueue_script('diamond-search', get_stylesheet_directory_uri() . '/assets/js/diamond-search.js', array('jquery'), ASTRA_CHILD_THEME_VERSION, true);
 
@@ -54,6 +76,15 @@ function astra_child_enqueue_scripts()
 
     // Enqueue mobile interactions JS
     wp_enqueue_script('mobile-interactions', get_stylesheet_directory_uri() . '/assets/js/mobile.js', array('jquery'), ASTRA_CHILD_THEME_VERSION, true);
+    
+    // Conditional loading for page-specific scripts
+    if (is_shop() || is_product_category() || is_product_tag()) {
+        wp_enqueue_script('diamond-plp', get_stylesheet_directory_uri() . '/assets/js/plp.js', array('jquery'), ASTRA_CHILD_THEME_VERSION, true);
+    }
+    
+    if (is_product()) {
+        wp_enqueue_script('diamond-pdp', get_stylesheet_directory_uri() . '/assets/js/pdp.js', array('jquery'), ASTRA_CHILD_THEME_VERSION, true);
+    }
 
     // Localize script for AJAX
     wp_localize_script('diamond-search', 'diamondAjax', array(
@@ -102,12 +133,13 @@ function astra_child_theme_setup()
 
     // Register navigation menus
     register_nav_menus(array(
+        'primary' => __('Primary Menu', 'astra-child-diamond'),
         'mega-menu' => __('Mega Menu', 'astra-child-diamond'),
         'footer-menu-1' => __('Footer Menu 1 - About', 'astra-child-diamond'),
         'footer-menu-2' => __('Footer Menu 2 - Education', 'astra-child-diamond'),
         'footer-menu-3' => __('Footer Menu 3 - Customer Service', 'astra-child-diamond'),
         'footer-menu-4' => __('Footer Menu 4 - B2B Portal', 'astra-child-diamond'),
-        'mobile-menu' => __('Mobile Bottom Navigation', 'astra-child-diamond'),
+        'mobile-menu' => __('Mobile Menu', 'astra-child-diamond'),
     ));
 }
 add_action('after_setup_theme', 'astra_child_theme_setup');
@@ -558,6 +590,109 @@ function astra_child_customizer_settings($wp_customize)
             'min' => 0,
             'step' => 1,
         ),
+    ));
+
+    // Contact Information
+    $wp_customize->add_setting('contact_email', array(
+        'default' => 'info@labgrowndiamondcvd.com',
+        'sanitize_callback' => 'sanitize_email',
+    ));
+
+    $wp_customize->add_control('contact_email', array(
+        'label' => __('Contact Email', 'astra-child-diamond'),
+        'section' => 'diamond_theme_settings',
+        'type' => 'email',
+    ));
+
+    $wp_customize->add_setting('contact_phone', array(
+        'default' => '+91 XXXXX XXXXX',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+
+    $wp_customize->add_control('contact_phone', array(
+        'label' => __('Contact Phone', 'astra-child-diamond'),
+        'section' => 'diamond_theme_settings',
+        'type' => 'text',
+    ));
+
+    // Social Media URLs
+    $wp_customize->add_setting('facebook_url', array(
+        'default' => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ));
+
+    $wp_customize->add_control('facebook_url', array(
+        'label' => __('Facebook URL', 'astra-child-diamond'),
+        'section' => 'diamond_theme_settings',
+        'type' => 'url',
+    ));
+
+    $wp_customize->add_setting('instagram_url', array(
+        'default' => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ));
+
+    $wp_customize->add_control('instagram_url', array(
+        'label' => __('Instagram URL', 'astra-child-diamond'),
+        'section' => 'diamond_theme_settings',
+        'type' => 'url',
+    ));
+
+    $wp_customize->add_setting('youtube_url', array(
+        'default' => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ));
+
+    $wp_customize->add_control('youtube_url', array(
+        'label' => __('YouTube URL', 'astra-child-diamond'),
+        'section' => 'diamond_theme_settings',
+        'type' => 'url',
+    ));
+
+    // Header Announcement
+    $wp_customize->add_setting('header_announcement', array(
+        'default' => 'Free Shipping on Orders Above ₹50,000 | IGI/GIA Certified',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+
+    $wp_customize->add_control('header_announcement', array(
+        'label' => __('Header Announcement Bar Text', 'astra-child-diamond'),
+        'section' => 'diamond_theme_settings',
+        'type' => 'text',
+    ));
+
+    // Social Proof Stats
+    $wp_customize->add_setting('customer_reviews_count', array(
+        'default' => '500+',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+
+    $wp_customize->add_control('customer_reviews_count', array(
+        'label' => __('Customer Reviews Count', 'astra-child-diamond'),
+        'section' => 'diamond_theme_settings',
+        'type' => 'text',
+    ));
+
+    $wp_customize->add_setting('diamonds_sold_count', array(
+        'default' => '5,000+',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+
+    $wp_customize->add_control('diamonds_sold_count', array(
+        'label' => __('Diamonds Sold Count', 'astra-child-diamond'),
+        'section' => 'diamond_theme_settings',
+        'type' => 'text',
+    ));
+
+    $wp_customize->add_setting('jewellers_served_count', array(
+        'default' => '200+',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+
+    $wp_customize->add_control('jewellers_served_count', array(
+        'label' => __('Jewellers Served Count', 'astra-child-diamond'),
+        'section' => 'diamond_theme_settings',
+        'type' => 'text',
     ));
 }
 add_action('customize_register', 'astra_child_customizer_settings');
