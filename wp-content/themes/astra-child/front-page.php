@@ -28,7 +28,7 @@ get_header(); ?>
             <div class="luxury-hero__overlay"></div>
 
             <div class="luxury-hero__content">
-                <h1 class="luxury-hero__headline">Lab-Grown CVD Brilliance Without Mining</h1>
+                <h1 class="luxury-hero__headline">Lab-Grown CVD Diamond Brilliance, Mining-Free</h1>
                 <p class="luxury-hero__subheadline">IGI/GIA Certified | Up to 40% Savings vs Natural | 100% Sustainable</p>
                 <div class="luxury-hero__ctas">
                     <a href="/shop/" class="luxury-btn luxury-btn--primary">Shop Loose Diamonds</a>

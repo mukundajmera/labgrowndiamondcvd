@@ -113,6 +113,11 @@
         });
 
         function updateCartCount() {
+            // Check if WooCommerce params are available
+            if (typeof wc_add_to_cart_params === 'undefined' || !wc_add_to_cart_params.ajax_url) {
+                return;
+            }
+            
             $.ajax({
                 url: wc_add_to_cart_params.ajax_url,
                 type: 'POST',

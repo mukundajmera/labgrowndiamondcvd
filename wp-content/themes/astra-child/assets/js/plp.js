@@ -242,13 +242,12 @@
             e.preventDefault();
             var productId = $(this).data('product-id');
             
-            // This would open a modal with product quick view
-            // For now, just navigate to the product page
-            // TODO: Implement AJAX quick view modal
-            console.log('Quick view for product:', productId);
-            
-            // Placeholder: Show alert
-            alert('Quick view feature coming soon!');
+            // Navigate to product page for now
+            // TODO: Implement AJAX quick view modal in Phase 2
+            var productLink = $(this).closest('.lgd-product-card').find('.lgd-product-card__title a').attr('href');
+            if (productLink) {
+                window.location.href = productLink;
+            }
         });
 
         /**

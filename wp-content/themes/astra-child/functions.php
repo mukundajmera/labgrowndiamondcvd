@@ -33,9 +33,20 @@ function astra_child_enqueue_styles()
     // Enqueue custom CSS files
     wp_enqueue_style('diamond-header-css', get_stylesheet_directory_uri() . '/assets/css/header.css', array(), ASTRA_CHILD_THEME_VERSION);
     wp_enqueue_style('diamond-footer-css', get_stylesheet_directory_uri() . '/assets/css/footer.css', array(), ASTRA_CHILD_THEME_VERSION);
-    wp_enqueue_style('diamond-homepage-css', get_stylesheet_directory_uri() . '/assets/css/homepage.css', array(), ASTRA_CHILD_THEME_VERSION);
-    wp_enqueue_style('diamond-plp-css', get_stylesheet_directory_uri() . '/assets/css/plp.css', array(), ASTRA_CHILD_THEME_VERSION);
-    wp_enqueue_style('diamond-pdp-css', get_stylesheet_directory_uri() . '/assets/css/pdp.css', array(), ASTRA_CHILD_THEME_VERSION);
+    
+    // Conditional loading for page-specific styles
+    if (is_front_page()) {
+        wp_enqueue_style('diamond-homepage-css', get_stylesheet_directory_uri() . '/assets/css/homepage.css', array(), ASTRA_CHILD_THEME_VERSION);
+    }
+    
+    if (is_shop() || is_product_category() || is_product_tag()) {
+        wp_enqueue_style('diamond-plp-css', get_stylesheet_directory_uri() . '/assets/css/plp.css', array(), ASTRA_CHILD_THEME_VERSION);
+    }
+    
+    if (is_product()) {
+        wp_enqueue_style('diamond-pdp-css', get_stylesheet_directory_uri() . '/assets/css/pdp.css', array(), ASTRA_CHILD_THEME_VERSION);
+    }
+    
     wp_enqueue_style('diamond-custom-css', get_stylesheet_directory_uri() . '/assets/css/custom.css', array(), ASTRA_CHILD_THEME_VERSION);
 
     // Enqueue Google Fonts - Playfair Display for headings and Montserrat for body
@@ -63,11 +74,14 @@ function astra_child_enqueue_scripts()
     // Enqueue mobile interactions JS
     wp_enqueue_script('mobile-interactions', get_stylesheet_directory_uri() . '/assets/js/mobile.js', array('jquery'), ASTRA_CHILD_THEME_VERSION, true);
     
-    // Enqueue PLP JS
-    wp_enqueue_script('diamond-plp', get_stylesheet_directory_uri() . '/assets/js/plp.js', array('jquery'), ASTRA_CHILD_THEME_VERSION, true);
+    // Conditional loading for page-specific scripts
+    if (is_shop() || is_product_category() || is_product_tag()) {
+        wp_enqueue_script('diamond-plp', get_stylesheet_directory_uri() . '/assets/js/plp.js', array('jquery'), ASTRA_CHILD_THEME_VERSION, true);
+    }
     
-    // Enqueue PDP JS
-    wp_enqueue_script('diamond-pdp', get_stylesheet_directory_uri() . '/assets/js/pdp.js', array('jquery'), ASTRA_CHILD_THEME_VERSION, true);
+    if (is_product()) {
+        wp_enqueue_script('diamond-pdp', get_stylesheet_directory_uri() . '/assets/js/pdp.js', array('jquery'), ASTRA_CHILD_THEME_VERSION, true);
+    }
 
     // Localize script for AJAX
     wp_localize_script('diamond-search', 'diamondAjax', array(
