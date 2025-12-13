@@ -1,0 +1,251 @@
+/**
+ * Footer Styles
+ * Lab Grown Diamond CVD - Phase 1
+ */
+
+/* ===========================
+   Main Footer
+   =========================== */
+.lgd-footer {
+    background: #212121;
+    color: #ffffff;
+}
+
+.lgd-footer__main {
+    padding: 60px 0 40px;
+}
+
+.lgd-footer__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+}
+
+.lgd-footer__column {
+    display: flex;
+    flex-direction: column;
+}
+
+.lgd-footer__title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 20px 0;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-family: 'Playfair Display', serif;
+}
+
+.lgd-footer__subtitle {
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin: 20px 0 12px 0;
+    color: #ffffff;
+}
+
+.lgd-footer__menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.lgd-footer__menu li {
+    margin-bottom: 12px;
+}
+
+.lgd-footer__menu a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.3s ease;
+    display: inline-block;
+}
+
+.lgd-footer__menu a:hover {
+    color: #ffffff;
+}
+
+/* ===========================
+   Contact Section
+   =========================== */
+.lgd-footer__contact {
+    margin-top: 20px;
+}
+
+.lgd-footer__contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    font-size: 0.875rem;
+}
+
+.lgd-footer__contact-item svg {
+    flex-shrink: 0;
+    stroke: rgba(255, 255, 255, 0.7);
+    fill: rgba(255, 255, 255, 0.7);
+}
+
+.lgd-footer__contact-item a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.lgd-footer__contact-item a:hover {
+    color: #ffffff;
+}
+
+/* ===========================
+   Social Media
+   =========================== */
+.lgd-footer__social {
+    display: flex;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.lgd-footer__social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.lgd-footer__social a:hover {
+    background: #0047AB;
+    transform: translateY(-2px);
+}
+
+.lgd-footer__social svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* ===========================
+   Footer Bottom
+   =========================== */
+.lgd-footer__bottom {
+    background: #1a1a1a;
+    padding: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.lgd-footer__bottom-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.lgd-footer__copyright {
+    flex: 1;
+}
+
+.lgd-footer__copyright p {
+    margin: 0;
+    font-size: 0.813rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.lgd-footer__legal-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+}
+
+.lgd-footer__legal-menu a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-size: 0.813rem;
+    transition: color 0.3s ease;
+}
+
+.lgd-footer__legal-menu a:hover {
+    color: #ffffff;
+}
+
+.lgd-footer__payment {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.813rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.lgd-footer__payment-icons {
+    display: flex;
+    gap: 8px;
+}
+
+.lgd-footer__payment-icons span {
+    font-size: 1.25rem;
+}
+
+/* ===========================
+   Responsive Design
+   =========================== */
+@media (max-width: 1024px) {
+    .lgd-footer__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .lgd-footer__main {
+        padding: 40px 0 30px;
+    }
+
+    .lgd-footer__grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .lgd-footer__bottom-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .lgd-footer__legal-menu {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .lgd-footer__payment {
+        align-self: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .lgd-footer__main {
+        padding: 30px 0 20px;
+    }
+
+    .lgd-footer__title {
+        font-size: 0.938rem;
+        margin-bottom: 16px;
+    }
+
+    .lgd-footer__menu li {
+        margin-bottom: 10px;
+    }
+
+    .lgd-footer__social a {
+        width: 32px;
+        height: 32px;
+    }
+
+    .lgd-footer__social svg {
+        width: 16px;
+        height: 16px;
+    }
+}
