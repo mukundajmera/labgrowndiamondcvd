@@ -265,18 +265,53 @@
         });
 
         /**
-         * Quick View Modal (Basic Structure)
+         * Quick View Modal
          */
+        // Create modal structure if not exists
+        if ($('.lgd-modal').length === 0) {
+            $('body').append(
+                '<div class="lgd-modal-overlay"></div>' +
+                '<div class="lgd-modal">' +
+                    '<button class="lgd-plp-sidebar__close" style="display:block; position:absolute; top:10px; right:10px;">✕</button>' +
+                    '<div class="lgd-modal__content"></div>' +
+                '</div>'
+            );
+        }
+
+        // Close modal handlers
+        $(document).on('click', '.lgd-modal-overlay, .lgd-modal .lgd-plp-sidebar__close', function() {
+            $('.lgd-modal, .lgd-modal-overlay').removeClass('active');
+        });
+
         $('.lgd-product-card__quick-view').on('click', function (e) {
             e.preventDefault();
             var productId = $(this).data('product-id');
+            var $modalContent = $('.lgd-modal .lgd-modal__content');
             
-            // Navigate to product page for now
-            // TODO: Implement AJAX quick view modal in Phase 2
-            var productLink = $(this).closest('.lgd-product-card').find('.lgd-product-card__title a').attr('href');
-            if (productLink) {
-                window.location.href = productLink;
-            }
+            // Open modal with loading state
+            $modalContent.html('<div class="diamond-loader" style="margin: 50px auto; display: block;"></div>');
+            $('.lgd-modal, .lgd-modal-overlay').addClass('active');
+
+            // AJAX call
+            $.ajax({
+                url: diamondAjax.ajaxurl,
+                type: 'POST',
+                data: {
+                    action: 'get_product_quick_view',
+                    product_id: productId,
+                    nonce: diamondAjax.nonce
+                },
+                success: function(response) {
+                    if (response.success) {
+                        $modalContent.html(response.data.html);
+                    } else {
+                        $modalContent.html('<p class="error">Error loading product.</p>');
+                    }
+                },
+                error: function() {
+                    $modalContent.html('<p class="error">Connection error.</p>');
+                }
+            });
         });
 
         /**
