@@ -340,6 +340,9 @@ h4 {
     overflow: hidden;
     border-radius: 4px;
     cursor: pointer;
+    display: block;
+    text-decoration: none;
+    color: inherit;
 }
 
 .mosaic-item.large {
