@@ -1,0 +1,3 @@
+## 2024-05-23 - Lazy Loading Images in Mosaic Grid
+**Learning:** WordPress child themes often use `background-image` for layout elements like grids, which prevents native lazy loading and hurts LCP/TTI. Converting these to `<img>` tags with `object-fit: cover` and `loading="lazy"` is a high-impact, low-risk optimization.
+**Action:** When auditing WordPress themes, look for `style="background-image: ..."` in PHP templates, especially for "below the fold" content, and refactor to `<img>` tags.

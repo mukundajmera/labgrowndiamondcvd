@@ -102,19 +102,19 @@ get_header(); ?>
         <section class="category-mosaic">
             <div class="mosaic-grid">
                 <div class="mosaic-item large">
-                    <div class="mosaic-bg" style="background-image: url('<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/images/engagement-rings.jpg');"></div>
+                    <img class="mosaic-bg" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/images/engagement-rings.jpg" alt="Engagement Rings" loading="lazy" width="800" height="1000">
                     <div class="mosaic-overlay">
                         <h2 class="mosaic-title">Engagement Rings</h2>
                     </div>
                 </div>
                 <div class="mosaic-item">
-                    <div class="mosaic-bg" style="background-image: url('<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/images/fine-jewelry.jpg');"></div>
+                    <img class="mosaic-bg" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/images/fine-jewelry.jpg" alt="Fine Jewelry" loading="lazy" width="800" height="400">
                     <div class="mosaic-overlay">
                         <h2 class="mosaic-title">Fine Jewelry</h2>
                     </div>
                 </div>
                 <div class="mosaic-item">
-                    <div class="mosaic-bg" style="background-image: url('<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/images/loose-stones.jpg');"></div>
+                    <img class="mosaic-bg" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/images/loose-stones.jpg" alt="Loose Stones" loading="lazy" width="800" height="400">
                     <div class="mosaic-overlay">
                         <h2 class="mosaic-title">Loose Stones</h2>
                     </div>
