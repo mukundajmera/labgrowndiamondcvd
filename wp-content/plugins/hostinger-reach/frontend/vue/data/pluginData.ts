@@ -1,7 +1,6 @@
 import type { Integration } from '@/types/models';
 
 export const HOSTINGER_REACH_ID = 'hostinger-reach';
-export const WOOCOMMERCE_ID = 'woocommerce';
 
 export const PLUGIN_STATUSES = {
 	ACTIVE: 'active',

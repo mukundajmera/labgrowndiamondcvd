@@ -106,11 +106,7 @@ const ErrorScreen = () => {
 				</div>
 			</div>
 			{ importErrorMessages.tryAgain && tryAgainCount < 3 && (
-				<Button
-					className="ist-button"
-					after={ true }
-					onClick={ tryAgain }
-				>
+				<Button className="ist-button" after onClick={ tryAgain }>
 					{ __( 'Click here and we’ll try again', 'astra-sites' ) }
 				</Button>
 			) }

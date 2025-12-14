@@ -9,6 +9,7 @@
 use Automattic\Jetpack\Constants;
 use Automattic\WooCommerce\Internal\Utilities\Users;
 use Automattic\WooCommerce\Internal\Utilities\WebhookUtil;
+use Automattic\WooCommerce\Utilities\FeaturesUtil;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -96,20 +97,7 @@ class WC_Admin_Notices {
 	 * Store the locally cached notices to DB.
 	 */
 	public static function store_notices() {
-		$current_notices = self::get_notices();
-		$prev_notices    = get_option( 'woocommerce_admin_notices', array() );
-
-		// Store notices.
-		update_option( 'woocommerce_admin_notices', $current_notices );
-
-		// Clean up removed notices.
-		foreach ( array_diff( $prev_notices, $current_notices ) as $notice ) {
-			if ( isset( self::$core_notices[ $notice ] ) ) {
-				continue;
-			}
-
-			delete_option( 'woocommerce_admin_notice_' . $notice );
-		}
+		update_option( 'woocommerce_admin_notices', self::get_notices() );
 	}
 
 	/**
@@ -227,9 +215,8 @@ class WC_Admin_Notices {
 	 * @param bool   $force_save Force saving inside this method instead of at the 'shutdown'.
 	 */
 	public static function remove_notice( $name, $force_save = false ) {
-		if ( self::has_notice( $name ) ) {
-			self::set_notices( array_diff( self::get_notices(), array( $name ) ) );
-		}
+		self::set_notices( array_diff( self::get_notices(), array( $name ) ) );
+		delete_option( 'woocommerce_admin_notice_' . $name );
 
 		if ( $force_save ) {
 			// Adding early save to prevent more race conditions with notices.
@@ -483,7 +470,7 @@ class WC_Admin_Notices {
 		if ( $enabled ) {
 			include __DIR__ . '/views/html-notice-legacy-shipping.php';
 		} else {
-			self::remove_notice( 'legacy_shipping' );
+			self::remove_notice( 'template_files' );
 		}
 	}
 

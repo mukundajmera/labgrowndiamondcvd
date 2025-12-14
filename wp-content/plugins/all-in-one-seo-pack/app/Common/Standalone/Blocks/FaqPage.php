@@ -20,7 +20,7 @@ class FaqPage extends Blocks {
 	 * @return void
 	 */
 	public function register() {
-		aioseo()->blocks->registerBlock( 'faq',
+		aioseo()->blocks->registerBlock( 'aioseo/faq',
 			[
 				'render_callback' => function( $attributes, $content ) {
 					if ( isset( $attributes['hidden'] ) && true === $attributes['hidden'] ) {

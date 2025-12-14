@@ -7,13 +7,9 @@ use Hostinger\Reach\Container;
 use Hostinger\Reach\Functions;
 use Hostinger\Reach\Integrations\ContactForm7\ContactForm7Integration;
 use Hostinger\Reach\Integrations\Elementor\ElementorIntegration;
-use Hostinger\Reach\Integrations\Forminator\ForminatorIntegration;
-use Hostinger\Reach\Integrations\NinjaForms\NinjaFormsIntegration;
 use Hostinger\Reach\Integrations\Reach\ReachFormIntegration;
-use Hostinger\Reach\Integrations\SureForms\SureFormsIntegration;
 use Hostinger\Reach\Integrations\WooCommerce\WooCommerceIntegration;
 use Hostinger\Reach\Integrations\WPFormsLite\WpFormsLiteIntegration;
-use Hostinger\Reach\Integrations\WSForms\WSFormsIntegration;
 use Hostinger\Reach\Repositories\ContactListRepository;
 use Hostinger\Reach\Repositories\FormRepository;
 
@@ -29,10 +25,6 @@ class IntegrationsProvider implements ProviderInterface {
         WpFormsLiteIntegration::INTEGRATION_NAME  => WpFormsLiteIntegration::class,
         ElementorIntegration::INTEGRATION_NAME    => ElementorIntegration::class,
         WooCommerceIntegration::INTEGRATION_NAME  => WooCommerceIntegration::class,
-        NinjaFormsIntegration::INTEGRATION_NAME   => NinjaFormsIntegration::class,
-        SureFormsIntegration::INTEGRATION_NAME    => SureFormsIntegration::class,
-        WSFormsIntegration::INTEGRATION_NAME      => WSFormsIntegration::class,
-        ForminatorIntegration::INTEGRATION_NAME   => ForminatorIntegration::class,
     );
 
     public function register( Container $container ): void {
@@ -50,11 +42,8 @@ class IntegrationsProvider implements ProviderInterface {
             ),
             WooCommerceIntegration::class  => array(
                 $container->get( FormRepository::class ),
+
             ),
-            NinjaFormsIntegration::class   => array(),
-            SureFormsIntegration::class    => array(),
-            WSFormsIntegration::class      => array(),
-            ForminatorIntegration::class   => array(),
         );
 
         foreach ( $integrations as $class_name => $dependencies ) {

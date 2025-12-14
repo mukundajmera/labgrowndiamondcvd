@@ -489,15 +489,7 @@ class WPForms_Builder {
 		 */
 		wp_enqueue_style(
 			'wpforms-font-awesome',
-			WPFORMS_PLUGIN_URL . 'assets/lib/font-awesome/css/all.min.css',
-			null,
-			'7.0.1'
-		);
-
-		// FontAwesome v4 compatibility shims.
-		wp_enqueue_style(
-			'wpforms-font-awesome-v4-shim',
-			WPFORMS_PLUGIN_URL . 'assets/lib/font-awesome/css/v4-shims.min.css',
+			WPFORMS_PLUGIN_URL . 'assets/lib/font-awesome/font-awesome.min.css',
 			null,
 			'4.7.0'
 		);
@@ -596,7 +588,7 @@ class WPForms_Builder {
 			'dom-purify',
 			WPFORMS_PLUGIN_URL . 'assets/lib/purify.min.js',
 			[],
-			'3.2.7',
+			'3.2.6',
 			false
 		);
 
@@ -761,7 +753,6 @@ class WPForms_Builder {
 			'bulk_add_presets_hide'                   => esc_html__( 'Hide presets', 'wpforms-lite' ),
 			'date_select_day'                         => 'DD',
 			'date_select_month'                       => 'MM',
-			'date_select_year'                        => 'YYYY',
 			'debug'                                   => wpforms_debug(),
 			'dynamic_choices'                         => [
 				'limit_message' => sprintf( /* translators: %1$s - data source name (e.g. Categories, Posts), %2$s - data source type (e.g. post type, taxonomy), %3$s - display limit, %4$s - total number of items. */
@@ -1166,8 +1157,8 @@ class WPForms_Builder {
 		 *
 		 * @since 1.7.9
 		 *
-		 * @param array      $classes   List of classes.
-		 * @param array|bool $form_data Form data and settings or false when form isn't created.
+		 * @param array $classes   List of classes.
+		 * @param array $form_data Form data and settings.
 		 */
 		$builder_classes = (array) apply_filters( 'wpforms_builder_output_classes', $builder_classes, $this->form_data );
 
@@ -1244,7 +1235,7 @@ class WPForms_Builder {
 					<div class="wpforms-right">
 
 						<button id="wpforms-help"
-							class="js-wpforms-help wpforms-btn wpforms-btn-toolbar wpforms-btn-light-grey"
+							class="wpforms-btn wpforms-btn-toolbar wpforms-btn-light-grey"
 							title="<?php esc_attr_e( 'Help Ctrl+H', 'wpforms-lite' ); ?>">
 								<i class="fa fa-question-circle-o"></i>
 								<span<?php echo $this->form ? ' class="screen-reader-text"' : ''; ?>>

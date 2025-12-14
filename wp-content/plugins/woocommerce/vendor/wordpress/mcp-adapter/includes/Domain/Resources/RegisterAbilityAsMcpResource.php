@@ -46,9 +46,10 @@ class RegisterAbilityAsMcpResource {
 	 * @param \WP_Ability            $ability    The ability.
 	 * @param \WP\MCP\Core\McpServer $mcp_server The MCP server.
 	 *
-	 * @return \WP\MCP\Domain\Resources\McpResource|\WP_Error Returns resource instance or WP_Error if validation fails.
+	 * @return \WP\MCP\Domain\Resources\McpResource Returns resource instance if valid
+	 * @throws \InvalidArgumentException If WordPress ability doesn't exist or validation fails.
 	 */
-	public static function make( WP_Ability $ability, McpServer $mcp_server ) {
+	public static function make( WP_Ability $ability, McpServer $mcp_server ): McpResource {
 		$resource = new self( $ability, $mcp_server );
 
 		return $resource->get_resource();
@@ -68,9 +69,10 @@ class RegisterAbilityAsMcpResource {
 	/**
 	 * Get the resource URI.
 	 *
-	 * @return string|\WP_Error URI string or WP_Error if not found in ability meta.
+	 * @return string
+	 * @throws \InvalidArgumentException If URI is not found in ability meta.
 	 */
-	public function get_uri() {
+	public function get_uri(): string {
 		$ability_meta = $this->ability->get_meta();
 
 		// First try to get URI from ability meta
@@ -78,30 +80,20 @@ class RegisterAbilityAsMcpResource {
 			return $ability_meta['uri'];
 		}
 
-		// If not found in meta, return error since URI should be provided in ability meta
-		return new \WP_Error(
-			'resource_uri_not_found',
-			sprintf(
-				"Resource URI not found in ability meta for '%s'. URI must be provided in ability meta data.",
-				$this->ability->get_name()
-			)
-		);
+		// If not found in meta, throw an error since URI should be provided in ability meta
+		throw new \InvalidArgumentException( esc_html( "Resource URI not found in ability meta for '{$this->ability->get_name()}'. URI must be provided in ability meta data." ) );
 	}
 
 	/**
 	 * Get the MCP resource data array.
 	 *
-	 * @return array<string,mixed>|\WP_Error Resource data array or WP_Error if URI is not found.
+	 * @return array<string,mixed>
+	 * @throws \InvalidArgumentException If WordPress ability doesn't exist or validation fails.
 	 */
-	private function get_data() {
-		$uri = $this->get_uri();
-		if ( is_wp_error( $uri ) ) {
-			return $uri;
-		}
-
+	private function get_data(): array {
 		$resource_data = array(
 			'ability' => $this->ability->get_name(),
-			'uri'     => $uri,
+			'uri'     => $this->get_uri(),
 		);
 
 		// Add optional name from ability label
@@ -166,17 +158,13 @@ class RegisterAbilityAsMcpResource {
 	}
 
 	/**
-	 * Get the MCP resource instance.
+	 * Validate the MCP resource data and throw exception if invalid.
 	 * Uses the centralized McpResourceValidator for consistent validation.
 	 *
-	 * @return \WP\MCP\Domain\Resources\McpResource|\WP_Error Returns the MCP resource instance or WP_Error if validation fails.
+	 * @return \WP\MCP\Domain\Resources\McpResource Returns the MCP resource instance if valid.
+	 * @throws \InvalidArgumentException If WordPress ability doesn't exist or validation fails.
 	 */
-	private function get_resource() {
-		$data = $this->get_data();
-		if ( is_wp_error( $data ) ) {
-			return $data;
-		}
-
-		return McpResource::from_array( $data, $this->mcp_server );
+	private function get_resource(): McpResource {
+		return McpResource::from_array( $this->get_data(), $this->mcp_server );
 	}
 }

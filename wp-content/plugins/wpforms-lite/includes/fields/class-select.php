@@ -435,7 +435,7 @@ class WPForms_Field_Select extends WPForms_Field {
 			return;
 		}
 
-		if ( ! empty( $field['properties']['input_container']['class'] ) && in_array( 'wpforms-field-required', $field['properties']['input_container']['class'], true ) ) {
+		if ( ! empty( $field['required'] ) ) {
 			$container['attr']['required'] = 'required';
 		}
 

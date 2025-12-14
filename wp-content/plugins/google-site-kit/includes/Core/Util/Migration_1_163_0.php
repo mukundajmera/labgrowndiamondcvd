@@ -118,13 +118,7 @@ class Migration_1_163_0 {
 			return;
 		}
 
-		if (
-			array_key_exists(
-				'oneTapOnAllPages',
-				$sign_in_with_google_settings
-			) &&
-			true === $sign_in_with_google_settings['oneTapOnAllPages']
-		) {
+		if ( true === $sign_in_with_google_settings['oneTapOnAllPages'] ) {
 			$sign_in_with_google_settings['oneTapEnabled'] = true;
 		} else {
 			$sign_in_with_google_settings['oneTapEnabled'] = false;

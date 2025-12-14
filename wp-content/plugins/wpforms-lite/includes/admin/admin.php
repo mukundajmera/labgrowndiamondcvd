@@ -44,15 +44,7 @@ function wpforms_admin_styles() {
 	// FontAwesome.
 	wp_enqueue_style(
 		'wpforms-font-awesome',
-		WPFORMS_PLUGIN_URL . 'assets/lib/font-awesome/css/all.min.css',
-		null,
-		'7.0.1'
-	);
-
-	// FontAwesome v4 compatibility shims.
-	wp_enqueue_style(
-		'wpforms-font-awesome-v4-shim',
-		WPFORMS_PLUGIN_URL . 'assets/lib/font-awesome/css/v4-shims.min.css',
+		WPFORMS_PLUGIN_URL . 'assets/lib/font-awesome/font-awesome.min.css',
 		null,
 		'4.7.0'
 	);

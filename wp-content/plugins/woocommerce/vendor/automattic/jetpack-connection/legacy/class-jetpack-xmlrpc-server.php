@@ -304,8 +304,7 @@ class Jetpack_XMLRPC_Server {
 		$nonce = sanitize_text_field( $request['nonce'] );
 		unset( $request['nonce'] );
 
-		$api_url = $this->connection->api_url( 'partner_provision_nonce_check' );
-		// @phan-suppress-next-line PhanAccessMethodInternal -- Phan is correct, but the usage is intentional.
+		$api_url  = $this->connection->api_url( 'partner_provision_nonce_check' );
 		$response = Client::_wp_remote_request(
 			esc_url_raw( add_query_arg( 'nonce', $nonce, $api_url ) ),
 			array( 'method' => 'GET' ),

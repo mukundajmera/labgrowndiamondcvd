@@ -74,7 +74,7 @@ class Routes {
         $this->tutorial_routes   = $tutorial_routes;
         $this->client            = $client;
         $this->helper            = $helper;
-        $this->hosting_routes    = new HostingRoutes( $helper );
+        $this->hosting_routes    = new HostingRoutes( $client, $helper );
         $this->onboarding_routes = new OnboardingRoutes( $client, $helper );
     }
 
@@ -399,16 +399,6 @@ class Routes {
             array(
                 'methods'             => 'POST',
                 'callback'            => array( $this->onboarding_routes, 'install_plugins' ),
-                'permission_callback' => array( $this, 'permission_check' ),
-            )
-        );
-
-        register_rest_route(
-            HOSTINGER_EASY_ONBOARDING_REST_API_BASE,
-            'save-onboarding-options',
-            array(
-                'methods'             => 'POST',
-                'callback'            => array( $this->onboarding_routes, 'save_onboarding_options' ),
                 'permission_callback' => array( $this, 'permission_check' ),
             )
         );

@@ -56,15 +56,6 @@ class Database {
 	public $prefix = '';
 
 	/**
-	 * Cached result of php_sapi_name() for performance.
-	 *
-	 * @since 4.9.1.1-2025-12-04-12:51
-	 *
-	 * @var string|null
-	 */
-	private static $sapiName = null;
-
-	/**
 	 * The database table in use by this query.
 	 *
 	 * @since 4.0.0
@@ -409,7 +400,7 @@ class Database {
 			return $this->db->get_col( 'SHOW COLUMNS FROM `' . $table . '`' );
 		}
 
-		$schema = $this->getTablesWithColumns();
+		$schema = $this->getAioseoTablesWithColumns();
 
 		return $schema[ $table ];
 	}
@@ -429,7 +420,7 @@ class Database {
 			$table = $this->prefix . $table;
 		}
 
-		$tables = $this->getTablesWithColumns();
+		$tables = $this->getAioseoTablesWithColumns();
 
 		return isset( $tables[ $table ] );
 	}
@@ -450,7 +441,7 @@ class Database {
 			$table = $this->prefix . $table;
 		}
 
-		$tables = $this->getTablesWithColumns();
+		$tables = $this->getAioseoTablesWithColumns();
 
 		return isset( $tables[ $table ] ) && in_array( $column, $tables[ $table ], true );
 	}
@@ -462,16 +453,18 @@ class Database {
 	 *
 	 * @return array List of AIOSEO tables with their columns.
 	 */
-	public function getTablesWithColumns() {
+	public function getAioseoTablesWithColumns() {
 		$tables = aioseo()->core->cache->get( 'db_schema' );
 		if ( ! empty( $tables ) ) {
 			return $tables;
 		}
 
-		$schema = $this->db->get_results(
-			'SELECT TABLE_NAME, COLUMN_NAME
+		$dbPrefix = $this->db->prefix;
+		$schema   = $this->db->get_results(
+			"SELECT TABLE_NAME, COLUMN_NAME
 			FROM INFORMATION_SCHEMA.COLUMNS
-			WHERE TABLE_SCHEMA = DATABASE();'
+			WHERE TABLE_SCHEMA = DATABASE()
+			AND TABLE_NAME LIKE '{$dbPrefix}aioseo_%';"
 		);
 
 		$tables = [];
@@ -497,31 +490,16 @@ class Database {
 	 * @return int           The size of the table in bytes.
 	 */
 	public function getTableSize( $table ) {
-		// Escape table and database names to prevent SQL injection.
-		$tableName = esc_sql( $this->prefix . $table );
-		$dbName    = esc_sql( $this->db->dbname );
-
-		// Check if table has any rows
-		$rowCount = $this->db->get_var( 'SELECT COUNT(*) FROM `' . $tableName . '`' );
-
-		if ( 0 === (int) $rowCount ) {
-			return 0;
-		}
-
-		$this->db->query( 'ANALYZE TABLE `' . $tableName . '`' );
-		$results = $this->db->get_results( $this->db->prepare(
-			'
+		$this->db->query( 'ANALYZE TABLE ' . $this->prefix . $table );
+		$results = $this->db->get_results( '
 			SELECT
 				TABLE_NAME AS `table`,
 				ROUND(SUM(DATA_LENGTH + INDEX_LENGTH)) AS `size`
 			FROM information_schema.TABLES
-			WHERE TABLE_SCHEMA = %s
-			AND TABLE_NAME = %s
+			WHERE TABLE_SCHEMA = "' . $this->db->dbname . '"
+			AND TABLE_NAME = "' . $this->prefix . $table . '"
 			ORDER BY (DATA_LENGTH + INDEX_LENGTH) DESC;
-			',
-			$dbName,
-			$tableName
-		) );
+		' );
 
 		return ! empty( $results ) ? $results[0]->size : 0;
 	}
@@ -918,7 +896,6 @@ class Database {
 			if ( is_null( $value ) ) {
 				// WHERE `field` IS NULL.
 				$or[] = "$field NULL";
-				continue;
 			}
 
 			$or[] = sprintf( "$field %s", $this->escape( $value, $this->getEscapeOptions() | self::ESCAPE_QUOTE ) );
@@ -992,8 +969,7 @@ class Database {
 			}
 
 			foreach ( $values as &$value ) {
-				// Note: We can no longer check for `is_numeric` because a value like `61021e6242255` returns true and breaks the query.
-				if ( is_int( $value ) || is_float( $value ) ) {
+				if ( is_numeric( $value ) ) {
 					// No change.
 					continue;
 				}
@@ -1052,38 +1028,6 @@ class Database {
 			$values = implode( ' AND ', $values );
 			$this->whereRaw( "$field BETWEEN $values" );
 		}
-
-		return $this;
-	}
-
-	/**
-	 * Adds a WHERE LIKE clause.
-	 *
-	 * @since 4.9.1.1-2025-12-04-12:51
-	 *
-	 * @param  string   $field        The column name.
-	 * @param  string   $value        The value to search for.
-	 * @param  bool     $hasWildcard  Whether the value contains LIKE wildcards (% and _) for pattern matching. Default false for security.
-	 * @return Database Returns the Database class which can be method chained for more query building.
-	 */
-	public function whereLike( $field, $value, $hasWildcard = false ) {
-		if ( is_null( $value ) ) {
-			return $this;
-		}
-
-		// Escape the column name.
-		$escapedField = $this->escapeColNames( $field );
-		$field        = array_pop( $escapedField );
-
-		// Escape LIKE wildcards (% and _) unless the value is intended to contain wildcards for pattern matching.
-		if ( ! $hasWildcard ) {
-			$value = $this->db->esc_like( $value );
-		}
-
-		// Escape and quote the value for safe use in LIKE clause.
-		$escapedValue = $this->escape( $value, $this->getEscapeOptions() | self::ESCAPE_QUOTE );
-
-		$this->where[] = sprintf( "$field LIKE %s", $escapedValue );
 
 		return $this;
 	}
@@ -1364,10 +1308,8 @@ class Database {
 			$return = 'results';
 		}
 
-		// Cache query string to avoid generating it twice.
-		$queryString     = $this->query();
-		$prepare         = $this->db->prepare( $queryString, 1, 1 );
-		$queryHash       = md5( $queryString );
+		$prepare        = $this->db->prepare( $this->query(), 1, 1 );
+		$queryHash      = sha1( $this->query() );
 		$cacheTableName = $this->getCacheTableName();
 
 		// Pull the result from the in-memory cache if everything checks out.
@@ -1400,10 +1342,7 @@ class Database {
 			$this->reset();
 		}
 
-		// Only cache SELECT queries for performance.
-		if ( in_array( $this->statement, [ 'SELECT', 'SELECT DISTINCT' ], true ) ) {
-			$this->cache[ $cacheTableName ][ $queryHash ][ $return ] = $this->result;
-		}
+		$this->cache[ $cacheTableName ][ $queryHash ][ $return ] = $this->result;
 
 		// Reset the cache trigger for the next run.
 		$this->shouldResetCache = false;
@@ -1655,18 +1594,14 @@ class Database {
 			$value = wp_strip_all_tags( $value );
 		}
 
-		// Cache php_sapi_name() result for performance.
-		if ( null === self::$sapiName ) {
-			self::$sapiName = php_sapi_name();
-		}
-
-		// Check if we need to escape and quote the value.
-		$needsEscaping = ( ( $options & self::ESCAPE_FORCE ) !== 0 || 'cli' === self::$sapiName ) ||
-			( ( $options & self::ESCAPE_QUOTE ) !== 0 && ! is_int( $value ) && ! is_float( $value ) );
-
-		if ( $needsEscaping ) {
+		if (
+			( ( $options & self::ESCAPE_FORCE ) !== 0 || php_sapi_name() === 'cli' ) ||
+			( ( $options & self::ESCAPE_QUOTE ) !== 0 && ! is_int( $value ) )
+		) {
 			$value = esc_sql( $value );
-			$value = "'$value'";
+			if ( ! is_int( $value ) ) {
+				$value = "'$value'";
+			}
 		}
 
 		return $value;
@@ -1916,7 +1851,7 @@ class Database {
 	 */
 	public function indexExists( $tableName, $indexName, $includesPrefix = false ) {
 		$prefix    = $includesPrefix ? '' : $this->prefix;
-		$tableName = esc_sql( strtolower( $prefix . $tableName ) );
+		$tableName = strtolower( $prefix . $tableName );
 		$indexName = strtolower( $indexName );
 
 		$indexes = $this->db->get_results( "SHOW INDEX FROM `$tableName`" );

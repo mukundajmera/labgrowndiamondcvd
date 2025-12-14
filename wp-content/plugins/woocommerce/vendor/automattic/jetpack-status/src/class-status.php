@@ -146,7 +146,6 @@ class Status {
 			'#\.docksal\.site$#i', // Docksal.
 			'#\.dev\.cc$#i',       // ServerPress.
 			'#\.lndo\.site$#i',    // Lando.
-			'#\.ddev\.site$#i',    // DDEV.
 			'#^https?://127\.0\.0\.1$#',
 		);
 

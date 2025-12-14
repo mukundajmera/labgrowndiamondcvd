@@ -3,7 +3,6 @@ import useBuildSiteController from '../hooks/useBuildSiteController';
 import PreBuildConfirmModal from '../components/pre-build-confirm-modal';
 import PremiumConfirmModal from '../components/premium-confirm-modal';
 import InformPrevErrorModal from '../components/inform-prev-error-modal';
-import MultisitePermissionModal from '../components/multisite-permission-modal';
 
 const withBuildSiteController = ( WrappedComponent ) => {
 	const WithBuildSiteController = ( { ...props } ) => {
@@ -18,20 +17,12 @@ const withBuildSiteController = ( WrappedComponent ) => {
 			onConfirmErrorAlert,
 			handleClickStartBuilding,
 			isInProgress,
-			multisitePermissionModal,
-			setMultisitePermissionModalOpen,
-			setMultisitePermissionModal,
 		} = useBuildSiteController();
 
 		return (
 			<Fragment>
 				<WrappedComponent
-					{ ...{
-						handleClickStartBuilding,
-						isInProgress,
-						setMultisitePermissionModal,
-						...props,
-					} }
+					{ ...{ handleClickStartBuilding, isInProgress, ...props } }
 				/>
 				<PreBuildConfirmModal
 					open={ preBuildModal.open }
@@ -49,16 +40,6 @@ const withBuildSiteController = ( WrappedComponent ) => {
 					setOpen={ setPrevErrorAlertOpen }
 					onConfirm={ onConfirmErrorAlert }
 					errorString={ JSON.stringify( prevErrorAlert.error ) }
-				/>
-				<MultisitePermissionModal
-					open={ multisitePermissionModal.open }
-					setOpen={ setMultisitePermissionModalOpen }
-					missingThemes={
-						multisitePermissionModal.missingThemes || []
-					}
-					missingPlugins={
-						multisitePermissionModal.missingPlugins || []
-					}
 				/>
 			</Fragment>
 		);

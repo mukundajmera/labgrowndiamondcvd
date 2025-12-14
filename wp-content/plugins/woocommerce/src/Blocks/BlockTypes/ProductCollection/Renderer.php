@@ -133,8 +133,8 @@ class Renderer {
 				'hideNextPreviousButtons' => false,
 				'isDisabledPrevious'      => true,
 				'isDisabledNext'          => false,
-				'ariaLabelPrevious'       => __( 'Previous products', 'woocommerce' ),
-				'ariaLabelNext'           => __( 'Next products', 'woocommerce' ),
+				'ariaLabelPrevious'       => __( 'Scroll products left', 'woocommerce' ),
+				'ariaLabelNext'           => __( 'Scroll products right', 'woocommerce' ),
 			);
 
 			if ( $collection ) {

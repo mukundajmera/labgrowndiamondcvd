@@ -20,13 +20,4 @@
 		min-width: 0;
 		overflow: hidden;
 	}
-
-	// avoids to be impacted by AI ChatBot bug overriding styles
-	.h-typography {
-		color: inherit;
-	}
-
-	input[type=checkbox]:checked::before {
-		content: none;
-	}
 }

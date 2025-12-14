@@ -27,7 +27,7 @@ class HTMLPurifier_URIParser
         $uri = $this->percentEncoder->normalize($uri);
         // Regexp is as per Appendix B.
         // Note that ["<>] are an addition to the RFC's recommended
-        // characters, because they represent external delimiters.
+        // characters, because they represent external delimeters.
         $r_URI = '!' . '(([a-zA-Z0-9\\.\\+\\-]+):)?' . '(//([^/?#"<>]*))?' . '([^?#"<>]*)' . '(\\?([^#"<>]*))?' . '(#([^"<>]*))?' . '!';
         $matches = array();
         $result = \preg_match($r_URI, $uri, $matches);
@@ -35,7 +35,7 @@ class HTMLPurifier_URIParser
             return \false;
         }
         // *really* invalid URI
-        // separate out parts
+        // seperate out parts
         $scheme = !empty($matches[1]) ? $matches[2] : null;
         $authority = !empty($matches[3]) ? $matches[4] : null;
         $path = $matches[5];

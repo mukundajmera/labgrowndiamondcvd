@@ -10,6 +10,7 @@ declare( strict_types=1 );
 namespace WP\MCP\Domain\Resources;
 
 use WP\MCP\Core\McpServer;
+use WP_Ability;
 
 /**
  * Represents an MCP resource according to the Model Context Protocol specification.
@@ -183,21 +184,10 @@ class McpResource {
 	/**
 	 * Get the ability name.
 	 *
-	 * @return \WP_Ability|\WP_Error WP_Ability instance on success, WP_Error on failure.
+	 * @return \WP_Ability|null
 	 */
-	public function get_ability() {
-		$ability = wp_get_ability( $this->ability );
-		if ( ! $ability ) {
-			return new \WP_Error(
-				'ability_not_found',
-				sprintf(
-					/* translators: %s: ability name */
-					esc_html__( "WordPress ability '%s' does not exist.", 'mcp-adapter' ),
-					esc_html( $this->ability )
-				)
-			);
-		}
-		return $ability;
+	public function get_ability(): ?WP_Ability {
+		return wp_get_ability( $this->ability );
 	}
 
 	/**
@@ -311,17 +301,6 @@ class McpResource {
 	}
 
 	/**
-	 * Set the MCP server instance this resource belongs to.
-	 *
-	 * @param \WP\MCP\Core\McpServer $mcp_server The MCP server instance.
-	 *
-	 * @return void
-	 */
-	public function set_mcp_server( McpServer $mcp_server ): void {
-		$this->mcp_server = $mcp_server;
-	}
-
-	/**
 	 * Convert the resource to an array representation according to MCP specification.
 	 *
 	 * @return array
@@ -365,8 +344,7 @@ class McpResource {
 	 * @return string
 	 */
 	public function to_json(): string {
-		$json = wp_json_encode( $this->to_array() );
-		return false !== $json ? $json : '{}';
+		return wp_json_encode( $this->to_array() );
 	}
 
 	/**
@@ -375,9 +353,10 @@ class McpResource {
 	 * @param array     $data Array containing resource data.
 	 * @param \WP\MCP\Core\McpServer $mcp_server The MCP server instance.
 	 *
-	 * @return self|\WP_Error Returns a new McpResource instance or WP_Error if validation fails.
+	 * @return self
+	 * @throws \InvalidArgumentException If required fields are missing or validation fails.
 	 */
-	public static function from_array( array $data, McpServer $mcp_server ) {
+	public static function from_array( array $data, McpServer $mcp_server ): self {
 		$resource = new self(
 			$data['ability'] ?? '',
 			$data['uri'] ?? '',
@@ -417,19 +396,17 @@ class McpResource {
 	 *
 	 * @param string $context Optional context for error messages.
 	 *
-	 * @return \WP\MCP\Domain\Resources\McpResource|\WP_Error Resource instance on success, WP_Error on failure.
+	 * @return \WP\MCP\Domain\Resources\McpResource
+	 * @throws \InvalidArgumentException If validation fails.
 	 */
-	public function validate( string $context = '' ) {
+	public function validate( string $context = '' ): self {
 		if ( ! $this->mcp_server->is_mcp_validation_enabled() ) {
 			return $this;
 		}
 
-		$context_to_use    = $context ?: "McpResource::{$this->name}";
-		$validation_result = McpResourceValidator::validate_resource_instance( $this, $context_to_use );
+		$context_to_use = $context ?: "McpResource::{$this->name}";
 
-		if ( is_wp_error( $validation_result ) ) {
-			return $validation_result;
-		}
+		McpResourceValidator::validate_resource_instance( $this, $context_to_use );
 
 		return $this;
 	}

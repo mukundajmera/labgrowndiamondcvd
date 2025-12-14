@@ -30,13 +30,12 @@ class ConflictingPlugins {
 	 * @return void
 	 */
 	public function maybeShowNotice() {
-		$userId    = get_current_user_id();
-		$dismissed = get_user_meta( $userId, '_aioseo_conflicting_plugins_dismissed', true );
+		$dismissed = get_option( '_aioseo_conflicting_plugins_dismissed', true );
 		if ( '1' === $dismissed ) {
 			return;
 		}
 
-		if ( ! current_user_can( 'deactivate_plugins' ) ) {
+		if ( ! current_user_can( 'activate_plugins' ) ) {
 			return;
 		}
 
@@ -169,8 +168,7 @@ class ConflictingPlugins {
 
 		check_ajax_referer( 'aioseo-dismiss-conflicting-plugins', 'nonce' );
 
-		$userId = get_current_user_id();
-		update_user_meta( $userId, '_aioseo_conflicting_plugins_dismissed', true );
+		update_option( '_aioseo_conflicting_plugins_dismissed', true );
 
 		return wp_send_json_success();
 	}

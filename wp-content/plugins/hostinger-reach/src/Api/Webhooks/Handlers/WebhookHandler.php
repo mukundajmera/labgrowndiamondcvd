@@ -3,16 +3,13 @@
 namespace Hostinger\Reach\Api\Webhooks\Handlers;
 
 use Hostinger\Reach\Api\Handlers\ReachApiHandler;
-use Hostinger\Reach\Repositories\FormRepository;
 
 abstract class WebhookHandler {
 
     protected ReachApiHandler $reach_api_handler;
-    protected FormRepository $form_repository;
 
-    public function __construct( ReachApiHandler $reach_api_handler, FormRepository $form_repository ) {
+    public function __construct( ReachApiHandler $reach_api_handler ) {
         $this->reach_api_handler = $reach_api_handler;
-        $this->form_repository   = $form_repository;
     }
 
     public function init(): void {
@@ -20,15 +17,7 @@ abstract class WebhookHandler {
     }
 
     public function is_enabled(): bool {
-        return $this->reach_api_handler->is_connected() && $this->is_automation_active();
-    }
-
-    public function is_automation_active(): bool {
-        return $this->form_repository->is_form_active( $this->get_name() );
-    }
-
-    public function increase_automation_submission_counter(): bool {
-        return $this->form_repository->submit( array( 'form_id' => $this->get_name() ) );
+        return $this->reach_api_handler->is_connected();
     }
 
     public function handle( string $email, mixed $data ): bool {
@@ -41,12 +30,7 @@ abstract class WebhookHandler {
         );
 
         $response = $this->reach_api_handler->post_webhook_event( $webhook_payload );
-        if ( ! $response->is_error() ) {
-            $this->increase_automation_submission_counter();
-            return true;
-        }
-
-        return false;
+        return ! $response->is_error();
     }
 
     abstract public function init_hooks(): void;

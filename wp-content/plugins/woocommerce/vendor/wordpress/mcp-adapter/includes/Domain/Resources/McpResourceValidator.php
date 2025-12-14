@@ -25,9 +25,10 @@ class McpResourceValidator {
 	 * @param array  $resource_data The resource data to validate.
 	 * @param string $context Optional context for error messages.
 	 *
-	 * @return bool|\WP_Error True if valid, WP_Error if validation fails.
+	 * @return void
+	 * @throws \InvalidArgumentException If validation fails.
 	 */
-	public static function validate_resource_data( array $resource_data, string $context = '' ) {
+	public static function validate_resource_data( array $resource_data, string $context = '' ): void {
 		$validation_errors = self::get_validation_errors( $resource_data );
 
 		if ( ! empty( $validation_errors ) ) {
@@ -37,10 +38,8 @@ class McpResourceValidator {
 				__( 'Resource validation failed: %s', 'mcp-adapter' ),
 				implode( ', ', $validation_errors )
 			);
-			return new \WP_Error( 'resource_validation_failed', esc_html( $error_message ) );
+			throw new \InvalidArgumentException( esc_html( $error_message ) );
 		}
-
-		return true;
 	}
 
 	/**
@@ -49,15 +48,12 @@ class McpResourceValidator {
 	 * @param \WP\MCP\Domain\Resources\McpResource $the_resource The resource instance to validate.
 	 * @param string      $context Optional context for error messages.
 	 *
-	 * @return bool|\WP_Error True if valid, WP_Error if validation fails.
+	 * @return void
+	 * @throws \InvalidArgumentException If validation fails.
 	 */
-	public static function validate_resource_instance( McpResource $the_resource, string $context = '' ) {
-		$uniqueness_result = self::validate_resource_uniqueness( $the_resource, $context );
-		if ( is_wp_error( $uniqueness_result ) ) {
-			return $uniqueness_result;
-		}
-
-		return self::validate_resource_data( $the_resource->to_array(), $context );
+	public static function validate_resource_instance( McpResource $the_resource, string $context = '' ): void {
+		self::validate_resource_uniqueness( $the_resource, $context );
+		self::validate_resource_data( $the_resource->to_array(), $context );
 	}
 
 	/**
@@ -66,9 +62,9 @@ class McpResourceValidator {
 	 * @param \WP\MCP\Domain\Resources\McpResource $the_resource The resource instance to validate.
 	 * @param string      $context Optional context for error messages.
 	 *
-	 * @return bool|\WP_Error True if unique, WP_Error if the resource URI is not unique.
+	 * @throws \InvalidArgumentException If the resource URI is not unique.
 	 */
-	public static function validate_resource_uniqueness( McpResource $the_resource, string $context = '' ) {
+	public static function validate_resource_uniqueness( McpResource $the_resource, string $context = '' ): void {
 		$this_resource_uri = $the_resource->get_uri();
 		$existing_resource = $the_resource->get_mcp_server()->get_resource( $this_resource_uri );
 		if ( $existing_resource ) {
@@ -78,10 +74,8 @@ class McpResourceValidator {
 				__( 'Resource URI \'%s\' is not unique. It already exists in the MCP server.', 'mcp-adapter' ),
 				$this_resource_uri
 			);
-			return new \WP_Error( 'resource_not_unique', esc_html( $error_message ) );
+			throw new \InvalidArgumentException( esc_html( $error_message ) );
 		}
-
-		return true;
 	}
 
 	/**

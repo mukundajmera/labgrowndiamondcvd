@@ -251,10 +251,6 @@ class WpNotices {
 		}
 
 		$notices = $this->getNoticesInContext();
-		$notices = array_filter( $notices, function( $notice ) {
-			return is_array( $notice );
-		} );
-
 		foreach ( $notices as $notice ) {
 			// Hide snackbar notices on classic editor.
 			if ( ! empty( $notice['options']['type'] ) && 'snackbar' === $notice['options']['type'] ) {
@@ -274,8 +270,8 @@ class WpNotices {
 						if ( ! empty( $action['url'] ) ) {
 							$class  = ! empty( $action['class'] ) ? $action['class'] : '';
 							$target = ! empty( $action['target'] ) ? $action['target'] : '';
-							echo '<a
-								href="' . esc_attr( $action['url'] ) . '"
+							echo '<a 
+								href="' . esc_attr( $action['url'] ) . '" 
 								class="' . esc_attr( $class ) . '"
 								target="' . esc_attr( $target ) . '"
 							>';

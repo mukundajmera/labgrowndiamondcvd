@@ -1,22 +1,4 @@
 /*!
-  * core-base v11.1.12
-  * (c) 2025 kazuya kawaguchi
-  * Released under the MIT License.
-  */
-
-/*!
-  * message-compiler v11.1.12
-  * (c) 2025 kazuya kawaguchi
-  * Released under the MIT License.
-  */
-
-/*!
-  * shared v11.1.12
-  * (c) 2025 kazuya kawaguchi
-  * Released under the MIT License.
-  */
-
-/*!
  * DiceBear Initials (@dicebear/initials)
  *
  * Code licensed under MIT (https://github.com/dicebear/dicebear/blob/v4/packages/initials/LICENSE)
@@ -100,19 +82,19 @@
  */
 
 /**
-* @vue/runtime-core v3.5.24
+* @vue/runtime-core v3.5.22
 * (c) 2018-present Yuxi (Evan) You and Vue contributors
 * @license MIT
 **/
 
 /**
-* @vue/runtime-dom v3.5.24
+* @vue/runtime-dom v3.5.22
 * (c) 2018-present Yuxi (Evan) You and Vue contributors
 * @license MIT
 **/
 
 /**
-* @vue/shared v3.5.24
+* @vue/shared v3.5.22
 * (c) 2018-present Yuxi (Evan) You and Vue contributors
 * @license MIT
 **/

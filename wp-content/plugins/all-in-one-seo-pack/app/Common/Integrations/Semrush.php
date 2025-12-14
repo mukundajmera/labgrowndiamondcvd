@@ -184,16 +184,13 @@ class Semrush {
 	 *
 	 * @param  string      $keyphrase A primary keyphrase.
 	 * @param  string      $database  A country database.
-	 * @return object|array|bool      The response object or false if the tokens could not be refreshed.
+	 * @return object|bool            The response object or false if the tokens could not be refreshed.
 	 */
 	public static function getKeyphrases( $keyphrase, $database ) {
 		if ( self::hasExpired() ) {
 			$success = self::refreshTokens();
 			if ( ! $success ) {
-				return [
-					'success' => false,
-					'message' => 'Could not connect to Semrush.'
-				];
+				return false;
 			}
 		}
 
@@ -238,7 +235,7 @@ class Semrush {
 			return false;
 		}
 
-		$body = json_decode( wp_remote_retrieve_body( $response ), true );
+		$body = json_decode( wp_remote_retrieve_body( $response ) );
 
 		aioseo()->core->cache->update( $transientKey, $body );
 

@@ -119,10 +119,17 @@ class SlugMonitor {
 
 		// Default notice redirecting to the Redirects screen.
 		$action = [
-			'url'   => $redirectUrl,
-			'label' => __( 'Add Redirect to improve SEO', 'all-in-one-seo-pack' ),
-			'class' => 'aioseo-redirects-slug-changed'
+			'url'    => $redirectUrl,
+			'label'  => __( 'Add Redirect to improve SEO', 'all-in-one-seo-pack' ),
+			'target' => '_blank',
+			'class'  => 'aioseo-redirects-slug-changed'
 		];
+
+		// If redirects is active we'll show add-redirect in a modal.
+		if ( aioseo()->addons->getLoadedAddon( 'redirects' ) ) {
+			// We need to remove the target here so the action keeps the url used by the add-redirect modal.
+			unset( $action['target'] );
+		}
 
 		aioseo()->wpNotices->addNotice( $message, 'warning', [ 'actions' => [ $action ] ], [ 'posts' ] );
 	}
@@ -166,11 +173,11 @@ class SlugMonitor {
 	 * @return bool             True if an automatic redirect was added.
 	 */
 	private function automaticRedirect( $postType, $before, $after ) {
-		if ( empty( aioseo()->redirects ) ) {
+		if ( ! aioseo()->addons->getLoadedAddon( 'redirects' ) ) {
 			return false;
 		}
 
-		return aioseo()->redirects->monitor->automaticRedirect( $postType, $before, $after );
+		return aioseoRedirects()->monitor->automaticRedirect( $postType, $before, $after );
 	}
 
 	/**
@@ -182,10 +189,10 @@ class SlugMonitor {
 	 * @return string       The redirect link.
 	 */
 	public function manualRedirectUrl( $urls ) {
-		if ( empty( aioseo()->redirects ) ) {
+		if ( ! aioseo()->addons->getLoadedAddon( 'redirects' ) ) {
 			return admin_url( 'admin.php?page=aioseo-redirects' );
 		}
 
-		return aioseo()->redirects->helpers->manualRedirectUrl( $urls );
+		return aioseoRedirects()->helpers->manualRedirectUrl( $urls );
 	}
 }

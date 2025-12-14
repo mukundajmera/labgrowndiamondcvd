@@ -34,7 +34,6 @@ import CustomColorPalette from '../components/custom-color-palette';
 import withBuildSiteController from '../hoc/withBuildSiteController';
 import LoadingSpinner from '../components/loading-spinner';
 import Tooltip from '../components/tooltip';
-import SaleCountdownBlock from '../components/sale-countdown-block';
 import { PremiumCrownCircleIcon } from '../ui/icons';
 
 const { logoUrlDark } = aiBuilderVars;
@@ -431,7 +430,7 @@ const SitePreview = ( { handleClickStartBuilding, isInProgress } ) => {
 										</div>
 										<p className="text-brand-secondary-200 text-white text-sm">
 											{ __(
-												"You've chosen a Premium Design. Access this design and all others with our paid plans.",
+												"You've chosen a Premium Design. Access this design and all others with our paid plans starting at just $79.",
 												'ai-builder'
 											) }
 										</p>
@@ -441,11 +440,6 @@ const SitePreview = ( { handleClickStartBuilding, isInProgress } ) => {
 						) : (
 							<></>
 						) }
-
-						{ /* Black friday countdown */ }
-
-						<SaleCountdownBlock />
-
 						<div className="mt-8 mb-5 space-y-5">
 							<Button
 								className="h-10 w-full font-semibold text-sm leading-5"

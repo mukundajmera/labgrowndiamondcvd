@@ -14,9 +14,6 @@ import { HSkeletonLoader } from '@hostinger/hcomponents';
 				</div>
 			</div>
 		</div>
-		<div class="plugin-entry-skeleton__cell plugin-entry-skeleton__cell--forms">
-			<HSkeletonLoader width="20px" height="16px" border-radius="sm" />
-		</div>
 		<div class="plugin-entry-skeleton__cell plugin-entry-skeleton__cell--entries">
 			<HSkeletonLoader width="20px" height="16px" border-radius="sm" />
 		</div>
@@ -39,23 +36,18 @@ import { HSkeletonLoader } from '@hostinger/hcomponents';
 		align-items: center;
 
 		&--plugin {
-			width: 40%;
+			width: 50%;
 			order: 1;
 		}
 
-		&--forms {
-			width: 20%;
+		&--entries {
+			width: 21%;
 			order: 2;
 		}
 
-		&--entries {
-			width: 20%;
-			order: 3;
-		}
-
 		&--status {
-			width: 20%;
-			order: 4;
+			width: 19%;
+			order: 3;
 		}
 
 		&--actions {
@@ -63,7 +55,7 @@ import { HSkeletonLoader } from '@hostinger/hcomponents';
 			display: flex;
 			justify-content: flex-end;
 			padding-right: 16px;
-			order: 5;
+			order: 4;
 		}
 	}
 

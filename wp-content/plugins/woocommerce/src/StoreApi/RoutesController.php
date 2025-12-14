@@ -4,7 +4,6 @@ declare( strict_types = 1 );
 namespace Automattic\WooCommerce\StoreApi;
 
 use Automattic\WooCommerce\StoreApi\Routes\V1\AbstractRoute;
-use Automattic\WooCommerce\Utilities\FeaturesUtil;
 
 /**
  * RoutesController class.
@@ -75,12 +74,6 @@ class RoutesController {
 				// This route should be moved outside of the Store API namespace.
 				Routes\V1\Patterns::IDENTIFIER => Routes\V1\Patterns::class,
 			],
-			'agentic' => [
-				// Agentic Commerce Protocol endpoints.
-				Routes\V1\Agentic\CheckoutSessions::IDENTIFIER         => Routes\V1\Agentic\CheckoutSessions::class,
-				Routes\V1\Agentic\CheckoutSessionsUpdate::IDENTIFIER   => Routes\V1\Agentic\CheckoutSessionsUpdate::class,
-				Routes\V1\Agentic\CheckoutSessionsComplete::IDENTIFIER => Routes\V1\Agentic\CheckoutSessionsComplete::class,
-			],
 		];
 	}
 
@@ -91,10 +84,6 @@ class RoutesController {
 		$this->register_routes( 'v1', self::$api_namespace );
 		$this->register_routes( 'v1', self::$api_namespace . '/v1' );
 		$this->register_routes( 'private', 'wc/private' );
-
-		if ( FeaturesUtil::feature_is_enabled( 'agentic_checkout' ) ) {
-			$this->register_routes( 'agentic', 'wc/agentic/v1' );
-		}
 	}
 
 	/**

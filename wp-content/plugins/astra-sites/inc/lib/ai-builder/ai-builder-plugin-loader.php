@@ -65,9 +65,6 @@ class Ai_Builder_Plugin_Loader {
 		add_filter( 'admin_body_class', [ $this, 'admin_body_class' ] );
 		$this->define_constants();
 		$this->setup_classes();
-
-		// Filter revoke redirection URL.
-		add_filter( 'zip_ai_revoke_redirection_url', [ $this, 'filter_revoke_redirection_url' ] );
 	}
 
 	/**
@@ -338,22 +335,6 @@ class Ai_Builder_Plugin_Loader {
 	}
 
 	/**
-	 * Filter the revoke redirection URL.
-	 *
-	 * @param string $url The default revoke redirection URL.
-	 * @return string The filtered revoke redirection URL.
-	 * @since 1.2.66
-	 */
-	public function filter_revoke_redirection_url( $url ) {
-		if ( ! empty( $_GET['revoke_redirect_url'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Nonce verification done earlier in the process.
-			$decoded_url = urldecode( wp_unslash( $_GET['revoke_redirect_url'] ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Nonce verification done earlier in the process.
-			return esc_url_raw( $decoded_url );
-		}
-
-		return $url;
-	}
-
-	/**
 	 * Generate and return the Google fonts url.
 	 *
 	 * @since 1.0.1
@@ -451,12 +432,8 @@ class Ai_Builder_Plugin_Loader {
 			'logoUrlDark'              => apply_filters( 'st_ai_onboarding_logo_dark', AI_BUILDER_URL . 'inc/assets/images/build-with-ai/st-logo-dark.svg' ),
 			'logoUrlLight'             => apply_filters( 'st_ai_onboarding_logo_light', AI_BUILDER_URL . 'inc/assets/images/logo.svg' ),
 			'zip_plans'                => $plans && isset( $plans['data'] ) ? $plans['data'] : array(),
-			'zip_auth_revoke_url'      => site_url(
-				is_callable( [ '\ZipAi\Classes\Helper', 'get_auth_revoke_url' ] ) ? \ZipAi\Classes\Helper::get_auth_revoke_url() : '' // @phpstan-ignore-line -- Class may not be loaded during static analysis.
-			),
 			'dashboard_url'            => admin_url(),
 			'migrateSvg'               => apply_filters( 'ai_builder_migrate_svg', AI_BUILDER_URL . 'inc/assets/images/build-with-ai/migrate.svg' ),
-			'sale_infobar_bg'          => apply_filters( 'ai_builder_sale_infobar_bg', AI_BUILDER_URL . 'inc/assets/images/infobar-bg.png' ),
 			'business_details'         => Ai_Builder_ZipWP_Integration::get_business_details(),
 			'skipFeatures'             => 'yes' === apply_filters( 'ai_builder_skip_features', 'no' ),
 			'show_premium_badge'       => 'yes' === apply_filters( 'ai_builder_show_premium_badge', 'yes' ),
@@ -484,7 +461,7 @@ class Ai_Builder_Plugin_Loader {
 						$team_name,
 					),
 					'upgrade_text'      => __( 'Unlock Full Power', 'astra-sites' ),
-					'upgrade_url'       => 'https://app.zipwp.com/st-pricing?source=starter-templates',
+					'upgrade_url'       => 'https://app.zipwp.com/founders-deal?source=starter-templates',
 					'contact_url'       => $support_link,
 					'contact_text'      => __( 'Contact Support', 'astra-sites' ),
 				)
@@ -499,11 +476,6 @@ class Ai_Builder_Plugin_Loader {
 			'isBeaverBuilderDisabled'  => get_option( 'st-beaver-builder-flag' ) || ! self::is_legacy_beaver_builder_enabled(),
 			'supportedPageBuilders'    => apply_filters( 'ai_builder_supported_page_builders', array( 'block-editor', 'elementor' ) ),
 			'hideCreditsWarningModal'  => apply_filters( 'ai_builder_hide_credits_warning_modal', false ), // Added for white label AI Builder.
-			'imagesEngine'             => Helper::get_images_engine(),
-			// Multisite capability data.
-			'isMultisite'              => is_multisite(),
-			'canInstallPlugins'        => current_user_can( 'install_plugins' ),
-			'canActivatePlugins'       => current_user_can( 'activate_plugins' ),
 		);
 	}
 

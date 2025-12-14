@@ -69,9 +69,6 @@ class Cache {
 		if ( ! aioseo()->core->db->tableExists( $this->table ) ) {
 			aioseo()->preUpdates->createCacheTable();
 		}
-
-		// Check if the is_object column exists and add it if it doesn't.
-		aioseo()->preUpdates->addIsObjectColumnToCache();
 	}
 
 	/**
@@ -80,29 +77,26 @@ class Cache {
 	 * @since 4.1.5
 	 *
 	 * @param  string     $key            The cache key name. Use a '%' for a like query.
-	 * @param  bool|array $allowedClasses Deprecated. No longer used since migrating from serialize to JSON.
+	 * @param  bool|array $allowedClasses Whether to allow objects to be returned.
 	 * @return mixed                      The value or null if the cache does not exist.
 	 */
-	public function get( $key, $allowedClasses = false ) { // phpcs:ignore VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable
+	public function get( $key, $allowedClasses = false ) {
 		$key = $this->prepareKey( $key );
 		if ( isset( self::$cache[ $key ] ) ) {
 			return self::$cache[ $key ];
 		}
 
-		$result = aioseo()->core->db
-			->start( $this->table )
-			->select( '`key`, `value`, `is_object`' )
-			->whereRaw( '( `expiration` IS NULL OR `expiration` > \'' . aioseo()->helpers->timeToMysql( time() ) . '\' )' );
-
-		// Check if we're supposed to do a LIKE get.
+		// Are we searching for a group of keys?
 		$isLikeGet = preg_match( '/%/', (string) $key );
 
-		if ( $isLikeGet ) {
-			$result->whereLike( 'key', $key, true );
-		} else {
-			$key = esc_sql( $key );
+		$result = aioseo()->core->db
+			->start( $this->table )
+			->select( '`key`, `value`' )
+			->whereRaw( '( `expiration` IS NULL OR `expiration` > \'' . aioseo()->helpers->timeToMysql( time() ) . '\' )' );
+
+		$isLikeGet ?
+			$result->whereRaw( '`key` LIKE \'' . $key . '\'' ) :
 			$result->where( 'key', $key );
-		}
 
 		$result->output( ARRAY_A )->run();
 
@@ -112,8 +106,7 @@ class Cache {
 		// If we have something let's normalize it.
 		if ( $values ) {
 			foreach ( $values as &$value ) {
-				// Use is_object flag to determine decode type: if 0 (false) decode to array, if 1 (true) decode to object.
-				$value['value'] = json_decode( $value['value'], empty( $value['is_object'] ) );
+				$value['value'] = aioseo()->helpers->maybeUnserialize( $value['value'], $allowedClasses );
 			}
 			// Return only the single cache value.
 			if ( ! $isLikeGet ) {
@@ -149,32 +142,19 @@ class Cache {
 			$expiration = 10 * MINUTE_IN_SECONDS;
 		}
 
-		$isObject   = is_object( $value );
-		$jsonValue  = wp_json_encode( $value );
-		$expiration = 0 < $expiration ? aioseo()->helpers->timeToMysql( time() + $expiration ) : null;
-
-		// Handle JSON encoding errors.
-		if ( false === $jsonValue && JSON_ERROR_NONE !== json_last_error() ) {
-			if ( aioseo()->helpers->isDev() ) {
-				// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
-				error_log( 'AIOSEO Cache: JSON encode failed for key "' . $key . '" - ' . json_last_error_msg() );
-			}
-
-			return;
-		}
+		$serializedValue = serialize( $value );
+		$expiration      = 0 < $expiration ? aioseo()->helpers->timeToMysql( time() + $expiration ) : null;
 
 		aioseo()->core->db->insert( $this->table )
 			->set( [
 				'key'        => $this->prepareKey( $key ),
-				'value'      => $jsonValue,
-				'is_object'  => $isObject,
+				'value'      => $serializedValue,
 				'expiration' => $expiration,
 				'created'    => aioseo()->helpers->timeToMysql( time() ),
 				'updated'    => aioseo()->helpers->timeToMysql( time() )
 			] )
 			->onDuplicate( [
-				'value'      => $jsonValue,
-				'is_object'  => $isObject,
+				'value'      => $serializedValue,
 				'expiration' => $expiration,
 				'updated'    => aioseo()->helpers->timeToMysql( time() )
 			] )
@@ -297,7 +277,7 @@ class Cache {
 		$prefix = $this->prepareKey( $prefix );
 
 		aioseo()->core->db->delete( $this->table )
-			->whereLike( 'key', $prefix . '%', true )
+			->whereRaw( "`key` LIKE '$prefix%'" )
 			->run();
 
 		$this->clearStaticPrefix( $prefix );

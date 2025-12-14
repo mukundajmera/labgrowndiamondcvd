@@ -16,6 +16,10 @@ class OnboardingRoutes {
     private $helper;
     private $proxy_client;
 
+    /**
+     * @param Client $client
+     * @param Helper $helper
+     */
     public function __construct( Client $client, Helper $helper ) {
         $this->helper       = $helper;
         $this->proxy_client = new Client(
@@ -77,7 +81,7 @@ class OnboardingRoutes {
 
         $endpoint = "/api/v1/installations/{$software_id}/plugins/install";
         $params   = array(
-            'plugins' => array_values( $plugins ),
+            'plugins' => $plugins,
         );
 
         return $this->make_api_post_request( $endpoint, $params );
@@ -144,37 +148,10 @@ class OnboardingRoutes {
 
         $endpoint = "/api/v1/installations/{$software_id}/astra/templates/import";
         $params   = array(
-            'templateId' => $template_id,
+            'template_id' => $template_id,
         );
 
         return $this->make_api_post_request( $endpoint, $params );
-    }
-
-    public function save_onboarding_options( WP_REST_Request $request ): WP_REST_Response {
-        $parameters = $request->get_json_params();
-
-        if ( empty( $parameters ) ) {
-            return $this->create_error_response( 'No options provided' );
-        }
-
-        try {
-            $saved_options = $this->process_and_save_options( $parameters );
-
-            $response = new WP_REST_Response();
-            $response->set_status( \WP_Http::OK );
-            $response->set_data(
-                array(
-                    'status' => 'success',
-                    'data'   => $saved_options,
-                )
-            );
-
-            return $response;
-        } catch ( \Exception $exception ) {
-            $this->helper->errorLog( 'Hostinger Easy Onboarding: Error saving onboarding options: ' . $exception->getMessage() );
-
-            return $this->create_error_response( $exception->getMessage() );
-        }
     }
 
     private function get_domain_from_request( WP_REST_Request $request ): string {
@@ -210,21 +187,33 @@ class OnboardingRoutes {
     }
 
     private function make_api_request( string $endpoint, array $params = array(), string $error_prefix = 'Hostinger Easy Onboarding' ): WP_REST_Response {
+        $data     = array(
+            'status' => 'error',
+            'data'   => array(),
+        );
         $response = new WP_REST_Response();
-        $response->set_status( \WP_Http::OK );
 
         try {
-            $request = $this->proxy_client->get( $endpoint, $params );
-            $data    = $this->process_api_response( $request, $error_prefix );
+            $response->set_status( \WP_Http::OK );
 
-            if ( 'error' === $data['status'] ) {
-                $response->set_status( \WP_Http::BAD_REQUEST );
+            $request = $this->proxy_client->get( $endpoint, $params );
+
+            if ( ! empty( $request['body'] ) ) {
+                $json = json_decode( $request['body'], true );
+
+                if ( ! empty( $json['data'] ) ) {
+                    $data = array(
+                        'status' => 'success',
+                        'data'   => $json['data'],
+                    );
+                }
             }
         } catch ( \Exception $exception ) {
             $response->set_status( \WP_Http::BAD_REQUEST );
+
             $this->helper->errorLog( "$error_prefix: Error sending request: " . $exception->getMessage() );
+
             $data = array(
-                'status'  => 'error',
                 'message' => $exception->getMessage(),
             );
         }
@@ -236,21 +225,33 @@ class OnboardingRoutes {
     }
 
     private function make_api_post_request( string $endpoint, array $params = array(), string $error_prefix = 'Hostinger Easy Onboarding' ): WP_REST_Response {
+        $data     = array(
+            'status' => 'error',
+            'data'   => array(),
+        );
         $response = new WP_REST_Response();
-        $response->set_status( \WP_Http::OK );
 
         try {
-            $request = $this->proxy_client->post( $endpoint, $params );
-            $data    = $this->process_api_response( $request, $error_prefix );
+            $response->set_status( \WP_Http::OK );
 
-            if ( 'error' === $data['status'] ) {
-                $response->set_status( \WP_Http::BAD_REQUEST );
+            $request = $this->proxy_client->post( $endpoint, $params );
+
+            if ( ! empty( $request['body'] ) ) {
+                $json = json_decode( $request['body'], true );
+
+                if ( ! empty( $json['data'] ) ) {
+                    $data = array(
+                        'status' => 'success',
+                        'data'   => $json['data'],
+                    );
+                }
             }
         } catch ( \Exception $exception ) {
             $response->set_status( \WP_Http::BAD_REQUEST );
+
             $this->helper->errorLog( "$error_prefix: Error sending request: " . $exception->getMessage() );
+
             $data = array(
-                'status'  => 'error',
                 'message' => $exception->getMessage(),
             );
         }
@@ -259,140 +260,5 @@ class OnboardingRoutes {
         $response->set_headers( array( 'Cache-Control' => 'no-cache' ) );
 
         return $response;
-    }
-
-    private function process_api_response( $request, string $error_prefix ): array {
-        if ( is_wp_error( $request ) ) {
-            return $this->handle_wp_error( $request, $error_prefix );
-        }
-
-        $response_code = (int) wp_remote_retrieve_response_code( $request );
-
-        if ( $response_code >= 200 && $response_code < 300 ) {
-            return $this->handle_success_response( $request );
-        }
-
-        return $this->handle_http_error( $request, $response_code, $error_prefix );
-    }
-
-    private function handle_wp_error( \WP_Error $error, string $error_prefix ): array {
-        $message = $error->get_error_message();
-        $this->helper->errorLog( "$error_prefix: WP Error: $message" );
-
-        return array(
-            'status'  => 'error',
-            'message' => $message,
-        );
-    }
-
-    private function handle_success_response( array $request ): array {
-        $body = wp_remote_retrieve_body( $request );
-
-        if ( empty( $body ) ) {
-            return array(
-                'status' => 'success',
-                'data'   => array(),
-            );
-        }
-
-        return $this->parse_json_response( $body );
-    }
-
-    private function parse_json_response( string $body ): array {
-        $json = json_decode( $body, true );
-
-        if ( json_last_error() !== JSON_ERROR_NONE ) {
-            return array(
-                'status'  => 'error',
-                'message' => 'Invalid JSON response: ' . json_last_error_msg(),
-            );
-        }
-
-        return array(
-            'status' => 'success',
-            'data'   => isset( $json['data'] ) ? $json['data'] : $json,
-        );
-    }
-
-    private function handle_http_error( array $request, int $response_code, string $error_prefix ): array {
-        $body = wp_remote_retrieve_body( $request );
-        $this->helper->errorLog( "$error_prefix: HTTP Error: Response code $response_code. Body: $body" );
-
-        return array(
-            'status'  => 'error',
-            'message' => "HTTP Error: Response code $response_code" . ( ! empty( $body ) ? " - $body" : '' ),
-        );
-    }
-
-    private function process_and_save_options( array $parameters ): array {
-        $saved_options = array();
-
-        if ( isset( $parameters['website_type'] ) ) {
-            $website_type = sanitize_text_field( $parameters['website_type'] );
-            $this->validate_website_type( $website_type );
-            update_option( 'hostinger_website_type', $website_type );
-            $saved_options['website_type'] = $website_type;
-        }
-
-        if ( isset( $parameters['hostinger_template_id'] ) ) {
-            $template_id = absint( $parameters['hostinger_template_id'] );
-            update_option( 'hostinger_template_id', $template_id );
-            $saved_options['hostinger_template_id'] = $template_id;
-        }
-
-        if ( isset( $parameters['hostinger_theme'] ) ) {
-            $theme = sanitize_text_field( $parameters['hostinger_theme'] );
-            update_option( 'hostinger_theme', $theme );
-            $saved_options['hostinger_theme'] = $theme;
-        }
-
-        if ( isset( $parameters['hostinger_plugins'] ) && is_array( $parameters['hostinger_plugins'] ) ) {
-            $plugins = array_map( 'sanitize_text_field', $parameters['hostinger_plugins'] );
-            update_option( 'hostinger_plugins', $plugins );
-            $saved_options['hostinger_plugins'] = $plugins;
-        }
-
-        if ( isset( $parameters['hostinger_woocommerce_onboarding'] ) ) {
-            $woo_flag = (int) $parameters['hostinger_woocommerce_onboarding'];
-            update_option( 'hostinger_woocommerce_onboarding', $woo_flag );
-            $saved_options['hostinger_woocommerce_onboarding'] = $woo_flag;
-        }
-
-        if ( isset( $parameters['hostinger_ai_content_generated'] ) ) {
-            $ai_content_flag = (int) $parameters['hostinger_ai_content_generated'];
-            update_option( 'hostinger_ai_content_generated', $ai_content_flag );
-            $saved_options['hostinger_ai_content_generated'] = $ai_content_flag;
-        }
-
-        if ( isset( $parameters['hostinger_ai_builder'] ) ) {
-            $ai_builder_flag = (int) $parameters['hostinger_ai_builder'];
-            update_option( 'hostinger_ai_builder', $ai_builder_flag );
-            $saved_options['hostinger_ai_builder'] = $ai_builder_flag;
-        }
-
-        if ( isset( $parameters['hostinger_onboarding_completed'] ) ) {
-            $onboarding_completed = (int) $parameters['hostinger_onboarding_completed'];
-            update_option( 'hostinger_onboarding_completed', $onboarding_completed );
-            $saved_options['hostinger_ai_builder'] = $onboarding_completed;
-        }
-
-        return $saved_options;
-    }
-
-    private function validate_website_type( string $website_type ): void {
-        $allowed_types = array(
-            'online store',
-            'blog',
-            'business',
-            'portfolio',
-            'affiliate-marketing',
-            'landing page',
-            'booking',
-            'other',
-        );
-
-        if ( ! in_array( $website_type, $allowed_types, true ) ) {
-            throw new \Exception( "Invalid website type: $website_type. Allowed types: " . implode( ', ', $allowed_types ) );
-        }
     }
 }

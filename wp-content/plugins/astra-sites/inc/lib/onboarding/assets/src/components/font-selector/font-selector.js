@@ -236,7 +236,7 @@ const FontSelector = ( { options, onSelect, selected } ) => {
 				type="other"
 			/>
 
-			<Button className="ist-button" onClick={ nextStep } after={ true }>
+			<Button className="ist-button" onClick={ nextStep } after>
 				{ __( 'Continue', 'astra-sites' ) }
 			</Button>
 			<PreviousStepLink customizeStep={ true } onClick={ lastStep }>

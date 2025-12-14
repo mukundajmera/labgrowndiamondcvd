@@ -40,9 +40,10 @@ class RegisterAbilityAsMcpTool {
 	 * @param \WP_Ability            $ability    The ability.
 	 * @param \WP\MCP\Core\McpServer $mcp_server The MCP server.
 	 *
-	 * @return \WP\MCP\Domain\Tools\McpTool|\WP_Error Returns a new instance of McpTool or WP_Error if validation fails.
+	 * @return \WP\MCP\Domain\Tools\McpTool returns a new instance of McpTool.
+	 * @throws \InvalidArgumentException If WordPress ability doesn't exist or validation fails.
 	 */
-	public static function make( WP_Ability $ability, McpServer $mcp_server ) {
+	public static function make( WP_Ability $ability, McpServer $mcp_server ): McpTool {
 		$tool = new self( $ability, $mcp_server );
 
 		return $tool->get_tool();
@@ -63,23 +64,14 @@ class RegisterAbilityAsMcpTool {
 	 * Get the MCP tool data array.
 	 *
 	 * @return array<string,mixed>
+	 * @throws \InvalidArgumentException If WordPress ability doesn't exist or validation fails.
 	 */
 	private function get_data(): array {
-		$input_schema = $this->ability->get_input_schema();
-
-		// If ability has no input schema, use an empty object schema for MCP
-		if ( empty( $input_schema ) ) {
-			$input_schema = array(
-				'type'                 => 'object',
-				'additionalProperties' => false,
-			);
-		}
-
 		$tool_data = array(
 			'ability'     => $this->ability->get_name(),
 			'name'        => str_replace( '/', '-', $this->ability->get_name() ),
 			'description' => $this->ability->get_description(),
-			'inputSchema' => $input_schema,
+			'inputSchema' => $this->ability->get_input_schema(),
 		);
 
 		// Add optional title from ability label.
@@ -106,9 +98,10 @@ class RegisterAbilityAsMcpTool {
 	/**
 	 * Get the MCP tool instance.
 	 *
-	 * @return \WP\MCP\Domain\Tools\McpTool|\WP_Error The validated MCP tool instance or WP_Error if validation fails.
+	 * @throws \InvalidArgumentException If WordPress ability doesn't exist or validation fails.
+	 * @return \WP\MCP\Domain\Tools\McpTool The validated MCP tool instance.
 	 */
-	private function get_tool() {
+	private function get_tool(): McpTool {
 		return McpTool::from_array( $this->get_data(), $this->mcp_server );
 	}
 }

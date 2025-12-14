@@ -34,7 +34,6 @@ import ApiErrorModel from '../api-error-model';
 import PlanInformationModal from '../plan-information-modal';
 import PlanUpgradePromoModal from '../plan-upgrade-promo';
 import SignupLoginModal from '../signup-login-modal';
-import SaleInfobar from '../sale-infobar';
 
 const { logoUrlLight } = aiBuilderVars;
 
@@ -177,8 +176,7 @@ const OnboardingAI = () => {
 
 	useLayoutEffect( () => {
 		const token = urlParams.get( 'token' );
-		const shouldResume = urlParams.get( 'should_resume' );
-		if ( token || shouldResume ) {
+		if ( token ) {
 			const url = removeQueryArgs(
 				window.location.href,
 				'token',
@@ -246,16 +244,14 @@ const OnboardingAI = () => {
 			<div
 				id="spectra-onboarding-ai"
 				className={ classNames(
-					'font-figtree h-screen flex flex-col shadow-medium',
+					'font-figtree h-screen grid grid-cols-1 shadow-medium grid-rows-[4rem_1fr]',
 					isAuthScreen && 'grid-rows-1'
 				) }
 			>
-				<SaleInfobar />
-
 				{ ! isAuthScreen && (
 					<header
 						className={ classNames(
-							'w-full h-16 grid grid-cols-[5rem_1fr_8rem] sm:grid-cols-[6.75rem_1fr_8rem] items-center justify-between md:justify-start z-[5] relative bg-white shadow pl-3 sm:pl-5',
+							'w-full h-full grid grid-cols-[5rem_1fr_8rem] sm:grid-cols-[6.75rem_1fr_8rem] items-center justify-between md:justify-start z-[5] relative bg-white shadow pl-3 sm:pl-5',
 							steps[ currentStep ]?.layoutConfig?.hideHeader &&
 								'justify-center md:justify-between'
 						) }

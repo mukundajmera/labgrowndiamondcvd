@@ -11,6 +11,7 @@ namespace Nette\Utils;
 
 use Nette;
 use function array_map, array_search, array_splice, count, explode, implode, is_a, is_string, strcasecmp, strtolower, substr, trim;
+use const PHP_VERSION_ID;
 
 
 /**
@@ -33,7 +34,7 @@ final class Type
 	): ?self
 	{
 		$type = $reflection instanceof \ReflectionFunctionAbstract
-			? $reflection->getReturnType() ?? ($reflection instanceof \ReflectionMethod ? $reflection->getTentativeReturnType() : null)
+			? $reflection->getReturnType() ?? (PHP_VERSION_ID >= 80100 && $reflection instanceof \ReflectionMethod ? $reflection->getTentativeReturnType() : null)
 			: $reflection->getType();
 
 		return $type ? self::fromReflectionType($type, $reflection, asObject: true) : null;

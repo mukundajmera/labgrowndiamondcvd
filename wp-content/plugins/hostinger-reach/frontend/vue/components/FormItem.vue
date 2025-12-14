@@ -1,15 +1,10 @@
 <script setup lang="ts">
-import { HIcon, HPopover } from '@hostinger/hcomponents';
+import { HIcon, HLabel, HPopover } from '@hostinger/hcomponents';
 import { computed } from 'vue';
 
-import SyncStatusLabel from '@/components/SyncStatusLabel.vue';
 import Toggle from '@/components/Toggle.vue';
-import { useIntegrationsStore } from '@/stores';
 import type { Form, Integration } from '@/types/models';
-import { IMPORT_STATUSES } from '@/types/models';
 import { translate } from '@/utils/translate';
-
-const { syncContacts } = useIntegrationsStore();
 
 interface Props {
 	form: Form;
@@ -24,15 +19,17 @@ const emit = defineEmits<{
 	editForm: [form: Form];
 }>();
 
-const handleSync = async (integration: Integration, form: Form) => {
-	await syncContacts({ [integration.id]: new Set([form.formId]) });
-};
-
 const pluginTitle = computed(
 	() => props.form.formTitle || props.form.post?.postTitle || translate('hostinger_reach_forms_no_title')
 );
 
-const supportsIntegration = computed(() => props.integration.type !== 'ecommerce' && props.integration.importEnabled);
+const getStatusLabel = () =>
+	props.form.isActive
+		? translate('hostinger_reach_plugin_entries_table_status_active')
+		: translate('hostinger_reach_plugin_entries_table_status_inactive');
+
+const getStatusColor = () => (props.form.isActive ? 'success' : 'gray');
+
 const hasActions = computed(() => !props.integration.isViewFormHidden || !props.integration.isEditFormHidden);
 </script>
 
@@ -40,6 +37,12 @@ const hasActions = computed(() => !props.integration.isViewFormHidden || !props.
 	<div class="form-item">
 		<div class="form-item__cell form-item__cell--plugin">
 			<div class="form-item__form-content">
+				<Toggle
+					v-if="props.integration.canToggleForms"
+					:value="props.form.isActive"
+					:is-disabled="form.isLoading"
+					@toggle="(status) => emit('toggleStatus', props.form, status)"
+				/>
 				<div class="form-item__form-info">
 					<span class="form-item__form-title">
 						{{ pluginTitle }}
@@ -49,32 +52,17 @@ const hasActions = computed(() => !props.integration.isViewFormHidden || !props.
 		</div>
 		<div class="form-item__cell form-item__cell--entries">
 			<span class="form-item__mobile-label">
-				{{ translate('hostinger_reach_plugin_entries_table_syncing_header') }}:
+				{{ translate('hostinger_reach_plugin_entries_table_entries_header') }}:
 			</span>
-			<Toggle
-				:value="props.form.isActive"
-				:is-disabled="!props.integration.canToggleForms || form.isLoading"
-				@toggle="(status) => emit('toggleStatus', props.form, status)"
-			/>
-		</div>
-		<div class="form-item__cell form-item__cell--entries">
-			<span class="form-item__mobile-label">
-				{{ translate('hostinger_reach_plugin_entries_table_contacts_header') }}:
-			</span>
-			<span class="form-item__entries-text">
-				{{ !supportsIntegration ? '-' : (props.integration.importStatus?.summary[form.formId]?.contacts ?? 0) }}
-			</span>
+			<span class="form-item__entries-text">{{ form.submissions || 0 }}</span>
 		</div>
 		<div class="form-item__cell form-item__cell--status">
 			<span class="form-item__mobile-label">
 				{{ translate('hostinger_reach_plugin_entries_table_status_header') }}:
 			</span>
-			<span class="form-item__status-label">
-				<SyncStatusLabel
-					:enabled="supportsIntegration"
-					:status="props.integration.importStatus?.summary[form.formId]?.status ?? IMPORT_STATUSES.NOT_IMPORTED"
-				/>
-			</span>
+			<HLabel variant="outline" :color="getStatusColor()" class="form-item__status-label">
+				{{ getStatusLabel() }}
+			</HLabel>
 		</div>
 		<div class="form-item__cell form-item__cell--actions">
 			<HPopover
@@ -99,14 +87,6 @@ const hasActions = computed(() => !props.integration.isViewFormHidden || !props.
 						<HIcon name="ic-edit-16" />
 						<span>{{ translate('hostinger_reach_plugin_entries_table_edit_form') }}</span>
 					</div>
-					<div
-						v-if="supportsIntegration"
-						class="form-item__menu-item"
-						@click="handleSync(props.integration, props.form)"
-					>
-						<HIcon name="ic-arrows-circle-16" />
-						<span>{{ translate('hostinger_reach_sync_contacts_button_text') }}</span>
-					</div>
 				</div>
 			</HPopover>
 		</div>
@@ -128,19 +108,15 @@ const hasActions = computed(() => !props.integration.isViewFormHidden || !props.
 		align-items: center;
 
 		&--plugin {
-			width: 38%;
-		}
-
-		&--forms {
-			width: 20%;
+			width: 50%;
 		}
 
 		&--entries {
-			width: 20%;
+			width: 21%;
 		}
 
 		&--status {
-			width: 20%;
+			width: 21%;
 		}
 
 		&--actions {
@@ -238,7 +214,6 @@ const hasActions = computed(() => !props.integration.isViewFormHidden || !props.
 		margin-bottom: 12px;
 
 		&__cell--plugin,
-		&__cell--forms,
 		&__cell--entries,
 		&__cell--status {
 			width: 100%;
@@ -248,7 +223,6 @@ const hasActions = computed(() => !props.integration.isViewFormHidden || !props.
 			width: 100%;
 		}
 
-		&__cell--forms,
 		&__cell--entries,
 		&__cell--status {
 			align-items: flex-start;

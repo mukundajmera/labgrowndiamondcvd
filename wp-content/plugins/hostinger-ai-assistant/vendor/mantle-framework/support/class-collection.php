@@ -11,11 +11,8 @@ namespace Mantle\Support;
 
 use ArrayAccess;
 use ArrayIterator;
-use JsonSerializable;
 use Mantle\Contracts\Support\Arrayable;
-use Mantle\Contracts\Support\Jsonable;
 use Mantle\Database\Model;
-use Mantle\Support\Enumerable;
 use Mantle\Support\Traits\Enumerates_Values;
 use stdClass;
 use Traversable;
@@ -27,7 +24,7 @@ use function Mantle\Support\Helpers\value;
  * Collection
  *
  * @template TKey of array-key = array-key
- * @template TValue of mixed = mixed
+ * @template TValue = mixed
  *
  * @implements \ArrayAccess<TKey, TValue>
  * @implements \Mantle\Support\Enumerable<TKey, TValue>
@@ -50,9 +47,10 @@ class Collection implements ArrayAccess, Enumerable {
 	/**
 	 * Create a new collection.
 	 *
-	 * @param iterable<TKey, TValue>|Arrayable<TKey, TValue>|Jsonable|JsonSerializable $items The items to include in the collection.
+	 * @param iterable<TKey, TValue> $items
+	 * @return void
 	 */
-	public function __construct( mixed $items = [] ) {
+	public function __construct( $items = [] ) {
 		$this->items = $this->get_arrayable_items( $items );
 	}
 
@@ -80,10 +78,10 @@ class Collection implements ArrayAccess, Enumerable {
 				}
 			}
 
-			return new static( $items ); // @phpstan-ignore-line return.type
+			return new static( $items );
 		}
 
-		return ( new static( $value ) )->values(); // @phpstan-ignore-line return.type
+		return ( new static( $value ) )->values();
 	}
 
 	/**
@@ -100,13 +98,11 @@ class Collection implements ArrayAccess, Enumerable {
 			return new static();
 		}
 
-		$items = range( 1, $number );
-
 		if ( is_null( $callback ) ) {
-			$callback = fn( $value ) => $value;
+			return new static( range( 1, $number ) );
 		}
 
-		return ( new static( $items ) )->map( $callback );
+		return ( new static( range( 1, $number ) ) )->map( $callback );
 	}
 
 	/**
@@ -121,7 +117,7 @@ class Collection implements ArrayAccess, Enumerable {
 	/**
 	 * Get the average value of a given key.
 	 *
-	 * @param  (callable(): mixed)|string|null $callback
+	 * @param  (callable(TValue): float|int)|string|null $callback
 	 */
 	public function avg( $callback = null ): int|float|null {
 		$callback = $this->value_retriever( $callback );
@@ -163,7 +159,7 @@ class Collection implements ArrayAccess, Enumerable {
 		$middle = (int) ( $count / 2 );
 
 		if ( $count % 2 !== 0 ) {
-			return $values->get( $middle ); // @phpstan-ignore-line return.type
+			return $values->get( $middle );
 		}
 
 		return ( new static(
@@ -244,7 +240,7 @@ class Collection implements ArrayAccess, Enumerable {
 	 */
 	public function contains_strict( $key, $value = null ) {
 		if ( func_num_args() === 2 ) {
-			return $this->contains( fn ( $item ) => data_get( $item, $key ) === $value ); // @phpstan-ignore-line argument.type
+			return $this->contains( fn ( $item ) => data_get( $item, $key ) === $value );
 		}
 
 		if ( $this->use_as_callable( $key ) ) {
@@ -417,7 +413,7 @@ class Collection implements ArrayAccess, Enumerable {
 	 * Run a filter over each of the items.
 	 *
 	 * @param (callable(TValue, TKey): bool)|null $callback
-	 * @return static<TKey, TValue>
+	 * @return static
 	 */
 	public function filter( ?callable $callback = null ) {
 		if ( $callback ) {
@@ -550,7 +546,7 @@ class Collection implements ArrayAccess, Enumerable {
 			$resolved_key = $key_by( $item, $key );
 
 			if ( is_object( $resolved_key ) ) {
-				$resolved_key = (string) $resolved_key; // @phpstan-ignore-line cast.string
+				$resolved_key = (string) $resolved_key;
 			}
 
 			$results[ $resolved_key ] = $item;
@@ -809,15 +805,6 @@ class Collection implements ArrayAccess, Enumerable {
 	}
 
 	/**
-	 * Map all items to integers.
-	 *
-	 * @return static<TKey, int>
-	 */
-	public function map_to_integers(): static {
-		return $this->map( fn ( $value ) => (int) $value );
-	}
-
-	/**
 	 * Merge the collection with the given items.
 	 *
 	 * @param  \Mantle\Contracts\Support\Arrayable<TKey, TValue>|iterable<TKey, TValue> $items
@@ -908,9 +895,9 @@ class Collection implements ArrayAccess, Enumerable {
 	 * Get the items in an collection of arrays with filtered child keys.
 	 *
 	 * @param TKey[]|TKey|static<int, TKey> $keys The keys to filter by.
-	 * @return static<TKey, array<array-key, mixed>>
+	 * @return static<TKey, array>
 	 */
-	public function only_children( $keys ): static {
+	public function only_children( $keys ) {
 		if ( empty( $keys ) ) {
 			return new static( $this->items );
 		}
@@ -1372,7 +1359,7 @@ class Collection implements ArrayAccess, Enumerable {
 			$arrayable_items
 		);
 
-		return new static( array_map( ...$params ) ); // @phpstan-ignore-line return.type
+		return new static( array_map( ...$params ) );
 	}
 
 	/**
@@ -1382,7 +1369,7 @@ class Collection implements ArrayAccess, Enumerable {
 	 * @return static<TKey, string>
 	 */
 	public function trim( string $char_list = "\n\r\t\v\x00" ) {
-		return new static( $this->map( fn ( $item ) => trim( (string) $item, $char_list ) ) ); // @phpstan-ignore-line return.type
+		return new static( $this->map( fn ( $item ) => trim( (string) $item, $char_list ) ) );
 	}
 
 	/**
@@ -1401,7 +1388,7 @@ class Collection implements ArrayAccess, Enumerable {
 	/**
 	 * Get an iterator for the items.
 	 *
-	 * @return \ArrayIterator<TKey, TValue>
+	 * @return \ArrayIterator
 	 */
 	public function getIterator(): Traversable {
 		return new ArrayIterator( $this->items );

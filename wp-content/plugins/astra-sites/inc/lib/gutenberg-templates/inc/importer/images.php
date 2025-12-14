@@ -88,13 +88,7 @@ class Images {
 
 		$description = isset( $image['description'] ) ? $image['description'] : '';
 
-		$name = preg_replace_callback(
-			'/\.[^.]+$/',
-			function( $matches ) {
-				return '';
-			},
-			$name
-		) . '.jpg';
+		$name = preg_replace( '/\.[^.]+$/', '', $name ) . '.jpg';
 
 		Helper::instance()->ast_block_templates_log( 'Downloading Image as "' . $name . '" : ' . $url );
 

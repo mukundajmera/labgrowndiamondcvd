@@ -20,7 +20,6 @@ use League\Uri\Idna\Converter as IdnaConverter;
 use Stringable;
 use Throwable;
 
-use function array_map;
 use function array_merge;
 use function array_pop;
 use function array_reduce;
@@ -34,7 +33,6 @@ use function inet_pton;
 use function preg_match;
 use function rawurldecode;
 use function sprintf;
-use function str_replace;
 use function strpos;
 use function strtolower;
 use function substr;
@@ -195,45 +193,6 @@ final class UriString
      * @var int
      */
     private const MAXIMUM_HOST_CACHED = 100;
-
-    /**
-     * Generate an IRI string representation (RFC3987) from its parsed representation
-     * returned by League\UriString::parse() or PHP's parse_url.
-     *
-     * If you supply your own array, you are responsible for providing
-     * valid components without their URI delimiters.
-     *
-     * @link https://tools.ietf.org/html/rfc3986#section-5.3
-     * @link https://tools.ietf.org/html/rfc3986#section-7.5
-     */
-    public static function toIriString(Stringable|string $uri): string
-    {
-        $components = UriString::parse($uri);
-        $port = null;
-        if (isset($components['port'])) {
-            $port = (int) $components['port'];
-            unset($components['port']);
-        }
-
-        if (null !== $components['host']) {
-            $components['host'] = IdnaConverter::toUnicode($components['host'])->domain();
-        }
-
-        $components['path'] = Encoder::decodePath($components['path']);
-        $components['user'] = Encoder::decodeNecessary($components['user']);
-        $components['pass'] = Encoder::decodeNecessary($components['pass']);
-        $components['query'] = Encoder::decodeQuery($components['query']);
-        $components['fragment'] = Encoder::decodeFragment($components['fragment']);
-
-        return self::build([
-            ...array_map(fn (?string $value) => match (true) {
-                null === $value,
-                !str_contains($value, '%20') => $value,
-                default => str_replace('%20', ' ', $value),
-            }, $components),
-            ...['port' => $port],
-        ]);
-    }
 
     /**
      * Generate a URI string representation from its parsed representation
@@ -420,7 +379,6 @@ final class UriString
             $baseUriComponents = self::parse($baseUri);
         }
 
-        $hasLeadingSlash = str_starts_with($baseUriComponents['path'], '/');
         if (null === $baseUriComponents['scheme']) {
             throw new SyntaxError('The base URI must be an absolute URI or null; If the base URI is null the URI must be an absolute URI.');
         }
@@ -440,7 +398,7 @@ final class UriString
 
         [$path, $query] = self::resolvePathAndQuery($uriComponents, $baseUriComponents);
         $path = UriString::removeDotSegments($path);
-        if ('' !== $path && '/' !== $path[0] && $hasLeadingSlash) {
+        if ('' !== $path && '/' !== $path[0] && null !== self::buildAuthority($baseUriComponents)) {
             $path = '/'.$path;
         }
 
@@ -520,12 +478,12 @@ final class UriString
         return [$targetPath, $uri['query']];
     }
 
-    public static function containsRfc3986Chars(Stringable|string $uri): bool
+    public static function containsValidRfc3986Characters(Stringable|string $uri): bool
     {
         return 1 === preg_match(self::REGEXP_VALID_URI_RFC3986_CHARS, (string) $uri);
     }
 
-    public static function containsRfc3987Chars(Stringable|string $uri): bool
+    public static function containsValidRfc3987Characters(Stringable|string $uri): bool
     {
         return 1 !== preg_match(self::REGEXP_INVALID_URI_RFC3987_CHARS, (string) $uri);
     }
@@ -582,7 +540,7 @@ final class UriString
             return $components;
         }
 
-        self::containsRfc3987Chars($uri) || throw new SyntaxError(sprintf('The uri `%s` contains invalid characters', $uri));
+        self::containsValidRfc3987Characters($uri) || throw new SyntaxError(sprintf('The uri `%s` contains invalid characters', $uri));
 
         //if the first character is a known URI delimiter, parsing can be simplified
         $first_char = $uri[0];

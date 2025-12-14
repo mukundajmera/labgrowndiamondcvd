@@ -199,12 +199,7 @@ class Astra_Site_Options_Import {
 							break;
 
 						case 'site_title':
-							try {
-								update_option( 'blogname', $option_value );
-							} catch ( \Exception $e ) {
-								// Failed silently: sometimes Elementor throws exception as it hooks into `update_option_blogname`.
-								astra_sites_error_log( 'Silently handled exception while updating blogname: ' . $e->getMessage() );
-							}
+							update_option( 'blogname', $option_value );
 							break;
 
 						default:

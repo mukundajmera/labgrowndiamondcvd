@@ -398,44 +398,10 @@ export const installAstra = ( storedState ) => {
 			importStatus: __( 'Installing Astra Theme…', 'astra-sites' ),
 		} );
 
-		wp.updates
-			.installTheme( {
-				slug: themeSlug,
-				ajax_nonce: astraSitesVars?._ajax_nonce,
-			} )
-			.catch( ( error ) => {
-				console.log( error );
-				// Check if error is due to folder already existing
-				const isFolderExistsError =
-					error?.errorCode === 'folder_exists' ||
-					( error?.errorMessage &&
-						error.errorMessage.toLowerCase().includes( 'folder' ) &&
-						error.errorMessage.toLowerCase().includes( 'exist' ) );
-
-				if ( isFolderExistsError ) {
-					// Theme is already installed, proceed to activate
-					dispatch( {
-						importStatus: __(
-							'Astra Theme Already Installed.',
-							'astra-sites'
-						),
-					} );
-					activateAstra( dispatch );
-				} else {
-					dispatch( {
-						importError: true,
-						importErrorMessages: {
-							primaryText:
-								error?.errorMessage ??
-								__(
-									'Theme installation failed.',
-									'astra-sites'
-								),
-							tryAgain: true,
-						},
-					} );
-				}
-			} );
+		wp.updates.installTheme( {
+			slug: themeSlug,
+			ajax_nonce: astraSitesVars?._ajax_nonce,
+		} );
 
 		// eslint-disable-next-line no-undef
 		jQuery( document ).on( 'wp-theme-install-success', function () {

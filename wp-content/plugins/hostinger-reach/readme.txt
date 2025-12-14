@@ -3,8 +3,8 @@ Tags: email marketing, marketing, newsletter, subscription, lead generation
 Contributors: hostinger
 Requires at least: 6.0
 Requires PHP: 8.0
-Tested up to: 6.9
-Stable tag: 1.3.1
+Tested up to: 6.8
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -34,10 +34,6 @@ Reach is also fully compatible with these popular form builders and plugins:
 * **Contact Form 7**
 * **WooCommerce**
 * **Elementor**
-* **WS Form**
-* **Sure Forms**
-* **Ninja Forms**
-* **Forminator**
 
 More integrations are coming soon.
 
@@ -276,44 +272,3 @@ Not yet. Currently, Reach is focused on one-time newsletters and promotional cam
 - Feature: Tracking for Purchases
 - Feature: Add WordPress Admin Notice for Connecting Reach
 - Tweak: Updated Translations
-
-1.2.1 (2025-11-05)
-
-- Feature: Support for Guest Abandoned Carts Automation
-- Feature: New E-Commerce Tab in Overview page
-- Tweak: Refactor Connection logic
-- Tweak: Add encryption for Guests automation
-
-1.2.2 (2025-11-06)
-
-- Feature: Auto-enable WooCommerce integration
-- Fix: Refresh Overview Page when Reach connection is lost
-- Tweak: Refactor to connection logic to use new Reach Connection endpoint
-
-1.2.3 (2025-11-13)
-
-- Feature: Integration with Ninja forms
-- Feature: Integration with WS Forms
-- Feature: Integration with Sure Forms
-- Feature: Integration with Forminator
-- Tweak: Security fixes
-- Tweak: Trigger CSAT Survey when user Adds a form or Integration
-
-1.2.4 (2025-11-26)
-
-- Tweak: Implement Cart cleanup action
-- Tweak: Bump WP Tested Up to flag
-- Fix: Readme typo
-- Fix: Prevent creation of infinite Batched Actions for Abandoned Carts
-
-1.3.0 (2025-12-11)
-
-- Feature: Import Contacts into Reach
-- Tweak: Bump dependencies
-- Tweak: UI changes
-- Fix: Add missing title in WooCommerce Checkout Form
-- Fix: Tweak title in Forminator forms
-
-1.3.1 (2025-12-12)
-
-- Fix: Fatal error when installing the plugin on WP < 6.8 + PHP < 8.4

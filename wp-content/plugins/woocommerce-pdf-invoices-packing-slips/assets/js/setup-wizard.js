@@ -45,13 +45,12 @@ jQuery( function( $ ) {
 		);
 
 		$.ajax( {
-			url:      wpo_wcpdf_setup.ajaxurl,
-			type:     'POST',
+			url: wpo_wcpdf_setup.ajaxurl,
+			type: 'POST',
 			dataType: 'json',
 			data: {
-				action:  'wcpdf_get_country_states',
-				country:  selectedCountry,
-				security: wpo_wcpdf_setup.nonce,
+				action: 'wcpdf_get_country_states',
+				country: selectedCountry
 			},
 			success: function( response ) {
 				$state.empty();

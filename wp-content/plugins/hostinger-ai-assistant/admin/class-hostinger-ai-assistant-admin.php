@@ -10,7 +10,6 @@
  * @subpackage Hostinger_Ai_Assistant/admin
  */
 
-use Hostinger\AiAssistant\Mcp\Rest\ToggleMcp;
 use Hostinger\WpMenuManager\Menus;
 use Hostinger\WpHelper\Utils;
 
@@ -25,6 +24,11 @@ use Hostinger\WpHelper\Utils;
  * @author     Hostinger <info@hostinger.com>
  */
 class Hostinger_Ai_Assistant_Admin {
+    public const MCP_SETTINGS_UPDATED_OPTION     = 'hostinger_mcp_settings_updated';
+    public const MCP_CHOICE_OPTION               = 'hostinger_mcp_choice';
+    public const MCP_ENABLE_DELETE_TOOLS_SETTING = 'enable_delete_tools';
+    public const WORDPRESS_MCP_SETTINGS_OPTION   = 'wordpress_mcp_settings';
+
     /**
      * The ID of this plugin.
      *
@@ -112,7 +116,33 @@ class Hostinger_Ai_Assistant_Admin {
             );
         }
 
-        $this->enqueue_chatbot();
+        wp_enqueue_script(
+            'hostinger_chatbot',
+            HOSTINGER_AI_ASSISTANT_ASSETS_URL . '/js/hostinger-chatbot.js',
+            array(
+                'jquery',
+                'wp-i18n',
+            ),
+            $this->version,
+            array( 'strategy' => 'defer' ),
+            false
+        );
+
+        $user = wp_get_current_user();
+        wp_localize_script(
+            'hostinger_chatbot',
+            'hostingerChatbot',
+            array_merge(
+                $translations->get_chatbot_translations(),
+                array(
+                    'nonce'             => wp_create_nonce( 'wp_rest' ),
+                    'chatbot_uri'       => esc_url_raw( rest_url() ),
+                    'user_id'           => ! empty( $user->ID ) ? $user->ID : 0,
+                    'mcp_choice'        => get_option( 'hostinger_mcp_choice', '' ),
+                    'mcp_plugin_active' => is_plugin_active( 'wordpress-mcp/wordpress-mcp.php' ),
+                )
+            )
+        );
     }
 
     public function enqueue_custom_editor_assets(): void {
@@ -173,39 +203,18 @@ class Hostinger_Ai_Assistant_Admin {
         include_once HOSTINGER_AI_ASSISTANT_ABSPATH . 'admin/partials/hostinger-ai-assistant-tab-view.php';
     }
 
-    public function enqueue_chatbot(): void {
-        $translations = new Hostinger_Frontend_Translations();
+    public function check_and_update_mcp_settings(): void {
+        if ( get_option( self::MCP_SETTINGS_UPDATED_OPTION, false ) ) {
+            return;
+        }
 
-        wp_enqueue_script(
-            'hostinger_chatbot',
-            HOSTINGER_AI_ASSISTANT_ASSETS_URL . '/js/hostinger-chatbot.js',
-            array(
-                'jquery',
-                'wp-i18n',
-            ),
-            $this->version,
-            array( 'strategy' => 'defer' ),
-            false
-        );
+        $mcp_choice = get_option( self::MCP_CHOICE_OPTION, 0 );
+        if ( ! $mcp_choice ) {
+            return;
+        }
 
-        $user   = wp_get_current_user();
-        $locale = get_user_locale();
-
-        wp_localize_script(
-            'hostinger_chatbot',
-            'hostingerChatbot',
-            array_merge(
-                $translations->get_chatbot_translations(),
-                array(
-                    'nonce'             => wp_create_nonce( 'wp_rest' ),
-                    'chatbot_uri'       => esc_url_raw( rest_url() ),
-                    'user_id'           => ! empty( $user->ID ) ? $user->ID : 0,
-                    'mcp_choice'        => get_option( ToggleMcp::MCP_CONSENT_OPTION, '' ),
-                    'mcp_plugin_active' => is_plugin_active( 'wordpress-mcp/wordpress-mcp.php' ),
-                    'language'          => $locale,
-                )
-            )
-        );
+        $this->update_mcp_settings();
+        update_option( self::MCP_SETTINGS_UPDATED_OPTION, true );
     }
 
     /**
@@ -229,5 +238,15 @@ class Hostinger_Ai_Assistant_Admin {
         }
 
         return false;
+    }
+
+    private function update_mcp_settings(): void {
+        $current_settings = get_option( self::WORDPRESS_MCP_SETTINGS_OPTION, array() );
+        $updated_settings = array_merge(
+            $current_settings,
+            array( self::MCP_ENABLE_DELETE_TOOLS_SETTING => true )
+        );
+
+        update_option( self::WORDPRESS_MCP_SETTINGS_OPTION, $updated_settings );
     }
 }

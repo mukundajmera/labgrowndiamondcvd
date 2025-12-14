@@ -156,18 +156,7 @@ class Web_Tag extends Module_Web_Tag {
 				body: new URLSearchParams( response )
 			} );
 
-			/*
-				Preserve comment text in case of redirect after login on a page
-				with a Sign in with Google button in the WordPress comments.
-			*/
-			const commentText = document.querySelector( '#comment' )?.value;
-			const postId = document.querySelectorAll( '.googlesitekit-sign-in-with-google__comments-form-button' )?.[0]?.className?.match(/googlesitekit-sign-in-with-google__comments-form-button-postid-(\d+)/)?.[1];
-
-			if ( !! commentText?.length ) {
-				sessionStorage.setItem( `siwg-comment-text-${postId}`, commentText );
-			}
-
-			<?php if ( empty( $this->redirect_to ) && ! $is_login_page ) : // phpcs:ignore Generic.WhiteSpace.ScopeIndent.Incorrect ?>
+			<?php if ( empty( $this->redirect_to ) && ! $is_login_page && $should_show_one_tap_prompt ) : // phpcs:ignore Generic.WhiteSpace.ScopeIndent.Incorrect ?>
 				location.reload();
 			<?php else : // phpcs:ignore Generic.WhiteSpace.ScopeIndent.Incorrect ?>
 				if ( res.ok && res.redirected ) {
@@ -179,13 +168,11 @@ class Web_Tag extends Module_Web_Tag {
 		}
 	}
 
-	if (typeof google !== 'undefined') {
-		google.accounts.id.initialize( {
-			client_id: '<?php echo esc_js( $this->settings['clientID'] ); ?>',
-			callback: handleCredentialResponse,
-			library_name: 'Site-Kit'
-		} );
-	}
+	google.accounts.id.initialize( {
+		client_id: '<?php echo esc_js( $this->settings['clientID'] ); ?>',
+		callback: handleCredentialResponse,
+		library_name: 'Site-Kit'
+	} );
 
 	<?php if ( $this->is_wp_login ) : // phpcs:ignore Generic.WhiteSpace.ScopeIndent.Incorrect ?>
 		const buttonDivToAddToLoginForm = document.createElement( 'div' );
@@ -211,16 +198,12 @@ class Web_Tag extends Module_Web_Tag {
 			theme: siwgButtonDiv.getAttribute( 'data-googlesitekit-siwg-theme' ) || defaultButtonOptions.theme,
 		};
 
-		if (typeof google !== 'undefined') {
-			google.accounts.id.renderButton( siwgButtonDiv, buttonOptions );
-		}
+		google.accounts.id.renderButton( siwgButtonDiv, buttonOptions );
 	});
 	<?php endif; // phpcs:ignore Generic.WhiteSpace.ScopeIndent.Incorrect ?>
 
 	<?php if ( $should_show_one_tap_prompt ) : // phpcs:ignore Generic.WhiteSpace.ScopeIndent.Incorrect ?>
-		if (typeof google !== 'undefined') {
-			google.accounts.id.prompt();
-		}
+		google.accounts.id.prompt();
 	<?php endif; // phpcs:ignore Generic.WhiteSpace.ScopeIndent.Incorrect ?>
 
 	<?php if ( ! empty( $this->redirect_to ) ) : // phpcs:ignore Generic.WhiteSpace.ScopeIndent.Incorrect ?>
@@ -228,20 +211,6 @@ class Web_Tag extends Module_Web_Tag {
 		expires.setTime( expires.getTime() + <?php echo esc_js( $cookie_expire_time ); ?> );
 		document.cookie = "<?php echo esc_js( Authenticator::COOKIE_REDIRECT_TO ); ?>=<?php echo esc_js( $this->redirect_to ); ?>;expires=" + expires.toUTCString() + ";path=<?php echo esc_js( Authenticator::get_cookie_path() ); ?>";
 	<?php endif; // phpcs:ignore Generic.WhiteSpace.ScopeIndent.Incorrect ?>
-
-	/*
-		If there is a matching saved comment text in sessionStorage, restore it
-		to the comment field and remove it from sessionStorage.
-	*/
-	const postId = document.body.className.match(/postid-(\d+)/)?.[1];
-
-	const commentField = document.querySelector( '#comment' );
-	const commentText = sessionStorage.getItem( `siwg-comment-text-${postId}` );
-
-	if ( commentText?.length && commentField && !! postId ) {
-		commentField.value = commentText;
-		sessionStorage.removeItem( `siwg-comment-text-${postId}` );
-	}
 } )();
 		<?php
 
@@ -251,11 +220,6 @@ class Web_Tag extends Module_Web_Tag {
 
 		// Output the Sign in with Google script.
 		printf( "\n<!-- %s -->\n", esc_html__( 'Sign in with Google button added by Site Kit', 'google-site-kit' ) );
-		?>
-		<style>
-		.googlesitekit-sign-in-with-google__frontend-output-button{max-width:320px}
-		</style>
-		<?php
 		BC_Functions::wp_print_script_tag( array( 'src' => 'https://accounts.google.com/gsi/client' ) );
 		BC_Functions::wp_print_inline_script_tag( $inline_script );
 		printf( "\n<!-- %s -->\n", esc_html__( 'End Sign in with Google button added by Site Kit', 'google-site-kit' ) );
