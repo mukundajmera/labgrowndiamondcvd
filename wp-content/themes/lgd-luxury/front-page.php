@@ -22,8 +22,13 @@ get_header(); ?>
                 <h1 class="hero-title">Ethical Brilliance. Lab-Perfected.</h1>
                 <p class="hero-subtitle">GIA Certified. 100% Conflict Free.</p>
                 <div class="hero-buttons">
-                    <a href="<?php echo esc_url( home_url( '/shop/' ) ); ?>" class="btn-primary">Shop Loose Diamonds</a>
-                    <a href="<?php echo esc_url( home_url( '/product-category/jewelry/' ) ); ?>" class="btn-secondary">Explore Jewelry</a>
+                    <?php
+                        $shop_link = function_exists('wc_get_page_permalink') ? wc_get_page_permalink( 'shop' ) : home_url( '/shop/' );
+                        $jewelry_link = get_term_link( 'jewelry', 'product_cat' );
+                        if ( is_wp_error( $jewelry_link ) ) $jewelry_link = home_url( '/product-category/jewelry/' );
+                    ?>
+                    <a href="<?php echo esc_url( $shop_link ); ?>" class="btn-primary">Shop Loose Diamonds</a>
+                    <a href="<?php echo esc_url( $jewelry_link ); ?>" class="btn-secondary">Explore Jewelry</a>
                 </div>
             </div>
         </section>
@@ -49,7 +54,7 @@ get_header(); ?>
                             <span class="hunt-label">Price</span>
                             <span class="hunt-value">Any Budget</span>
                         </div>
-                        <button class="hunt-search-btn" onclick="window.location.href='<?php echo esc_url( home_url( '/shop/' ) ); ?>'">
+                        <button class="hunt-search-btn" onclick="window.location.href='<?php echo esc_url( $shop_link ); ?>'">
                             Search
                         </button>
                     </div>
@@ -101,19 +106,23 @@ get_header(); ?>
         <!-- SECTION D: CATEGORY MOSAIC -->
         <section class="category-mosaic">
             <div class="mosaic-grid">
-                <a href="<?php echo esc_url( home_url( '/product-category/engagement-rings/' ) ); ?>" class="mosaic-item large">
+                <?php
+                    $rings_link = get_term_link( 'engagement-rings', 'product_cat' );
+                    if ( is_wp_error( $rings_link ) ) $rings_link = home_url( '/product-category/engagement-rings/' );
+                ?>
+                <a href="<?php echo esc_url( $rings_link ); ?>" class="mosaic-item large">
                     <div class="mosaic-bg" style="background-image: url('<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/images/engagement-rings.jpg');"></div>
                     <div class="mosaic-overlay">
                         <h2 class="mosaic-title">Engagement Rings</h2>
                     </div>
                 </a>
-                <a href="<?php echo esc_url( home_url( '/product-category/jewelry/' ) ); ?>" class="mosaic-item">
+                <a href="<?php echo esc_url( $jewelry_link ); ?>" class="mosaic-item">
                     <div class="mosaic-bg" style="background-image: url('<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/images/fine-jewelry.jpg');"></div>
                     <div class="mosaic-overlay">
                         <h2 class="mosaic-title">Fine Jewelry</h2>
                     </div>
                 </a>
-                <a href="<?php echo esc_url( home_url( '/shop/' ) ); ?>" class="mosaic-item">
+                <a href="<?php echo esc_url( $shop_link ); ?>" class="mosaic-item">
                     <div class="mosaic-bg" style="background-image: url('<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/images/loose-stones.jpg');"></div>
                     <div class="mosaic-overlay">
                         <h2 class="mosaic-title">Loose Stones</h2>
