@@ -204,25 +204,19 @@ class CustomizeStore extends Task {
 			'wp-blocks',
 			sprintf(
 				'window.wcBlockSettings = %s;',
-				wp_json_encode( $editor_settings, JSON_HEX_TAG | JSON_UNESCAPED_SLASHES )
+				wp_json_encode( $editor_settings )
 			)
 		);
 
 		// Preload server-registered block schemas.
 		wp_add_inline_script(
 			'wp-blocks',
-			'wp.blocks.unstable__bootstrapServerSideBlockDefinitions(' . wp_json_encode( get_block_editor_server_block_settings(), JSON_HEX_TAG | JSON_UNESCAPED_SLASHES ) . ');'
+			'wp.blocks.unstable__bootstrapServerSideBlockDefinitions(' . wp_json_encode( get_block_editor_server_block_settings() ) . ');'
 		);
 
 		wp_add_inline_script(
 			'wp-blocks',
-			sprintf(
-				'wp.blocks.setCategories( %s );',
-				wp_json_encode(
-					( isset( $editor_settings['blockCategories'] ) ? $editor_settings['blockCategories'] : array() ),
-					JSON_HEX_TAG | JSON_UNESCAPED_SLASHES
-				)
-			),
+			sprintf( 'wp.blocks.setCategories( %s );', wp_json_encode( isset( $editor_settings['blockCategories'] ) ? $editor_settings['blockCategories'] : array() ) ),
 			'after'
 		);
 

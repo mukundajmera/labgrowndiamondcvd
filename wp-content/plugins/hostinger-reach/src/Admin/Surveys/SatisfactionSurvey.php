@@ -3,7 +3,6 @@
 namespace Hostinger\Reach\Admin\Surveys;
 
 use Hostinger\Reach\Api\ApiKeyManager;
-use Hostinger\Reach\Functions;
 
 if ( ! defined( 'ABSPATH' ) ) {
     die;
@@ -15,7 +14,7 @@ class SatisfactionSurvey extends Survey {
             return false;
         }
 
-        return $this->is_hostinger_page() && ( $this->has_any_user_action() || $this->has_been_five_days_since_connection() );
+        return $this->is_hostinger_page() && $this->has_been_five_days_since_connection();
     }
 
     protected function get_score_question(): string {
@@ -32,10 +31,6 @@ class SatisfactionSurvey extends Survey {
 
     protected function get_location(): string {
         return 'wordpress_hostinger_reach';
-    }
-
-    protected function has_any_user_action(): bool {
-        return get_option( Functions::HOSTINGER_REACH_HAS_USER_ACTION, false );
     }
 
     protected function has_been_five_days_since_connection(): bool {

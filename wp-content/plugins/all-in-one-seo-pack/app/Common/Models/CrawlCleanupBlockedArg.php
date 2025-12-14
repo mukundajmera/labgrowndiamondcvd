@@ -166,7 +166,7 @@ class CrawlCleanupBlockedArg extends CommonModels\Model {
 			self::$regexBlockedArgs = aioseo()->core->db
 				->start( 'aioseo_crawl_cleanup_blocked_args' )
 				->select( 'id, regex' )
-				->where( 'regex IS NOT', null )
+				->whereRaw( 'regex IS NOT NULL' )
 				->run()
 				->result();
 		}

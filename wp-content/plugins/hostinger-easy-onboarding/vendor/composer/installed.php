@@ -3,7 +3,7 @@
         'name' => 'hostinger/hostinger-easy-onboarding',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'bb84c46af4e1fc685c2067596091793a11d4e973',
+        'reference' => 'dbfc8d2bff73e2a3ff3a5453bcb9614409234f80',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'automattic/jetpack-autoloader' => array(
             'pretty_version' => 'dev-trunk',
             'version' => 'dev-trunk',
-            'reference' => '914283e28ab4443c637b0044f708916707c8facb',
+            'reference' => '0a50ea406e3abd88c4cfac136c643a9f4b40f194',
             'type' => 'composer-plugin',
             'install_path' => __DIR__ . '/../automattic/jetpack-autoloader',
             'aliases' => array(
@@ -24,7 +24,7 @@
         'hostinger/hostinger-easy-onboarding' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'bb84c46af4e1fc685c2067596091793a11d4e973',
+            'reference' => 'dbfc8d2bff73e2a3ff3a5453bcb9614409234f80',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

@@ -46,10 +46,6 @@ class FormsApiHandler extends ApiHandler {
         }
         $forms = apply_filters( 'hostinger_reach_forms', array(), $args );
 
-        if ( ! empty( $forms ) ) {
-            update_option( Functions::HOSTINGER_REACH_HAS_USER_ACTION, true );
-        }
-
         return $this->handle_response(
             array(
                 'response' => array(
@@ -62,7 +58,6 @@ class FormsApiHandler extends ApiHandler {
 
     public function post_forms_handler( WP_REST_Request $request ): WP_REST_Response {
         $form_id   = $request->get_param( 'form_id' );
-        $type      = $request->get_param( 'type' );
         $is_active = (int) $request->get_param( 'is_active' );
 
         try {
@@ -75,8 +70,7 @@ class FormsApiHandler extends ApiHandler {
                     )
                 ),
                 $form_id,
-                $is_active,
-                $type
+                $is_active
             );
         } catch ( Exception $e ) {
             $message = $e->getMessage();

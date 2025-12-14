@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Hostinger Reach &#8211; AI-Powered Email Marketing for WordPress - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-12-11 06:02+0000\n"
+"PO-Revision-Date: 2025-10-28 12:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,85 +13,37 @@ msgstr ""
 "Marketing for WordPress - Stable (latest release)\n"
 "Language-Team: Dutch (Formal)"
 
-#: src/Setup/Assets.php:150
+#: src/Setup/Assets.php:142
 msgid "(no title)"
 msgstr "(geen titel)"
 
-#: src/Setup/Assets.php:172
-#, fuzzy
-msgid "-"
-msgstr "-"
-
-#: src/Setup/Assets.php:136 src/Setup/Assets.php:153
+#: src/Setup/Assets.php:128 src/Setup/Assets.php:145
 msgid "Active"
 msgstr "Actief"
 
-#: src/Setup/Assets.php:108
-#, fuzzy
-msgid ""
-"Add a new contact form with Reach or connect a plugin to start collecting "
-"contacts and sending campaigns."
-msgstr ""
-"Voeg een nieuw contactformulier toe met Reach of sluit een plugin aan om te "
-"beginnen met het verzamelen van contacten en het verzenden van campagnes."
-
-#: src/Setup/Assets.php:104
-msgid ""
-"Add an online store to your site, sell products or services, and connect "
-"subscriber tools automatically.."
-msgstr ""
-"Voeg een online winkel toe aan uw site, verkoop producten of diensten en "
-"sluit gereedschappen voor abonnees automatisch aan..."
-
-#: src/Setup/Assets.php:142 src/Setup/Assets.php:156
+#: src/Setup/Assets.php:103 src/Setup/Assets.php:104 src/Setup/Assets.php:120
+#: src/Setup/Assets.php:134
 msgid "Add form"
 msgstr "Formulier toevoegen"
 
-#: src/Setup/Assets.php:109 src/Setup/Assets.php:110 src/Setup/Assets.php:126
-#, fuzzy
-msgid "Add form or plugin"
-msgstr "Formulier of plugin toevoegen"
-
-#: src/Admin/Surveys/SatisfactionSurvey.php:26
+#: src/Admin/Surveys/SatisfactionSurvey.php:25
 msgid "Any ideas or feedback to help us improve Hostinger Reach?"
 msgstr ""
 "Heeft u ideeën of feedback waarmee we Hostinger Reach kunnen verbeteren?"
-
-#: src/Setup/Assets.php:170
-#, fuzzy
-msgid ""
-"are ready to sync with Reach. Any new contacts you’ll collect with these "
-"forms will sync automatically."
-msgstr ""
-"klaar zijn om met Reach te synchroniseren. Alle nieuwe contactpersonen die u "
-"met deze formulieren verzamelt, worden automatisch gesynchroniseerd."
 
 #: hostinger-reach.php:52
 msgid "Attention:"
 msgstr "Opgelet:"
 
-#: src/Integrations/WooCommerce/WooCommerceIntegration.php:123
-msgid "Automation -  Purchases"
-msgstr "Automatisering - Aankopen"
-
-#: src/Integrations/WooCommerce/WooCommerceIntegration.php:124
-msgid "Automation - Abandoned Carts"
-msgstr "Automatisering - Verlaten winkelwagens"
-
-#: src/Setup/Assets.php:93
+#: src/Setup/Assets.php:92
 msgid "Average CTOR"
 msgstr "Gemiddelde CTOR"
 
-#: src/Setup/Assets.php:73
-#, fuzzy
-msgid "Back"
-msgstr "Terug"
-
-#: src/Setup/Assets.php:122
+#: src/Setup/Assets.php:116
 msgid "Background image for"
 msgstr "Achtergrondafbeelding voor"
 
-#: src/Setup/Assets.php:121
+#: src/Setup/Assets.php:115
 msgid "Banner background image for"
 msgstr "Banner achtergrondafbeelding voor"
 
@@ -105,20 +57,23 @@ msgctxt "block title"
 msgid "Reach Subscription Form"
 msgstr "Reach inschrijfformulier"
 
-#: src/Setup/Assets.php:91
+#: src/Setup/Assets.php:90
 msgid "Campaigns"
 msgstr "Campagnes"
 
-#: src/Setup/Assets.php:129
+#: src/Setup/Assets.php:123
 msgid "Cancel "
 msgstr "Annuleren "
 
-#: src/Integrations/WooCommerce/WooCommerceIntegration.php:116
-#, fuzzy
-msgid "Checkout"
-msgstr "Kassa"
+#: src/Setup/Assets.php:102
+msgid ""
+"Choose how you'd like to manage forms on your website. Create a new form "
+"with Hostinger Reach or connect a third-party plugin."
+msgstr ""
+"Kies hoe u formulieren op uw site wilt beheren. Maak een nieuw formulier met "
+"Hostinger Reach of koppel een plugin van derden."
 
-#: src/Setup/Assets.php:124
+#: src/Setup/Assets.php:118
 msgid ""
 "Click-to-open rate tells you what percent of opens resulted in a click too. "
 "A good CTOR is 6-17%, depending on your industry."
@@ -127,17 +82,18 @@ msgstr ""
 "klik heeft geleid. Een goede CTOR ligt tussen de 6 en 17%, afhankelijk van "
 "uw branche."
 
-#: src/Setup/Assets.php:148
+#: src/Setup/Assets.php:140
 msgid "Collapse {pluginName} details"
 msgstr "Details {pluginName} samenvouwen"
 
-#: src/Admin/Notices/ConnectionNotice.php:104 src/Setup/Assets.php:162
+#: src/Admin/Notices/ConnectionNotice.php:104 src/Setup/Assets.php:153
 msgid "Connect"
 msgstr "Verbinden"
 
 #: src/Admin/Notices/ConnectionNotice.php:99
+#, fuzzy
 msgid "Connect Hostinger Reach to start Email Marketing"
-msgstr "Maak verbinding met Hostinger Reach om e-mailmarketing te starten"
+msgstr "Hostinger Reach aansluiten om e-mailmarketing te starten"
 
 #: frontend/blocks/subscription-block/src/Components/Connect.js:16
 #: frontend/dist/blocks/subscription.js:1
@@ -146,26 +102,23 @@ msgstr "Maak verbinding met Hostinger Reach om e-mailmarketing te starten"
 msgid "Connect Now"
 msgstr "Nu verbinden"
 
-#: src/Setup/Assets.php:80
+#: src/Setup/Assets.php:79
 msgid "Connect site"
 msgstr "Site koppelen"
 
-#: src/Setup/Assets.php:103 src/Setup/Assets.php:105
-msgid "Connect WooCommerce"
-msgstr "Verbind WooCommerce"
-
 #: src/Admin/Notices/ConnectionNotice.php:100
+#, fuzzy
 msgid ""
 "Connect your Hostinger Reach account to start sending newsletters and "
 "managing subscribers. With Hostinger Reach, it's easy to grow your audience "
 "in just one click."
 msgstr ""
-"Maak verbinding met uw Hostinger Reach account om te beginnen met het "
-"verzenden van nieuwsbrieven en het beheren van abonnees. Met Hostinger Reach "
-"is het eenvoudig om uw doelgroep te laten groeien met slechts één klik."
+"Sluit uw Hostinger Reach account aan om te beginnen met het versturen van "
+"nieuwsbrieven en het beheren van abonnees. Met Hostinger Reach is het "
+"eenvoudig om uw publiek te laten groeien in slechts één klik."
 
 #: src/Integrations/ContactForm7/ContactForm7Integration.php:91
-#: src/Setup/Assets.php:144
+#: src/Setup/Assets.php:136
 msgid "Contact Form 7"
 msgstr "Contact Form 7"
 
@@ -176,30 +129,16 @@ msgstr "Contact Form 7"
 msgid "Contact List"
 msgstr "Contactlijst"
 
-#: src/Setup/Assets.php:132 src/Setup/Assets.php:164
-#, fuzzy
-msgid "Contacts"
-msgstr "Contacten"
-
-#: src/Setup/Assets.php:169
-#, fuzzy
-msgid "contacts"
-msgstr "contacten"
-
-#: src/Setup/Assets.php:168
-#, fuzzy
-msgid "Contacts to Sync"
-msgstr "Contacten synchroniseren"
-
 #: src/Admin/Notices/ConnectionNotice.php:73
+#, fuzzy
 msgid "Could not generate auth URL"
-msgstr "Kon geen autorisatie URL genereren"
+msgstr "Kan geen auth URL genereren"
 
-#: src/Setup/Assets.php:98
+#: src/Setup/Assets.php:97
 msgid "Create campaign"
 msgstr "Campagne maken"
 
-#: src/Setup/Assets.php:76
+#: src/Setup/Assets.php:75
 msgid ""
 "Create email campaigns using AI-crafted templates that match your style. "
 "Instantly sync with your WordPress site and connect with your audience "
@@ -209,6 +148,10 @@ msgstr ""
 "Synchroniseer direct met uw WordPress site en maak eenvoudig contact met uw "
 "doelgroep."
 
+#: src/Setup/Assets.php:148
+msgid "Create form"
+msgstr "Maak formulier"
+
 #: frontend/blocks/subscription-block/src/edit.js:114
 #: frontend/dist/blocks/subscription.js:1
 #: frontend/dist/blocks/subscription.js:285
@@ -216,7 +159,7 @@ msgstr ""
 msgid "Create New List"
 msgstr "Nieuwe lijst maken"
 
-#: src/Setup/Assets.php:99
+#: src/Setup/Assets.php:98
 msgid "Create template"
 msgstr "Maak template"
 
@@ -227,27 +170,27 @@ msgstr "Maak template"
 msgid "Default"
 msgstr "Standaard"
 
-#: src/Setup/Assets.php:161
+#: src/Setup/Assets.php:152
 msgid "Disconnect"
 msgstr "Verbinding verbreken"
 
-#: src/Setup/Assets.php:130
+#: src/Setup/Assets.php:124
 msgid "Disconnect "
 msgstr "Verbreken "
 
-#: src/Setup/Assets.php:78
+#: src/Setup/Assets.php:77
 msgid "Disconnect it to link this site instead."
 msgstr "Koppel het los om deze site in plaats daarvan te linken."
 
-#: src/Setup/Assets.php:141
+#: src/Setup/Assets.php:133
 msgid "Disconnect plugin"
 msgstr "Plugin loskoppelen"
 
-#: src/Setup/Assets.php:127
+#: src/Setup/Assets.php:121
 msgid "Disconnect plugin?"
 msgstr "Plugin loskoppelen?"
 
-#: src/Setup/Assets.php:128
+#: src/Setup/Assets.php:122
 msgid ""
 "Disconnecting will stop new contacts from being collected. You can reconnect "
 "or use a different form anytime."
@@ -256,16 +199,12 @@ msgstr ""
 "verzameld. U kunt op elk gewenst moment opnieuw verbinding maken of een "
 "ander formulier gebruiken."
 
-#: src/Setup/Assets.php:102
-msgid "E-Commerce"
-msgstr "E-commerce"
-
-#: src/Setup/Assets.php:139
+#: src/Setup/Assets.php:131
 msgid "Edit form"
 msgstr "Formulier bewerken"
 
 #: src/Integrations/Elementor/ElementorIntegration.php:88
-#: src/Setup/Assets.php:146
+#: src/Setup/Assets.php:138
 msgid "Elementor"
 msgstr "Elementor"
 
@@ -278,24 +217,28 @@ msgstr "E-mail"
 msgid "Email Marketing"
 msgstr "E-mail marketing"
 
-#: src/Setup/Assets.php:83
+#: src/Setup/Assets.php:82
 msgid "Email marketing background with gradient design"
 msgstr "E-mail marketing achtergrond met gradiënt ontwerp"
 
-#: src/Setup/Assets.php:84
+#: src/Setup/Assets.php:83
 msgid ""
 "Email marketing illustration featuring envelopes and communication icons"
 msgstr "E-mail marketing illustratie met enveloppen en communicatie iconen"
 
-#: src/Setup/Assets.php:88
+#: src/Setup/Assets.php:87
 msgid "Emails"
 msgstr "E-mails"
 
-#: src/Setup/Assets.php:147
+#: src/Setup/Assets.php:126
+msgid "Entries"
+msgstr "Inzendingen"
+
+#: src/Setup/Assets.php:139
 msgid "Expand {pluginName} details"
 msgstr "Details {pluginName} uitvouwen"
 
-#: src/Setup/Assets.php:113
+#: src/Setup/Assets.php:107
 msgid "FAQ"
 msgstr "FAQ"
 
@@ -310,19 +253,15 @@ msgstr "Formulier"
 msgid "Form ID"
 msgstr "Formulier ID"
 
-#: src/Integrations/Forminator/ForminatorIntegration.php:34
-msgid "Forminator"
-msgstr "Forminator"
-
-#: src/Setup/Assets.php:106
+#: src/Setup/Assets.php:100
 msgid "Forms"
 msgstr "Formulieren"
 
-#: src/Setup/Assets.php:140
+#: src/Setup/Assets.php:132
 msgid "Go to plugin"
 msgstr "Ga naar plugin"
 
-#: src/Setup/Assets.php:81
+#: src/Setup/Assets.php:80
 #: frontend/blocks/subscription-block/src/Components/Dialog.js:42
 #: frontend/dist/blocks/subscription.js:1
 #: frontend/dist/blocks/subscription.js:131
@@ -337,12 +276,12 @@ msgstr "Hostinger"
 #. Plugin Name of the plugin
 #: hostinger-reach.php
 #: src/Integrations/Elementor/SubscriptionFormElementorWidget.php:20
-#: src/Integrations/Reach/ReachFormIntegration.php:71 src/Setup/Assets.php:82
-#: src/Setup/Assets.php:143
+#: src/Integrations/Reach/ReachFormIntegration.php:71 src/Setup/Assets.php:81
+#: src/Setup/Assets.php:135
 msgid "Hostinger Reach"
 msgstr "Hostinger Reach"
 
-#: src/Setup/Assets.php:115
+#: src/Setup/Assets.php:109
 msgid ""
 "Hostinger Reach is an AI-powered email marketing tool for small businesses "
 "and creators. It supports your entire email marketing journey—from building "
@@ -353,7 +292,7 @@ msgstr ""
 "traject – van het samenstellen van contactlijsten tot het versturen van "
 "campagnes en het volgen van resultaten."
 
-#: src/Setup/Assets.php:117
+#: src/Setup/Assets.php:111
 msgid ""
 "Hostinger Reach is built for simplicity, speed, and results – no design or "
 "marketing experience needed. Unlike most email tools, at the core of Reach "
@@ -386,24 +325,24 @@ msgid "Hostinger Reach Logo"
 msgstr "Hostinger Bereik Logo"
 
 #: src/Admin/Notices/ConnectionNotice.php:92
+#, fuzzy
 msgid "Hostinger Reach logo"
-msgstr "Hostinger Reach logo"
+msgstr "Hostinger logo"
 
 #. translators: %s: PHP version
 #: hostinger-reach.php:54
-#, php-format
 msgid "Hostinger Reach requires minimum PHP version of <b>%s</b>. "
 msgstr "Hostinger Reach vereist minimaal PHP versie <b>%s</b>. "
 
-#: src/Setup/Assets.php:116
+#: src/Setup/Assets.php:110
 msgid "How is Hostinger Reach different from other email marketing apps?"
 msgstr "Waarin verschilt Hostinger Reach van andere e-mail marketing apps?"
 
-#: src/Setup/Assets.php:118
+#: src/Setup/Assets.php:112
 msgid "How much does it cost to use Hostinger Reach?"
 msgstr "Hoeveel kost het om Hostinger Reach te gebruiken?"
 
-#: src/Admin/Surveys/SatisfactionSurvey.php:22
+#: src/Admin/Surveys/SatisfactionSurvey.php:21
 msgid "How would you rate your experience with Hostinger Reach so far?"
 msgstr "Hoe beoordeelt u uw ervaring met Hostinger Reach tot nu toe?"
 
@@ -417,12 +356,7 @@ msgstr "https://hostinger.com"
 msgid "https://www.hostinger.com/email-marketing"
 msgstr "https://www.hostinger.com/email-marketing"
 
-#: src/Api/Handlers/IntegrationsApiHandler.php:114
-#, fuzzy
-msgid "Importing is not available for this integration"
-msgstr "Importeren is niet beschikbaar voor deze integratie"
-
-#: src/Setup/Assets.php:137
+#: src/Setup/Assets.php:129
 msgid "Inactive"
 msgstr "Inactief"
 
@@ -433,11 +367,11 @@ msgstr "Inactief"
 msgid "Inline"
 msgstr "Inline"
 
-#: src/Setup/Assets.php:160
+#: src/Setup/Assets.php:151
 msgid "Install and connect"
 msgstr "Installeren en verbinden"
 
-#: src/Setup/Assets.php:159
+#: src/Setup/Assets.php:150
 msgid "Installed plugins"
 msgstr "Geïnstalleerde plugins"
 
@@ -445,16 +379,6 @@ msgstr "Geïnstalleerde plugins"
 #: hostinger-reach.php
 msgid "Integrate your WordPress site with Hostinger Reach."
 msgstr "Integreer uw WordPress site met Hostinger Reach."
-
-#: src/Setup/Assets.php:101
-msgid "Integrations"
-msgstr "Integraties"
-
-#: src/Setup/Assets.php:178
-#, fuzzy
-msgid "It was an error syncing your contacts to Reach."
-msgstr ""
-"Het was een fout bij het synchroniseren van uw contactpersonen met Reach."
 
 #: frontend/blocks/subscription-block/src/edit.js:155
 #: frontend/dist/blocks/subscription.js:1
@@ -471,10 +395,11 @@ msgid "Layout Settings"
 msgstr "Lay-outinstellingen"
 
 #: src/Admin/Notices/ConnectionNotice.php:107
+#, fuzzy
 msgid "Learn more"
-msgstr "Lees verder"
+msgstr "Meer informatie"
 
-#: src/Setup/Assets.php:154
+#: src/Setup/Assets.php:146
 msgid ""
 "Make sure the people you contact expect your emails and are okay with "
 "receiving them."
@@ -482,7 +407,7 @@ msgstr ""
 "Zorg ervoor dat de mensen met wie u contact opneemt, uw e-mails verwachten "
 "en er geen probleem mee hebben om ze te ontvangen."
 
-#: src/Setup/Assets.php:79
+#: src/Setup/Assets.php:78
 msgid "Manage"
 msgstr "Beheren"
 
@@ -498,7 +423,7 @@ msgstr "Naam"
 msgid "Name for the new Contact List"
 msgstr "Naam voor de nieuwe Contactlijst"
 
-#: src/Setup/Assets.php:155
+#: src/Setup/Assets.php:147
 msgid "New contact form"
 msgstr "Nieuw contactformulier"
 
@@ -509,67 +434,48 @@ msgstr "Nieuw contactformulier"
 msgid "New Contact List"
 msgstr "Nieuwe contactpersonenlijst"
 
-#: src/Setup/Assets.php:111
+#: src/Setup/Assets.php:105
 msgid "New page"
 msgstr "Nieuwe pagina"
 
-#: src/Setup/Assets.php:95
+#: src/Setup/Assets.php:94
 msgid "New subscribers"
 msgstr "Nieuwe abonnees"
-
-#: src/Integrations/NinjaForms/NinjaFormsIntegration.php:45
-msgid "Ninja Forms"
-msgstr "Ninja Forms"
 
 #: src/Integrations/Elementor/SubscriptionFormElementorWidget.php:71
 #: src/Integrations/Elementor/SubscriptionFormElementorWidget.php:83
 msgid "No"
 msgstr "Nee"
 
-#: src/Setup/Assets.php:149
+#: src/Setup/Assets.php:141
 msgid "No forms found for this integration."
 msgstr "Er zijn geen formulieren gevonden voor deze integratie."
 
-#: src/Setup/Assets.php:112
+#: src/Setup/Assets.php:106
 msgid "No pages available. Create a new page to get started."
 msgstr "Geen pagina's beschikbaar. Maak een nieuwe pagina om te beginnen."
 
-#: src/Setup/Assets.php:175
-#, fuzzy
-msgid "Not synced"
-msgstr "Niet gesynchroniseerd"
-
-#: src/Setup/Assets.php:134
-#, fuzzy
-msgid "of"
-msgstr "van"
-
-#: src/Setup/Assets.php:120
+#: src/Setup/Assets.php:114
 msgid "opens in new tab"
 msgstr "wordt geopend in een nieuwe tab"
 
-#: src/Setup/Assets.php:173
-#, fuzzy
-msgid "Partially synced"
-msgstr "Gedeeltelijk gesynchroniseerd"
-
-#: src/Setup/Assets.php:131
+#: src/Setup/Assets.php:125
 msgid "Plugin"
 msgstr "Plugin"
 
-#: src/Setup/Assets.php:151
+#: src/Setup/Assets.php:143
 msgid "Plugin connected successfully"
 msgstr "Plugin succesvol verbonden"
 
-#: src/Setup/Assets.php:152
+#: src/Setup/Assets.php:144
 msgid "Plugin disconnected successfully"
 msgstr "Plugin succesvol losgekoppeld"
 
-#: src/Setup/Assets.php:77
+#: src/Setup/Assets.php:76
 msgid "Reach is already connected to another site."
 msgstr "Reach is al verbonden met een andere site."
 
-#: src/Setup/Assets.php:119
+#: src/Setup/Assets.php:113
 msgid ""
 "Reach offers a <b>free plan</b> for one year– perfect for getting started. "
 "Paid plans are based on how many unique contacts you aim to reach and how "
@@ -582,7 +488,7 @@ msgstr ""
 "contacten dat u wilt bereiken en het aantal e-mails dat u maandelijks "
 "verstuurt. Naarmate uw publiek groeit, kunt u upgraden naar een abonnement "
 "dat bij uw behoeften past. Reach beperkt uw contactenlijst niet, dus u hoeft "
-"u geen zorgen te maken over gegevensverlies en kunt uw doelgroep consistent "
+"u geen zorgen te maken over gegevensverlies en kunt uw publiek consistent "
 "laten groeien."
 
 #: frontend/blocks/subscription-block/src/index.js:9
@@ -592,19 +498,19 @@ msgstr ""
 msgid "Reach Subscription Form"
 msgstr "Inschrijvingsformulier voor bereik"
 
-#: src/Setup/Assets.php:90
+#: src/Setup/Assets.php:89
 msgid "Remaining"
 msgstr "Resterende"
 
-#: src/Setup/Assets.php:125
+#: src/Setup/Assets.php:119
 msgid "Select page"
 msgstr "Selecteer pagina"
 
-#: src/Setup/Assets.php:89 src/Setup/Assets.php:92
+#: src/Setup/Assets.php:88 src/Setup/Assets.php:91
 msgid "Sent"
 msgstr "Verzonden"
 
-#: src/Setup/Assets.php:100 frontend/blocks/subscription-block/src/edit.js:102
+#: src/Setup/Assets.php:99 frontend/blocks/subscription-block/src/edit.js:102
 #: frontend/dist/blocks/subscription.js:1
 #: frontend/dist/blocks/subscription.js:273
 msgid "Settings"
@@ -632,17 +538,7 @@ msgstr "Achternaam weergeven"
 msgid "Show Surname Field?"
 msgstr "Achternaam veld tonen?"
 
-#: src/Setup/Assets.php:166
-#, fuzzy
-msgid ""
-"Some contacts you’ve collected before installing Reach aren’t yet synced. "
-"Sync them now to use them for your email campaigns."
-msgstr ""
-"Sommige contactpersonen die u hebt verzameld voordat u Reach installeerde, "
-"zijn nog niet gesynchroniseerd. Synchroniseer ze nu om ze voor uw e-"
-"mailcampagnes te gebruiken."
-
-#: src/Setup/Assets.php:74
+#: src/Setup/Assets.php:73
 msgid "Something went wrong"
 msgstr "Er ging iets mis"
 
@@ -650,12 +546,11 @@ msgstr "Er ging iets mis"
 msgid "Something went wrong. Please try again."
 msgstr "Er is iets fout gegaan. Probeer het alstublieft nog eens."
 
-#: src/Setup/Assets.php:107
-#, fuzzy
-msgid "Start by adding a form or connect a plugin"
-msgstr "Begin met het toevoegen van een formulier of sluit een plugin aan"
+#: src/Setup/Assets.php:101
+msgid "Start collecting form submissions"
+msgstr "Begin met het verzamelen van formulierinzendingen"
 
-#: src/Setup/Assets.php:135
+#: src/Setup/Assets.php:127
 msgid "Status"
 msgstr "Status"
 
@@ -668,69 +563,24 @@ msgstr "Abonneren"
 msgid "Subscribe to our Newsletter"
 msgstr "Schrijf u in voor onze nieuwsbrief"
 
-#: src/Integrations/WooCommerce/WooCommerceIntegration.php:73
+#: src/Integrations/WooCommerce/WooCommerceIntegration.php:69
 msgid "Subscribe to our newsletter"
 msgstr "Abonneren op onze nieuwsbrief"
 
-#: src/Setup/Assets.php:94
+#: src/Setup/Assets.php:93
 msgid "Subscribers"
 msgstr "Abonnees"
-
-#: src/Setup/Assets.php:157
-#, fuzzy
-#| msgid "View supported plugins"
-msgid "Supported plugins"
-msgstr "Bekijk ondersteunde plugins"
-
-#: src/Integrations/SureForms/SureFormsIntegration.php:35
-msgid "Sure Forms"
-msgstr "Sure Forms"
 
 #: src/Blocks/SubscriptionFormBlock.php:89
 #: src/Integrations/Elementor/SubscriptionFormElementorWidget.php:122
 msgid "Surname"
 msgstr "Achternaam"
 
-#: src/Setup/Assets.php:167
-#, fuzzy
-msgid "Sync"
-msgstr "Sync"
-
-#: src/Setup/Assets.php:163
-#, fuzzy
-msgid "Sync Contacts"
-msgstr "Contacten synchroniseren"
-
-#: src/Setup/Assets.php:165
-#, fuzzy
-msgid "Sync your contacts with Reach"
-msgstr "Synchroniseer uw contactpersonen met Reach"
-
-#: src/Setup/Assets.php:174
-#, fuzzy
-msgid "Synced"
-msgstr "Gesynchroniseerd"
-
-#: src/Setup/Assets.php:133
-#, fuzzy
-msgid "Syncing with Reach"
-msgstr "Synchroniseren met Reach"
-
-#: src/Setup/Assets.php:176
-#, fuzzy
-msgid "Syncing..."
-msgstr "Synchroniseren..."
-
 #: src/Blocks/SubscriptionFormBlock.php:20
 msgid "Thanks for subscribing."
 msgstr "Dank u wel voor het abonneren."
 
-#: src/Setup/Assets.php:177
-#, fuzzy
-msgid "The selected contacts are being synced to Reach."
-msgstr "De geselecteerde contactpersonen worden gesynchroniseerd naar Reach."
-
-#: src/Integrations/Integration.php:178
+#: src/Integrations/Integration.php:158
 msgid ""
 "This form has not an email field. Create an email field in the form to allow "
 "it to be synced with Reach"
@@ -738,11 +588,11 @@ msgstr ""
 "Dit formulier heeft geen e-mail veld. Maak een e-mail veld in het formulier "
 "zodat het gesynchroniseerd kan worden met Reach"
 
-#: src/Setup/Assets.php:85
+#: src/Setup/Assets.php:84
 msgid "This month"
 msgstr "Deze maand"
 
-#: src/Setup/Assets.php:97
+#: src/Setup/Assets.php:96
 msgid "Total subscribers"
 msgstr "Totaal aantal abonnees"
 
@@ -753,58 +603,47 @@ msgstr "Totaal aantal abonnees"
 msgid "Unique identifier for this form"
 msgstr "Unieke identificatie voor dit formulier"
 
-#: src/Setup/Assets.php:96
+#: src/Setup/Assets.php:95
 msgid "Unsubscribes"
 msgstr "Uitschrijvingen"
 
-#: src/Setup/Assets.php:87
+#: src/Setup/Assets.php:86
 msgid "Upgrade"
 msgstr "Upgrade"
 
-#: src/Setup/Assets.php:123
+#: src/Setup/Assets.php:117
 msgid "usage statistics"
 msgstr "gebruiksstatistieken"
 
-#: src/Setup/Assets.php:138
+#: src/Setup/Assets.php:130
 msgid "View form"
 msgstr "Formulier bekijken"
 
-#: src/Setup/Assets.php:158
-#, fuzzy
-msgid "View more supported plugins"
-msgstr "Meer ondersteunde plugins bekijken"
+#: src/Setup/Assets.php:149
+msgid "View supported plugins"
+msgstr "Bekijk ondersteunde plugins"
 
-#: src/Setup/Assets.php:75
+#: src/Setup/Assets.php:74
 msgid "Welcome to Reach"
 msgstr "Welkom bij Reach"
 
-#: src/Setup/Assets.php:114
+#: src/Setup/Assets.php:108
 msgid "What is Hostinger Reach email marketing service?"
 msgstr "Wat is de e-mail marketing dienst van Hostinger Reach?"
 
-#: src/Integrations/WooCommerce/WooCommerceIntegration.php:192
+#: src/Integrations/WooCommerce/WooCommerceIntegration.php:164
 msgid "WooCommerce"
 msgstr "WooCommerce"
 
-#: src/Integrations/WooCommerce/WooCommerceIntegration.php:211
-#, fuzzy
-msgid "WooCommerce Customers"
-msgstr "WooCommerce klanten"
-
 #: src/Integrations/WPFormsLite/WpFormsLiteIntegration.php:29
-#: src/Setup/Assets.php:145
+#: src/Setup/Assets.php:137
 msgid "WP Forms Lite"
 msgstr "WP Forms Lite"
 
 #. translators: %s - form id.
 #: src/Integrations/WPFormsLite/WpFormsLiteIntegration.php:63
-#, php-format
 msgid "WP Forms Lite %s"
 msgstr "WP Forms Lite %s"
-
-#: src/Integrations/WSForms/WSFormsIntegration.php:22
-msgid "WS Form"
-msgstr "WS Form"
 
 #: src/Integrations/Elementor/SubscriptionFormElementorWidget.php:70
 #: src/Integrations/Elementor/SubscriptionFormElementorWidget.php:82
@@ -831,19 +670,8 @@ msgstr ""
 
 #. translators: %s: PHP version
 #: hostinger-reach.php:58
-#, php-format
 msgid "You are running <b>%s</b> PHP version."
 msgstr "U gebruikt <b>%s</b> PHP versie."
-
-#: src/Setup/Assets.php:171
-#, fuzzy
-msgid ""
-"You have not selected any forms to sync. Select which forms you want to sync "
-"and then click on the Sync button below."
-msgstr ""
-"U hebt geen formulieren geselecteerd om te synchroniseren. Selecteer de "
-"formulieren die u wilt synchroniseren en klik vervolgens op de knop "
-"Synchroniseren hieronder."
 
 #: frontend/blocks/subscription-block/src/Components/Dialog.js:40
 #: frontend/dist/blocks/subscription.js:1
@@ -854,6 +682,6 @@ msgstr ""
 "Uw formulier is klaar. Ga naar Bereik om de installatie te voltooien en "
 "sjablonen te maken."
 
-#: src/Setup/Assets.php:86
+#: src/Setup/Assets.php:85
 msgid "Your plan"
 msgstr "Uw abonnement"

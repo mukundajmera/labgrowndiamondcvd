@@ -715,9 +715,7 @@ class Content {
 		$query    = aioseo()->core->db
 			->start( 'bp_activity as a' )
 			->select( '`a`.`id`, `a`.`date_recorded`' )
-			->where( 'a.is_spam', 0 )
-			->where( 'a.hide_sitewide', 0 )
-			->whereNotIn( 'a.type', [ 'activity_comment', 'last_activity' ] )
+			->whereRaw( "a.is_spam = 0 AND a.hide_sitewide = 0 AND a.type NOT IN ('activity_comment', 'last_activity')" )
 			->limit( aioseo()->sitemap->linksPerIndex, aioseo()->sitemap->offset )
 			->orderBy( 'a.date_recorded DESC' );
 
@@ -773,8 +771,7 @@ class Content {
 			->start( 'bp_groups as g' )
 			->select( '`g`.`id`, `g`.`date_created`, `gm`.`meta_value` as date_modified' )
 			->leftJoin( 'bp_groups_groupmeta as gm', 'g.id = gm.group_id' )
-			->where( 'g.status', 'public' )
-			->where( 'gm.meta_key', 'last_activity' )
+			->whereRaw( "g.status = 'public' AND gm.meta_key = 'last_activity'" )
 			->limit( aioseo()->sitemap->linksPerIndex, aioseo()->sitemap->offset )
 			->orderBy( 'gm.meta_value DESC' )
 			->orderBy( 'g.date_created DESC' );
@@ -831,8 +828,7 @@ class Content {
 		$query    = aioseo()->core->db
 			->start( 'bp_activity as a' )
 			->select( '`a`.`user_id` as id, `a`.`date_recorded`' )
-			->where( 'a.component', 'members' )
-			->where( 'a.type', 'last_activity' )
+			->whereRaw( "a.component = 'members' AND a.type = 'last_activity'" )
 			->limit( aioseo()->sitemap->linksPerIndex, aioseo()->sitemap->offset )
 			->orderBy( 'a.date_recorded DESC' );
 

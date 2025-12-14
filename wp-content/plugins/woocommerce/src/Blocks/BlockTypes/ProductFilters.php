@@ -274,12 +274,11 @@ class ProductFilters extends AbstractBlock {
 	 */
 	private function get_canonical_url_no_pagination( $filter_params ) {
 		$canonical_url_no_pagination = is_singular() ? get_permalink() : get_pagenum_link( 1 );
-		$decoded_url                 = html_entity_decode( $canonical_url_no_pagination, ENT_QUOTES, get_bloginfo( 'charset' ) );
-		$parsed_url                  = wp_parse_url( $decoded_url );
+		$parsed_url                  = wp_parse_url( html_entity_decode( $canonical_url_no_pagination, ENT_QUOTES, get_bloginfo( 'charset' ) ) );
 
 		// If there are active filters, $parsed_url['query'] is empty for page or post but not empty for archives.
 		if ( empty( $filter_params ) || empty( $parsed_url['query'] ) ) {
-			return $decoded_url;
+			return $canonical_url_no_pagination;
 		}
 
 		foreach ( array_keys( $filter_params ) as $key ) {

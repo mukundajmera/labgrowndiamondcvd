@@ -9,9 +9,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 class Functions {
-
-    public const HOSTINGER_REACH_HAS_USER_ACTION = 'hostinger_reach_has_user_action';
-
     public const ASSET_PAGES = array(
         'admin.php?page=hostinger-reach',
         'post-new.php',

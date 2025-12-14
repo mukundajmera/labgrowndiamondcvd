@@ -92,20 +92,7 @@ final class Encoder
      */
     public static function normalizeUser(Stringable|string|null $user): ?string
     {
-        return self::normalize(self::encodeUser(self::decodeUnreservedCharacters($user)));
-    }
-
-    private static function normalize(?string $component): ?string
-    {
-        if (null === $component) {
-            return null;
-        }
-
-        return (string) preg_replace_callback(
-            '/%[0-9a-f]{2}/i',
-            static fn (array $found) => strtoupper($found[0]),
-            $component
-        );
+        return self::encodeUser(self::decodeUnreservedCharacters($user));
     }
 
     /**
@@ -139,7 +126,7 @@ final class Encoder
      */
     public static function normalizePassword(#[SensitiveParameter] Stringable|string|null $password): ?string
     {
-        return self::normalize(self::encodePassword(self::decodeUnreservedCharacters($password)));
+        return self::encodePassword(self::decodeUnreservedCharacters($password));
     }
 
     /**
@@ -272,7 +259,7 @@ final class Encoder
      */
     public static function normalizePath(Stringable|string|null $component): ?string
     {
-        return self::normalize(self::encodePath(self::decodePath($component)));
+        return self::encodePath(self::decodePath($component));
     }
 
     /**
@@ -293,7 +280,7 @@ final class Encoder
         $decoder = static function (array $matches): string {
             $encodedChar = strtoupper($matches[0]);
 
-            return in_array($encodedChar, ['%26', '%3D', '%20', '%23', '%3F'], true) ? $encodedChar : rawurldecode($encodedChar);
+            return in_array($encodedChar, ['%26', '%3D', '%20', '%23'], true) ? $encodedChar : rawurldecode($encodedChar);
         };
 
         return self::decode($path, $decoder);
@@ -308,7 +295,7 @@ final class Encoder
      */
     public static function normalizeQuery(Stringable|string|null $query): ?string
     {
-        return self::normalize(self::encodeQueryOrFragment(self::decodeQuery($query)));
+        return self::encodeQueryOrFragment(self::decodeQuery($query));
     }
 
     /**
@@ -338,7 +325,7 @@ final class Encoder
      */
     public static function normalizeFragment(Stringable|string|null $fragment): ?string
     {
-        return self::normalize(self::encodeQueryOrFragment(self::decodeFragment($fragment)));
+        return self::encodeQueryOrFragment(self::decodeFragment($fragment));
     }
 
     /**

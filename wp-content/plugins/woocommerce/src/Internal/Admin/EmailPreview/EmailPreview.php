@@ -12,11 +12,10 @@ use Automattic\WooCommerce\Enums\OrderStatus;
 use Throwable;
 use WC_Email;
 use WC_Order;
-use WC_Order_Item_Product;
-use WC_Order_Item_Shipping;
 use WC_Product;
 use WC_Product_Variation;
 use WP_User;
+use WC_Order_Item_Shipping;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -373,57 +372,16 @@ class EmailPreview {
 		$downloadable_product = $this->get_dummy_downloadable_product();
 
 		$order = new WC_Order();
-		$order->set_id( 12345 );
-
-		// Create and add product items manually without saving to database.
-		// Use add_item() instead of add_product() to avoid immediate database writes.
 		if ( $product ) {
-			$item = new WC_Order_Item_Product();
-			$item->set_props(
-				array(
-					'name'         => $product->get_name(),
-					'tax_class'    => $product->get_tax_class(),
-					'product_id'   => $product->get_id(),
-					'variation_id' => 0,
-					'quantity'     => 2,
-					'subtotal'     => $product->get_price() * 2,
-					'total'        => $product->get_price() * 2,
-				)
-			);
-			$order->add_item( $item );
+			$order->add_product( $product, 2 );
 		}
 		if ( $variation ) {
-			$item = new WC_Order_Item_Product();
-			$item->set_props(
-				array(
-					'name'         => $variation->get_name(),
-					'tax_class'    => $variation->get_tax_class(),
-					'product_id'   => $variation->get_parent_id(),
-					'variation_id' => $variation->get_id(),
-					'variation'    => $variation->get_attributes(),
-					'quantity'     => 1,
-					'subtotal'     => $variation->get_price(),
-					'total'        => $variation->get_price(),
-				)
-			);
-			$order->add_item( $item );
+			$order->add_product( $variation );
 		}
 		if ( $downloadable_product ) {
-			$item = new WC_Order_Item_Product();
-			$item->set_props(
-				array(
-					'name'         => $downloadable_product->get_name(),
-					'tax_class'    => $downloadable_product->get_tax_class(),
-					'product_id'   => $downloadable_product->get_id(),
-					'variation_id' => 0,
-					'quantity'     => 1,
-					'subtotal'     => $downloadable_product->get_price(),
-					'total'        => $downloadable_product->get_price(),
-				)
-			);
-			$order->add_item( $item );
+			$order->add_product( $downloadable_product );
 		}
-
+		$order->set_id( 12345 );
 		$order->set_date_created( time() );
 		$order->set_currency( 'USD' );
 		$order->set_discount_total( 10 );

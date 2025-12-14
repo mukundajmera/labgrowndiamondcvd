@@ -6,7 +6,7 @@ namespace WPForms\Vendor;
 // of global data (probably trigger_error) because it's impossible to pass
 // $config or $context to the callback functions.
 /**
- * Handles referencing and dereferencing character entities
+ * Handles referencing and derefencing character entities
  */
 class HTMLPurifier_EntityParser
 {

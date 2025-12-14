@@ -144,13 +144,6 @@ class OrdersTableRefundDataStore extends OrdersTableDataStore {
 	public function update( &$refund ) {
 		$this->persist_updates( $refund );
 		$refund->apply_changes();
-
-		// phpcs:disable WooCommerce.Commenting.CommentHooks.MissingSinceComment
-		/**
-		 * This action is documented in woocommerce/includes/data-stores/class-wc-order-refund-data-store-cpt.php.
-		 */
-		do_action( 'woocommerce_update_order_refund', $refund->get_id(), $refund );
-		// phpcs:enable
 	}
 
 	/**

@@ -30,32 +30,10 @@ class Captcha {
 		add_filter( 'script_loader_tag',  [ $this, 'set_defer_attribute' ], 10, 3 );
 
 		// Actions.
-		add_action( 'send_headers', [ $this, 'send_headers' ] );
 		add_action( 'wpforms_frontend_output', [ $this, 'recaptcha' ], 20, 5 );
 		add_action( 'wp_enqueue_scripts', [ $this, 'recaptcha_noconflict' ], 9999 );
 		add_action( 'wp_footer', [ $this, 'recaptcha_noconflict' ], 19 );
 		add_action( 'wpforms_wp_footer', [ $this, 'assets_recaptcha' ] );
-	}
-
-	/**
-	 * Send HTTP headers to prevent warning in the browser console.
-	 *
-	 * @since 1.9.8.3
-	 */
-	public function send_headers(): void {
-
-		if ( headers_sent() ) {
-			return;
-		}
-
-		$urls = '"https://www.google.com" "https://www.gstatic.com" "https://recaptcha.net" "https://challenges.cloudflare.com" "https://hcaptcha.com"';
-
-		header(
-			'Permissions-Policy: ' .
-			"private-state-token-redemption=(self $urls), " .
-			"private-state-token-issuance=(self $urls)",
-			false
-		);
 	}
 
 	/**
@@ -102,26 +80,6 @@ class Captcha {
 		}
 
 		echo '</div>';
-	}
-
-	/**
-	 * Get a provider-specific captcha class.
-	 *
-	 * @since 1.9.8.3
-	 *
-	 * @param string $provider Captcha provider.
-	 *
-	 * @return string
-	 */
-	private function get_captcha_class( string $provider ): string {
-
-		$classes = [
-			'recaptcha' => 'g-recaptcha',
-			'hcaptcha'  => 'h-captcha',
-			'turnstile' => 'cf-turnstile',
-		];
-
-		return $classes[ $provider ] ?? 'g-recaptcha';
 	}
 
 	/**
@@ -202,10 +160,7 @@ class Captcha {
 			return;
 		}
 
-		$captcha_class = $this->get_captcha_class( $captcha_settings['provider'] );
-
-		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-		echo '<div ' . wpforms_html_attributes( '', [ $captcha_class ], $data ) . '></div>';
+		echo '<div ' . wpforms_html_attributes( '', [ 'g-recaptcha' ], $data ) . '></div>';
 
 		if ( $is_recaptcha && $captcha_settings['recaptcha_type'] === 'invisible' ) {
 			return;
@@ -340,7 +295,7 @@ class Captcha {
 			apply_filters( 'wpforms_frontend_recaptcha_url', 'https://www.google.com/recaptcha/api.js?onload=wpformsRecaptchaLoad&render=explicit' ); // phpcs:ignore WPForms.PHP.ValidateHooks.InvalidHookName
 
 		$captcha_api_array = [
-			'hcaptcha'  => 'https://hcaptcha.com/1/api.js?onload=wpformsRecaptchaLoad&render=explicit&recaptchacompat=off',
+			'hcaptcha'  => 'https://hcaptcha.com/1/api.js?onload=wpformsRecaptchaLoad&render=explicit',
 			'recaptcha' => $recaptcha_url,
 			'turnstile' => 'https://challenges.cloudflare.com/turnstile/v0/api.js?onload=wpformsRecaptchaLoad&render=explicit',
 		];
@@ -519,7 +474,7 @@ class Captcha {
 
 			$data .= /** @lang JavaScript */
 				'var wpformsRecaptchaLoad = function () {
-					Array.prototype.forEach.call(document.querySelectorAll(".h-captcha"), function (el) {
+					Array.prototype.forEach.call(document.querySelectorAll(".g-recaptcha"), function (el) {
 						var captchaID = hcaptcha.render(el, {
 							callback: function () {
 								wpformsRecaptchaCallback(el);
@@ -541,7 +496,7 @@ class Captcha {
 
 			$data .= /** @lang JavaScript */
 				'var wpformsRecaptchaLoad = function () {
-					Array.prototype.forEach.call(document.querySelectorAll(".cf-turnstile"), function (el) {
+					Array.prototype.forEach.call(document.querySelectorAll(".g-recaptcha"), function (el) {
 						let form = el.closest( "form" ),
 						formId = form.dataset.formid,
 						captchaID = turnstile.render(el, {

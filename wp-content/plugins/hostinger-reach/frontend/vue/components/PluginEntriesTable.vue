@@ -3,7 +3,7 @@ import { computed } from 'vue';
 
 import PluginEntry from '@/components/PluginEntry.vue';
 import PluginEntrySkeleton from '@/components/skeletons/PluginEntrySkeleton.vue';
-import { PLUGIN_STATUSES, type PluginStatus, WOOCOMMERCE_ID } from '@/data/pluginData';
+import { PLUGIN_STATUSES, type PluginStatus } from '@/data/pluginData';
 import type { Form, Integration } from '@/types/models';
 import { translate } from '@/utils/translate';
 
@@ -64,14 +64,9 @@ const pluginEntries = computed((): PluginEntryData[] => {
 						{{ translate('hostinger_reach_plugin_entries_table_plugin_header') }}
 					</span>
 				</div>
-				<div class="plugin-entries-table__header-cell plugin-entries-table__header-cell--forms">
-					<span class="plugin-entries-table__column-title">
-						{{ translate('hostinger_reach_plugin_entries_table_syncing_header') }}
-					</span>
-				</div>
 				<div class="plugin-entries-table__header-cell plugin-entries-table__header-cell--entries">
 					<span class="plugin-entries-table__column-title">
-						{{ translate('hostinger_reach_plugin_entries_table_contacts_header') }}
+						{{ translate('hostinger_reach_plugin_entries_table_entries_header') }}
 					</span>
 				</div>
 				<div class="plugin-entries-table__header-cell plugin-entries-table__header-cell--status">
@@ -90,7 +85,6 @@ const pluginEntries = computed((): PluginEntryData[] => {
 				<PluginEntry
 					v-for="(pluginEntry, index) in pluginEntries"
 					:key="pluginEntry.integration.id"
-					:initially-expanded="pluginEntry.integration.id === WOOCOMMERCE_ID"
 					:integration="pluginEntry.integration"
 					:plugin-status="pluginEntry.status"
 					:total-entries="pluginEntry.entries"
@@ -131,28 +125,24 @@ const pluginEntries = computed((): PluginEntryData[] => {
 		padding: 12px 0px;
 
 		&--plugin {
-			width: 38%;
+			width: 49%;
 			order: 1;
-		}
-
-		&--forms {
-			width: 20%;
-			order: 2;
+			padding-right: 16px;
 		}
 
 		&--entries {
-			width: 20%;
-			order: 3;
+			width: 19%;
+			order: 2;
 		}
 
 		&--status {
-			width: 20%;
-			order: 4;
+			width: 21%;
+			order: 3;
 		}
 
 		&--actions {
 			width: 10%;
-			order: 5;
+			order: 4;
 		}
 	}
 

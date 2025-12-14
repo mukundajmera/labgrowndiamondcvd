@@ -10,15 +10,12 @@ declare( strict_types=1 );
 namespace WP\MCP\Handlers\Prompts;
 
 use WP\MCP\Core\McpServer;
-use WP\MCP\Handlers\HandlerHelperTrait;
 use WP\MCP\Infrastructure\ErrorHandling\McpErrorFactory;
 
 /**
  * Handles prompts-related MCP methods.
  */
 class PromptsHandler {
-	use HandlerHelperTrait;
-
 	/**
 	 * The WordPress MCP instance.
 	 *
@@ -35,6 +32,24 @@ class PromptsHandler {
 		$this->mcp = $mcp;
 	}
 
+	/**
+	 * Check if user has permission to access prompts.
+	 *
+	 * Authorization is primarily handled at the transport level. For additional
+	 * hardening, this handler can also enforce authentication when the
+	 * `mcp_enforce_handler_auth` filter returns true.
+	 *
+	 * @return array|null Returns error if permission denied, null if allowed.
+	 */
+	private function check_permission(): ?array {
+		$enforce_handler_auth = (bool) apply_filters( 'mcp_enforce_handler_auth', false );
+
+		if ( $enforce_handler_auth && ! is_user_logged_in() ) {
+			return array( 'error' => McpErrorFactory::unauthorized( 0, 'You must be logged in to access prompts.' )['error'] );
+		}
+
+		return null;
+	}
 
 	/**
 	 * Handle the prompts/list request.
@@ -44,6 +59,11 @@ class PromptsHandler {
 	 * @return array
 	 */
 	public function list_prompts( int $request_id = 0 ): array {
+		$permission_error = $this->check_permission();
+		if ( $permission_error ) {
+			return $permission_error;
+		}
+
 		// Get the registered prompts from the MCP instance and extract only the args.
 		$prompts = array();
 		foreach ( $this->mcp->get_prompts() as $prompt ) {
@@ -51,34 +71,24 @@ class PromptsHandler {
 		}
 
 		return array(
-			'prompts'   => $prompts,
-			'_metadata' => array(
-				'component_type' => 'prompts',
-				'prompts_count'  => count( $prompts ),
-			),
+			'prompts' => $prompts,
 		);
 	}
 
 	/**
 	 * Handle the prompts/get request.
 	 *
-	 * @param array $params Request parameters.
-	 * @param int $request_id The request ID for JSON-RPC.
+	 * @param array $params     Request parameters.
+	 * @param int   $request_id The request ID for JSON-RPC.
 	 *
 	 * @return array
 	 */
 	public function get_prompt( array $params, int $request_id = 0 ): array {
-		// Extract parameters using helper method.
-		$request_params = $this->extract_params( $params );
+		// Handle both direct params and nested params structure.
+		$request_params = $params['params'] ?? $params;
 
 		if ( ! isset( $request_params['name'] ) ) {
-			return array(
-				'error'     => McpErrorFactory::missing_parameter( $request_id, 'name' )['error'],
-				'_metadata' => array(
-					'component_type' => 'prompt',
-					'failure_reason' => 'missing_parameter',
-				),
-			);
+			return array( 'error' => McpErrorFactory::missing_parameter( $request_id, 'name' )['error'] );
 		}
 
 		// Get the prompt by name.
@@ -86,14 +96,7 @@ class PromptsHandler {
 		$prompt      = $this->mcp->get_prompt( $prompt_name );
 
 		if ( ! $prompt ) {
-			return array(
-				'error'     => McpErrorFactory::prompt_not_found( $request_id, $prompt_name )['error'],
-				'_metadata' => array(
-					'component_type' => 'prompt',
-					'prompt_name'    => $prompt_name,
-					'failure_reason' => 'not_found',
-				),
-			);
+			return array( 'error' => McpErrorFactory::prompt_not_found( $request_id, $prompt_name )['error'] );
 		}
 
 		// Get the arguments for the prompt.
@@ -103,144 +106,42 @@ class PromptsHandler {
 			// Check if this is a builder-based prompt that can execute directly
 			if ( $prompt->is_builder_based() ) {
 				// Direct execution through the builder (bypasses abilities completely)
-				// Note: Builder permission checks return bool only, not WP_Error
 				$has_permission = $prompt->check_permission_direct( $arguments );
 				if ( ! $has_permission ) {
-					return array(
-						'error'     => McpErrorFactory::permission_denied( $request_id, 'Access denied for prompt: ' . $prompt_name )['error'],
-						'_metadata' => array(
-							'component_type' => 'prompt',
-							'prompt_name'    => $prompt_name,
-							'failure_reason' => 'permission_denied',
-							'is_builder'     => true,
-						),
-					);
+					return array( 'error' => McpErrorFactory::permission_denied( $request_id, 'Access denied for prompt: ' . $prompt_name )['error'] );
 				}
 
-				$result              = $prompt->execute_direct( $arguments );
-				$result['_metadata'] = array(
-					'component_type' => 'prompt',
-					'prompt_name'    => $prompt_name,
-					'is_builder'     => true,
-				);
-
-				return $result;
+				return $prompt->execute_direct( $arguments );
 			}
 
 			/**
 			 * Traditional ability-based execution
 			 *
-			 * Get the ability for the prompt.
+			 * Assume non-builder based prompts can only be registered with valid abilities.
+			 * If not, the has_permission() will let us know.
 			 *
-			 * @var \WP_Ability|\WP_Error $ability
+			 * @var \WP_Ability $ability
 			 */
-			$ability = $prompt->get_ability();
-
-			// Check if getting the ability returned an error
-			if ( is_wp_error( $ability ) ) {
-				$this->mcp->error_handler->log(
-					'Failed to get ability for prompt',
-					array(
-						'prompt_name'   => $prompt_name,
-						'error_message' => $ability->get_error_message(),
-					)
-				);
-
-				return array(
-					'error'     => McpErrorFactory::internal_error( $request_id, $ability->get_error_message() )['error'],
-					'_metadata' => array(
-						'component_type' => 'prompt',
-						'prompt_name'    => $prompt_name,
-						'failure_reason' => 'ability_retrieval_failed',
-						'error_code'     => $ability->get_error_code(),
-						'is_builder'     => false,
-					),
-				);
-			}
-
-			// If ability has no input schema and arguments is empty, pass null
-			// This is required by WP_Ability::validate_input() which expects null when no schema
-			$ability_input_schema = $ability->get_input_schema();
-			if ( empty( $ability_input_schema ) && empty( $arguments ) ) {
-				$arguments = null;
-			}
-			$has_permission = $ability->check_permissions( $arguments );
+			$ability        = $prompt->get_ability();
+			$has_permission = $ability->has_permission( $arguments );
 			if ( true !== $has_permission ) {
-				// Extract detailed error message and code if WP_Error was returned
-				$error_message  = 'Access denied for prompt: ' . $prompt_name;
-				$failure_reason = 'permission_denied';
-
-				if ( is_wp_error( $has_permission ) ) {
-					$error_message  = $has_permission->get_error_message();
-					$failure_reason = $has_permission->get_error_code(); // Use WP_Error code as failure_reason
-				}
-
-				return array(
-					'error'     => McpErrorFactory::permission_denied( $request_id, $error_message )['error'],
-					'_metadata' => array(
-						'component_type' => 'prompt',
-						'prompt_name'    => $prompt_name,
-						'ability_name'   => $ability->get_name(),
-						'failure_reason' => $failure_reason,
-						'is_builder'     => false,
-					),
-				);
+				return array( 'error' => McpErrorFactory::permission_denied( $request_id, 'Access denied for prompt: ' . $prompt_name )['error'] );
 			}
 
-			$result = $ability->execute( $arguments );
-
-			// Handle WP_Error objects that weren't converted by the ability.
-			if ( is_wp_error( $result ) ) {
+			return $ability->execute( $arguments );
+		} catch ( \Throwable $e ) {
+			if ( $this->mcp->error_handler ) {
 				$this->mcp->error_handler->log(
-					'Ability returned WP_Error object',
+					'Prompt execution failed',
 					array(
-						'ability'       => $ability->get_name(),
-						'error_code'    => $result->get_error_code(),
-						'error_message' => $result->get_error_message(),
+						'prompt_name' => $prompt_name,
+						'arguments'   => $arguments,
+						'error'       => $e->getMessage(),
 					)
 				);
-
-				return array(
-					'error'     => McpErrorFactory::internal_error( $request_id, $result->get_error_message() )['error'],
-					'_metadata' => array(
-						'component_type' => 'prompt',
-						'prompt_name'    => $prompt_name,
-						'ability_name'   => $ability->get_name(),
-						'failure_reason' => 'wp_error',
-						'error_code'     => $result->get_error_code(),
-						'is_builder'     => false,
-					),
-				);
 			}
 
-			// Successful execution - add metadata.
-			$result['_metadata'] = array(
-				'component_type' => 'prompt',
-				'prompt_name'    => $prompt_name,
-				'ability_name'   => $ability->get_name(),
-				'is_builder'     => false,
-			);
-
-			return $result;
-		} catch ( \Throwable $e ) {
-			$this->mcp->error_handler->log(
-				'Prompt execution failed',
-				array(
-					'prompt_name' => $prompt_name,
-					'arguments'   => $arguments,
-					'error'       => $e->getMessage(),
-				)
-			);
-
-			return array(
-				'error'     => McpErrorFactory::internal_error( $request_id, 'Prompt execution failed' )['error'],
-				'_metadata' => array(
-					'component_type' => 'prompt',
-					'prompt_name'    => $prompt_name,
-					'failure_reason' => 'execution_failed',
-					'error_type'     => get_class( $e ),
-				),
-			);
+			return array( 'error' => McpErrorFactory::internal_error( $request_id, 'Prompt execution failed' )['error'] );
 		}
 	}
 }

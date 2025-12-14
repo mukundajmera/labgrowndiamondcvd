@@ -53,6 +53,7 @@ class AutocompleteSteps {
         }
 
         add_action( 'astra_sites_import_complete', array( $this, 'astra_website_import_completed' ) );
+        add_action( 'admin_init', array( $this, 'ai_website_generated' ) );
 
         add_action( 'admin_init', array( $this, 'check_ai_discovery_is_enabled' ) );
 
@@ -327,6 +328,26 @@ class AutocompleteSteps {
         }
 
         if ( $this->onboarding->is_completed( $category_id, $action ) ) {
+            return;
+        }
+
+        $this->onboarding->complete_step( $category_id, $action );
+    }
+
+    public function ai_website_generated(): void {
+        $action      = Admin_Actions::AI_STEP;
+        $category_id = $this->find_category_from_actions( $action );
+
+        if ( empty( $category_id ) ) {
+            return;
+        }
+
+        if ( $this->onboarding->is_completed( $category_id, $action ) ) {
+            return;
+        }
+
+        $hostinger_ai_version = get_option( 'hostinger_ai_version', false );
+        if ( empty( $hostinger_ai_version ) ) {
             return;
         }
 

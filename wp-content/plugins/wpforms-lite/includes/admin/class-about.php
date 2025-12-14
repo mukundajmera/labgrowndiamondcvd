@@ -1,13 +1,8 @@
 <?php
 
-use WPForms\Requirements\Requirements;
-
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-
-// phpcs:ignore Generic.Commenting.DocComment.MissingShort
-/** @noinspection AutoloadingIssuesInspection */
 
 /**
  * About WPForms admin page class.
@@ -23,7 +18,7 @@ class WPForms_About {
 	 *
 	 * @var string
 	 */
-	public const SLUG = 'wpforms-about';
+	const SLUG = 'wpforms-about';
 
 	/**
 	 * Default view for a page.
@@ -32,16 +27,16 @@ class WPForms_About {
 	 *
 	 * @var string
 	 */
-	private const DEFAULT_TAB = 'about';
+	const DEFAULT_TAB = 'about';
 
 	/**
-	 * Array of license types that are considered being pro + top level and has no features difference.
+	 * Array of license types, that are considered being top level and has no features difference.
 	 *
 	 * @since 1.5.0
 	 *
 	 * @var array
 	 */
-	public static $licenses_pro_and_top = [ 'pro', 'agency', 'ultimate', 'elite' ];
+	public static $licenses_top = [ 'pro', 'agency', 'ultimate', 'elite' ];
 
 	/**
 	 * List of features that licenses are different with.
@@ -85,7 +80,7 @@ class WPForms_About {
 	 *
 	 * @since 1.8.2.3
 	 */
-	private function hooks(): void {
+	private function hooks() {
 
 		// Maybe load tools page.
 		add_action( 'admin_init', [ $this, 'init' ] );
@@ -96,7 +91,7 @@ class WPForms_About {
 	 *
 	 * @since 1.5.0
 	 */
-	public function init(): void { // phpcs:ignore WPForms.PHP.HooksMethod.InvalidPlaceForAddingHooks
+	public function init() {
 
 		// Check what page we are on.
 		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
@@ -110,21 +105,11 @@ class WPForms_About {
 		/*
 		 * Define the core views for our tab.
 		 */
-		$about_us        = esc_html__( 'About Us', 'wpforms-lite' );
-		$getting_started = esc_html__( 'Getting Started', 'wpforms-lite' );
-
-		/**
-		 * Filter the views for the About Us tab.
-		 *
-		 * @since 1.5.0
-		 *
-		 * @param array $views Array of views.
-		 */
-		$this->views = apply_filters( // phpcs:ignore WPForms.PHP.ValidateHooks.InvalidHookName
+		$this->views = apply_filters(
 			'wpforms_admin_about_views',
 			[
-				$about_us        => [ 'about' ],
-				$getting_started => [ 'getting-started' ],
+				esc_html__( 'About Us', 'wpforms-lite' )        => [ 'about' ],
+				esc_html__( 'Getting Started', 'wpforms-lite' ) => [ 'getting-started' ],
 			]
 		);
 
@@ -133,7 +118,7 @@ class WPForms_About {
 		if (
 			(
 				$license === 'pro' ||
-				! in_array( $license, self::$licenses_pro_and_top, true )
+				! in_array( $license, self::$licenses_top, true )
 			) ||
 			wpforms_debug()
 		) {
@@ -152,55 +137,46 @@ class WPForms_About {
 
 		// If the user tries to load an invalid view - fallback to About Us.
 		if (
-			! has_action( 'wpforms_admin_about_display_tab_' . sanitize_key( $this->view ) ) &&
-			! in_array( $this->view, array_merge( ...array_values( $this->views ) ), true )
+			! in_array( $this->view, call_user_func_array( 'array_merge', array_values( $this->views ) ), true ) &&
+			! has_action( 'wpforms_admin_about_display_tab_' . sanitize_key( $this->view ) )
 		) {
 			$this->view = self::DEFAULT_TAB;
 		}
 
 		add_action( 'wpforms_admin_page', [ $this, 'output' ] );
 
-		/**
-		 * Fires on the About WPForms admin page init after main classes/methods initiation.
-		 *
-		 * Used by addons to hook into About page initialization.
-		 *
-		 * @since 1.5.0
-		 */
-		do_action( 'wpforms_admin_about_init' ); // phpcs:ignore WPForms.PHP.ValidateHooks.InvalidHookName
+		// Hook for addons.
+		do_action( 'wpforms_admin_about_init' );
 	}
 
 	/**
 	 * Output the basic page structure.
 	 *
 	 * @since 1.5.0
-	 *
-	 * @noinspection HtmlUnknownTarget
 	 */
-	public function output(): void {
+	public function output() {
 
 		$show_nav = false;
-
 		foreach ( $this->views as $view ) {
 			if ( in_array( $this->view, (array) $view, true ) ) {
 				$show_nav = true;
-
 				break;
 			}
 		}
-
 		?>
-		<div id="wpforms-admin-about" class="wrap wpforms-admin-wrap">
-			<?php
 
+		<div id="wpforms-admin-about" class="wrap wpforms-admin-wrap">
+
+			<?php
 			if ( $show_nav ) {
+				$license      = $this->get_license_type();
+				$next_license = $this->get_next_license( $license );
 				echo '<ul class="wpforms-admin-tabs">';
 				foreach ( $this->views as $label => $view ) {
 					$class = in_array( $this->view, $view, true ) ? 'active' : '';
-
 					echo '<li>';
 					printf(
-						'<a href="%1$s" class="%2$s">%3$s</a>',
+						'<a href="%s" class="%s">%s</a>',
 						esc_url( admin_url( 'admin.php?page=' . self::SLUG . '&view=' . sanitize_key( $view[0] ) ) ),
 						esc_attr( $class ),
 						esc_html( $label )
@@ -209,9 +185,10 @@ class WPForms_About {
 				}
 				echo '</ul>';
 			}
-
 			?>
+
 			<h1 class="wpforms-h1-placeholder"></h1>
+
 			<?php
 
 			switch ( $this->view ) {
@@ -228,18 +205,14 @@ class WPForms_About {
 					break;
 
 				default:
-					/**
-					 * Display custom tab content in the About WPForms admin page.
-					 * The variable part of the hook name is the current tab view being displayed.
-					 *
-					 * @since 1.5.0
-					 */
-					do_action( 'wpforms_admin_about_display_tab_' . sanitize_key( $this->view ) ); // phpcs:ignore WPForms.PHP.ValidateHooks.InvalidHookName
+					do_action( 'wpforms_admin_about_display_tab_' . sanitize_key( $this->view ) );
 					break;
 			}
 
 			?>
+
 		</div>
+
 		<?php
 	}
 
@@ -248,23 +221,23 @@ class WPForms_About {
 	 *
 	 * @since 1.5.0
 	 */
-	protected function output_about(): void {
+	protected function output_about() {
 
 		$this->output_about_info();
 		$this->output_about_addons();
 	}
 
 	/**
-	 * Display the General Info section of the About tab.
+	 * Display the General Info section of About tab.
 	 *
 	 * @since 1.5.8
-	 *
-	 * @noinspection HtmlUnknownTarget
 	 */
-	protected function output_about_info(): void {
+	protected function output_about_info() {
 
 		?>
+
 		<div class="wpforms-admin-about-section wpforms-admin-columns">
+
 			<div class="wpforms-admin-column-60">
 				<h3>
 					<?php esc_html_e( 'Hello and welcome to WPForms, the most beginner friendly drag & drop WordPress forms plugin. At WPForms, we build software that helps you create beautiful responsive online forms for your website in minutes.', 'wpforms-lite' ); ?>
@@ -307,16 +280,17 @@ class WPForms_About {
 					</figcaption>
 				</figure>
 			</div>
+
 		</div>
 		<?php
 	}
 
 	/**
-	 * Display the Addons section of the About tab.
+	 * Display the Addons section of About tab.
 	 *
 	 * @since 1.5.8
 	 */
-	protected function output_about_addons(): void {
+	protected function output_about_addons() {
 
 		if ( ! wpforms_current_user_can() ) {
 			return;
@@ -332,6 +306,7 @@ class WPForms_About {
 			<div class="addons-container">
 				<?php
 				foreach ( $am_plugins as $plugin => $details ) :
+
 					$plugin_data              = $this->get_plugin_data( $plugin, $details, $all_plugins );
 					$plugin_ready_to_activate = $can_activate_plugins
 						&& isset( $plugin_data['status_class'] )
@@ -384,7 +359,7 @@ class WPForms_About {
 	}
 
 	/**
-	 * Get AM plugin data to display in the Addons section of the About tab.
+	 * Get AM plugin data to display in the Addons section of About tab.
 	 *
 	 * @since 1.5.8
 	 *
@@ -394,7 +369,7 @@ class WPForms_About {
 	 *
 	 * @return array
 	 */
-	protected function get_plugin_data( string $plugin, array $details, array $all_plugins ): array {
+	protected function get_plugin_data( $plugin, $details, $all_plugins ) {
 
 		$have_pro = ( ! empty( $details['pro'] ) && ! empty( $details['pro']['plug'] ) );
 		$show_pro = false;
@@ -402,14 +377,14 @@ class WPForms_About {
 		$plugin_data = [];
 
 		if ( $have_pro ) {
-			if ( array_key_exists( $plugin, $all_plugins ) && is_plugin_active( $plugin ) ) {
-				$show_pro = true;
+			if ( array_key_exists( $plugin, $all_plugins ) ) {
+				if ( is_plugin_active( $plugin ) ) {
+					$show_pro = true;
+				}
 			}
-
 			if ( array_key_exists( $details['pro']['plug'], $all_plugins ) ) {
 				$show_pro = true;
 			}
-
 			if ( $show_pro ) {
 				$plugin  = $details['pro']['plug'];
 				$details = $details['pro'];
@@ -439,12 +414,10 @@ class WPForms_About {
 			// Status text/status.
 			$plugin_data['status_class'] = 'status-missing';
 
-			if ( isset( $details['act'] ) && $details['act'] === 'go-to-url' ) {
+			if ( isset( $details['act'] ) && 'go-to-url' === $details['act'] ) {
 				$plugin_data['status_class'] = 'status-go-to-url';
 			}
-
 			$plugin_data['status_text'] = esc_html__( 'Not Installed', 'wpforms-lite' );
-
 			// Button text/status.
 			$plugin_data['action_class'] = $plugin_data['status_class'] . ' button button-primary';
 			$plugin_data['action_text']  = esc_html__( 'Install Plugin', 'wpforms-lite' );
@@ -460,10 +433,8 @@ class WPForms_About {
 	 * Display the Getting Started tab content.
 	 *
 	 * @since 1.5.0
-	 *
-	 * @noinspection HtmlUnknownTarget
 	 */
-	protected function output_getting_started(): void {
+	protected function output_getting_started() {
 
 		$license      = $this->get_license_type();
 		$utm_campaign = $license === 'lite' ? 'liteplugin' : 'plugin';
@@ -520,12 +491,12 @@ class WPForms_About {
 			</div>
 
 			<div class="wpforms-admin-about-section-first-form-video">
-				<iframe src="https://www.youtube-nocookie.com/embed/SQ9kV9SKz5k?rel=0" width="540" height="304" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+				<iframe src="https://www.youtube-nocookie.com/embed/SQ9kV9SKz5k?rel=0" width="540" height="304" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 			</div>
 
 		</div>
 
-		<?php if ( ! in_array( $license, self::$licenses_pro_and_top, true ) ) { ?>
+		<?php if ( ! in_array( $license, self::$licenses_top, true ) ) { ?>
 			<div class="wpforms-admin-about-section wpforms-admin-about-section-hero">
 
 				<div class="wpforms-admin-about-section-hero-main">
@@ -634,12 +605,13 @@ class WPForms_About {
 					<h3 class="call-to-action">
 						<?php
 						printf(
-							'<a href="%1$s" target="_blank" rel="noopener noreferrer">%2$s</a>',
-							esc_url( wpforms_admin_upgrade_link( 'wpforms-about-page', 'Get WPForms Pro Today' ) ),
-							esc_html__( 'Get WPForms Pro Today and Unlock all the Powerful Features', 'wpforms-lite' )
+							'<a href="%s" target="_blank" rel="noopener noreferrer">',
+							esc_url( wpforms_admin_upgrade_link( 'wpforms-about-page', 'Get WPForms Pro Today' ) )
 						);
 
+						esc_html_e( 'Get WPForms Pro Today and Unlock all the Powerful Features', 'wpforms-lite' );
 						?>
+						</a>
 					</h3>
 
 					<?php if ( $license === 'lite' ) { ?>
@@ -749,7 +721,7 @@ class WPForms_About {
 	 *
 	 * @return string Next license type slug.
 	 */
-	protected function get_next_license( string $current ): string {
+	protected function get_next_license( $current ) {
 
 		$current       = ucfirst( $current );
 		$license_pairs = [
@@ -759,22 +731,20 @@ class WPForms_About {
 			'Pro'   => 'Elite',
 		];
 
-		return $license_pairs[ $current ] ?? 'Elite';
+		return ! empty( $license_pairs[ $current ] ) ? $license_pairs[ $current ] : 'Elite';
 	}
 
 	/**
 	 * Display the Versus tab content.
 	 *
 	 * @since 1.5.0
-	 *
-	 * @noinspection HtmlUnknownTarget
 	 */
-	protected function output_versus(): void {
+	protected function output_versus() {
 
 		$license      = $this->get_license_type();
 		$next_license = $this->get_next_license( $license );
-
 		?>
+
 		<div class="wpforms-admin-about-section wpforms-admin-about-section-squashed">
 			<h1 class="centered">
 				<strong><?php echo esc_html( ucfirst( $license ) ); ?></strong> vs <strong><?php echo esc_html( $next_license ); ?></strong>
@@ -786,6 +756,7 @@ class WPForms_About {
 		</div>
 
 		<div class="wpforms-admin-about-section wpforms-admin-about-section-squashed wpforms-admin-about-section-hero wpforms-admin-about-section-table">
+
 			<div class="wpforms-admin-about-section-hero-main no-border wpforms-admin-columns">
 				<div class="wpforms-admin-column-33">
 					<h3 class="no-margin">
@@ -804,6 +775,7 @@ class WPForms_About {
 				</div>
 			</div>
 			<div class="wpforms-admin-about-section-hero-extra no-padding wpforms-admin-columns">
+
 				<table>
 					<?php
 					foreach ( $this->get_licenses_features_list() as $slug => $name ) {
@@ -843,7 +815,9 @@ class WPForms_About {
 					}
 					?>
 				</table>
+
 			</div>
+
 		</div>
 
 		<div class="wpforms-admin-about-section wpforms-admin-about-section-hero">
@@ -851,14 +825,15 @@ class WPForms_About {
 				<h3 class="call-to-action centered">
 					<?php
 					printf(
-						'<a href="%1$s" target="_blank" rel="noopener noreferrer">%2$s</a>',
-						esc_url( wpforms_admin_upgrade_link( 'wpforms-about-page', 'Get WPForms Pro Today' ) ),
-						sprintf( /* translators: %s - next license level. */
-							esc_html__( 'Get WPForms %s Today and Unlock all the Powerful Features', 'wpforms-lite' ),
-							esc_html( $next_license )
-						)
+						'<a href="%s" target="_blank" rel="noopener noreferrer">',
+						esc_url( wpforms_admin_upgrade_link( 'wpforms-about-page', 'Get WPForms Pro Today' ) )
+					);
+					printf( /* translators: %s - next license level. */
+						esc_html__( 'Get WPForms %s Today and Unlock all the Powerful Features', 'wpforms-lite' ),
+						esc_html( $next_license )
 					);
 					?>
+					</a>
 				</h3>
 
 				<?php if ( $license === 'lite' ) { ?>
@@ -877,6 +852,7 @@ class WPForms_About {
 				<?php } ?>
 			</div>
 		</div>
+
 		<?php
 	}
 
@@ -887,11 +863,12 @@ class WPForms_About {
 	 *
 	 * @return array
 	 */
-	protected function get_am_plugins(): array {
+	protected function get_am_plugins() {
 
 		$images_url = WPFORMS_PLUGIN_URL . 'assets/images/about/';
 
 		return [
+
 			'optinmonster/optin-monster-wp-api.php'        => [
 				'icon'  => $images_url . 'plugin-om.png',
 				'name'  => esc_html__( 'OptinMonster', 'wpforms-lite' ),
@@ -1151,7 +1128,7 @@ class WPForms_About {
 	 *
 	 * @return array|false
 	 */
-	protected function get_license_data( string $feature, string $license ) {
+	protected function get_license_data( $feature, $license ) {
 
 		$data = [
 			'entries'      => [
@@ -1603,28 +1580,28 @@ class WPForms_About {
 					'status' => 'full',
 					'text'   => [
 						'<strong>' . esc_html__( 'Pro Addons Included', 'wpforms-lite' ) . '</strong>',
-						$this->get_pro_addon_list(),
+						esc_html__( 'PDF, Calculations, Form Abandonment, Conversational Forms, Lead Forms, Frontend Post Submission, User Registration, Geolocation, Google Sheets, Coupons, Dropbox, Google Calendar, Google Drive, and more (30+ total)', 'wpforms-lite' ),
 					],
 				],
 				'elite'    => [
 					'status' => 'full',
 					'text'   => [
 						'<strong>' . esc_html__( 'All Addons Included', 'wpforms-lite' ) . '</strong>',
-						self::get_top_addons_list(),
+						esc_html__( 'PDF, Calculations, Form Abandonment, Conversational Forms, Lead Forms, Frontend Post Submission, User Registration, Geolocation, Webhooks, Google Sheets, Coupons, Dropbox, Google Calendar, Google Drive, Entry Automation, and more (35+ total)', 'wpforms-lite' ),
 					],
 				],
 				'ultimate' => [
 					'status' => 'full',
 					'text'   => [
 						'<strong>' . esc_html__( 'All Addons Included', 'wpforms-lite' ) . '</strong>',
-						self::get_top_addons_list(),
+						esc_html__( 'PDF, Calculations, Form Abandonment, Conversational Forms, Lead Forms, Frontend Post Submission, User Registration, Geolocation, Webhooks, Google Sheets, Coupons, Dropbox, Google Calendar, Google Drive, Entry Automation, and more (35+ total)', 'wpforms-lite' ),
 					],
 				],
 				'agency'   => [
 					'status' => 'full',
 					'text'   => [
 						'<strong>' . esc_html__( 'All Addons Included', 'wpforms-lite' ) . '</strong>',
-						self::get_top_addons_list(),
+						esc_html__( 'PDF, Calculations, Form Abandonment, Conversational Forms, Lead Forms, Frontend Post Submission, User Registration, Geolocation, Webhooks, Google Sheets, Coupons, Dropbox, Google Calendar, Google Drive, Entry Automation, and more (35+ total)', 'wpforms-lite' ),
 					],
 				],
 			],
@@ -1718,15 +1695,20 @@ class WPForms_About {
 		}
 
 		// Is a top level license?
-		$is_licenses_pro_and_top = in_array( $license, self::$licenses_pro_and_top, true );
+		$is_licenses_top = in_array( $license, self::$licenses_top, true );
 
 		// Wrong license type?
-		if ( ! isset( $data[ $feature ][ $license ] ) && ! $is_licenses_pro_and_top ) {
+		if ( ! isset( $data[ $feature ][ $license ] ) && ! $is_licenses_top ) {
 			return false;
 		}
 
 		// Some licenses have partial data.
-		return $data[ $feature ][ $license ] ?? ( $is_licenses_pro_and_top ? $data[ $feature ]['pro'] : $data[ $feature ][ $license ] );
+		if ( isset( $data[ $feature ][ $license ] ) ) {
+			return $data[ $feature ][ $license ];
+		}
+
+		// Top level plans has no feature difference with `pro` plan in most cases.
+		return $is_licenses_top ? $data[ $feature ]['pro'] : $data[ $feature ][ $license ];
 	}
 
 	/**
@@ -1736,11 +1718,15 @@ class WPForms_About {
 	 *
 	 * @return string
 	 */
-	protected function get_license_type(): string {
+	protected function get_license_type() {
 
 		$type = wpforms_get_license_type();
 
-		return $type ? $type : 'lite';
+		if ( empty( $type ) ) {
+			$type = 'lite';
+		}
+
+		return $type;
 	}
 
 	/**
@@ -1750,7 +1736,7 @@ class WPForms_About {
 	 *
 	 * @return array
 	 */
-	private function get_licenses_features_list(): array {
+	private function get_licenses_features_list() {
 
 		self::$licenses_features = [
 			'entries'      => esc_html__( 'Form Entries', 'wpforms-lite' ),
@@ -1768,52 +1754,6 @@ class WPForms_About {
 		];
 
 		return self::$licenses_features;
-	}
-
-	/**
-	 * Get the list of addons included in Pro license.
-	 *
-	 * @since 1.9.8.3
-	 *
-	 * @return string
-	 */
-	private function get_pro_addon_list(): string {
-
-		static $pro_addons_list = null;
-
-		if ( $pro_addons_list === null ) {
-			$pro_addons      = Requirements::get_instance()->get_addons_by_license( 'basic, plus, pro' );
-			$pro_addons_list = sprintf(
-				/* translators: %s - number of addons. */
-				esc_html__( 'PDF, Calculations, Form Abandonment, Conversational Forms, Lead Forms, Frontend Post Submission, User Registration, Geolocation, Google Sheets, Coupons, Dropbox, Google Calendar, Google Drive, Airtable, Notion, and more (%1$s+ total)', 'wpforms-lite' ),
-				count( $pro_addons )
-			);
-		}
-
-		return $pro_addons_list;
-	}
-
-	/**
-	 * Get the list of addons included in Elite, Ultimate, and Agency licenses.
-	 *
-	 * @since 1.9.8.3
-	 *
-	 * @return string
-	 */
-	private static function get_top_addons_list(): string {
-
-		static $top_addons_list = null;
-
-		if ( $top_addons_list === null ) {
-			$pro_addons      = Requirements::get_instance()->get_addons_by_license( Requirements::BASIC_PLUS_PRO_AND_TOP );
-			$top_addons_list = sprintf(
-			/* translators: %s - number of addons. */
-				esc_html__( 'PDF, Calculations, Form Abandonment, Conversational Forms, Lead Forms, Frontend Post Submission, User Registration, Geolocation, Webhooks, Google Sheets, Coupons, Dropbox, Google Calendar, Google Drive, Entry Automation, Airtable, Notion, and more (%1$s+ total)', 'wpforms-lite' ),
-				count( $pro_addons )
-			);
-		}
-
-		return $top_addons_list;
 	}
 }
 

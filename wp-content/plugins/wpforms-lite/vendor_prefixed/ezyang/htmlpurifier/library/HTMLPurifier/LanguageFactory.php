@@ -156,8 +156,10 @@ class HTMLPurifier_LanguageFactory
         if (!empty($fallback)) {
             // infinite recursion guard
             if (isset($languages_seen[$code])) {
-                throw new \Exception('Circular fallback reference in language ' . $code);
+                \trigger_error('Circular fallback reference in language ' . $code, \E_USER_ERROR);
+                $fallback = 'en';
             }
+            $language_seen[$code] = \true;
             // load the fallback recursively
             $this->loadLanguage($fallback);
             $fallback_cache = $this->cache[$fallback];

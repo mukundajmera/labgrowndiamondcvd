@@ -19,16 +19,15 @@ class SolidCentral {
 	public function init() {
 
 		if ( ! defined( 'ITHEMES_SYNC_SKIP_SET_IS_ADMIN_TO_TRUE' ) ) {
-			// phpcs:ignore WPForms.Comments.PHPDocDefine.MissPHPDoc, WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedConstantFound
+			// phpcs:ignore WPForms.Comments.PHPDocDefine.MissPHPDoc
 			define( 'ITHEMES_SYNC_SKIP_SET_IS_ADMIN_TO_TRUE', true );
 
 			return;
 		}
 
 		if ( ! defined( 'WP_ADMIN' ) ) {
-			// phpcs:ignore WPForms.Comments.PHPDocDefine.MissPHPDoc, WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedConstantFound
+			// phpcs:ignore WPForms.Comments.PHPDocDefine.MissPHPDoc
 			define( 'WP_ADMIN', false );
 		}
-		// phpcs:enable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedConstantFound
 	}
 }

@@ -81,7 +81,7 @@ class CachePrune {
 	 */
 	public function optionCacheClean() {
 		$optionCache = aioseo()->core->db->delete( aioseo()->core->db->db->options, true )
-			->whereLike( 'option_name', '_aioseo_cache_%', true )
+			->whereRaw( "option_name LIKE '\_aioseo\_cache\_%'" )
 			->limit( 10000 )
 			->run();
 

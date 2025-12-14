@@ -6,12 +6,13 @@ import { HOSTINGER_REACH_ID } from '@/data/pluginData';
 import { formsRepo } from '@/data/repositories/formsRepo';
 import { STORE_PERSISTENT_KEYS } from '@/types/enums';
 import type { Form, Integration } from '@/types/models';
+import { toKebabCase } from '@/utils/caseConversion';
 import { translate } from '@/utils/translate';
 
 export const useIntegrationsStore = defineStore(
 	'integrationsStore',
 	() => {
-		const { showSuccess, showError } = useToast();
+		const { showSuccess } = useToast();
 
 		const integrations = ref<Integration[]>([]);
 		const isLoading = ref(false);
@@ -19,19 +20,12 @@ export const useIntegrationsStore = defineStore(
 		const loadingIntegrations = ref<Record<string, boolean>>({});
 
 		const activeIntegrations = computed(() => integrations.value.filter((integration) => integration.isActive));
-		const syncableIntegrations = computed(() =>
-			activeIntegrations.value.filter((integration) => integration.importEnabled && integration.forms.length > 0)
-		);
 
 		const availableIntegrations = computed(() => integrations.value.filter(({ id }) => id !== HOSTINGER_REACH_ID));
 
-		const hasAnyForms = (type: string = 'forms') =>
-			integrations.value.some(
-				(integration) => integration.type === type && integration.forms && integration.forms.length > 0
-			);
-
-		const fromType = (type: string = 'forms'): Integration[] =>
-			integrations.value.filter((integration) => integration.type === type);
+		const hasAnyForms = computed(() =>
+			integrations.value.some((integration) => integration.forms && integration.forms.length > 0)
+		);
 
 		const isIntegrationLoading = (integrationId: string) => loadingIntegrations.value[integrationId] || false;
 
@@ -67,26 +61,10 @@ export const useIntegrationsStore = defineStore(
 			isLoading.value = false;
 		};
 
-		const syncContacts = async (importRequest: Record<string, Set<string>>) => {
-			isLoading.value = true;
-
-			try {
-				await formsRepo.sync(importRequest);
-				showSuccess(translate('hostinger_reach_contacts_import_success'));
-			} catch (error) {
-				showError(error.message || translate('hostinger_reach_contacts_import_error'));
-			} finally {
-				isLoading.value = false;
-				await loadIntegrations();
-			}
-		};
-
 		const toggleIntegrationStatus = async (integrationId: string, isActive: boolean) => {
-			isLoading.value = true;
 			loadingIntegrations.value[integrationId] = true;
 
-			const [, error] = await formsRepo.toggleIntegrationStatus(integrationId, isActive);
-			isLoading.value = false;
+			const [, error] = await formsRepo.toggleIntegrationStatus(toKebabCase(integrationId), isActive);
 
 			if (error) {
 				loadingIntegrations.value[integrationId] = false;
@@ -101,7 +79,6 @@ export const useIntegrationsStore = defineStore(
 			}
 
 			await loadIntegrations();
-			loadingIntegrations.value[integrationId] = false;
 
 			showSuccess(
 				translate(
@@ -110,6 +87,8 @@ export const useIntegrationsStore = defineStore(
 						: 'hostinger_reach_forms_plugin_disconnected_success'
 				)
 			);
+
+			loadingIntegrations.value[integrationId] = false;
 		};
 
 		return {
@@ -118,14 +97,11 @@ export const useIntegrationsStore = defineStore(
 			error,
 			loadingIntegrations,
 			activeIntegrations,
-			syncableIntegrations,
 			availableIntegrations,
 			hasAnyForms,
 			isIntegrationLoading,
 			loadIntegrations,
-			toggleIntegrationStatus,
-			syncContacts,
-			fromType
+			toggleIntegrationStatus
 		};
 	},
 	{

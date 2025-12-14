@@ -9,12 +9,29 @@ declare( strict_types=1 );
 
 namespace WP\MCP\Handlers\System;
 
+use WP\MCP\Core\McpServer;
 use WP\MCP\Infrastructure\ErrorHandling\McpErrorFactory;
 
 /**
  * Handles system-related MCP methods.
  */
 class SystemHandler {
+	/**
+	 * The WordPress MCP instance.
+	 *
+	 * @var \WP\MCP\Core\McpServer
+	 */
+	private McpServer $mcp;
+
+	/**
+	 * Constructor.
+	 *
+	 * @param \WP\MCP\Core\McpServer $mcp The WordPress MCP instance.
+	 */
+	public function __construct( McpServer $mcp ) {
+		$this->mcp = $mcp;
+	}
+
 	/**
 	 * Handle the ping request.
 	 *
@@ -42,7 +59,9 @@ class SystemHandler {
 
 		// @todo: Implement logging level setting logic here.
 
-		return array();
+		return array(
+			'success' => true,
+		);
 	}
 
 	/**
@@ -55,7 +74,9 @@ class SystemHandler {
 	public function complete( int $request_id = 0 ): array {
 		// Implement completion logic here.
 
-		return array();
+		return array(
+			'success' => true,
+		);
 	}
 
 	/**

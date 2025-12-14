@@ -1,8 +1,8 @@
 === Plugin Name ===
 Tags: AI, AI assistant
 Requires PHP: 8.0
-Tested up to: 6.9
-Stable tag: 3.0.19
+Tested up to: 6.8
+Stable tag: 3.0.13
 Requires at least: 5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -374,33 +374,3 @@ This section describes how to install the plugin and get it working.
 - Fix: Remove duplicate token initialisation
 - Refactor: Improve code structure
 - Feature: Update chatbot widget version
-
-3.0.14 (2025-11-06)
-- Feature: Update chatbot widget version
-
-3.0.15 (2025-11-11)
-- Tweak: Bump up chatbot widget version
-
-3.0.16 (2025-11-18)
-- Fix: Translations not showing up correctly
-- Fix: Admin CSS conflict
-- Feature: Update translations
-
-3.0.17 (2025-12-02)
-- Fix: Website route permission checks
-- Fix: Add missing workflow permissions
-- Fix: Fatal error when no featured image is found
-- Feature: Bump WP 6.9 tested up to flag
-- Feature: Add code automation workflow
-- Fix: Convert AI Created Post to Gutenberg Blocks
-- Feature: Update kodee z-index
-- Feature: Add Kodee to Elementor editor
-
-3.0.18 (2025-12-09)
-- Feature: New MCP integration
-- Feature: Update hComponents
-- Fix: Tooltip not visible
-- Fix: Added missing Rate your conversation label for Kodee
-
-3.0.19 (2025-12-11)
-- Tweak: Bump Chatbot version

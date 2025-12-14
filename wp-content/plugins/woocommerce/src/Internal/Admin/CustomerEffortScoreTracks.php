@@ -152,7 +152,7 @@ class CustomerEffortScoreTracks {
 		return sprintf(
 			"(function( $ ) {
 				'use strict';
-				// Hook on submit button and sets a 1000ms interval function
+				// Hook on submit button and sets a 500ms interval function
 				// to determine successful add tag or otherwise.
 				$('#addtag #submit').on( 'click', function() {
 					const initialCount = $('.tags tbody > tr').length;
@@ -167,7 +167,7 @@ class CustomerEffortScoreTracks {
 								clearInterval( interval );
 							}
 						}
-					}, 1000 );
+					}, 500 );
 				});
 			})( jQuery );",
 			esc_js( $action ),
@@ -485,11 +485,7 @@ class CustomerEffortScoreTracks {
 			return;
 		}
 
-		$handle = 'wc-tracks-customer-effort-score-product-categories';
-		wp_register_script( $handle, '', array( 'jquery' ), WC_VERSION, true );
-		wp_enqueue_script( $handle );
-		wp_add_inline_script(
-			$handle,
+		wc_enqueue_js(
 			$this->get_script_track_edit_php(
 				self::ADD_PRODUCT_CATEGORIES_ACTION_NAME,
 				__( 'How easy was it to add product category?', 'woocommerce' ),
@@ -507,11 +503,7 @@ class CustomerEffortScoreTracks {
 			return;
 		}
 
-		$handle = 'wc-tracks-customer-effort-score-product-tags';
-		wp_register_script( $handle, '', array( 'jquery' ), WC_VERSION, true );
-		wp_enqueue_script( $handle );
-		wp_add_inline_script(
-			$handle,
+		wc_enqueue_js(
 			$this->get_script_track_edit_php(
 				self::ADD_PRODUCT_TAGS_ACTION_NAME,
 				__( 'How easy was it to add a product tag?', 'woocommerce' ),

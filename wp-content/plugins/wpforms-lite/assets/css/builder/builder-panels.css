@@ -381,7 +381,6 @@
 
 .wpforms-setup-templates-categories > li:has(ul) i.chevron {
   display: inline-block;
-  width: auto;
   position: relative;
   top: -1px;
   padding: 0 5px;
@@ -769,7 +768,7 @@
   font-weight: 600;
   line-height: 20px;
   margin: 0 0 -1px 0;
-  padding: 15px 15px 15px 20px;
+  padding: 15px 20px;
 }
 
 #wpforms-panel-settings .wpforms-builder-settings-block-header .wpforms-builder-settings-block-name-holder {
@@ -794,7 +793,7 @@
 #wpforms-panel-settings .wpforms-builder-settings-block-header .wpforms-builder-settings-block-actions {
   display: flex;
   justify-content: flex-end;
-  min-width: 180px;
+  min-width: 165px;
   order: 2;
 }
 
@@ -865,21 +864,12 @@
   color: #b32d2e;
 }
 
-#wpforms-panel-settings .wpforms-builder-settings-block-header button.wpforms-builder-settings-block-toggle .fa-chevron-circle-down::before {
-  content: "\f105";
-}
-
-#wpforms-panel-settings .wpforms-builder-settings-block-header button.wpforms-builder-settings-block-toggle .fa-chevron-circle-up::before {
-  content: "\f107";
-}
-
 #wpforms-panel-settings .wpforms-builder-settings-block-header button:last-of-type {
   margin-inline-end: 0;
 }
 
 #wpforms-panel-settings .wpforms-builder-settings-block-header .wpforms-builder-settings-block-edit {
   margin-inline-start: 6px;
-  font-size: 15px;
 }
 
 #wpforms-panel-settings .wpforms-builder-settings-block-content {
@@ -1467,8 +1457,7 @@
   float: inline-end;
   font-size: 16px;
   line-height: 1;
-  padding-right: 0;
-  padding-left: 0;
+  margin-top: -2px;
   appearance: none;
   -webkit-appearance: none;
 }
@@ -2007,13 +1996,11 @@
   display: block;
 }
 
-#wpforms-builder #wpforms-panel-payments .wpforms-panel-content .wpforms-panel-field-select .wpforms-required-field-error,
-#wpforms-builder #wpforms-panel-payments .wpforms-panel-content .wpforms-panel-field-text .wpforms-required-field-error {
+#wpforms-builder #wpforms-panel-payments .wpforms-panel-content .wpforms-panel-field-select .wpforms-required-field-error {
   border-color: #d63638;
 }
 
-#wpforms-builder #wpforms-panel-payments .wpforms-panel-content .wpforms-panel-field-select .wpforms-required-field-error:focus,
-#wpforms-builder #wpforms-panel-payments .wpforms-panel-content .wpforms-panel-field-text .wpforms-required-field-error:focus {
+#wpforms-builder #wpforms-panel-payments .wpforms-panel-content .wpforms-panel-field-select .wpforms-required-field-error:focus {
   box-shadow: 0 0 0 1px #d63638;
 }
 
@@ -2175,9 +2162,8 @@
 .wpforms-panels-toggle .wpforms-panel-revisions-button {
   position: relative;
   width: 55px;
-  height: 48px;
+  height: 44px;
   margin: 20px auto;
-  padding: 11px 0;
   background-color: #282e32;
   border: 1px solid #3c434a;
   border-radius: 4px;
@@ -2201,7 +2187,6 @@
   margin-top: -1px;
   font-size: 24px;
   line-height: 24px;
-  margin-bottom: 0;
 }
 
 .wpforms-panels-toggle .wpforms-panel-revisions-button .badge-exclamation {

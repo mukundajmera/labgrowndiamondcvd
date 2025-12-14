@@ -427,8 +427,7 @@ class Process {
 
 		foreach ( $this->form_data['payments']['stripe'][ $settings_key ] as $data ) {
 
-			// Skip if the field type not set or the meta-key is empty.
-			if ( $data['object_type'] !== $type || empty( $data['meta_key'] ) ) {
+			if ( $data['object_type'] !== $type ) {
 				continue;
 			}
 
@@ -452,11 +451,6 @@ class Process {
 
 			// Key length limited to 40 characters long by Stripe API.
 			$key = wp_html_excerpt( sanitize_text_field( $data['meta_key'] ), 40 );
-
-			// Check whether the meta-key is empty once again after sanitization.
-			if ( empty( $key ) ) {
-				continue;
-			}
 
 			// Value length limited to 500 characters long by Stripe API.
 			$metadata[ $key ] = wp_html_excerpt( wpforms_decode_string( $field_value ), 500 );

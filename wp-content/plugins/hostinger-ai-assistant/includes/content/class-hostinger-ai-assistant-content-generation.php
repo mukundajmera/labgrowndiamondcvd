@@ -165,18 +165,6 @@ class Hostinger_Ai_Assistant_Content_Generation {
         }
     }
 
-    private function convert_content_to_blocks( array $post_data ): array {
-        try {
-            $converter            = new Block_Converter( $post_data['content'] );
-            $post_data['content'] = $converter->convert();
-        } catch ( Exception $e ) {
-            error_log( 'Block conversion error: ' . $e->getMessage() );
-            return $post_data;
-        }
-
-        return $post_data;
-    }
-
     /**
      * Get and validate post data from the request
      */
@@ -249,8 +237,6 @@ class Hostinger_Ai_Assistant_Content_Generation {
 
         // Process taxonomy data.
         $post_data = $this->process_taxonomies( $post_data );
-
-        $post_data = $this->convert_content_to_blocks( $post_data );
 
         // Handle featured and content images.
         if ( $this->helper->post_type_supports_featured_image( $post_data['post_type'] )

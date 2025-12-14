@@ -19,13 +19,23 @@ namespace WP\MCP\Infrastructure\Observability\Contracts;
 interface McpObservabilityHandlerInterface {
 
 	/**
-	 * Emit a countable event for tracking with optional timing data.
+	 * Emit a countable event for tracking.
 	 *
-	 * @param string     $event The event name to record.
-	 * @param array      $tags Optional tags to attach to the event.
-	 * @param float|null $duration_ms Optional duration in milliseconds for timing measurements.
+	 * @param string $event The event name to record.
+	 * @param array  $tags Optional tags to attach to the event.
 	 *
 	 * @return void
 	 */
-	public function record_event( string $event, array $tags = array(), ?float $duration_ms = null ): void;
+	public static function record_event( string $event, array $tags = array() ): void;
+
+	/**
+	 * Record a timing measurement.
+	 *
+	 * @param string $metric The metric name for timing.
+	 * @param float  $duration_ms The duration in milliseconds.
+	 * @param array  $tags Optional tags to attach to the timing.
+	 *
+	 * @return void
+	 */
+	public static function record_timing( string $metric, float $duration_ms, array $tags = array() ): void;
 }

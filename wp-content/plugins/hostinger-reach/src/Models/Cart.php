@@ -3,25 +3,20 @@
 namespace Hostinger\Reach\Models;
 
 
-use Hostinger\Reach\Setup\Encrypt;
-
 if ( ! defined( 'ABSPATH' ) ) {
     die;
 }
 
 class Cart implements Model {
 
-    public const STATUS_ACTIVE     = 'active';
-    public const STATUS_ABANDONED  = 'abandoned';
-    public const STATUS_ERROR      = 'error';
-    public const STATUS_OLD        = 'old';
-    public const STATUS_PROCESSING = 'processing';
+    public const STATUS_ACTIVE    = 'active';
+    public const STATUS_ABANDONED = 'abandoned';
+    public const STATUS_OLD       = 'old';
 
     public const STATUSES = array(
         self::STATUS_ACTIVE,
         self::STATUS_ABANDONED,
         self::STATUS_OLD,
-        self::STATUS_PROCESSING,
     );
 
     private string $hash      = '';
@@ -87,11 +82,11 @@ class Cart implements Model {
     }
 
     public function get_email(): string {
-        return Encrypt::decrypt( $this->email );
+        return $this->email;
     }
 
     public function set_email( string $email ): void {
-        $this->email = $email;
+        $this->email = sanitize_email( $email );
     }
 
     public function get_items(): array {

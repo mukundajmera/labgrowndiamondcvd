@@ -145,8 +145,7 @@ class AddToCartWithOptions extends AbstractBlock {
 			return '';
 		}
 
-		// For variations, we display the simple product form.
-		$product_type = ProductType::VARIATION === $product->get_type() ? ProductType::SIMPLE : $product->get_type();
+		$product_type = $product->get_type();
 
 		$slug = $product_type . '-product-add-to-cart-with-options';
 
@@ -247,9 +246,7 @@ class AddToCartWithOptions extends AbstractBlock {
 				array(
 					'products' => array(
 						$product->get_id() => array(
-							'type'              => $product->get_type(),
-							'is_in_stock'       => $product->is_in_stock(),
-							'sold_individually' => $product->is_sold_individually(),
+							'type' => $product->get_type(),
 						),
 					),
 				)
@@ -271,10 +268,11 @@ class AddToCartWithOptions extends AbstractBlock {
 					$context['quantity'][ $variation->get_id() ] = $default_quantity;
 
 					$variation_data = array(
-						'attributes'        => $variation->get_variation_attributes(),
-						'is_in_stock'       => $variation->is_in_stock(),
-						'sold_individually' => $variation->is_sold_individually(),
+						'attributes' => $variation->get_variation_attributes(),
 					);
+					if ( $variation->is_in_stock() ) {
+						$variation_data['is_in_stock'] = true;
+					}
 
 					$variations_data[ $variation->get_id() ] = $variation_data;
 				}
@@ -289,21 +287,9 @@ class AddToCartWithOptions extends AbstractBlock {
 						),
 					)
 				);
-			} elseif ( $product->is_type( ProductType::VARIATION ) ) {
-				$variation_attributes = $product->get_variation_attributes();
-				$formatted_attributes = array_map(
-					function ( $key, $value ) {
-						return [
-							'attribute' => $key,
-							'value'     => $value,
-						];
-					},
-					array_keys( $variation_attributes ),
-					$variation_attributes
-				);
+			}
 
-				$context['selectedAttributes'] = $formatted_attributes;
-			} elseif ( $product->is_type( ProductType::GROUPED ) ) {
+			if ( $product->is_type( ProductType::GROUPED ) ) {
 				// Add context for purchasable child products.
 				$children_product_data = array();
 				foreach ( $product->get_children() as $child_product_id ) {
@@ -312,12 +298,10 @@ class AddToCartWithOptions extends AbstractBlock {
 						$child_product_quantity_constraints = Utils::get_product_quantity_constraints( $child_product );
 
 						$children_product_data[ $child_product_id ] = array(
-							'min'               => $child_product_quantity_constraints['min'],
-							'max'               => $child_product_quantity_constraints['max'],
-							'step'              => $child_product_quantity_constraints['step'],
-							'type'              => $child_product->get_type(),
-							'is_in_stock'       => $child_product->is_in_stock(),
-							'sold_individually' => $child_product->is_sold_individually(),
+							'min'  => $child_product_quantity_constraints['min'],
+							'max'  => $child_product_quantity_constraints['max'],
+							'step' => $child_product_quantity_constraints['step'],
+							'type' => $child_product->get_type(),
 						);
 					}
 				}
@@ -621,7 +605,7 @@ class AddToCartWithOptions extends AbstractBlock {
 				 *
 				 * @since 9.9.0
 				 */
-				do_action( 'woocommerce_' . $product_type . '_add_to_cart' );
+				do_action( 'woocommerce_' . $product->get_type() . '_add_to_cart' );
 				add_action( 'woocommerce_' . $product_type . '_add_to_cart', $add_to_cart_fn, 30 );
 			}
 
@@ -638,7 +622,7 @@ class AddToCartWithOptions extends AbstractBlock {
 			 *
 			 * @since 9.7.0
 			 */
-			do_action( 'woocommerce_' . $product_type . '_add_to_cart' );
+			do_action( 'woocommerce_' . $product->get_type() . '_add_to_cart' );
 
 			$wrapper_attributes = array(
 				'class' => $classes,

@@ -19,34 +19,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 class WPForms_Review {
 
 	/**
-	 * List of page slugs.
-	 *
-	 * Some 3rd-party addons may use page slugs that start with `wpforms-` (e.g., WPForms Views),
-	 * so we should define exact pages we want the footer to be displayed on instead
-	 * of targeting any page that looks like a WPForms page.
-	 *
-	 * @since 1.9.8.6
-	 *
-	 * @var array
-	 */
-	private const PAGES = [
-		'wpforms-about',
-		'wpforms-addons',
-		'wpforms-community',
-		'wpforms-entries',
-		'wpforms-overview',
-		'wpforms-payments',
-		'wpforms-settings',
-		'wpforms-smtp',
-		'wpforms-templates',
-		'wpforms-tools',
-		'wpforms-wpconsent',
-		'wpforms-sugar-calendar',
-		'wpforms-duplicator',
-		'wpforms-uncanny-automator',
-	];
-
-	/**
 	 * Primary class constructor.
 	 *
 	 * @since 1.3.2
@@ -226,24 +198,13 @@ class WPForms_Review {
 	 *
 	 * @since 1.8.7.2
 	 */
-	private function review_content(): void {
-
+	private function review_content() {
 		?>
 		<p><?php esc_html_e( 'Hey, there! It looks like you enjoy creating forms with WPForms. Would you do us a favor and take a few seconds to give us a 5-star review? We’d love to hear from you.', 'wpforms-lite' ); ?></p>
 		<p>
-			<a
-					href="<?php echo wpforms_wp_org_review_link(); ?>" class="wpforms-notice-dismiss wpforms-review-out"
-					target="_blank" rel="noopener noreferrer">
-				<?php esc_html_e( 'Ok, you deserve it', 'wpforms-lite' ); ?>
-			</a>
-			<br>
-			<a href="#" class="wpforms-notice-dismiss" target="_blank" rel="noopener noreferrer">
-				<?php esc_html_e( 'Nope, maybe later', 'wpforms-lite' ); ?>
-			</a>
-			<br>
-			<a href="#" class="wpforms-notice-dismiss" target="_blank" rel="noopener noreferrer">
-				<?php esc_html_e( 'I already did', 'wpforms-lite' ); ?>
-			</a>
+			<a href="https://wordpress.org/support/plugin/wpforms-lite/reviews/?filter=5#new-post" class="wpforms-notice-dismiss wpforms-review-out" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Ok, you deserve it', 'wpforms-lite' ); ?></a><br>
+			<a href="#" class="wpforms-notice-dismiss" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Nope, maybe later', 'wpforms-lite' ); ?></a><br>
+			<a href="#" class="wpforms-notice-dismiss" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'I already did', 'wpforms-lite' ); ?></a>
 		</p>
 		<?php
 	}
@@ -254,19 +215,17 @@ class WPForms_Review {
 	 *
 	 * @since 1.3.2
 	 *
-	 * @param string|mixed $text Footer text.
+	 * @param string $text Footer text.
 	 *
 	 * @return string
 	 * @noinspection HtmlUnknownTarget
 	 */
-	public function admin_footer( $text ): string {
+	public function admin_footer( $text ) {
 
 		global $current_screen;
 
-		$text = (string) $text;
-
 		if ( ! empty( $current_screen->id ) && strpos( $current_screen->id, 'wpforms' ) !== false ) {
-			$url  = wpforms_wp_org_review_link();
+			$url  = 'https://wordpress.org/support/plugin/wpforms-lite/reviews/?filter=5#new-post';
 			$text = sprintf(
 				wp_kses( /* translators: $1$s - WPForms plugin name, $2$s - WP.org review link, $3$s - WP.org review link. */
 					__( 'Please rate %1$s <a href="%2$s" target="_blank" rel="noopener noreferrer">&#9733;&#9733;&#9733;&#9733;&#9733;</a> on <a href="%3$s" target="_blank" rel="noopener">WordPress.org</a> to help us spread the word.', 'wpforms-lite' ),
@@ -294,10 +253,27 @@ class WPForms_Review {
 	 */
 	public function promote_wpforms() {
 
-		// phpcs:ignore WordPress.Security.NonceVerification
-		$current_page = isset( $_REQUEST['page'] ) ? sanitize_key( $_REQUEST['page'] ) : '';
+		// Some 3rd-party addons may use page slugs that start with `wpforms-` (e.g., WPForms Views),
+		// so we should define exact pages we want the footer to be displayed on instead
+		// of targeting any page that looks like a WPForms page.
+		$plugin_pages = [
+			'wpforms-about',
+			'wpforms-addons',
+			'wpforms-analytics',
+			'wpforms-community',
+			'wpforms-entries',
+			'wpforms-overview',
+			'wpforms-payments',
+			'wpforms-settings',
+			'wpforms-smtp',
+			'wpforms-templates',
+			'wpforms-tools',
+		];
 
-		if ( ! in_array( $current_page, self::PAGES, true ) ) {
+		// phpcs:ignore WordPress.Security.NonceVerification
+		$current_page = isset( $_REQUEST['page'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['page'] ) ) : '';
+
+		if ( ! in_array( $current_page, $plugin_pages, true ) ) {
 			return;
 		}
 

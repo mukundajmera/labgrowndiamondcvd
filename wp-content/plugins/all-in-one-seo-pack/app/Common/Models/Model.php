@@ -470,12 +470,7 @@ class Model implements \JsonSerializable {
 			self::$columns[ get_called_class() ] = [];
 
 			// Let's set the columns that are available by default.
-			$table = aioseo()->core->db->prefix . $this->table;
-
-			if ( ! aioseo()->core->db->tableExists( $this->table ) ) {
-				return self::$columns[ get_called_class() ];
-			}
-
+			$table   = aioseo()->core->db->prefix . $this->table;
 			$results = aioseo()->core->db->start( $table )
 				->output( 'OBJECT' )
 				->execute( 'SHOW COLUMNS FROM `' . $table . '`', true )

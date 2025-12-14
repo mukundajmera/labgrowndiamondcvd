@@ -1,5 +1,5 @@
 // External Dependencies.
-import React, { useEffect, useState, useReducer, useRef, useMemo } from 'react';
+import React, { useEffect, useState, useReducer, useRef } from 'react';
 import { sortBy } from 'underscore';
 import {
 	SiteType,
@@ -20,7 +20,6 @@ import {
 	whiteLabelEnabled,
 	storeCurrentState,
 	getAllSites,
-	trackOnboardingStep,
 } from '../../utils/functions';
 import { setURLParmsValue } from '../../utils/url-params';
 import SiteListSkeleton from './site-list-skeleton';
@@ -38,86 +37,60 @@ import {
 	fetchPagedSites,
 	fetchAllSites,
 } from './header/sync-library/utils';
-import SpectraBlocksVersionSelector from './spectra-blocks-version-selector';
 
 export const useFilteredSites = () => {
-	const [
-		{ builder, siteType, spectraBlocksVersion, siteOrder, allSitesData },
-	] = useStateValue();
+	const [ { builder, siteType, siteOrder, allSitesData } ] = useStateValue();
+	let allSites =
+		allSitesData && !! Object.keys( allSitesData ).length
+			? allSitesData
+			: getAllSites();
+	let sites = [];
 
-	const filteredSites = useMemo( () => {
-		// Step 1: fallback for all sites
-		let allSites =
-			allSitesData && Object.keys( allSitesData ).length
-				? allSitesData
-				: getAllSites();
+	// Fallback array check for Chrome browser.
+	if ( allSitesData && Array.isArray( allSites ) ) {
+		allSites = allSitesData.reduce( ( acc, site ) => {
+			if ( site.id ) {
+				acc[ `id-${ site.id }` ] = site;
+			}
+			return acc;
+		}, {} );
+	}
 
-		// Step 2: ensure object format (fallback for Chrome)
-		if ( Array.isArray( allSites ) ) {
-			allSites = allSites.reduce( ( acc, site ) => {
-				if ( site.id ) {
-					acc[ `id-${ site.id }` ] = site;
-				}
-				return acc;
-			}, {} );
+	if ( builder ) {
+		for ( const siteId in allSites ) {
+			if ( builder === allSites[ siteId ][ 'astra-site-page-builder' ] ) {
+				sites[ siteId ] = allSites[ siteId ];
+			}
 		}
+	}
 
-		// Step 3: filter by builder
-		let sites =
-			builder && builder !== 'custom-templates'
-				? Object.fromEntries(
-						Object.entries( allSites ).filter(
-							( [ , site ] ) =>
-								site[ 'astra-site-page-builder' ] === builder
-						)
-				  )
-				: { ...allSites };
+	if ( siteType ) {
+		for ( const siteId in sites ) {
+			const currentSiteType =
+				sites[ siteId ]?.[ 'astra-sites-type' ] || '';
 
-		// Step 4: filter by site type
-		if ( siteType ) {
-			sites = Object.fromEntries(
-				Object.entries( sites ).filter( ( [ , site ] ) => {
-					const currentSiteType = site?.[ 'astra-sites-type' ] || '';
-					return siteType === currentSiteType;
-				} )
-			);
-		}
-
-		// Step 5: filter by Spectra Blocks version (only for Gutenberg)
-		if ( builder === 'gutenberg' && spectraBlocksVersion ) {
-			const version = astraSitesVars?.spectraBlocks?.selectorEnabled
-				? spectraBlocksVersion
-				: astraSitesVars?.spectraBlocks?.version || 'v2';
-
-			sites = Object.fromEntries(
-				Object.entries( sites ).filter( ( [ , site ] ) => {
-					let siteVersion = site?.[ 'spectra-ver' ] || 'v2';
-					if ( ! siteVersion?.length ) {
-						siteVersion = 'v2';
+			switch ( siteType ) {
+				case 'signature':
+					if ( currentSiteType !== siteType ) {
+						delete sites[ siteId ];
 					}
-					return siteVersion === version;
-				} )
-			);
+					break;
+				case 'agency-mini':
+					if ( 'agency-mini' !== currentSiteType ) {
+						delete sites[ siteId ];
+					}
+					break;
+				default:
+					break;
+			}
 		}
+	}
 
-		// Step 6: Filter custom templates builder sites to only include those with custom templates.
-		if ( builder === 'custom-templates' ) {
-			sites = Object.fromEntries(
-				Object.entries( sites ).filter(
-					( [ , site ] ) => site?.[ 'astra-sites-custom-template' ]
-				)
-			);
-		}
+	if ( 'latest' === siteOrder && Object.keys( sites ).length ) {
+		sites = sortBy( Object.values( sites ), 'publish-date' ).reverse();
+	}
 
-		// Step 7: sort if latest
-		if ( siteOrder === 'latest' && Object.keys( sites ).length ) {
-			sites = sortBy( Object.values( sites ), 'publish-date' ).reverse();
-		}
-
-		return sites;
-	}, [ allSitesData, builder, siteType, spectraBlocksVersion, siteOrder ] );
-
-	return filteredSites;
+	return sites;
 };
 
 const SiteList = () => {
@@ -143,7 +116,6 @@ const SiteList = () => {
 		selectedMegaMenu,
 		allSitesData,
 		bgSyncInProgress,
-		spectraBlocksVersion,
 	} = storedState;
 
 	useEffect( () => {
@@ -167,12 +139,7 @@ const SiteList = () => {
 		setSiteData( {
 			sites: allFilteredSites,
 		} );
-	}, [ builder, siteType, spectraBlocksVersion, siteOrder, allSitesData ] );
-
-	useEffect( () => {
-		// Track template listing step when component mounts
-		trackOnboardingStep( 'template-listing' );
-	}, [] );
+	}, [ builder, siteType, siteOrder, allSitesData ] );
 
 	storeCurrentState( storedState );
 
@@ -303,14 +270,14 @@ const SiteList = () => {
 
 	const fetchSitesAndCategories = async () => {
 		try {
+			const syncUptoDate = await isSyncUptoDate();
+
 			dispatch( {
 				type: 'set',
 				syncPageInProgress: 0,
 				syncPageCount: 0,
-				bgSyncInProgress: !! astraSitesVars?.bgSyncInProgress,
 			} );
 
-			const syncUptoDate = await isSyncUptoDate();
 			if ( syncUptoDate ) {
 				dispatch( {
 					type: 'set',
@@ -416,8 +383,6 @@ const SiteList = () => {
 											/>
 										</div>
 										<div className="st-type-and-order-filters">
-											<SpectraBlocksVersionSelector />
-
 											<SiteType
 												value={ siteType }
 												onClick={ ( event, type ) => {

@@ -35,11 +35,7 @@ import usePopper from '../hooks/use-popper';
 import { useNavigateSteps } from '../router';
 import { STORE_KEY } from '../store';
 import { MB_IN_BYTE } from '../utils/constants';
-import {
-	clearSessionStorage,
-	getClientCountryCode,
-	isValidImageURL,
-} from '../utils/helpers';
+import { clearSessionStorage, isValidImageURL } from '../utils/helpers';
 import { USER_KEYWORD } from './select-template';
 
 const ORIENTATIONS = {
@@ -74,7 +70,7 @@ const TABS = [
 ];
 
 const IMAGES_PER_PAGE = 20;
-const IMAGE_ENGINES = [ aiBuilderVars?.imagesEngine || 'pexels' ];
+const IMAGE_ENGINES = [ 'pexels' ];
 const SKELETON_COUNT = 15;
 
 const getImageSkeleton = ( count = SKELETON_COUNT ) => {
@@ -445,12 +441,6 @@ const Images = () => {
 			searchKeywords = businessName;
 		}
 
-		// Get client country code (checks cookie first, fetches from API if not cached).
-		const clientCountryCode = await getClientCountryCode();
-
-		// Use Unsplash for Russian clients, otherwise use the provided engine or default from server.
-		const selectedEngine = clientCountryCode === 'RU' ? 'unsplash' : engine;
-
 		const payload = {
 			keywords: searchKeywords,
 			orientation: orientation.value,
@@ -460,7 +450,7 @@ const Images = () => {
 		try {
 			const res = await apiFetch( {
 				path: `zipwp/v1/images`,
-				data: { ...payload, engine: selectedEngine },
+				data: { ...payload, engine },
 				method: 'POST',
 				headers: {
 					'X-WP-Nonce': aiBuilderVars.rest_api_nonce,
@@ -573,7 +563,6 @@ const Images = () => {
 		blackListedEngines.current.clear();
 		setPage( 1 );
 		setImages( [] );
-		setHasMore( true );
 	}, [ keyword, orientation ] );
 
 	// Trigger to load more images.

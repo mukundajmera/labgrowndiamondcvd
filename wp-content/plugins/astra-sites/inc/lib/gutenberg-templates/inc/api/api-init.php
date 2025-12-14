@@ -59,7 +59,6 @@ class Api_Init {
 			'\Gutenberg_Templates\Inc\Api\Blocks',
 			'\Gutenberg_Templates\Inc\Api\Initialize_Setup',
 			'\Gutenberg_Templates\Inc\Api\Sites',
-			'\Gutenberg_Templates\Inc\Api\License', // BSF Core License API.
 		);
 
 		foreach ( $controllers as $controller ) {

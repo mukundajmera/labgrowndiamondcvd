@@ -66,7 +66,7 @@ class Block {
 	 */
 	public function register() {
 		aioseo()->blocks->registerBlock(
-			'breadcrumbs', [
+			'aioseo/breadcrumbs', [
 				'attributes'      => [
 					'primaryTerm'        => [
 						'type'    => 'string',

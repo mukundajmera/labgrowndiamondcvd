@@ -75,7 +75,6 @@ class ReachFormIntegration extends IntegrationWithForms implements IntegrationIn
                 'url'                 => 'https://wordpress.org/plugins/hostinger-reach',
                 'is_view_form_hidden' => false,
                 'can_toggle_forms'    => false,
-                'is_active'           => true,
             )
         );
     }

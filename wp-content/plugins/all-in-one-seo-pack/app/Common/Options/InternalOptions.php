@@ -87,8 +87,7 @@ class InternalOptions {
 						'remaining' => [ 'type' => 'number', 'default' => 0 ],
 						'expires'   => [ 'type' => 'number', 'default' => 0 ]
 					]
-				],
-				'costPerFeature'      => [ 'type' => 'array', 'default' => [] ]
+				]
 			]
 		],
 		'integrations' => [

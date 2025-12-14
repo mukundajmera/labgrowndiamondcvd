@@ -1,12 +1,9 @@
 <script setup lang="ts">
-import { HIcon, HPopover } from '@hostinger/hcomponents';
+import { HIcon, HLabel, HPopover } from '@hostinger/hcomponents';
 import { computed, ref } from 'vue';
 
 import PluginExpansion from '@/components/PluginExpansion.vue';
-import SyncStatusLabel from '@/components/SyncStatusLabel.vue';
-import { useModal } from '@/composables';
-import { type PluginStatus } from '@/data/pluginData';
-import { ModalName } from '@/types';
+import { PLUGIN_STATUSES, type PluginStatus } from '@/data/pluginData';
 import type { Form, Integration } from '@/types/models';
 import { translate } from '@/utils/translate';
 
@@ -15,11 +12,9 @@ interface Props {
 	pluginStatus: PluginStatus;
 	totalEntries: number;
 	forms: Form[];
-	initiallyExpanded: boolean;
 }
 
 const props = defineProps<Props>();
-const { openModal } = useModal();
 
 const emit = defineEmits<{
 	toggleFormStatus: [form: Form, status: boolean];
@@ -30,26 +25,21 @@ const emit = defineEmits<{
 	addForm: [id: string];
 }>();
 
-const isExpanded = ref(props.initiallyExpanded ?? false);
+const isExpanded = ref(false);
 
 const toggleExpansion = () => {
 	isExpanded.value = !isExpanded.value;
 };
 
+const getStatusLabel = (status: PluginStatus) =>
+	status === PLUGIN_STATUSES.ACTIVE
+		? translate('hostinger_reach_plugin_entries_table_status_active')
+		: translate('hostinger_reach_plugin_entries_table_status_inactive');
+
+const getStatusColor = (status: PluginStatus) => (status === PLUGIN_STATUSES.ACTIVE ? 'success' : 'gray');
+
 const handleToggleFormStatus = (form: Form, status: boolean) => {
 	emit('toggleFormStatus', form, status);
-};
-
-const handleContactSyncClick = (integration: Integration) => {
-	openModal(
-		ModalName.SYNC_CONTACTS_MODAL,
-		{
-			title: translate('hostinger_reach_contacts_modal_title'),
-			subtitle: translate('hostinger_reach_contacts_modal_subtitle'),
-			data: { integrations: [integration] }
-		},
-		{ hasCloseButton: true }
-	);
 };
 
 const handleViewForm = (form: Form) => {
@@ -62,13 +52,6 @@ const handleEditForm = (form: Form) => {
 
 const showPopover = computed(
 	() => props.integration.canDeactivate || !!props.integration.addFormUrl || props.integration.isGoToPluginVisible
-);
-
-const activeForms = computed(() => props.forms.filter((form) => form.isActive));
-
-const canSync = computed(
-	() =>
-		props.integration.importEnabled && props.integration.forms?.length > 0 && props.integration.importStatus.total > 0
 );
 
 const expandButtonAriaLabel = computed(() => {
@@ -102,29 +85,21 @@ const expandButtonAriaLabel = computed(() => {
 					</div>
 				</div>
 			</div>
-			<div class="plugin-entry-row__cell plugin-entry-row__cell--forms">
-				<span class="plugin-entry-row__mobile-label">
-					{{ translate('hostinger_reach_plugin_entries_table_syncing_header') }}:
-				</span>
-				<span class="plugin-entry-row__entries-count">
-					<span>{{ activeForms.length }}</span>
-					<span>{{ translate('hostinger_reach_plugin_entries_table_of') }}</span>
-					<span>{{ props.integration.forms?.length }}</span>
-				</span>
-			</div>
 			<div class="plugin-entry-row__cell plugin-entry-row__cell--entries">
 				<span class="plugin-entry-row__mobile-label">
-					{{ translate('hostinger_reach_plugin_entries_table_contacts_header') }}:
+					{{ translate('hostinger_reach_plugin_entries_table_entries_header') }}:
 				</span>
-				<span class="plugin-entry-row__entries-count">
-					{{ props.integration.importEnabled ? props.integration.importStatus.total : '-' }}
-				</span>
+				<span class="plugin-entry-row__entries-count">{{ totalEntries }}</span>
 			</div>
 			<div class="plugin-entry-row__cell plugin-entry-row__cell--status">
 				<span class="plugin-entry-row__mobile-label">
 					{{ translate('hostinger_reach_plugin_entries_table_status_header') }}:
 				</span>
-				<SyncStatusLabel :enabled="props.integration.importEnabled" :status="props.integration.importStatus.status" />
+				<div class="plugin-entry-row__status-content">
+					<HLabel variant="outline" :color="getStatusColor(pluginStatus)" class="plugin-entry-row__status-label">
+						{{ getStatusLabel(pluginStatus) }}
+					</HLabel>
+				</div>
 			</div>
 			<div class="plugin-entry-row__cell plugin-entry-row__cell--actions">
 				<HPopover
@@ -149,10 +124,6 @@ const expandButtonAriaLabel = computed(() => {
 							<HIcon name="ic-plus-16" />
 							<span>{{ translate('hostinger_reach_plugin_entries_table_add_form') }}</span>
 							<HIcon name="ic-arrow-up-right-square-16" />
-						</div>
-						<div v-if="canSync" class="plugin-entry-row__menu-item" @click="handleContactSyncClick(props.integration)">
-							<HIcon name="ic-arrows-circle-16" />
-							<span>{{ translate('hostinger_reach_sync_contacts_button_text') }}</span>
 						</div>
 						<div
 							v-if="props.integration.isGoToPluginVisible"
@@ -199,30 +170,25 @@ const expandButtonAriaLabel = computed(() => {
 		align-items: center;
 
 		&--plugin {
-			width: 40%;
+			width: 50%;
 			order: 1;
-		}
-
-		&--forms {
-			width: 20%;
-			order: 2;
 		}
 
 		&--entries {
 			width: 20%;
-			order: 3;
+			order: 2;
 		}
 
 		&--status {
 			width: 20%;
-			order: 4;
+			order: 3;
 		}
 
 		&--actions {
 			width: 10%;
 			display: flex;
 			justify-content: flex-end;
-			order: 5;
+			order: 4;
 		}
 	}
 
@@ -296,25 +262,11 @@ const expandButtonAriaLabel = computed(() => {
 		font-weight: 400;
 		font-size: 14px;
 		color: var(--neutral--500);
-		display: flex;
-		gap: 4px;
 	}
 
 	&__status-content {
 		display: flex;
 		align-items: center;
-		gap: 5px;
-
-		&[data-availabe='false'] {
-			color: var(--neutral--300);
-			opacity: 0.7;
-		}
-
-		&[data-status='importing'] {
-			svg {
-				animation: spin 2.5s linear infinite;
-			}
-		}
 	}
 
 	&__status-label {
@@ -371,7 +323,6 @@ const expandButtonAriaLabel = computed(() => {
 		}
 
 		&__cell--plugin,
-		&__cell--forms,
 		&__cell--entries,
 		&__cell--status,
 		&__cell--actions {
@@ -380,7 +331,6 @@ const expandButtonAriaLabel = computed(() => {
 		}
 
 		&__cell--entries,
-		&__cell--forms,
 		&__cell--status {
 			align-items: flex-start;
 		}

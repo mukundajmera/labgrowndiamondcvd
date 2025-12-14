@@ -445,12 +445,12 @@
 #wpforms-list-table-ext-edit-columns-cog {
   outline: none;
   box-shadow: none;
-  font-size: 16px;
+  font-size: 19px;
   color: #8b8f95;
   position: absolute;
   inset-inline-end: 12px;
   background-color: #ffffff;
-  top: 10px;
+  top: 8px;
   right: 10px;
   padding: 0;
 }

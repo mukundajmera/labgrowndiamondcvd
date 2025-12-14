@@ -79,13 +79,15 @@ class Helpers {
 	 * @return string                 Formatted date string (ISO 8601).
 	 */
 	public function lastModifiedPostTime( $postTypes = [ 'post', 'page' ], $additionalArgs = [] ) {
-		$postTypesArray = ! is_array( $postTypes ) ? [ $postTypes ] : $postTypes;
+		if ( is_array( $postTypes ) ) {
+			$postTypes = implode( "', '", $postTypes );
+		}
 
 		$query = aioseo()->core->db
 			->start( aioseo()->core->db->db->posts . ' as p', true )
 			->select( 'MAX(`p`.`post_modified_gmt`) as last_modified' )
 			->where( 'p.post_status', 'publish' )
-			->whereIn( 'p.post_type', $postTypesArray );
+			->whereRaw( "( `p`.`post_type` IN ( '$postTypes' ) )" );
 
 		if ( isset( $additionalArgs['author'] ) ) {
 			$query->where( 'p.post_author', $additionalArgs['author'] );

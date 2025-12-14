@@ -94,25 +94,11 @@ class WP_REST_Abilities_List_Controller extends WP_REST_Controller {
 	 * @return \WP_REST_Response Response object on success.
 	 */
 	public function get_items( $request ) {
-		$abilities = array_filter(
-			wp_get_abilities(),
-			static function ( $ability ) {
-				return $ability->get_meta_item( 'show_in_rest' );
-			}
-		);
+		// TODO: Add HEAD method support for performance optimization.
+		// Should return early with empty body but include X-WP-Total and X-WP-TotalPages headers.
+		// See: https://github.com/WordPress/wordpress-develop/blob/trunk/src/wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php#L316-L318
 
-		// Filter by category if specified.
-		$category = $request->get_param( 'category' );
-		if ( ! empty( $category ) ) {
-			$abilities = array_filter(
-				$abilities,
-				static function ( $ability ) use ( $category ) {
-					return $ability->get_category() === $category;
-				}
-			);
-			// Reset array keys after filtering.
-			$abilities = array_values( $abilities );
-		}
+		$abilities = wp_get_abilities();
 
 		// Handle pagination with explicit defaults.
 		$params   = $request->get_params();
@@ -123,19 +109,15 @@ class WP_REST_Abilities_List_Controller extends WP_REST_Controller {
 		$total_abilities = count( $abilities );
 		$max_pages       = ceil( $total_abilities / $per_page );
 
-		if ( $request->get_method() === 'HEAD' ) {
-			$response = new \WP_REST_Response( array() );
-		} else {
-			$abilities = array_slice( $abilities, $offset, $per_page );
+		$abilities = array_slice( $abilities, $offset, $per_page );
 
-			$data = array();
-			foreach ( $abilities as $ability ) {
-				$item   = $this->prepare_item_for_response( $ability, $request );
-				$data[] = $this->prepare_response_for_collection( $item );
-			}
-
-			$response = rest_ensure_response( $data );
+		$data = array();
+		foreach ( $abilities as $ability ) {
+			$item   = $this->prepare_item_for_response( $ability, $request );
+			$data[] = $this->prepare_response_for_collection( $item );
 		}
+
+		$response = rest_ensure_response( $data );
 
 		$response->header( 'X-WP-Total', (string) $total_abilities );
 		$response->header( 'X-WP-TotalPages', (string) $max_pages );
@@ -146,13 +128,13 @@ class WP_REST_Abilities_List_Controller extends WP_REST_Controller {
 		if ( $page > 1 ) {
 			$prev_page = $page - 1;
 			$prev_link = add_query_arg( 'page', $prev_page, $base );
-			$response->link_header( 'prev', $prev_link );
+			$response->add_link( 'prev', $prev_link );
 		}
 
 		if ( $page < $max_pages ) {
 			$next_page = $page + 1;
 			$next_link = add_query_arg( 'page', $next_page, $base );
-			$response->link_header( 'next', $next_link );
+			$response->add_link( 'next', $next_link );
 		}
 
 		return $response;
@@ -168,7 +150,8 @@ class WP_REST_Abilities_List_Controller extends WP_REST_Controller {
 	 */
 	public function get_item( $request ) {
 		$ability = wp_get_ability( $request->get_param( 'name' ) );
-		if ( ! $ability || ! $ability->get_meta_item( 'show_in_rest' ) ) {
+
+		if ( ! $ability ) {
 			return new \WP_Error(
 				'rest_ability_not_found',
 				__( 'Ability not found.' ),
@@ -206,7 +189,6 @@ class WP_REST_Abilities_List_Controller extends WP_REST_Controller {
 			'name'          => $ability->get_name(),
 			'label'         => $ability->get_label(),
 			'description'   => $ability->get_description(),
-			'category'      => $ability->get_category(),
 			'input_schema'  => $ability->get_input_schema(),
 			'output_schema' => $ability->get_output_schema(),
 			'meta'          => $ability->get_meta(),
@@ -270,12 +252,6 @@ class WP_REST_Abilities_List_Controller extends WP_REST_Controller {
 					'context'     => array( 'view', 'edit' ),
 					'readonly'    => true,
 				),
-				'category'      => array(
-					'description' => __( 'Category this ability belongs to.' ),
-					'type'        => 'string',
-					'context'     => array( 'view', 'edit', 'embed' ),
-					'readonly'    => true,
-				),
 				'input_schema'  => array(
 					'description' => __( 'JSON Schema for the ability input.' ),
 					'type'        => 'object',
@@ -295,7 +271,7 @@ class WP_REST_Abilities_List_Controller extends WP_REST_Controller {
 					'readonly'    => true,
 				),
 			),
-			'required'   => array( 'name', 'label', 'meta', 'description', 'category', 'input_schema', 'output_schema' ),
+			'required'   => array( 'name', 'label', 'description' ),
 		);
 
 		return $this->add_additional_fields_schema( $schema );
@@ -326,12 +302,6 @@ class WP_REST_Abilities_List_Controller extends WP_REST_Controller {
 				'minimum'           => 1,
 				'maximum'           => 100,
 				'sanitize_callback' => 'absint',
-				'validate_callback' => 'rest_validate_request_arg',
-			),
-			'category' => array(
-				'description'       => __( 'Limit results to abilities in specific category.' ),
-				'type'              => 'string',
-				'sanitize_callback' => 'sanitize_key',
 				'validate_callback' => 'rest_validate_request_arg',
 			),
 		);

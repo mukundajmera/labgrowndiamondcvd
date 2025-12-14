@@ -20,7 +20,7 @@ class ActionScheduler {
         }
 
         $group = $this->get_group();
-        return as_schedule_recurring_action( gmdate( 'U' ), $interval, $hook, $args, $group, true );
+        return as_schedule_recurring_action( gmdate( 'U' ) - 1, $interval, $hook, $args, $group, true );
     }
 
     public function schedule_single( int $timestamp, string $hook, array $args = array() ): int {
@@ -36,7 +36,7 @@ class ActionScheduler {
             return 0;
         }
 
-        return as_schedule_single_action( gmdate( 'U' ), $hook, $args, $this->get_group() );
+        return as_schedule_single_action( gmdate( 'U' ) - 1, $hook, $args, $this->get_group() );
     }
 
     public function has_scheduled_action( string $hook, array $args = array() ): bool {

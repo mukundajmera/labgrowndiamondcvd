@@ -5,8 +5,6 @@ namespace Hostinger\Reach\Repositories;
 use Exception;
 use Hostinger\Reach\Admin\Database\CartsTable;
 use Hostinger\Reach\Models\Cart;
-use Hostinger\Reach\Setup\Encrypt;
-use WC_Customer;
 use wpdb;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -16,7 +14,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 class CartRepository extends Repository {
 
     public const ABANDONED_CART_TIME_IN_SECONDS = HOUR_IN_SECONDS;
-    public const OLD_CART_TIME_IN_SECONDS       = MONTH_IN_SECONDS;
 
     public function __construct( wpdb $db, CartsTable $table ) {
         parent::__construct( $db );
@@ -35,27 +32,30 @@ class CartRepository extends Repository {
         return $carts;
     }
 
-    public function old_carts( int $limit = 100, array $columns = array() ): array {
-        $where_conditions = array(
-            'updated_at' => array(
-                'operator' => '<',
-                'value'    => $this->get_updated_at_date( self::OLD_CART_TIME_IN_SECONDS ),
-            ),
-        );
-
-        return $this->get_cart_columns( $this->all( $where_conditions, $limit ), $columns );
-    }
-
     public function active_abandoned_carts( int $limit = 100, array $columns = array() ): array {
+        $abandoned_threshold = time() - self::ABANDONED_CART_TIME_IN_SECONDS;
+        $abandoned_date      = gmdate( 'Y-m-d H:i:s', $abandoned_threshold );
+
         $where_conditions = array(
             'status'     => Cart::STATUS_ACTIVE,
             'updated_at' => array(
                 'operator' => '<',
-                'value'    => $this->get_updated_at_date( self::ABANDONED_CART_TIME_IN_SECONDS ),
+                'value'    => $abandoned_date,
             ),
         );
 
-        return $this->get_cart_columns( $this->all( $where_conditions, $limit ), $columns );
+        $carts = $this->all( $where_conditions, $limit );
+
+        if ( empty( $columns ) ) {
+            return $carts;
+        }
+
+        return array_map(
+            function ( $cart ) use ( $columns ) {
+                return array_intersect_key( $cart, array_flip( $columns ) );
+            },
+            $carts
+        );
     }
 
     public function exists( string $hash ): bool {
@@ -71,7 +71,7 @@ class CartRepository extends Repository {
     /**
      * @throws Exception
      */
-    public function get( string $hash = '' ): array {
+    public function get( string $hash ): array {
         $query   = $this->db->prepare( 'SELECT * FROM %i WHERE hash = %s', $this->table->table_name(), $hash );
         $results = $this->db->get_results( $query, ARRAY_A );
         if ( ! empty( $results ) ) {
@@ -79,31 +79,6 @@ class CartRepository extends Repository {
         }
 
         throw new Exception( 'Cart not found' );
-    }
-
-    public function get_by_customer( WC_Customer $customer, string $fallback_email = '' ): array {
-        $customer_email = $customer->get_email();
-        $customer_id    = $customer->get_id();
-
-        if ( ! $customer_email ) {
-            $customer_email = $customer->get_billing_email();
-        }
-
-        if ( ! $customer_email ) {
-            $customer_email = $fallback_email;
-        }
-
-        if ( $customer_email ) {
-            $carts = $this->all( array( 'customer_email' => $this->encrypt_email( $customer_email ) ) );
-        } elseif ( $customer_id > 0 ) {
-            $carts = $this->all( array( 'customer_id' => $customer_id ) );
-        }
-
-        if ( ! empty( $carts ) ) {
-            return $carts[0];
-        }
-
-        return array();
     }
 
     public function get_by_customer_id( int $customer_id ): array {
@@ -125,10 +100,6 @@ class CartRepository extends Repository {
             return false;
         }
 
-        if ( isset( $fields['customer_email'] ) ) {
-            $fields['customer_email'] = $this->encrypt_email( $fields['customer_email'] );
-        }
-
         return $this->db->insert( $this->table->table_name(), $fields );
     }
 
@@ -143,10 +114,6 @@ class CartRepository extends Repository {
     public function update( array $fields ): bool {
         if ( ! isset( $fields['hash'] ) ) {
             return false;
-        }
-
-        if ( isset( $fields['customer_email'] ) ) {
-            $fields['customer_email'] = $this->encrypt_email( $fields['customer_email'] );
         }
 
         $data = array_diff_key( $fields, array_flip( array( 'hash' ) ) );
@@ -219,26 +186,5 @@ class CartRepository extends Repository {
         } catch ( Exception $e ) {
             return false;
         }
-    }
-
-    private function encrypt_email( string $email ): string {
-        return Encrypt::encrypt( sanitize_email( $email ) );
-    }
-
-    protected function get_cart_columns( array $carts, array $columns = array() ): array {
-        if ( empty( $columns ) ) {
-            return $carts;
-        }
-
-        return array_map(
-            function ( $cart ) use ( $columns ) {
-                return array_intersect_key( $cart, array_flip( $columns ) );
-            },
-            $carts
-        );
-    }
-
-    protected function get_updated_at_date( int $threshold ): string {
-        return gmdate( 'Y-m-d H:i:s', time() - $threshold );
     }
 }

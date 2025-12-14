@@ -150,7 +150,9 @@ class Importer extends AjaxBase {
 			ST_Resetter::reset_posts();
 		}
 
-		Helper::success_response();
+		if ( wp_doing_ajax() ) {
+			wp_send_json_success();
+		}
 	}
 
 	/**
@@ -171,7 +173,7 @@ class Importer extends AjaxBase {
 
 		do_action( 'astra_sites_import_success' );
 
-		Helper::success_response();
+		wp_send_json_success();
 	}
 
 	/**
@@ -225,7 +227,9 @@ class Importer extends AjaxBase {
 			ST_Resetter::reset_terms_and_forms();
 		}
 
-		Helper::success_response();
+		if ( wp_doing_ajax() ) {
+			wp_send_json_success();
+		}
 	}
 
 	/**
@@ -241,8 +245,7 @@ class Importer extends AjaxBase {
 				wp_send_json_error( __( 'You are not allowed to perform this action', 'astra-sites' ) );
 			}
 		}
-
-		Helper::success_response( astra_sites_get_reset_post_data() );
+		wp_send_json_success( astra_sites_get_reset_post_data() );
 	}
 
 	/**
@@ -269,25 +272,23 @@ class Importer extends AjaxBase {
 		$images = Ai_Builder_ZipWP_Integration::get_business_details( 'images' );
 
 		if ( empty( $images ) || ! is_array( $images ) ) {
-			Helper::error_response(
+			wp_send_json_error(
 				array(
-					'data'   => __( 'Image not downloaded!', 'astra-sites' ),
+					'data'   => 'Image not downloaded!',
 					'status' => true,
 				)
 			);
-			return;
 		}
 
 		$image = $images[ $index ];
 
 		if ( empty( $image ) || ! is_array( $image ) ) {
-			Helper::error_response(
+			wp_send_json_error(
 				array(
-					'data'   => __( 'Image not downloaded!', 'astra-sites' ),
+					'data'   => 'Image not downloaded!',
 					'status' => true,
 				)
 			);
-			return;
 		}
 
 		$prepare_image = array(
@@ -302,18 +303,17 @@ class Importer extends AjaxBase {
 			$id = ST_Importer_Helper::download_image( $prepare_image );
 			Ai_Builder_Importer_Log::add( 'Downloaded Image attachment id: ' . $id );
 
-			Helper::success_response(
+			wp_send_json_success(
 				array(
-					'data'   => __( 'Image downloaded successfully!', 'astra-sites' ),
+					'data'   => 'Image downloaded successfully!',
 					'status' => true,
 				)
 			);
-			return;
 		}
 
-		Helper::error_response(
+		wp_send_json_error(
 			array(
-				'data'   => __( 'Required function not found!', 'astra-sites' ),
+				'data'   => 'Required function not found!',
 				'status' => false,
 			)
 		);
@@ -357,7 +357,7 @@ class Importer extends AjaxBase {
 
 			// Check if ST_Importer class exists.
 			if ( ! class_exists( 'STImporter\Importer\ST_Importer' ) ) {
-				Helper::error_response(
+				wp_send_json_error(
 					array(
 						'error' => __( 'Spectra settings import failed: ST_Importer class not found. Please ensure the importer is properly loaded.', 'astra-sites' ),
 						'code'  => 'importer_missing',
@@ -371,18 +371,22 @@ class Importer extends AjaxBase {
 			// Validate settings data.
 			if ( empty( $settings ) ) {
 				// This is normal - template might not have Spectra settings.
-				Helper::success_response(
-					array(
-						'message'  => __( 'No Spectra settings found for this template.', 'astra-sites' ),
-						'skipped'  => true,
-						'settings' => $settings,
-					)
-				);
+				if ( defined( 'WP_CLI' ) ) {
+					\WP_CLI::line( 'No Spectra settings to import.' );
+				} elseif ( wp_doing_ajax() ) {
+					wp_send_json_success(
+						array(
+							'message'  => __( 'No Spectra settings found for this template.', 'astra-sites' ),
+							'skipped'  => true,
+							'settings' => $settings,
+						)
+					);
+				}
 				return;
 			}
 
 			// Import Spectra settings.
-			$result = ST_Importer::import_spectra_settings( $settings ); // @phpstan-ignore-line -- This method exists in ST_Importer.
+			$result = ST_Importer::import_spectra_settings( $settings );
 
 			// Handle import result.
 			if ( false === $result['status'] ) {
@@ -390,18 +394,18 @@ class Importer extends AjaxBase {
 					? $result['error']
 					: __( 'Unknown error occurred during Spectra settings import.', 'astra-sites' );
 
-				$error_message = defined( 'WP_CLI' )
-					// translators: %s is the error message.
-					? sprintf( __( 'Spectra settings import failed: %s', 'astra-sites' ), $error_message )
-					: $error_message;
-
-				Helper::error_response(
-					array(
-						'error'   => $error_message,
-						'code'    => 'import_failed',
-						'details' => $result,
-					)
-				);
+				if ( defined( 'WP_CLI' ) ) {
+					\WP_CLI::line( $error_message );
+				} elseif ( wp_doing_ajax() ) {
+					wp_send_json_error(
+						array(
+							// translators: %s is the error message.
+							'error'   => sprintf( __( 'Spectra settings import failed: %s', 'astra-sites' ), $error_message ),
+							'code'    => 'import_failed',
+							'details' => $result,
+						)
+					);
+				}
 				return;
 			}
 
@@ -410,12 +414,16 @@ class Importer extends AjaxBase {
 				? $result['message']
 				: __( 'Spectra settings imported successfully.', 'astra-sites' );
 
-			Helper::success_response(
-				array(
-					'message' => $success_message,
-					'url'     => $url,
-				)
-			);
+			if ( defined( 'WP_CLI' ) ) {
+				\WP_CLI::line( $success_message );
+			} elseif ( wp_doing_ajax() ) {
+				wp_send_json_success(
+					array(
+						'message' => $success_message,
+						'url'     => $url,
+					)
+				);
+			}
 		} catch ( \Exception $e ) {
 			// Catch any unexpected errors.
 			$error_message = sprintf(
@@ -424,14 +432,18 @@ class Importer extends AjaxBase {
 				$e->getMessage()
 			);
 
-			Helper::error_response(
-				array(
-					'error' => $error_message,
-					'code'  => 'exception',
-					'file'  => $e->getFile(),
-					'line'  => $e->getLine(),
-				)
-			);
+			if ( defined( 'WP_CLI' ) ) {
+				\WP_CLI::line( $error_message );
+			} elseif ( wp_doing_ajax() ) {
+				wp_send_json_error(
+					array(
+						'error' => $error_message,
+						'code'  => 'exception',
+						'file'  => $e->getFile(),
+						'line'  => $e->getLine(),
+					)
+				);
+			}
 		} catch ( \Error $e ) {
 			$error_message = sprintf(
 				// translators: %s is exception error message.
@@ -439,14 +451,18 @@ class Importer extends AjaxBase {
 				$e->getMessage()
 			);
 
-			Helper::error_response(
-				array(
-					'error' => $error_message,
-					'code'  => 'fatal_error',
-					'file'  => $e->getFile(),
-					'line'  => $e->getLine(),
-				)
-			);
+			if ( defined( 'WP_CLI' ) ) {
+				\WP_CLI::line( $error_message );
+			} elseif ( wp_doing_ajax() ) {
+				wp_send_json_error(
+					array(
+						'error' => $error_message,
+						'code'  => 'fatal_error',
+						'file'  => $e->getFile(),
+						'line'  => $e->getLine(),
+					)
+				);
+			}
 		}
 	}
 
@@ -463,8 +479,7 @@ class Importer extends AjaxBase {
 		}
 
 		if ( ! class_exists( 'STImporter\Importer\ST_Importer' ) ) {
-			Helper::error_response( __( 'SureCart import failed: ST_Importer class not found. Please ensure the importer is properly loaded.', 'astra-sites' ) );
-			return;
+			wp_send_json_error( __( 'SureCart import failed: ST_Importer class not found. Please ensure the importer is properly loaded.', 'astra-sites' ) );
 		}
 
 		$id = isset( $_POST['source_id'] ) ? base64_decode( sanitize_text_field( $_POST['source_id'] ) ) : ''; //phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_decode
@@ -472,11 +487,10 @@ class Importer extends AjaxBase {
 		$result = ST_Importer::import_surecart_settings( $id );
 		if ( is_wp_error( $result ) ) {
 			// translators: %s: Error message.
-			Helper::error_response( sprintf( __( 'SureCart import failed: %s', 'astra-sites' ), $result->get_error_message() ) );
-			return;
+			wp_send_json_error( sprintf( __( 'SureCart import failed: %s', 'astra-sites' ), $result->get_error_message() ) );
 		}
 
-		Helper::success_response( 'success' );
+		wp_send_json_success( 'success' );
 	}
 
 	/**
@@ -534,12 +548,14 @@ class Importer extends AjaxBase {
 			$status = class_exists( 'STImporter\Importer\Batch\ST_Batch_Processing_Gutenberg' ) ? ST_Batch_Processing_Gutenberg::get_instance()->import() : $status;
 		}
 
-		if ( $status['success'] ) {
-			Helper::success_response( $status['msg'] );
-			return;
-		}
+		if ( wp_doing_ajax() ) {
 
-		Helper::error_response( $status['msg'] );
+			if ( $status['success'] ) {
+				wp_send_json_success( $status['msg'] );
+			} else {
+				wp_send_json_error( $status['msg'] );
+			}
+		}
 	}
 
 	/**
@@ -564,12 +580,13 @@ class Importer extends AjaxBase {
 			'msg'    => __( 'Required function not found', 'astra-sites' ),
 		);
 
-		if ( $status['success'] ) {
-			Helper::success_response( $status['msg'] );
-			return;
+		if ( wp_doing_ajax() ) {
+			if ( $status['success'] ) {
+				wp_send_json_success( $status['msg'] );
+			} else {
+				wp_send_json_error( $status['msg'] );
+			}
 		}
-
-		Helper::error_response( $status['msg'] );
 	}
 
 	/**
@@ -609,25 +626,19 @@ class Importer extends AjaxBase {
 		$param = isset( $_POST['param'] ) ? sanitize_text_field( $_POST['param'] ) : '';
 
 		if ( empty( $param ) ) {
-			Helper::error_response(
+			wp_send_json_error(
 				array(
 					'error' => __( 'Received empty parameters.', 'astra-sites' ),
 				)
 			);
-			return;
 		}
 
 		switch ( $param ) {
 
 			case 'site-title':
-				$business_name = isset( $_POST['business-name'] ) ? sanitize_text_field( stripslashes( $_POST['business-name'] ) ) : '';
+					$business_name = isset( $_POST['business-name'] ) ? sanitize_text_field( stripslashes( $_POST['business-name'] ) ) : '';
 				if ( ! empty( $business_name ) ) {
-					try {
-						update_option( 'blogname', $business_name );
-					} catch ( \Exception $e ) {
-						// Failed silently: sometimes Elementor throws exception as it hooks into `update_option_blogname`.
-						astra_sites_error_log( 'Handled exception while updating blogname: ' . $e->getMessage() );
-					}
+					update_option( 'blogname', $business_name );
 				}
 
 				if ( isset( $_POST['show-site-title'] ) ) {
@@ -765,7 +776,7 @@ class Importer extends AjaxBase {
 		// Clearing Cache on hostinger, Cloudways.
 		Ai_Builder_Utils::third_party_cache_plugins_clear_cache();
 
-		Helper::success_response();
+		wp_send_json_success();
 	}
 
 }

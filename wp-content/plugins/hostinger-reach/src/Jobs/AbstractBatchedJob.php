@@ -7,8 +7,6 @@ defined( 'ABSPATH' ) || exit;
 
 abstract class AbstractBatchedJob extends AbstractJob {
 
-    public const BATCH_LIMIT_PER_JOB = 15;
-
     public function init(): void {
         add_action( $this->get_create_batch_hook(), array( $this, 'handle_create_batch_action' ), 10, 2 );
         parent::init();
@@ -25,17 +23,20 @@ abstract class AbstractBatchedJob extends AbstractJob {
     public function handle_create_batch_action( int $batch_number, array $args ): void {
         $items = $this->get_batch( $batch_number, $args );
 
-        if ( empty( $items ) || $batch_number > self::BATCH_LIMIT_PER_JOB ) {
+        // Stop the job in the next cases:
+        // Reach is not connected in the middle of the job, we need to stop the job.
+        // No more carts found.
+        // Job is running for 10 times (that is 1000 carts).
+        if ( empty( $items ) || ! $this->reach_api_handler->is_connected() || $batch_number >= 10 ) {
             $this->handle_complete( $batch_number, $args );
         } else {
-            $this->set_items_as_processing( $items );
             $this->schedule_process_action( $items, $args );
             $this->schedule_create_batch_action( $batch_number + 1, $args );
         }
     }
 
     protected function get_batch_size(): int {
-        return apply_filters( 'hostinger_reach_batch_item_limit', 1 );
+        return apply_filters( 'hostinger_reach_batch_item_limit', 100 );
     }
 
 
@@ -66,10 +67,6 @@ abstract class AbstractBatchedJob extends AbstractJob {
     }
 
     protected function handle_complete( int $final_batch_number, array $args ): void {
-        return;
-    }
-
-    protected function set_items_as_processing( array $items ): void {
         return;
     }
 

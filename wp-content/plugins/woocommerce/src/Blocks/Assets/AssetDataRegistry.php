@@ -1,7 +1,6 @@
 <?php
 namespace Automattic\WooCommerce\Blocks\Assets;
 
-use Automattic\WooCommerce\Admin\Features\Features;
 use Automattic\WooCommerce\Blocks\Package;
 use Automattic\WooCommerce\Blocks\Domain\Services\Hydration;
 use Automattic\WooCommerce\Internal\Logging\RemoteLogger;
@@ -254,10 +253,8 @@ class AssetDataRegistry {
 			);
 		}
 
-		$core_data                            = $this->get_core_data();
-		$core_data['experimentalWcRestApiV4'] = Features::is_enabled( 'rest-api-v4' );
 		// note this WILL wipe any data already registered to these keys because they are protected.
-		$this->data = array_replace_recursive( $settings, $core_data );
+		$this->data = array_replace_recursive( $settings, $this->get_core_data() );
 	}
 
 	/**

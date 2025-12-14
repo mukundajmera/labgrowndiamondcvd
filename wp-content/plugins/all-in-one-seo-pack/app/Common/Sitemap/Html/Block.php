@@ -30,7 +30,7 @@ class Block {
 	 */
 	public function register() {
 		aioseo()->blocks->registerBlock(
-			'html-sitemap', [
+			'aioseo/html-sitemap', [
 				'attributes'      => [
 					'default'          => [
 						'type'    => 'boolean',
@@ -89,7 +89,8 @@ class Block {
 						'default' => false
 					]
 				],
-				'render_callback' => [ $this, 'render' ]
+				'render_callback' => [ $this, 'render' ],
+				'editor_style'    => 'aioseo-html-sitemap'
 			]
 		);
 	}

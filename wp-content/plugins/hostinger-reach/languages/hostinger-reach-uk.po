@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2025-07-31T11:19:40+03:00\n"
-"PO-Revision-Date: 2025-12-11 06:05+0000\n"
+"PO-Revision-Date: 2025-10-21 07:04+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: hostinger-reach\n"
 "Language: uk\n"
@@ -18,88 +18,37 @@ msgstr ""
 "n%10<=4 &&(n%100<10||n%100 >= 20)? 1 : 2);\n"
 "X-Loco-Version: 2.8.0; wp-6.8.2; php-8.2.27"
 
-#: src/Setup/Assets.php:150
+#: src/Setup/Assets.php:142
 msgid "(no title)"
 msgstr "(без назви)"
 
-#: src/Setup/Assets.php:172
-#, fuzzy
-msgid "-"
-msgstr "-"
-
-#: src/Setup/Assets.php:136 src/Setup/Assets.php:153
+#: src/Setup/Assets.php:128 src/Setup/Assets.php:145
 msgid "Active"
 msgstr "Активний"
 
-#: src/Setup/Assets.php:108
-#, fuzzy
-msgid ""
-"Add a new contact form with Reach or connect a plugin to start collecting "
-"contacts and sending campaigns."
-msgstr ""
-"Додайте нову контактну форму за допомогою Reach або підключіть плагін, щоб "
-"почати збирати контакти та надсилати розсилки."
-
-#: src/Setup/Assets.php:104
-#, fuzzy
-msgid ""
-"Add an online store to your site, sell products or services, and connect "
-"subscriber tools automatically.."
-msgstr ""
-"Додайте інтернет-магазин на свій сайт, продавайте товари або послуги та "
-"автоматично підключайте інструменти для передплатників."
-
-#: src/Setup/Assets.php:142 src/Setup/Assets.php:156
+#: src/Setup/Assets.php:103 src/Setup/Assets.php:104 src/Setup/Assets.php:120
+#: src/Setup/Assets.php:134
 msgid "Add form"
 msgstr "Додати форму"
 
-#: src/Setup/Assets.php:109 src/Setup/Assets.php:110 src/Setup/Assets.php:126
-#, fuzzy
-msgid "Add form or plugin"
-msgstr "Додати форму або плагін"
-
-#: src/Admin/Surveys/SatisfactionSurvey.php:26
+#: src/Admin/Surveys/SatisfactionSurvey.php:25
 #, fuzzy
 msgid "Any ideas or feedback to help us improve Hostinger Reach?"
 msgstr "Маєте ідеї чи побажання, як нам покращити Hostinger Reach?"
 
-#: src/Setup/Assets.php:170
-#, fuzzy
-msgid ""
-"are ready to sync with Reach. Any new contacts you’ll collect with these "
-"forms will sync automatically."
-msgstr ""
-"готові до синхронізації з Reach. Усі нові контакти, які ви збиратимете за "
-"допомогою цих форм, синхронізуються автоматично."
-
-#: hostinger-reach.php:52
+#: hostinger-reach.php:51
 msgid "Attention:"
 msgstr "Увага:"
 
-#: src/Integrations/WooCommerce/WooCommerceIntegration.php:123
-#, fuzzy
-msgid "Automation -  Purchases"
-msgstr "Автоматизація - Закупівлі"
-
-#: src/Integrations/WooCommerce/WooCommerceIntegration.php:124
-#, fuzzy
-msgid "Automation - Abandoned Carts"
-msgstr "Автоматизація - покинуті візки"
-
-#: src/Setup/Assets.php:93
+#: src/Setup/Assets.php:92
 msgid "Average CTOR"
 msgstr "Середній показник CTOR"
 
-#: src/Setup/Assets.php:73
-#, fuzzy
-msgid "Back"
-msgstr "Назад"
-
-#: src/Setup/Assets.php:122
+#: src/Setup/Assets.php:116
 msgid "Background image for"
 msgstr "Фонове зображення для"
 
-#: src/Setup/Assets.php:121
+#: src/Setup/Assets.php:115
 msgid "Banner background image for"
 msgstr "Фонове зображення банера для"
 
@@ -113,20 +62,26 @@ msgctxt "block title"
 msgid "Reach Subscription Form"
 msgstr "Форма підписки Reach"
 
-#: src/Setup/Assets.php:91
+#: src/Setup/Assets.php:90
 msgid "Campaigns"
 msgstr "Кампанії"
 
-#: src/Setup/Assets.php:129
+#: src/Setup/Assets.php:123
 msgid "Cancel "
 msgstr "Скасувати"
 
-#: src/Integrations/WooCommerce/WooCommerceIntegration.php:116
-#, fuzzy
-msgid "Checkout"
-msgstr "Каса"
+#: src/Setup/Assets.php:102
+#| msgid ""
+#| "Choose how you’d like to manage forms on your website. Create a new form "
+#| "with Hostinger Reach or connect a third-party plugin."
+msgid ""
+"Choose how you'd like to manage forms on your website. Create a new form "
+"with Hostinger Reach or connect a third-party plugin."
+msgstr ""
+"Виберіть, як ви будете керувати формами на вашому сайті. Створіть нову форму "
+"за допомогою Hostinger Reach або підключіть сторонній плагін."
 
-#: src/Setup/Assets.php:124
+#: src/Setup/Assets.php:118
 msgid ""
 "Click-to-open rate tells you what percent of opens resulted in a click too. "
 "A good CTOR is 6-17%, depending on your industry."
@@ -134,18 +89,13 @@ msgstr ""
 "Коефіцієнт кліків показує, який відсоток відкриттів призвів до кліка. "
 "Залежно від галузі хороший коефіцієнт кліків становить 6-17%."
 
-#: src/Setup/Assets.php:148
+#: src/Setup/Assets.php:140
 msgid "Collapse {pluginName} details"
 msgstr "Згорнути деталі {pluginName}"
 
-#: src/Admin/Notices/ConnectionNotice.php:104 src/Setup/Assets.php:162
+#: src/Setup/Assets.php:153
 msgid "Connect"
 msgstr "Підключити"
-
-#: src/Admin/Notices/ConnectionNotice.php:99
-#, fuzzy
-msgid "Connect Hostinger Reach to start Email Marketing"
-msgstr "Підключіть Hostinger Reach, щоб розпочати email-маркетинг"
 
 #: frontend/blocks/subscription-block/src/Components/Connect.js:16
 #: frontend/dist/blocks/subscription.js:1
@@ -154,28 +104,12 @@ msgstr "Підключіть Hostinger Reach, щоб розпочати email-м
 msgid "Connect Now"
 msgstr "Підключіться зараз"
 
-#: src/Setup/Assets.php:80
+#: src/Setup/Assets.php:79
 msgid "Connect site"
 msgstr "Підключити сайт"
 
-#: src/Setup/Assets.php:103 src/Setup/Assets.php:105
-#, fuzzy
-msgid "Connect WooCommerce"
-msgstr "Підключіть WooCommerce"
-
-#: src/Admin/Notices/ConnectionNotice.php:100
-#, fuzzy
-msgid ""
-"Connect your Hostinger Reach account to start sending newsletters and "
-"managing subscribers. With Hostinger Reach, it's easy to grow your audience "
-"in just one click."
-msgstr ""
-"Підключіть свій обліковий запис Hostinger Reach, щоб почати надсилати "
-"розсилки та керувати підписниками. З Hostinger Reach легко збільшити свою "
-"аудиторію всього в один клік."
-
 #: src/Integrations/ContactForm7/ContactForm7Integration.php:91
-#: src/Setup/Assets.php:144
+#: src/Setup/Assets.php:136
 msgid "Contact Form 7"
 msgstr "Контактна форма 7"
 
@@ -186,31 +120,11 @@ msgstr "Контактна форма 7"
 msgid "Contact List"
 msgstr "Список контактів"
 
-#: src/Setup/Assets.php:132 src/Setup/Assets.php:164
-#, fuzzy
-msgid "Contacts"
-msgstr "Контакти"
-
-#: src/Setup/Assets.php:169
-#, fuzzy
-msgid "contacts"
-msgstr "контакти"
-
-#: src/Setup/Assets.php:168
-#, fuzzy
-msgid "Contacts to Sync"
-msgstr "Синхронізувати контакти"
-
-#: src/Admin/Notices/ConnectionNotice.php:73
-#, fuzzy
-msgid "Could not generate auth URL"
-msgstr "Не вдалося згенерувати URL-адресу авторизації"
-
-#: src/Setup/Assets.php:98
+#: src/Setup/Assets.php:97
 msgid "Create campaign"
 msgstr "Створити кампанію"
 
-#: src/Setup/Assets.php:76
+#: src/Setup/Assets.php:75
 msgid ""
 "Create email campaigns using AI-crafted templates that match your style. "
 "Instantly sync with your WordPress site and connect with your audience "
@@ -220,6 +134,10 @@ msgstr ""
 "відповідають вашому стилю. Миттєво синхронізуйтеся з вашим сайтом WordPress "
 "і легко спілкуйтеся з аудиторією."
 
+#: src/Setup/Assets.php:148
+msgid "Create form"
+msgstr "Створити форму"
+
 #: frontend/blocks/subscription-block/src/edit.js:114
 #: frontend/dist/blocks/subscription.js:1
 #: frontend/dist/blocks/subscription.js:285
@@ -227,7 +145,7 @@ msgstr ""
 msgid "Create New List"
 msgstr "Створити новий список"
 
-#: src/Setup/Assets.php:99
+#: src/Setup/Assets.php:98
 msgid "Create template"
 msgstr "Створити шаблон"
 
@@ -238,27 +156,27 @@ msgstr "Створити шаблон"
 msgid "Default"
 msgstr "За замовчуванням"
 
-#: src/Setup/Assets.php:161
+#: src/Setup/Assets.php:152
 msgid "Disconnect"
 msgstr "Відключити"
 
-#: src/Setup/Assets.php:130
+#: src/Setup/Assets.php:124
 msgid "Disconnect "
 msgstr "Відключити"
 
-#: src/Setup/Assets.php:78
+#: src/Setup/Assets.php:77
 msgid "Disconnect it to link this site instead."
 msgstr "Відключіть його, щоб підключитися до цього сайту."
 
-#: src/Setup/Assets.php:141
+#: src/Setup/Assets.php:133
 msgid "Disconnect plugin"
 msgstr "Відключити плагін"
 
-#: src/Setup/Assets.php:127
+#: src/Setup/Assets.php:121
 msgid "Disconnect plugin?"
 msgstr "Відключити плагін?"
 
-#: src/Setup/Assets.php:128
+#: src/Setup/Assets.php:122
 msgid ""
 "Disconnecting will stop new contacts from being collected. You can reconnect "
 "or use a different form anytime."
@@ -266,23 +184,18 @@ msgstr ""
 "Відключення призведе до припинення збору нових контактів. Ви можете "
 "підключитися знову або скористайтеся іншою формою в будь-який час."
 
-#: src/Setup/Assets.php:102
-#, fuzzy
-msgid "E-Commerce"
-msgstr "Електронна комерція"
-
-#: src/Setup/Assets.php:139
+#: src/Setup/Assets.php:131
 msgid "Edit form"
 msgstr "Редагувати форму"
 
 #: src/Integrations/Elementor/ElementorIntegration.php:88
-#: src/Setup/Assets.php:146
+#: src/Setup/Assets.php:138
 #, fuzzy
 msgid "Elementor"
 msgstr "Елементор"
 
 #: src/Blocks/SubscriptionFormBlock.php:73
-#: src/Integrations/Elementor/SubscriptionFormElementorWidget.php:106
+#: src/Integrations/Elementor/SubscriptionFormElementorWidget.php:105
 msgid "Email"
 msgstr "Електронна пошта"
 
@@ -290,53 +203,52 @@ msgstr "Електронна пошта"
 msgid "Email Marketing"
 msgstr "Email-маркетинг"
 
-#: src/Setup/Assets.php:83
+#: src/Setup/Assets.php:82
 msgid "Email marketing background with gradient design"
 msgstr "Фон для email-маркетингу з градієнтним дизайном"
 
-#: src/Setup/Assets.php:84
+#: src/Setup/Assets.php:83
 msgid ""
 "Email marketing illustration featuring envelopes and communication icons"
 msgstr "Ілюстрація для email-маркетингу з конвертами та іконками комунікації"
 
-#: src/Setup/Assets.php:88
+#: src/Setup/Assets.php:87
 msgid "Emails"
 msgstr "Електронні листи"
 
-#: src/Setup/Assets.php:147
+#: src/Setup/Assets.php:126
+msgid "Entries"
+msgstr "Заявки"
+
+#: src/Setup/Assets.php:139
 msgid "Expand {pluginName} details"
 msgstr "Розгорнути деталі {pluginName}"
 
-#: src/Setup/Assets.php:113
+#: src/Setup/Assets.php:107
 msgid "FAQ"
 msgstr "Поширені запитання"
 
-#: src/Integrations/Elementor/SubscriptionFormElementorWidget.php:50
+#: src/Integrations/Elementor/SubscriptionFormElementorWidget.php:49
 #, fuzzy
 msgid "Form"
 msgstr "Форма"
 
-#: src/Integrations/Elementor/SubscriptionFormElementorWidget.php:58
+#: src/Integrations/Elementor/SubscriptionFormElementorWidget.php:57
 #: frontend/blocks/subscription-block/src/edit.js:106
 #: frontend/dist/blocks/subscription.js:1
 #: frontend/dist/blocks/subscription.js:277
 msgid "Form ID"
 msgstr "ID форми"
 
-#: src/Integrations/Forminator/ForminatorIntegration.php:34
-#, fuzzy
-msgid "Forminator"
-msgstr "Forminator"
-
-#: src/Setup/Assets.php:106
+#: src/Setup/Assets.php:100
 msgid "Forms"
 msgstr "Форми"
 
-#: src/Setup/Assets.php:140
+#: src/Setup/Assets.php:132
 msgid "Go to plugin"
 msgstr "Перейти до плагіна"
 
-#: src/Setup/Assets.php:81
+#: src/Setup/Assets.php:80
 #: frontend/blocks/subscription-block/src/Components/Dialog.js:42
 #: frontend/dist/blocks/subscription.js:1
 #: frontend/dist/blocks/subscription.js:131
@@ -350,13 +262,13 @@ msgstr "Hostinger"
 
 #. Plugin Name of the plugin
 #: hostinger-reach.php
-#: src/Integrations/Elementor/SubscriptionFormElementorWidget.php:20
-#: src/Integrations/Reach/ReachFormIntegration.php:71 src/Setup/Assets.php:82
-#: src/Setup/Assets.php:143
+#: src/Integrations/Elementor/SubscriptionFormElementorWidget.php:19
+#: src/Integrations/Reach/ReachFormIntegration.php:71 src/Setup/Assets.php:81
+#: src/Setup/Assets.php:135
 msgid "Hostinger Reach"
 msgstr "Hostinger Reach"
 
-#: src/Setup/Assets.php:115
+#: src/Setup/Assets.php:109
 msgid ""
 "Hostinger Reach is an AI-powered email marketing tool for small businesses "
 "and creators. It supports your entire email marketing journey—from building "
@@ -367,7 +279,7 @@ msgstr ""
 "від створення списків контактів до відправки розсилок і відстеження "
 "результатів."
 
-#: src/Setup/Assets.php:117
+#: src/Setup/Assets.php:111
 msgid ""
 "Hostinger Reach is built for simplicity, speed, and results – no design or "
 "marketing experience needed. Unlike most email tools, at the core of Reach "
@@ -398,28 +310,22 @@ msgstr ""
 msgid "Hostinger Reach Logo"
 msgstr "Логотип Hostinger Reach"
 
-#: src/Admin/Notices/ConnectionNotice.php:92
-#, fuzzy
-msgid "Hostinger Reach logo"
-msgstr "Логотип Hostinger Reach"
-
 #. translators: %s: PHP version
-#: hostinger-reach.php:54
-#, php-format
+#: hostinger-reach.php:53
 msgid "Hostinger Reach requires minimum PHP version of <b>%s</b>. "
 msgstr "Hostinger Reach вимагає мінімальну версію PHP <b>%s</b>."
 
-#: src/Setup/Assets.php:116
+#: src/Setup/Assets.php:110
 msgid "How is Hostinger Reach different from other email marketing apps?"
 msgstr ""
 "Чим Hostinger Reach відрізняється від інших інструментів для email-"
 "маркетингу?"
 
-#: src/Setup/Assets.php:118
+#: src/Setup/Assets.php:112
 msgid "How much does it cost to use Hostinger Reach?"
 msgstr "Скільки коштує використання Hostinger Reach?"
 
-#: src/Admin/Surveys/SatisfactionSurvey.php:22
+#: src/Admin/Surveys/SatisfactionSurvey.php:21
 #, fuzzy
 msgid "How would you rate your experience with Hostinger Reach so far?"
 msgstr "Як би ви оцінили свій досвід роботи з Hostinger Reach до цього часу?"
@@ -434,12 +340,7 @@ msgstr "https://hostinger.com"
 msgid "https://www.hostinger.com/email-marketing"
 msgstr "https://www.hostinger.com/email-marketing"
 
-#: src/Api/Handlers/IntegrationsApiHandler.php:114
-#, fuzzy
-msgid "Importing is not available for this integration"
-msgstr "Для цієї інтеграції імпорт недоступний"
-
-#: src/Setup/Assets.php:137
+#: src/Setup/Assets.php:129
 msgid "Inactive"
 msgstr "Неактивний"
 
@@ -450,11 +351,11 @@ msgstr "Неактивний"
 msgid "Inline"
 msgstr "В лінію"
 
-#: src/Setup/Assets.php:160
+#: src/Setup/Assets.php:151
 msgid "Install and connect"
 msgstr "Встановити та підключити"
 
-#: src/Setup/Assets.php:159
+#: src/Setup/Assets.php:150
 msgid "Installed plugins"
 msgstr "Встановлені плагіни"
 
@@ -462,16 +363,6 @@ msgstr "Встановлені плагіни"
 #: hostinger-reach.php
 msgid "Integrate your WordPress site with Hostinger Reach."
 msgstr "Інтегруйте ваш сайт WordPress з Hostinger Reach."
-
-#: src/Setup/Assets.php:101
-#, fuzzy
-msgid "Integrations"
-msgstr "Інтеграції"
-
-#: src/Setup/Assets.php:178
-#, fuzzy
-msgid "It was an error syncing your contacts to Reach."
-msgstr "Виникла помилка синхронізації контактів з Reach."
 
 #: frontend/blocks/subscription-block/src/edit.js:155
 #: frontend/dist/blocks/subscription.js:1
@@ -487,12 +378,7 @@ msgstr "Макет"
 msgid "Layout Settings"
 msgstr "Налаштування макета"
 
-#: src/Admin/Notices/ConnectionNotice.php:107
-#, fuzzy
-msgid "Learn more"
-msgstr "Дізнайтеся більше"
-
-#: src/Setup/Assets.php:154
+#: src/Setup/Assets.php:146
 msgid ""
 "Make sure the people you contact expect your emails and are okay with "
 "receiving them."
@@ -500,12 +386,12 @@ msgstr ""
 "Переконайтеся, що люди, з якими ви контактуєте, очікують ваших листів і "
 "згодні їх отримувати."
 
-#: src/Setup/Assets.php:79
+#: src/Setup/Assets.php:78
 msgid "Manage"
 msgstr "Керувати"
 
 #: src/Blocks/SubscriptionFormBlock.php:81
-#: src/Integrations/Elementor/SubscriptionFormElementorWidget.php:114
+#: src/Integrations/Elementor/SubscriptionFormElementorWidget.php:113
 msgid "Name"
 msgstr "Ім'я"
 
@@ -516,7 +402,7 @@ msgstr "Ім'я"
 msgid "Name for the new Contact List"
 msgstr "Ім'я для нового списку контактів"
 
-#: src/Setup/Assets.php:155
+#: src/Setup/Assets.php:147
 msgid "New contact form"
 msgstr "Нова контактна форма"
 
@@ -527,69 +413,49 @@ msgstr "Нова контактна форма"
 msgid "New Contact List"
 msgstr "Новий список контактів"
 
-#: src/Setup/Assets.php:111
+#: src/Setup/Assets.php:105
 msgid "New page"
 msgstr "Нова сторінка"
 
-#: src/Setup/Assets.php:95
+#: src/Setup/Assets.php:94
 msgid "New subscribers"
 msgstr "Нові підписники"
 
-#: src/Integrations/NinjaForms/NinjaFormsIntegration.php:45
-#, fuzzy
-msgid "Ninja Forms"
-msgstr "Форми ніндзя"
-
-#: src/Integrations/Elementor/SubscriptionFormElementorWidget.php:71
-#: src/Integrations/Elementor/SubscriptionFormElementorWidget.php:83
+#: src/Integrations/Elementor/SubscriptionFormElementorWidget.php:70
+#: src/Integrations/Elementor/SubscriptionFormElementorWidget.php:82
 #, fuzzy
 msgid "No"
 msgstr "Ні"
 
-#: src/Setup/Assets.php:149
+#: src/Setup/Assets.php:141
 msgid "No forms found for this integration."
 msgstr "Для цієї інтеграції не знайдено жодної формии"
 
-#: src/Setup/Assets.php:112
+#: src/Setup/Assets.php:106
 msgid "No pages available. Create a new page to get started."
 msgstr "Немає доступних сторінок. Створіть нову сторінку, щоб почати."
 
-#: src/Setup/Assets.php:175
-#, fuzzy
-msgid "Not synced"
-msgstr "Не синхронізовано"
-
-#: src/Setup/Assets.php:134
-#, fuzzy
-msgid "of"
-msgstr "з"
-
-#: src/Setup/Assets.php:120
+#: src/Setup/Assets.php:114
 msgid "opens in new tab"
 msgstr "відкривається в новій вкладці"
 
-#: src/Setup/Assets.php:173
-#, fuzzy
-msgid "Partially synced"
-msgstr "Частково синхронізовано"
-
-#: src/Setup/Assets.php:131
+#: src/Setup/Assets.php:125
 msgid "Plugin"
 msgstr "Плагін"
 
-#: src/Setup/Assets.php:151
+#: src/Setup/Assets.php:143
 msgid "Plugin connected successfully"
 msgstr "Плагін успішно підключено"
 
-#: src/Setup/Assets.php:152
+#: src/Setup/Assets.php:144
 msgid "Plugin disconnected successfully"
 msgstr "Плагін успішно відключено"
 
-#: src/Setup/Assets.php:77
+#: src/Setup/Assets.php:76
 msgid "Reach is already connected to another site."
 msgstr "Reach вже підключений до іншого сайту."
 
-#: src/Setup/Assets.php:119
+#: src/Setup/Assets.php:113
 #| msgid ""
 #| "Reach offers a free plan for one year– perfect for getting started. Paid "
 #| "plans are based on how many unique contacts you aim to reach and how many "
@@ -618,25 +484,25 @@ msgstr ""
 msgid "Reach Subscription Form"
 msgstr "Форма підписки на розсилку"
 
-#: src/Setup/Assets.php:90
+#: src/Setup/Assets.php:89
 msgid "Remaining"
 msgstr "Залишилося"
 
-#: src/Setup/Assets.php:125
+#: src/Setup/Assets.php:119
 msgid "Select page"
 msgstr "Вибрати сторінку"
 
-#: src/Setup/Assets.php:89 src/Setup/Assets.php:92
+#: src/Setup/Assets.php:88 src/Setup/Assets.php:91
 msgid "Sent"
 msgstr "Надіслати"
 
-#: src/Setup/Assets.php:100 frontend/blocks/subscription-block/src/edit.js:102
+#: src/Setup/Assets.php:99 frontend/blocks/subscription-block/src/edit.js:102
 #: frontend/dist/blocks/subscription.js:1
 #: frontend/dist/blocks/subscription.js:273
 msgid "Settings"
 msgstr "Налаштування"
 
-#: src/Integrations/Elementor/SubscriptionFormElementorWidget.php:68
+#: src/Integrations/Elementor/SubscriptionFormElementorWidget.php:67
 #, fuzzy
 msgid "Show Name"
 msgstr "Показати ім'я"
@@ -648,7 +514,7 @@ msgstr "Показати ім'я"
 msgid "Show Name Field?"
 msgstr "Показати поле \"Ім'я\"?"
 
-#: src/Integrations/Elementor/SubscriptionFormElementorWidget.php:80
+#: src/Integrations/Elementor/SubscriptionFormElementorWidget.php:79
 #, fuzzy
 msgid "Show Surname"
 msgstr "Показати прізвище"
@@ -660,16 +526,7 @@ msgstr "Показати прізвище"
 msgid "Show Surname Field?"
 msgstr "Показати поле \"Прізвище\"?"
 
-#: src/Setup/Assets.php:166
-#, fuzzy
-msgid ""
-"Some contacts you’ve collected before installing Reach aren’t yet synced. "
-"Sync them now to use them for your email campaigns."
-msgstr ""
-"Деякі контакти, які ви зібрали до встановлення Reach, ще не синхронізовані. "
-"Синхронізуйте їх зараз, щоб використовувати у своїх кампаніях."
-
-#: src/Setup/Assets.php:74
+#: src/Setup/Assets.php:73
 msgid "Something went wrong"
 msgstr "Щось пішло не так"
 
@@ -677,90 +534,43 @@ msgstr "Щось пішло не так"
 msgid "Something went wrong. Please try again."
 msgstr "Щось пішло не так. Будь ласка, спробуйте ще раз."
 
-#: src/Setup/Assets.php:107
-#, fuzzy
-msgid "Start by adding a form or connect a plugin"
-msgstr "Почніть з додавання форми або підключення плагіна"
+#: src/Setup/Assets.php:101
+msgid "Start collecting form submissions"
+msgstr "Почніть збирати заявки "
 
-#: src/Setup/Assets.php:135
+#: src/Setup/Assets.php:127
 msgid "Status"
 msgstr "Статус"
 
 #: src/Blocks/SubscriptionFormBlock.php:97
-#: src/Integrations/Elementor/SubscriptionFormElementorWidget.php:130
+#: src/Integrations/Elementor/SubscriptionFormElementorWidget.php:129
 msgid "Subscribe"
 msgstr "Підписатися"
 
-#: templates/optin-checkbox.php:28
+#: templates/optin-checkbox.php:29
 #, fuzzy
 msgid "Subscribe to our Newsletter"
 msgstr "Підпишіться на нашу розсилку"
 
-#: src/Integrations/WooCommerce/WooCommerceIntegration.php:73
+#: src/Integrations/WooCommerce/WooCommerceIntegration.php:69
 #, fuzzy
 msgid "Subscribe to our newsletter"
 msgstr "Підпишіться на нашу розсилку"
 
-#: src/Setup/Assets.php:94
+#: src/Setup/Assets.php:93
 msgid "Subscribers"
 msgstr "Підписники"
 
-#: src/Setup/Assets.php:157
-#, fuzzy
-#| msgid "View supported plugins"
-msgid "Supported plugins"
-msgstr "Переглянути підтримувані плагіни"
-
-#: src/Integrations/SureForms/SureFormsIntegration.php:35
-#, fuzzy
-msgid "Sure Forms"
-msgstr "Звичайні форми"
-
 #: src/Blocks/SubscriptionFormBlock.php:89
-#: src/Integrations/Elementor/SubscriptionFormElementorWidget.php:122
+#: src/Integrations/Elementor/SubscriptionFormElementorWidget.php:121
 msgid "Surname"
 msgstr "Прізвище"
-
-#: src/Setup/Assets.php:167
-#, fuzzy
-msgid "Sync"
-msgstr "Синхронізація"
-
-#: src/Setup/Assets.php:163
-#, fuzzy
-msgid "Sync Contacts"
-msgstr "Синхронізація Контакти"
-
-#: src/Setup/Assets.php:165
-#, fuzzy
-msgid "Sync your contacts with Reach"
-msgstr "Синхронізуйте контакти з Reach"
-
-#: src/Setup/Assets.php:174
-#, fuzzy
-msgid "Synced"
-msgstr "Синхронізовано"
-
-#: src/Setup/Assets.php:133
-#, fuzzy
-msgid "Syncing with Reach"
-msgstr "Синхронізація з Reach"
-
-#: src/Setup/Assets.php:176
-#, fuzzy
-msgid "Syncing..."
-msgstr "Синхронізація..."
 
 #: src/Blocks/SubscriptionFormBlock.php:20
 msgid "Thanks for subscribing."
 msgstr "Дякуємо за підписку."
 
-#: src/Setup/Assets.php:177
-#, fuzzy
-msgid "The selected contacts are being synced to Reach."
-msgstr "Вибрані контакти синхронізуються з Reach."
-
-#: src/Integrations/Integration.php:178
+#: src/Integrations/Integration.php:158
 #, fuzzy
 msgid ""
 "This form has not an email field. Create an email field in the form to allow "
@@ -769,11 +579,11 @@ msgstr ""
 "Ця форма не має поля електронної пошти. Створіть поле для електронної пошти "
 "у формі, щоб її можна було синхронізувати з Reach"
 
-#: src/Setup/Assets.php:85
+#: src/Setup/Assets.php:84
 msgid "This month"
 msgstr "Цього місяця"
 
-#: src/Setup/Assets.php:97
+#: src/Setup/Assets.php:96
 msgid "Total subscribers"
 msgstr "Всього підписників"
 
@@ -784,63 +594,51 @@ msgstr "Всього підписників"
 msgid "Unique identifier for this form"
 msgstr "Унікальний ідентифікатор для цієї форми"
 
-#: src/Setup/Assets.php:96
+#: src/Setup/Assets.php:95
 msgid "Unsubscribes"
 msgstr "Відписатися"
 
-#: src/Setup/Assets.php:87
+#: src/Setup/Assets.php:86
 msgid "Upgrade"
 msgstr "Змінити тариф"
 
-#: src/Setup/Assets.php:123
+#: src/Setup/Assets.php:117
 msgid "usage statistics"
 msgstr "статистика використання"
 
-#: src/Setup/Assets.php:138
+#: src/Setup/Assets.php:130
 msgid "View form"
 msgstr "Переглянути форму"
 
-#: src/Setup/Assets.php:158
-#, fuzzy
-msgid "View more supported plugins"
-msgstr "Переглянути більше підтримуваних плагінів"
+#: src/Setup/Assets.php:149
+msgid "View supported plugins"
+msgstr "Переглянути підтримувані плагіни"
 
-#: src/Setup/Assets.php:75
+#: src/Setup/Assets.php:74
 msgid "Welcome to Reach"
 msgstr "Ласкаво просимо до Reach"
 
-#: src/Setup/Assets.php:114
+#: src/Setup/Assets.php:108
 msgid "What is Hostinger Reach email marketing service?"
 msgstr "Що таке послуга email-маркетингу Hostinger Reach?"
 
-#: src/Integrations/WooCommerce/WooCommerceIntegration.php:192
+#: src/Integrations/WooCommerce/WooCommerceIntegration.php:164
 #, fuzzy
 msgid "WooCommerce"
 msgstr "WooCommerce"
 
-#: src/Integrations/WooCommerce/WooCommerceIntegration.php:211
-#, fuzzy
-msgid "WooCommerce Customers"
-msgstr "Клієнти WooCommerce"
-
 #: src/Integrations/WPFormsLite/WpFormsLiteIntegration.php:29
-#: src/Setup/Assets.php:145
+#: src/Setup/Assets.php:137
 msgid "WP Forms Lite"
 msgstr "WP Forms Lite"
 
 #. translators: %s - form id.
 #: src/Integrations/WPFormsLite/WpFormsLiteIntegration.php:63
-#, php-format
 msgid "WP Forms Lite %s"
 msgstr "WP Forms Lite %s"
 
-#: src/Integrations/WSForms/WSFormsIntegration.php:22
-#, fuzzy
-msgid "WS Form"
-msgstr "Форма WS"
-
-#: src/Integrations/Elementor/SubscriptionFormElementorWidget.php:70
-#: src/Integrations/Elementor/SubscriptionFormElementorWidget.php:82
+#: src/Integrations/Elementor/SubscriptionFormElementorWidget.php:69
+#: src/Integrations/Elementor/SubscriptionFormElementorWidget.php:81
 #, fuzzy
 msgid "Yes"
 msgstr "Так"
@@ -864,19 +662,9 @@ msgstr ""
 "блоку, вам потрібно підключити свій обліковий запис Hostinger Reach."
 
 #. translators: %s: PHP version
-#: hostinger-reach.php:58
-#, php-format
+#: hostinger-reach.php:57
 msgid "You are running <b>%s</b> PHP version."
 msgstr "У вас запущено версію PHP <b>%s</b>."
-
-#: src/Setup/Assets.php:171
-#, fuzzy
-msgid ""
-"You have not selected any forms to sync. Select which forms you want to sync "
-"and then click on the Sync button below."
-msgstr ""
-"Ви не вибрали жодної форми для синхронізації. Виберіть форми, які ви хочете "
-"синхронізувати, а потім натисніть кнопку Синхронізувати нижче."
 
 #: frontend/blocks/subscription-block/src/Components/Dialog.js:40
 #: frontend/dist/blocks/subscription.js:1
@@ -887,6 +675,6 @@ msgstr ""
 "Ваша форма готова. Перейдіть до Reach, щоб завершити налаштування та "
 "створити шаблони."
 
-#: src/Setup/Assets.php:86
+#: src/Setup/Assets.php:85
 msgid "Your plan"
 msgstr "Ваш тариф"

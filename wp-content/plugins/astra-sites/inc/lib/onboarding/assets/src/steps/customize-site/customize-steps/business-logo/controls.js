@@ -39,7 +39,7 @@ const BusinessLogoControls = () => {
 				className={ `ist-button ist-next-step ${ disabledClass }` }
 				onClick={ nextStep }
 				disabled={ templateId !== 0 ? false : true }
-				after={ true }
+				after
 			>
 				{ '' !== siteLogo.url
 					? __( 'Continue', 'astra-sites' )

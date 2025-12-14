@@ -63,6 +63,9 @@ class Hooks {
         add_action( 'admin_init', array( $this, 'init_onboarding' ), 0 );
         add_action( 'admin_init', array( $this, 'handle_onboarding_started_redirect' ) );
 
+        // Admin footer actions.
+        add_action( 'admin_footer', array( $this, 'rate_plugin' ) );
+
         // Admin init actions.
         add_action( 'admin_init', array( $this, 'admin_init_actions' ) );
         add_action( 'admin_init', array( $this, 'set_woocommerce_options' ), 0 );
@@ -121,8 +124,6 @@ class Hooks {
         if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
             add_action( 'updated_option', array( $this, 'check_if_payment_gateway_enabled' ), 20, 3 );
         }
-
-        add_action( 'admin_init', array( $this, 'skip_cartflow_onboarding' ), 0 );
     }
 
     public function init_onboarding() {
@@ -332,6 +333,15 @@ class Hooks {
     public function hide_monsterinsight_notice(): void {
         if ( is_plugin_active( 'google-analytics-for-wordpress/googleanalytics.php' ) ) {
             define( 'MONSTERINSIGHTS_DISABLE_TRACKING', true );
+        }
+    }
+
+    public function rate_plugin(): void {
+        $promotional_banner_hidden = get_transient( 'hts_hide_promotional_banner_transient' );
+        $two_hours_in_seconds      = 7200;
+
+        if ( $promotional_banner_hidden && time() > $promotional_banner_hidden + $two_hours_in_seconds ) {
+            require_once HOSTINGER_EASY_ONBOARDING_ABSPATH . 'includes/Admin/Views/Partials/RateUs.php';
         }
     }
 
@@ -703,17 +713,5 @@ class Hooks {
             wp_safe_redirect( $redirect_url );
             exit;
         }
-    }
-
-    public function skip_cartflow_onboarding(): void {
-        if ( ! is_plugin_active( 'cartflows/cartflows.php' ) ) {
-            return;
-        }
-
-        if ( get_option( 'wcf_setup_skipped', false ) ) {
-            return;
-        }
-
-        update_option( 'wcf_setup_skipped', true );
     }
 }

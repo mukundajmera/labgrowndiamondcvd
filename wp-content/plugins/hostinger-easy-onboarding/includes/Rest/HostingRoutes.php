@@ -2,7 +2,6 @@
 
 namespace Hostinger\EasyOnboarding\Rest;
 
-use Hostinger\EasyOnboarding\Config;
 use Hostinger\WpHelper\Utils as Helper;
 use Hostinger\WpHelper\Requests\Client;
 
@@ -18,17 +17,20 @@ class HostingRoutes {
      * @param Client $client
      * @param Helper $helper
      */
-    public function __construct( Helper $helper ) {
+    public function __construct( Client $client, Helper $helper ) {
+        $this->client = $client;
         $this->helper = $helper;
-        $this->client = new Client(
-            HOSTINGER_EASY_ONBOARDING_WP_PROXY_URI,
-            array(
-                Config::TOKEN_HEADER  => $this->helper->getApiToken(),
-                Config::DOMAIN_HEADER => $this->helper->getHostInfo(),
-            )
-        );
     }
 
+    /**
+     * Makes requests to Hostinger API to get Hosting details
+     *
+     * @param string $endpoint     API endpoint to call
+     * @param array  $params       Optional parameters for the request
+     * @param string $error_prefix Prefix for error logs
+     *
+     * @return \WP_REST_Response
+     */
     private function make_api_request( string $endpoint, array $params = array(), string $error_prefix = 'Hostinger Easy Onboarding' ): \WP_REST_Response {
         $data     = array(
             'status' => 'error',
@@ -40,10 +42,6 @@ class HostingRoutes {
             $response->set_status( \WP_Http::OK );
 
             $request = $this->client->get( $endpoint, $params );
-
-            if ( is_wp_error( $request ) ) {
-                throw new \Exception( $request->get_error_message() );
-            }
 
             if ( ! empty( $request['body'] ) ) {
                 $json = json_decode( $request['body'], true );

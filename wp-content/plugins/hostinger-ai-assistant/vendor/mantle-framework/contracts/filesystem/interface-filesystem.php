@@ -7,8 +7,6 @@
 
 namespace Mantle\Contracts\Filesystem;
 
-use DateTimeInterface;
-
 /**
  * Filesystem Contract
  */
@@ -212,5 +210,5 @@ interface Filesystem {
 	 *
 	 * @throws \RuntimeException Thrown on missing temporary URL.
 	 */
-	public function temporary_url( string $path, DateTimeInterface $expiration, array $options = [] ): string;
+	public function temporary_url( string $path, $expiration, array $options = [] ): string;
 }

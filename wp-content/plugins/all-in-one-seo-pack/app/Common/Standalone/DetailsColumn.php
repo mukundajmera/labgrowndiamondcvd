@@ -212,16 +212,6 @@ class DetailsColumn {
 			$postData = array_merge( $postData, $addonColumnData );
 		}
 
-		// Get broken link count if Broken Link Checker is active.
-		if (
-			function_exists( 'aioseoBrokenLinkChecker' ) &&
-			class_exists( '\AIOSEO\BrokenLinkChecker\Models\LinkStatus' ) &&
-			'aioseo-details' === $columnName
-		) {
-			$brokenCount                 = \AIOSEO\BrokenLinkChecker\Models\LinkStatus::getBrokenCountByPostId( $postId );
-			$postData['brokenLinkCount'] = (int) $brokenCount ?? 0;
-		}
-
 		$posts[]       = $postData;
 		$data['posts'] = $posts;
 

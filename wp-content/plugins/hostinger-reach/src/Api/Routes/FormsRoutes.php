@@ -77,10 +77,6 @@ class FormsRoutes extends Routes {
                         'required' => true,
                         'type'     => 'string',
                     ),
-                    'type'      => array(
-                        'required' => true,
-                        'type'     => 'string',
-                    ),
                     'is_active' => array(
                         'required'          => false,
                         'type'              => 'boolean',

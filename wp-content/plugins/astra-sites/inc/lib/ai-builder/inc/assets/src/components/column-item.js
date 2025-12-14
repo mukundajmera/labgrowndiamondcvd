@@ -147,6 +147,8 @@ export const ColumnItem = ( {
 	const handleAddUUIDToQueryParams = ( uuid ) => {
 		// Add the uuid to the query params
 		const newUrl = new URL( window.location.href );
+		newUrl.search = '';
+		newUrl.searchParams.set( 'page', 'ai-builder' );
 		newUrl.searchParams.set( 'uuid', uuid );
 		// set hashtag to design page
 		newUrl.hash = '/design';

@@ -10,18 +10,18 @@ export const generateCorrelationId = (): string => `${Date.now()}-${Math.random(
 
 export const asyncCall = async <T>(
 	promise: Promise<AxiosResponse<BaseApiResponse<T>>>
-): Promise<[T | null, Error | null, number | null]> => {
+): Promise<[T | null, Error | null]> => {
 	try {
 		const response = await promise;
 
 		if (!response.data.error || (Array.isArray(response.data.error) && !response.data.error.length)) {
 			const responseData = response.data.data || response.data;
 
-			return [responseData as T, null, response.status];
+			return [responseData as T, null];
 		}
 
-		return [null, response.data.error as Error, response.status];
+		return [null, response.data.error as Error];
 	} catch (error) {
-		return [null, error as Error, error.status];
+		return [null, error as Error];
 	}
 };

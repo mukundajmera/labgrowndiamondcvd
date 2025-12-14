@@ -15,18 +15,12 @@ use WP\MCP\Handlers\Prompts\PromptsHandler;
 use WP\MCP\Handlers\Resources\ResourcesHandler;
 use WP\MCP\Handlers\System\SystemHandler;
 use WP\MCP\Handlers\Tools\ToolsHandler;
-use WP\MCP\Infrastructure\ErrorHandling\Contracts\McpErrorHandlerInterface;
-use WP\MCP\Infrastructure\Observability\Contracts\McpObservabilityHandlerInterface;
 
 /**
  * Transport context object for dependency injection.
  *
  * Contains all dependencies needed by transport implementations,
  * promoting loose coupling and easier testing.
- *
- * Note: The request_router parameter is optional. If not provided,
- * a RequestRouter instance will be automatically created with this
- * context as its dependency.
  */
 class McpTransportContext {
 
@@ -40,7 +34,7 @@ class McpTransportContext {
 	 * @param \WP\MCP\Handlers\Prompts\PromptsHandler        $prompts_handler The prompts handler.
 	 * @param \WP\MCP\Handlers\System\SystemHandler         $system_handler The system handler.
 	 * @param string                $observability_handler The observability handler class name.
-	 * @param \WP\MCP\Transport\Infrastructure\RequestRouter|null $request_router The request router service.
+	 * @param \WP\MCP\Transport\Infrastructure\McpRequestRouter|null $request_router The request router service.
 	 * @param callable|null         $transport_permission_callback Optional custom permission callback for transport-level authentication.
 	 */
 	/**
@@ -86,23 +80,14 @@ class McpTransportContext {
 	public SystemHandler $system_handler;
 
 	/**
-	 * The observability handler instance.
-	 *
-	 * @var \WP\MCP\Infrastructure\Observability\Contracts\McpObservabilityHandlerInterface
+	 * The observability handler class name.
 	 */
-	public McpObservabilityHandlerInterface $observability_handler;
-
-	/**
-	 * The error handler instance.
-	 *
-	 * @var \WP\MCP\Infrastructure\ErrorHandling\Contracts\McpErrorHandlerInterface
-	 */
-	public McpErrorHandlerInterface $error_handler;
+	public string $observability_handler;
 
 	/**
 	 * The request router service.
 	 */
-	public RequestRouter $request_router;
+	public ?\WP\MCP\Transport\Infrastructure\McpRequestRouter $request_router;
 
 	/**
 	 * Optional custom permission callback for transport-level authentication.
@@ -121,24 +106,14 @@ class McpTransportContext {
 	 *   resources_handler: \WP\MCP\Handlers\Resources\ResourcesHandler,
 	 *   prompts_handler: \WP\MCP\Handlers\Prompts\PromptsHandler,
 	 *   system_handler: \WP\MCP\Handlers\System\SystemHandler,
-	 *   observability_handler: \WP\MCP\Infrastructure\Observability\Contracts\McpObservabilityHandlerInterface,
-	 *   request_router?: \WP\MCP\Transport\Infrastructure\RequestRouter,
-	 *   transport_permission_callback?: callable|null,
-	 *   error_handler?: \WP\MCP\Infrastructure\ErrorHandling\Contracts\McpErrorHandlerInterface
+	 *   observability_handler: string,
+	 *   request_router?: \WP\MCP\Transport\Infrastructure\McpRequestRouter|null,
+	 *   transport_permission_callback?: callable|null
 	 * } $properties Properties to set on the context.
-	 * Note: request_router is optional and will be auto-created if not provided.
 	 */
 	public function __construct( array $properties ) {
 		foreach ( $properties as $name => $value ) {
-			$this->$name = $value;
+				$this->$name = $value;
 		}
-
-		// If request_router is provided, we're done
-		if ( isset( $properties['request_router'] ) ) {
-			return;
-		}
-
-		// Create request_router if not provided
-		$this->request_router = new RequestRouter( $this );
 	}
 }

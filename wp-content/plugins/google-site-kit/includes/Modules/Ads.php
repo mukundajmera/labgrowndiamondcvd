@@ -35,6 +35,7 @@ use Google\Site_Kit\Core\Site_Health\Debug_Data;
 use Google\Site_Kit\Core\Storage\Options;
 use Google\Site_Kit\Core\Storage\User_Options;
 use Google\Site_Kit\Core\Util\Plugin_Status;
+use Google\Site_Kit\Modules\Ads\Enhanced_Conversions;
 use Google\Site_Kit\Modules\Ads\PAX_Config;
 use Google\Site_Kit\Modules\Ads\Settings;
 use Google\Site_Kit\Modules\Ads\Has_Tag_Guard;
@@ -121,6 +122,12 @@ final class Ads extends Module implements Module_With_Inline_Data, Module_With_A
 			},
 			10
 		);
+
+		// Register the Enhanced Conversions class if the feature flag is enabled and the Ads module is connected.
+		if ( $this->is_connected() && Feature_Flags::enabled( 'gtagUserData' ) ) {
+			$enhanced_conversions = new Enhanced_Conversions();
+			$enhanced_conversions->register();
+		}
 	}
 
 	/**

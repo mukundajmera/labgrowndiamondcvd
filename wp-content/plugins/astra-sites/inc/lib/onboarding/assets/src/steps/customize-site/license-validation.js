@@ -33,7 +33,7 @@ const LicenseValidation = ( param ) => {
 	}, [] );
 
 	const accessLinkOutput = __(
-		`Access this template and all others with Essentials & Business Toolkit package.`,
+		`Access this template and all others with Essentials & Business Toolkit package starting at just $79.`,
 		'astra-sites'
 	);
 

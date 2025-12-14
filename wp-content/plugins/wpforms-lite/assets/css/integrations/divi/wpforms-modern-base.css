@@ -88,9 +88,7 @@ div[style*="z-index: 2147483647"] div[style*="border-width: 11px"][style*="posit
   max-width: 100%;
 }
 
-.wpforms-container .wpforms-recaptcha-container .g-recaptcha,
-.wpforms-container .wpforms-recaptcha-container .h-captcha,
-.wpforms-container .wpforms-recaptcha-container .cf-turnstile {
+.wpforms-container .wpforms-recaptcha-container .g-recaptcha {
   padding: 10px 0 0;
 }
 
@@ -104,13 +102,7 @@ div[style*="z-index: 2147483647"] div[style*="border-width: 11px"][style*="posit
   visibility: inherit !important;
 }
 
-.wpforms-container .wpforms-recaptcha-container.wpforms-is-recaptcha-type-v3 .g-recaptcha,
-.wpforms-container .wpforms-recaptcha-container.wpforms-is-recaptcha-type-v3 .h-captcha,
-.wpforms-container .wpforms-recaptcha-container.wpforms-is-recaptcha-type-v3 .cf-turnstile, .wpforms-container .wpforms-recaptcha-container.wpforms-is-turnstile-invisible .g-recaptcha,
-.wpforms-container .wpforms-recaptcha-container.wpforms-is-turnstile-invisible .h-captcha,
-.wpforms-container .wpforms-recaptcha-container.wpforms-is-turnstile-invisible .cf-turnstile, .wpforms-container .wpforms-recaptcha-container.wpforms-is-recaptcha-type-invisible .g-recaptcha,
-.wpforms-container .wpforms-recaptcha-container.wpforms-is-recaptcha-type-invisible .h-captcha,
-.wpforms-container .wpforms-recaptcha-container.wpforms-is-recaptcha-type-invisible .cf-turnstile {
+.wpforms-container .wpforms-recaptcha-container.wpforms-is-recaptcha-type-v3 .g-recaptcha, .wpforms-container .wpforms-recaptcha-container.wpforms-is-turnstile-invisible .g-recaptcha, .wpforms-container .wpforms-recaptcha-container.wpforms-is-recaptcha-type-invisible .g-recaptcha {
   padding: 0;
 }
 
@@ -1909,9 +1901,7 @@ body.rtl .ui-timepicker-list li {
   max-width: 100%;
 }
 
-.et-db #et-boc .et-l .et_pb_module .wpforms-container .wpforms-recaptcha-container .g-recaptcha,
-.et-db #et-boc .et-l .et_pb_module .wpforms-container .wpforms-recaptcha-container .h-captcha,
-.et-db #et-boc .et-l .et_pb_module .wpforms-container .wpforms-recaptcha-container .cf-turnstile {
+.et-db #et-boc .et-l .et_pb_module .wpforms-container .wpforms-recaptcha-container .g-recaptcha {
   padding: 10px 0 0;
 }
 
@@ -1925,13 +1915,7 @@ body.rtl .ui-timepicker-list li {
   visibility: inherit !important;
 }
 
-.et-db #et-boc .et-l .et_pb_module .wpforms-container .wpforms-recaptcha-container.wpforms-is-recaptcha-type-v3 .g-recaptcha,
-.et-db #et-boc .et-l .et_pb_module .wpforms-container .wpforms-recaptcha-container.wpforms-is-recaptcha-type-v3 .h-captcha,
-.et-db #et-boc .et-l .et_pb_module .wpforms-container .wpforms-recaptcha-container.wpforms-is-recaptcha-type-v3 .cf-turnstile, .et-db #et-boc .et-l .et_pb_module .wpforms-container .wpforms-recaptcha-container.wpforms-is-turnstile-invisible .g-recaptcha,
-.et-db #et-boc .et-l .et_pb_module .wpforms-container .wpforms-recaptcha-container.wpforms-is-turnstile-invisible .h-captcha,
-.et-db #et-boc .et-l .et_pb_module .wpforms-container .wpforms-recaptcha-container.wpforms-is-turnstile-invisible .cf-turnstile, .et-db #et-boc .et-l .et_pb_module .wpforms-container .wpforms-recaptcha-container.wpforms-is-recaptcha-type-invisible .g-recaptcha,
-.et-db #et-boc .et-l .et_pb_module .wpforms-container .wpforms-recaptcha-container.wpforms-is-recaptcha-type-invisible .h-captcha,
-.et-db #et-boc .et-l .et_pb_module .wpforms-container .wpforms-recaptcha-container.wpforms-is-recaptcha-type-invisible .cf-turnstile {
+.et-db #et-boc .et-l .et_pb_module .wpforms-container .wpforms-recaptcha-container.wpforms-is-recaptcha-type-v3 .g-recaptcha, .et-db #et-boc .et-l .et_pb_module .wpforms-container .wpforms-recaptcha-container.wpforms-is-turnstile-invisible .g-recaptcha, .et-db #et-boc .et-l .et_pb_module .wpforms-container .wpforms-recaptcha-container.wpforms-is-recaptcha-type-invisible .g-recaptcha {
   padding: 0;
 }
 

@@ -102,12 +102,8 @@ class AbilitiesRestBridge {
 	 * @internal
 	 */
 	final public static function init(): void {
-		/*
-		 * Register abilities when Abilities API is ready.
-		 * Support both old (pre-6.9) and new (6.9+) action names.
-		 */
+		// Register abilities when Abilities API is ready.
 		add_action( 'abilities_api_init', array( __CLASS__, 'register_abilities' ) );
-		add_action( 'wp_abilities_api_init', array( __CLASS__, 'register_abilities' ) );
 	}
 
 	/**

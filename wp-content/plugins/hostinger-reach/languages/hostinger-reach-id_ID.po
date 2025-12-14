@@ -10,96 +10,45 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2025-07-31T11:19:40+03:00\n"
-"PO-Revision-Date: 2025-12-11 06:03+0000\n"
+"PO-Revision-Date: 2025-10-28 12:35+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: hostinger-reach\n"
 "Language: id_ID\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Loco-Version: 2.8.0; wp-6.8.2; php-8.2.27"
 
-#: src/Setup/Assets.php:150
+#: src/Setup/Assets.php:142
 msgid "(no title)"
 msgstr "(tanpa judul)"
 
-#: src/Setup/Assets.php:172
-#, fuzzy
-msgid "-"
-msgstr "-"
-
-#: src/Setup/Assets.php:136 src/Setup/Assets.php:153
+#: src/Setup/Assets.php:128 src/Setup/Assets.php:145
 msgid "Active"
 msgstr "Aktif"
 
-#: src/Setup/Assets.php:108
-#, fuzzy
-msgid ""
-"Add a new contact form with Reach or connect a plugin to start collecting "
-"contacts and sending campaigns."
-msgstr ""
-"Tambahkan formulir kontak baru dengan Reach atau sambungkan plugin untuk "
-"mulai mengumpulkan kontak dan mengirim kampanye."
-
-#: src/Setup/Assets.php:104
-#, fuzzy
-msgid ""
-"Add an online store to your site, sell products or services, and connect "
-"subscriber tools automatically.."
-msgstr ""
-"Tambahkan toko online ke situs Anda, jual produk atau layanan, dan hubungkan "
-"alat pelanggan secara otomatis..."
-
-#: src/Setup/Assets.php:142 src/Setup/Assets.php:156
+#: src/Setup/Assets.php:103 src/Setup/Assets.php:104 src/Setup/Assets.php:120
+#: src/Setup/Assets.php:134
 msgid "Add form"
 msgstr "Tambah formulir"
 
-#: src/Setup/Assets.php:109 src/Setup/Assets.php:110 src/Setup/Assets.php:126
-#, fuzzy
-msgid "Add form or plugin"
-msgstr "Tambahkan formulir atau plugin"
-
-#: src/Admin/Surveys/SatisfactionSurvey.php:26
+#: src/Admin/Surveys/SatisfactionSurvey.php:25
 #, fuzzy
 msgid "Any ideas or feedback to help us improve Hostinger Reach?"
 msgstr ""
 "Ada ide atau masukan untuk membantu kami meningkatkan Jangkauan Hostinger?"
 
-#: src/Setup/Assets.php:170
-#, fuzzy
-msgid ""
-"are ready to sync with Reach. Any new contacts you’ll collect with these "
-"forms will sync automatically."
-msgstr ""
-"siap untuk disinkronkan dengan Reach. Setiap kontak baru yang Anda kumpulkan "
-"dengan formulir ini akan disinkronkan secara otomatis."
-
 #: hostinger-reach.php:52
 msgid "Attention:"
 msgstr "Perhatian:"
 
-#: src/Integrations/WooCommerce/WooCommerceIntegration.php:123
-#, fuzzy
-msgid "Automation -  Purchases"
-msgstr "Otomatisasi - Pembelian"
-
-#: src/Integrations/WooCommerce/WooCommerceIntegration.php:124
-#, fuzzy
-msgid "Automation - Abandoned Carts"
-msgstr "Otomasi - Gerobak yang Ditinggalkan"
-
-#: src/Setup/Assets.php:93
+#: src/Setup/Assets.php:92
 msgid "Average CTOR"
 msgstr "Rata-rata CTOR"
 
-#: src/Setup/Assets.php:73
-#, fuzzy
-msgid "Back"
-msgstr "Kembali"
-
-#: src/Setup/Assets.php:122
+#: src/Setup/Assets.php:116
 msgid "Background image for"
 msgstr "Gambar latar untuk"
 
-#: src/Setup/Assets.php:121
+#: src/Setup/Assets.php:115
 msgid "Banner background image for"
 msgstr "Gambar latar banner untuk"
 
@@ -113,20 +62,26 @@ msgctxt "block title"
 msgid "Reach Subscription Form"
 msgstr "Formulir Berlangganan Reach"
 
-#: src/Setup/Assets.php:91
+#: src/Setup/Assets.php:90
 msgid "Campaigns"
 msgstr "Campaign"
 
-#: src/Setup/Assets.php:129
+#: src/Setup/Assets.php:123
 msgid "Cancel "
 msgstr "Batal"
 
-#: src/Integrations/WooCommerce/WooCommerceIntegration.php:116
-#, fuzzy
-msgid "Checkout"
-msgstr "Pembayaran"
+#: src/Setup/Assets.php:102
+#| msgid ""
+#| "Choose how you’d like to manage forms on your website. Create a new form "
+#| "with Hostinger Reach or connect a third-party plugin."
+msgid ""
+"Choose how you'd like to manage forms on your website. Create a new form "
+"with Hostinger Reach or connect a third-party plugin."
+msgstr ""
+"Pilih cara mengelola formulir di website Anda. Buat formulir baru dengan "
+"Hostinger Reach atau hubungkan plugin pihak ketiga."
 
-#: src/Setup/Assets.php:124
+#: src/Setup/Assets.php:118
 msgid ""
 "Click-to-open rate tells you what percent of opens resulted in a click too. "
 "A good CTOR is 6-17%, depending on your industry."
@@ -134,11 +89,11 @@ msgstr ""
 "Jumlah click-to-open menunjukkan persentase email yang dibuka dan "
 "mendatangkan klik. CTOR yang ideal adalah 6–17%, tergantung industri Anda."
 
-#: src/Setup/Assets.php:148
+#: src/Setup/Assets.php:140
 msgid "Collapse {pluginName} details"
 msgstr "Tutup detail {pluginName}"
 
-#: src/Admin/Notices/ConnectionNotice.php:104 src/Setup/Assets.php:162
+#: src/Admin/Notices/ConnectionNotice.php:104 src/Setup/Assets.php:153
 msgid "Connect"
 msgstr "Hubungkan"
 
@@ -154,14 +109,9 @@ msgstr "Hubungkan Hostinger Reach untuk memulai Pemasaran Email"
 msgid "Connect Now"
 msgstr "Hubungkan Sekarang"
 
-#: src/Setup/Assets.php:80
+#: src/Setup/Assets.php:79
 msgid "Connect site"
 msgstr "Hubungkan website"
-
-#: src/Setup/Assets.php:103 src/Setup/Assets.php:105
-#, fuzzy
-msgid "Connect WooCommerce"
-msgstr "Hubungkan WooCommerce"
 
 #: src/Admin/Notices/ConnectionNotice.php:100
 #, fuzzy
@@ -175,7 +125,7 @@ msgstr ""
 "audiens Anda hanya dengan satu klik."
 
 #: src/Integrations/ContactForm7/ContactForm7Integration.php:91
-#: src/Setup/Assets.php:144
+#: src/Setup/Assets.php:136
 msgid "Contact Form 7"
 msgstr "Contact Form 7"
 
@@ -186,31 +136,16 @@ msgstr "Contact Form 7"
 msgid "Contact List"
 msgstr "Daftar Kontak"
 
-#: src/Setup/Assets.php:132 src/Setup/Assets.php:164
-#, fuzzy
-msgid "Contacts"
-msgstr "Kontak"
-
-#: src/Setup/Assets.php:169
-#, fuzzy
-msgid "contacts"
-msgstr "kontak"
-
-#: src/Setup/Assets.php:168
-#, fuzzy
-msgid "Contacts to Sync"
-msgstr "Kontak yang akan disinkronkan"
-
 #: src/Admin/Notices/ConnectionNotice.php:73
 #, fuzzy
 msgid "Could not generate auth URL"
 msgstr "Tidak dapat menghasilkan URL penulis"
 
-#: src/Setup/Assets.php:98
+#: src/Setup/Assets.php:97
 msgid "Create campaign"
 msgstr "Buat campaign"
 
-#: src/Setup/Assets.php:76
+#: src/Setup/Assets.php:75
 msgid ""
 "Create email campaigns using AI-crafted templates that match your style. "
 "Instantly sync with your WordPress site and connect with your audience "
@@ -220,6 +155,10 @@ msgstr ""
 "Langsung sinkronkan dengan website WordPress dan jangkau audiens dengan "
 "mudah."
 
+#: src/Setup/Assets.php:148
+msgid "Create form"
+msgstr "Buat formulir"
+
 #: frontend/blocks/subscription-block/src/edit.js:114
 #: frontend/dist/blocks/subscription.js:1
 #: frontend/dist/blocks/subscription.js:285
@@ -227,7 +166,7 @@ msgstr ""
 msgid "Create New List"
 msgstr "Buat Daftar Baru"
 
-#: src/Setup/Assets.php:99
+#: src/Setup/Assets.php:98
 msgid "Create template"
 msgstr "Buat template"
 
@@ -238,27 +177,27 @@ msgstr "Buat template"
 msgid "Default"
 msgstr "Default"
 
-#: src/Setup/Assets.php:161
+#: src/Setup/Assets.php:152
 msgid "Disconnect"
 msgstr "Nonaktifkan"
 
-#: src/Setup/Assets.php:130
+#: src/Setup/Assets.php:124
 msgid "Disconnect "
 msgstr "Nonaktifkan"
 
-#: src/Setup/Assets.php:78
+#: src/Setup/Assets.php:77
 msgid "Disconnect it to link this site instead."
 msgstr "Nonaktifkan untuk menghubungkan website ini. "
 
-#: src/Setup/Assets.php:141
+#: src/Setup/Assets.php:133
 msgid "Disconnect plugin"
 msgstr "Nonaktifkan plugin"
 
-#: src/Setup/Assets.php:127
+#: src/Setup/Assets.php:121
 msgid "Disconnect plugin?"
 msgstr "Ingin menonaktifkan plugin?"
 
-#: src/Setup/Assets.php:128
+#: src/Setup/Assets.php:122
 msgid ""
 "Disconnecting will stop new contacts from being collected. You can reconnect "
 "or use a different form anytime."
@@ -266,17 +205,12 @@ msgstr ""
 "Jika dinonaktifkan, kontak baru tidak akan dikumpulkan lagi. Hubungkan "
 "kembali atau gunakan formulir lain kapan saja."
 
-#: src/Setup/Assets.php:102
-#, fuzzy
-msgid "E-Commerce"
-msgstr "Perdagangan Elektronik (E-Commerce)"
-
-#: src/Setup/Assets.php:139
+#: src/Setup/Assets.php:131
 msgid "Edit form"
 msgstr "Edit formulir"
 
 #: src/Integrations/Elementor/ElementorIntegration.php:88
-#: src/Setup/Assets.php:146
+#: src/Setup/Assets.php:138
 #, fuzzy
 msgid "Elementor"
 msgstr "Elementor"
@@ -290,24 +224,28 @@ msgstr "Email"
 msgid "Email Marketing"
 msgstr "Email Marketing"
 
-#: src/Setup/Assets.php:83
+#: src/Setup/Assets.php:82
 msgid "Email marketing background with gradient design"
 msgstr "Gambar latar email marketing dengan desain gradasi"
 
-#: src/Setup/Assets.php:84
+#: src/Setup/Assets.php:83
 msgid ""
 "Email marketing illustration featuring envelopes and communication icons"
 msgstr "Ilustrasi email marketing dengan ikon amplop dan komunikasi"
 
-#: src/Setup/Assets.php:88
+#: src/Setup/Assets.php:87
 msgid "Emails"
 msgstr "Email"
 
-#: src/Setup/Assets.php:147
+#: src/Setup/Assets.php:126
+msgid "Entries"
+msgstr "Entri"
+
+#: src/Setup/Assets.php:139
 msgid "Expand {pluginName} details"
 msgstr "Lihat detail {pluginName}"
 
-#: src/Setup/Assets.php:113
+#: src/Setup/Assets.php:107
 msgid "FAQ"
 msgstr "Tanya Jawab (FAQ)"
 
@@ -323,20 +261,15 @@ msgstr "Formulir"
 msgid "Form ID"
 msgstr "ID Formulir"
 
-#: src/Integrations/Forminator/ForminatorIntegration.php:34
-#, fuzzy
-msgid "Forminator"
-msgstr "Forminator"
-
-#: src/Setup/Assets.php:106
+#: src/Setup/Assets.php:100
 msgid "Forms"
 msgstr "Formulir"
 
-#: src/Setup/Assets.php:140
+#: src/Setup/Assets.php:132
 msgid "Go to plugin"
 msgstr "Buka plugin"
 
-#: src/Setup/Assets.php:81
+#: src/Setup/Assets.php:80
 #: frontend/blocks/subscription-block/src/Components/Dialog.js:42
 #: frontend/dist/blocks/subscription.js:1
 #: frontend/dist/blocks/subscription.js:131
@@ -351,12 +284,12 @@ msgstr "Hostinger"
 #. Plugin Name of the plugin
 #: hostinger-reach.php
 #: src/Integrations/Elementor/SubscriptionFormElementorWidget.php:20
-#: src/Integrations/Reach/ReachFormIntegration.php:71 src/Setup/Assets.php:82
-#: src/Setup/Assets.php:143
+#: src/Integrations/Reach/ReachFormIntegration.php:71 src/Setup/Assets.php:81
+#: src/Setup/Assets.php:135
 msgid "Hostinger Reach"
 msgstr "Hostinger Reach"
 
-#: src/Setup/Assets.php:115
+#: src/Setup/Assets.php:109
 msgid ""
 "Hostinger Reach is an AI-powered email marketing tool for small businesses "
 "and creators. It supports your entire email marketing journey—from building "
@@ -366,7 +299,7 @@ msgstr ""
 "kreator. Reach mendukung seluruh proses email marketing Anda, mulai dari "
 "membuat daftar kontak hingga mengirim campaign dan melacak performannya."
 
-#: src/Setup/Assets.php:117
+#: src/Setup/Assets.php:111
 msgid ""
 "Hostinger Reach is built for simplicity, speed, and results – no design or "
 "marketing experience needed. Unlike most email tools, at the core of Reach "
@@ -405,19 +338,18 @@ msgstr "Logo Hostinger Reach"
 
 #. translators: %s: PHP version
 #: hostinger-reach.php:54
-#, php-format
 msgid "Hostinger Reach requires minimum PHP version of <b>%s</b>. "
 msgstr "Hostinger Reach membutuhkan versi PHP minimum <b>%s</b>."
 
-#: src/Setup/Assets.php:116
+#: src/Setup/Assets.php:110
 msgid "How is Hostinger Reach different from other email marketing apps?"
 msgstr "Apa perbedaan Hostinger Reach dengan aplikasi email marketing lainnya?"
 
-#: src/Setup/Assets.php:118
+#: src/Setup/Assets.php:112
 msgid "How much does it cost to use Hostinger Reach?"
 msgstr "Berapa biaya Hostinger Reach?"
 
-#: src/Admin/Surveys/SatisfactionSurvey.php:22
+#: src/Admin/Surveys/SatisfactionSurvey.php:21
 #, fuzzy
 msgid "How would you rate your experience with Hostinger Reach so far?"
 msgstr ""
@@ -433,12 +365,7 @@ msgstr "https://hostinger.com"
 msgid "https://www.hostinger.com/email-marketing"
 msgstr "https://www.hostinger.com/email-marketing"
 
-#: src/Api/Handlers/IntegrationsApiHandler.php:114
-#, fuzzy
-msgid "Importing is not available for this integration"
-msgstr "Mengimpor tidak tersedia untuk integrasi ini"
-
-#: src/Setup/Assets.php:137
+#: src/Setup/Assets.php:129
 msgid "Inactive"
 msgstr "Tidak aktif"
 
@@ -449,11 +376,11 @@ msgstr "Tidak aktif"
 msgid "Inline"
 msgstr "Sebaris"
 
-#: src/Setup/Assets.php:160
+#: src/Setup/Assets.php:151
 msgid "Install and connect"
 msgstr "Install dan hubungkan"
 
-#: src/Setup/Assets.php:159
+#: src/Setup/Assets.php:150
 msgid "Installed plugins"
 msgstr "Plugin terinstal"
 
@@ -461,16 +388,6 @@ msgstr "Plugin terinstal"
 #: hostinger-reach.php
 msgid "Integrate your WordPress site with Hostinger Reach."
 msgstr "Integrasikan situs WordPress Anda dengan Hostinger Reach."
-
-#: src/Setup/Assets.php:101
-#, fuzzy
-msgid "Integrations"
-msgstr "Integrasi"
-
-#: src/Setup/Assets.php:178
-#, fuzzy
-msgid "It was an error syncing your contacts to Reach."
-msgstr "Itu adalah kesalahan dalam menyinkronkan kontak Anda ke Reach."
 
 #: frontend/blocks/subscription-block/src/edit.js:155
 #: frontend/dist/blocks/subscription.js:1
@@ -491,13 +408,13 @@ msgstr "Pengaturan Tata Letak"
 msgid "Learn more"
 msgstr "Pelajari lebih lanjut"
 
-#: src/Setup/Assets.php:154
+#: src/Setup/Assets.php:146
 msgid ""
 "Make sure the people you contact expect your emails and are okay with "
 "receiving them."
 msgstr "Pastikan penerima email setuju menerima email dari Anda."
 
-#: src/Setup/Assets.php:79
+#: src/Setup/Assets.php:78
 msgid "Manage"
 msgstr "Kelola"
 
@@ -513,7 +430,7 @@ msgstr "Nama"
 msgid "Name for the new Contact List"
 msgstr "Nama untuk Daftar Kontak baru"
 
-#: src/Setup/Assets.php:155
+#: src/Setup/Assets.php:147
 msgid "New contact form"
 msgstr "Formulir kontak baru"
 
@@ -524,18 +441,13 @@ msgstr "Formulir kontak baru"
 msgid "New Contact List"
 msgstr "Daftar Kontak Baru"
 
-#: src/Setup/Assets.php:111
+#: src/Setup/Assets.php:105
 msgid "New page"
 msgstr "Halaman baru"
 
-#: src/Setup/Assets.php:95
+#: src/Setup/Assets.php:94
 msgid "New subscribers"
 msgstr "Pelanggan baru"
-
-#: src/Integrations/NinjaForms/NinjaFormsIntegration.php:45
-#, fuzzy
-msgid "Ninja Forms"
-msgstr "Bentuk Ninja"
 
 #: src/Integrations/Elementor/SubscriptionFormElementorWidget.php:71
 #: src/Integrations/Elementor/SubscriptionFormElementorWidget.php:83
@@ -543,50 +455,35 @@ msgstr "Bentuk Ninja"
 msgid "No"
 msgstr "Tidak"
 
-#: src/Setup/Assets.php:149
+#: src/Setup/Assets.php:141
 msgid "No forms found for this integration."
 msgstr "Tidak ada formulir yang ditemukan untuk integrasi ini."
 
-#: src/Setup/Assets.php:112
+#: src/Setup/Assets.php:106
 msgid "No pages available. Create a new page to get started."
 msgstr "Belum ada halaman. Buat halaman baru untuk memulai."
 
-#: src/Setup/Assets.php:175
-#, fuzzy
-msgid "Not synced"
-msgstr "Tidak disinkronkan"
-
-#: src/Setup/Assets.php:134
-#, fuzzy
-msgid "of"
-msgstr "dari"
-
-#: src/Setup/Assets.php:120
+#: src/Setup/Assets.php:114
 msgid "opens in new tab"
 msgstr "buka di tab baru"
 
-#: src/Setup/Assets.php:173
-#, fuzzy
-msgid "Partially synced"
-msgstr "Disinkronkan sebagian"
-
-#: src/Setup/Assets.php:131
+#: src/Setup/Assets.php:125
 msgid "Plugin"
 msgstr "Plugin"
 
-#: src/Setup/Assets.php:151
+#: src/Setup/Assets.php:143
 msgid "Plugin connected successfully"
 msgstr "Plugin berhasil terhubung"
 
-#: src/Setup/Assets.php:152
+#: src/Setup/Assets.php:144
 msgid "Plugin disconnected successfully"
 msgstr "Plugin berhasil dinonaktifkan"
 
-#: src/Setup/Assets.php:77
+#: src/Setup/Assets.php:76
 msgid "Reach is already connected to another site."
 msgstr "Reach sudah terhubung ke website lain."
 
-#: src/Setup/Assets.php:119
+#: src/Setup/Assets.php:113
 #| msgid ""
 #| "Reach offers a free plan for one year– perfect for getting started. Paid "
 #| "plans are based on how many unique contacts you aim to reach and how many "
@@ -615,19 +512,19 @@ msgstr ""
 msgid "Reach Subscription Form"
 msgstr "Formulir Berlangganan Jangkauan"
 
-#: src/Setup/Assets.php:90
+#: src/Setup/Assets.php:89
 msgid "Remaining"
 msgstr "Sisa"
 
-#: src/Setup/Assets.php:125
+#: src/Setup/Assets.php:119
 msgid "Select page"
 msgstr "Pilih halaman"
 
-#: src/Setup/Assets.php:89 src/Setup/Assets.php:92
+#: src/Setup/Assets.php:88 src/Setup/Assets.php:91
 msgid "Sent"
 msgstr "Terkirim"
 
-#: src/Setup/Assets.php:100 frontend/blocks/subscription-block/src/edit.js:102
+#: src/Setup/Assets.php:99 frontend/blocks/subscription-block/src/edit.js:102
 #: frontend/dist/blocks/subscription.js:1
 #: frontend/dist/blocks/subscription.js:273
 msgid "Settings"
@@ -657,17 +554,7 @@ msgstr "Tampilkan Nama Keluarga"
 msgid "Show Surname Field?"
 msgstr "Tampilkan Bidang Nama Keluarga?"
 
-#: src/Setup/Assets.php:166
-#, fuzzy
-msgid ""
-"Some contacts you’ve collected before installing Reach aren’t yet synced. "
-"Sync them now to use them for your email campaigns."
-msgstr ""
-"Beberapa kontak yang telah Anda kumpulkan sebelum menginstal Reach belum "
-"disinkronkan. Sinkronkan sekarang untuk menggunakannya dalam kampanye email "
-"Anda."
-
-#: src/Setup/Assets.php:74
+#: src/Setup/Assets.php:73
 msgid "Something went wrong"
 msgstr "Terjadi kesalahan"
 
@@ -675,12 +562,11 @@ msgstr "Terjadi kesalahan"
 msgid "Something went wrong. Please try again."
 msgstr "Terjadi kesalahan. Silakan coba lagi."
 
-#: src/Setup/Assets.php:107
-#, fuzzy
-msgid "Start by adding a form or connect a plugin"
-msgstr "Mulailah dengan menambahkan formulir atau menghubungkan plugin"
+#: src/Setup/Assets.php:101
+msgid "Start collecting form submissions"
+msgstr "Mulai terima kiriman formulir"
 
-#: src/Setup/Assets.php:135
+#: src/Setup/Assets.php:127
 msgid "Status"
 msgstr "Status"
 
@@ -694,71 +580,25 @@ msgstr "Berlangganan"
 msgid "Subscribe to our Newsletter"
 msgstr "Berlangganan Buletin kami"
 
-#: src/Integrations/WooCommerce/WooCommerceIntegration.php:73
+#: src/Integrations/WooCommerce/WooCommerceIntegration.php:69
 #, fuzzy
 msgid "Subscribe to our newsletter"
 msgstr "Berlangganan buletin kami"
 
-#: src/Setup/Assets.php:94
+#: src/Setup/Assets.php:93
 msgid "Subscribers"
 msgstr "Pelanggan"
-
-#: src/Setup/Assets.php:157
-#, fuzzy
-#| msgid "View supported plugins"
-msgid "Supported plugins"
-msgstr "Lihat plugin yang didukung"
-
-#: src/Integrations/SureForms/SureFormsIntegration.php:35
-#, fuzzy
-msgid "Sure Forms"
-msgstr "Formulir Yakin"
 
 #: src/Blocks/SubscriptionFormBlock.php:89
 #: src/Integrations/Elementor/SubscriptionFormElementorWidget.php:122
 msgid "Surname"
 msgstr "Nama belakang"
 
-#: src/Setup/Assets.php:167
-#, fuzzy
-msgid "Sync"
-msgstr "Sinkronisasi"
-
-#: src/Setup/Assets.php:163
-#, fuzzy
-msgid "Sync Contacts"
-msgstr "Sinkronisasi Kontak"
-
-#: src/Setup/Assets.php:165
-#, fuzzy
-msgid "Sync your contacts with Reach"
-msgstr "Menyinkronkan kontak Anda dengan Reach"
-
-#: src/Setup/Assets.php:174
-#, fuzzy
-msgid "Synced"
-msgstr "Disinkronkan"
-
-#: src/Setup/Assets.php:133
-#, fuzzy
-msgid "Syncing with Reach"
-msgstr "Menyinkronkan dengan Reach"
-
-#: src/Setup/Assets.php:176
-#, fuzzy
-msgid "Syncing..."
-msgstr "Menyinkronkan..."
-
 #: src/Blocks/SubscriptionFormBlock.php:20
 msgid "Thanks for subscribing."
 msgstr "Terima kasih telah berlangganan."
 
-#: src/Setup/Assets.php:177
-#, fuzzy
-msgid "The selected contacts are being synced to Reach."
-msgstr "Kontak yang dipilih sedang disinkronkan ke Reach."
-
-#: src/Integrations/Integration.php:178
+#: src/Integrations/Integration.php:158
 #, fuzzy
 msgid ""
 "This form has not an email field. Create an email field in the form to allow "
@@ -767,11 +607,11 @@ msgstr ""
 "Formulir ini tidak memiliki bidang email. Buat bidang email di formulir agar "
 "dapat disinkronkan dengan Reach"
 
-#: src/Setup/Assets.php:85
+#: src/Setup/Assets.php:84
 msgid "This month"
 msgstr "Bulan ini"
 
-#: src/Setup/Assets.php:97
+#: src/Setup/Assets.php:96
 msgid "Total subscribers"
 msgstr "Total pelanggan"
 
@@ -782,60 +622,48 @@ msgstr "Total pelanggan"
 msgid "Unique identifier for this form"
 msgstr "Pengenal unik untuk formulir ini"
 
-#: src/Setup/Assets.php:96
+#: src/Setup/Assets.php:95
 msgid "Unsubscribes"
 msgstr "Jumlah berhenti berlangganan"
 
-#: src/Setup/Assets.php:87
+#: src/Setup/Assets.php:86
 msgid "Upgrade"
 msgstr "Upgrade"
 
-#: src/Setup/Assets.php:123
+#: src/Setup/Assets.php:117
 msgid "usage statistics"
 msgstr "statistik penggunaan"
 
-#: src/Setup/Assets.php:138
+#: src/Setup/Assets.php:130
 msgid "View form"
 msgstr "Lihat formulir"
 
-#: src/Setup/Assets.php:158
-#, fuzzy
-msgid "View more supported plugins"
-msgstr "Lihat lebih banyak plugin yang didukung"
+#: src/Setup/Assets.php:149
+msgid "View supported plugins"
+msgstr "Lihat plugin yang didukung"
 
-#: src/Setup/Assets.php:75
+#: src/Setup/Assets.php:74
 msgid "Welcome to Reach"
 msgstr "Selamat datang di Reach"
 
-#: src/Setup/Assets.php:114
+#: src/Setup/Assets.php:108
 msgid "What is Hostinger Reach email marketing service?"
 msgstr "Apa itu layanan email marketing Hostinger Reach?"
 
-#: src/Integrations/WooCommerce/WooCommerceIntegration.php:192
+#: src/Integrations/WooCommerce/WooCommerceIntegration.php:164
 #, fuzzy
 msgid "WooCommerce"
 msgstr "WooCommerce"
 
-#: src/Integrations/WooCommerce/WooCommerceIntegration.php:211
-#, fuzzy
-msgid "WooCommerce Customers"
-msgstr "Pelanggan WooCommerce"
-
 #: src/Integrations/WPFormsLite/WpFormsLiteIntegration.php:29
-#: src/Setup/Assets.php:145
+#: src/Setup/Assets.php:137
 msgid "WP Forms Lite"
 msgstr "WP Forms Lite"
 
 #. translators: %s - form id.
 #: src/Integrations/WPFormsLite/WpFormsLiteIntegration.php:63
-#, php-format
 msgid "WP Forms Lite %s"
 msgstr "WP Forms Lite %s"
-
-#: src/Integrations/WSForms/WSFormsIntegration.php:22
-#, fuzzy
-msgid "WS Form"
-msgstr "Formulir WS"
 
 #: src/Integrations/Elementor/SubscriptionFormElementorWidget.php:70
 #: src/Integrations/Elementor/SubscriptionFormElementorWidget.php:82
@@ -863,18 +691,8 @@ msgstr ""
 
 #. translators: %s: PHP version
 #: hostinger-reach.php:58
-#, php-format
 msgid "You are running <b>%s</b> PHP version."
 msgstr "Anda menggunakan versi PHP <b>%s</b>."
-
-#: src/Setup/Assets.php:171
-#, fuzzy
-msgid ""
-"You have not selected any forms to sync. Select which forms you want to sync "
-"and then click on the Sync button below."
-msgstr ""
-"Anda belum memilih formulir mana pun untuk disinkronkan. Pilih formulir mana "
-"yang ingin disinkronkan, lalu klik tombol Sinkronkan di bawah ini."
 
 #: frontend/blocks/subscription-block/src/Components/Dialog.js:40
 #: frontend/dist/blocks/subscription.js:1
@@ -885,6 +703,6 @@ msgstr ""
 "Formulir Anda sudah siap. Buka Jangkauan untuk menyelesaikan penyiapan dan "
 "membuat templat."
 
-#: src/Setup/Assets.php:86
+#: src/Setup/Assets.php:85
 msgid "Your plan"
 msgstr "Paket Anda"

@@ -64,7 +64,6 @@ class QuantitySelector extends AbstractBlock {
 
 		if ( AddToCartWithOptionsUtils::is_min_max_quantity_same( $product ) ) {
 			$product = $previous_product;
-
 			return '';
 		}
 
@@ -86,13 +85,10 @@ class QuantitySelector extends AbstractBlock {
 
 		$product_html = ob_get_clean();
 
-		// If the quantity input is hidden, don't render the stepper buttons and styles.
-		$has_visible_quantity_input = AddToCartWithOptionsUtils::has_visible_quantity_input( $product_html );
-		if ( $has_visible_quantity_input ) {
-			$product_name = $product->get_name();
-			$product_html = AddToCartWithOptionsUtils::add_quantity_steppers( $product_html, $product_name );
-			$product_html = AddToCartWithOptionsUtils::add_quantity_stepper_classes( $product_html );
-		}
+		$product_name = $product->get_name();
+
+		$product_html = AddToCartWithOptionsUtils::add_quantity_steppers( $product_html, $product_name );
+		$product_html = AddToCartWithOptionsUtils::add_quantity_stepper_classes( $product_html );
 
 		$classes_and_styles = StyleAttributesUtils::get_classes_and_styles_by_attributes( $attributes, array(), array( 'extra_classes' ) );
 
@@ -102,7 +98,6 @@ class QuantitySelector extends AbstractBlock {
 				array(
 					'wp-block-add-to-cart-with-options-quantity-selector wc-block-add-to-cart-with-options__quantity-selector',
 					esc_attr( $classes_and_styles['classes'] ),
-					$has_visible_quantity_input ? '' : 'wc-block-add-to-cart-with-options__quantity-selector--hidden',
 				)
 			)
 		);
@@ -164,7 +159,7 @@ class QuantitySelector extends AbstractBlock {
 				)
 			);
 
-			$wrapper_attributes['data-wp-bind--hidden'] = 'woocommerce/add-to-cart-with-options-quantity-selector::!state.allowsQuantityChange';
+			$wrapper_attributes['data-wp-bind--hidden'] = 'woocommerce/product-elements::state.productData.sold_individually';
 			$input_attributes['data-wp-bind--min']      = 'woocommerce/product-elements::state.productData.min';
 			$input_attributes['data-wp-bind--max']      = 'woocommerce/product-elements::state.productData.max';
 			$input_attributes['data-wp-bind--step']     = 'woocommerce/product-elements::state.productData.step';

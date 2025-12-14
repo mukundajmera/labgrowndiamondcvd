@@ -48,7 +48,7 @@ class SingleProductTemplate extends AbstractTemplate {
 	}
 
 	/**
-	 * Run template-specific logic when the query matches this template.
+	 * Renders the default block template from Woo Blocks if no theme templates exist.
 	 */
 	public function render_block_template() {
 		if ( ! is_embed() && is_singular( 'product' ) ) {
