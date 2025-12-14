@@ -3,6 +3,7 @@ declare(strict_types = 1);
 namespace Automattic\WooCommerce\GoogleListingsAndAds\Coupon;
 
 use Automattic\WooCommerce\GoogleListingsAndAds\Exception\InvalidValue;
+use Automattic\WooCommerce\GoogleListingsAndAds\Google\GooglePromotionService;
 use Automattic\WooCommerce\GoogleListingsAndAds\Infrastructure\Service;
 use Automattic\WooCommerce\GoogleListingsAndAds\MerchantCenter\MerchantCenterService;
 use Automattic\WooCommerce\GoogleListingsAndAds\PluginHelper;
@@ -152,7 +153,11 @@ class CouponHelper implements Service, HelperNotificationInterface {
 		$this->meta_handler->update_sync_status( $coupon, SyncStatus::HAS_ERRORS );
 		$this->update_empty_visibility( $coupon );
 
-		// TODO: Update failed sync attempts count in case of internal errors
+		if ( isset( $errors[ GooglePromotionService::INTERNAL_ERROR_CODE ] ) ) {
+			$failed_attempts = $this->meta_handler->get_failed_sync_attempts( $coupon ) ?? 0;
+			$this->meta_handler->update_failed_sync_attempts( $coupon, $failed_attempts + 1 );
+			$this->meta_handler->update_sync_failed_at( $coupon, time() );
+		}
 	}
 
 	/**
