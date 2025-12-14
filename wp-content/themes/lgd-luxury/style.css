@@ -50,6 +50,13 @@ body {
     font-weight: 400;
 }
 
+/* Z-Index fix for Header Mobile Menu */
+.site-header,
+.main-header-bar {
+    position: relative;
+    z-index: 9999;
+}
+
 /* ==========================================================================
    Typography - Headings
    ========================================================================== */
