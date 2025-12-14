@@ -101,24 +101,24 @@ get_header(); ?>
         <!-- SECTION D: CATEGORY MOSAIC -->
         <section class="category-mosaic">
             <div class="mosaic-grid">
-                <div class="mosaic-item large">
+                <a href="<?php echo esc_url( home_url( '/product-category/engagement-rings/' ) ); ?>" class="mosaic-item large">
                     <div class="mosaic-bg" style="background-image: url('<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/images/engagement-rings.jpg');"></div>
                     <div class="mosaic-overlay">
                         <h2 class="mosaic-title">Engagement Rings</h2>
                     </div>
-                </div>
-                <div class="mosaic-item">
+                </a>
+                <a href="<?php echo esc_url( home_url( '/product-category/jewelry/' ) ); ?>" class="mosaic-item">
                     <div class="mosaic-bg" style="background-image: url('<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/images/fine-jewelry.jpg');"></div>
                     <div class="mosaic-overlay">
                         <h2 class="mosaic-title">Fine Jewelry</h2>
                     </div>
-                </div>
-                <div class="mosaic-item">
+                </a>
+                <a href="<?php echo esc_url( home_url( '/shop/' ) ); ?>" class="mosaic-item">
                     <div class="mosaic-bg" style="background-image: url('<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/images/loose-stones.jpg');"></div>
                     <div class="mosaic-overlay">
                         <h2 class="mosaic-title">Loose Stones</h2>
                     </div>
-                </div>
+                </a>
             </div>
         </section>
 
