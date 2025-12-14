@@ -109,6 +109,7 @@ add_action('wp_enqueue_scripts', 'astra_child_enqueue_scripts');
 require_once ASTRA_CHILD_THEME_DIR . '/inc/woocommerce-customizations.php';
 require_once ASTRA_CHILD_THEME_DIR . '/inc/woocommerce-product-customizations.php'; // New Luxury Features
 require_once ASTRA_CHILD_THEME_DIR . '/inc/auto-setup.php'; // Automated Page Setup
+require_once ASTRA_CHILD_THEME_DIR . '/inc/diamond-inventory-db.php';
 require_once ASTRA_CHILD_THEME_DIR . '/inc/b2b-portal.php';
 require_once ASTRA_CHILD_THEME_DIR . '/inc/diamond-filters.php';
 require_once ASTRA_CHILD_THEME_DIR . '/inc/custom-post-types.php';

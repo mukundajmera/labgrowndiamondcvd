@@ -331,27 +331,62 @@ function astra_child_handle_csv_upload() {
         wp_send_json_error( array( 'message' => __( 'B2B approval required.', 'astra-child-diamond' ) ) );
     }
     
-    if ( ! isset( $_FILES['csv_file'] ) ) {
-        wp_send_json_error( array( 'message' => __( 'No file uploaded.', 'astra-child-diamond' ) ) );
+    // File upload validation
+    if ( ! isset( $_FILES['csv_file'] ) || $_FILES['csv_file']['error'] !== UPLOAD_ERR_OK ) {
+        wp_send_json_error( array( 'message' => __( 'File upload failed.', 'astra-child-diamond' ) ) );
+    }
+
+    // Size limit check (e.g., 2MB)
+    $max_size = 2 * 1024 * 1024;
+    if ( $_FILES['csv_file']['size'] > $max_size ) {
+        wp_send_json_error( array( 'message' => __( 'File size too large (Max 2MB).', 'astra-child-diamond' ) ) );
+    }
+
+    // Validate MIME type
+    $allowed_mimes = array( 'text/plain', 'text/csv', 'text/x-csv', 'application/vnd.ms-excel', 'application/csv', 'application/x-csv' );
+    $file_path = $_FILES['csv_file']['tmp_name'];
+
+    if ( function_exists( 'finfo_open' ) ) {
+        $finfo = finfo_open( FILEINFO_MIME_TYPE );
+        $mime_type = finfo_file( $finfo, $file_path );
+        finfo_close( $finfo );
+    } else {
+        $mime_type = $_FILES['csv_file']['type'];
+    }
+
+    // Strict MIME check or fallback to extension check if MIME detection fails
+    $file_ext = strtolower( pathinfo( $_FILES['csv_file']['name'], PATHINFO_EXTENSION ) );
+
+    if ( ! in_array( $mime_type, $allowed_mimes ) && $file_ext !== 'csv' && $file_ext !== 'txt' ) {
+         wp_send_json_error( array( 'message' => __( 'Invalid file type. Please upload a CSV.', 'astra-child-diamond' ) ) );
     }
     
     // Process CSV file
-    $file = $_FILES['csv_file']['tmp_name'];
-    $handle = fopen( $file, 'r' );
+    $handle = fopen( $file_path, 'r' );
+    if ( $handle === false ) {
+        wp_send_json_error( array( 'message' => __( 'Could not open file.', 'astra-child-diamond' ) ) );
+    }
     
     $products = array();
     $row = 0;
+    $max_rows = 1000; // Prevent DoS
     
     while ( ( $data = fgetcsv( $handle ) ) !== false ) {
         $row++;
         if ( $row === 1 ) continue; // Skip header
+        if ( $row > $max_rows ) break;
         
         // Expected format: SKU, Quantity
         if ( count( $data ) >= 2 ) {
-            $products[] = array(
-                'sku' => $data[0],
-                'quantity' => intval( $data[1] )
-            );
+            $sku = sanitize_text_field( $data[0] );
+            $qty = intval( $data[1] );
+
+            if ( ! empty( $sku ) && $qty > 0 ) {
+                $products[] = array(
+                    'sku' => $sku,
+                    'quantity' => $qty
+                );
+            }
         }
     }
     
