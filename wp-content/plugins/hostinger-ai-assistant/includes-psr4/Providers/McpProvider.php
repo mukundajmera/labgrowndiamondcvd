@@ -8,7 +8,6 @@ use Hostinger\AiAssistant\Mcp\Abilities\AbilitiesRegistry;
 use Hostinger\AiAssistant\Mcp\Hooks;
 use Hostinger\AiAssistant\Mcp\McpServer;
 use Hostinger\AiAssistant\Mcp\Rest\JwtAuth;
-use Hostinger\AiAssistant\Mcp\Rest\ToggleMcp;
 
 if ( ! defined( 'ABSPATH' ) ) {
     die;
@@ -16,13 +15,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class McpProvider implements ProviderInterface {
     public function register( Container $container ): void {
-        $toggle_mcp = $container->get( ToggleMcp::class );
-        $toggle_mcp->init();
-
-        if ( ! Functions::is_mcp_enabled() ) {
-            return;
-        }
-
         $jwt_auth = $container->get( JwtAuth::class );
         $jwt_auth->init();
 

@@ -164,12 +164,7 @@ class CartProductsHelper
             $variations[$value['name']] = $value['value'];
         }
         $variation_id = $this->product_data_store->find_matching_product_variation($product, $variations);
-        if ($variation_id) {
-            $variation = wc_get_product($variation_id);
-            if ($variation && !$variation->is_in_stock()) {
-                return false;
-            }
-        }
+        // ToDo: Check stock status for variation.
         $cart_item_key = $this->cart->add_to_cart($product->get_id(), $quantity, $variation_id, $variations);
         if ($cart_item_key) {
             $this->cart_item_keys[] = $cart_item_key;

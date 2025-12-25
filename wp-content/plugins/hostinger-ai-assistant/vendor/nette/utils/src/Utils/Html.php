@@ -234,17 +234,17 @@ use const ENT_HTML5, ENT_NOQUOTES, ENT_QUOTES;
 class Html implements \ArrayAccess, \Countable, \IteratorAggregate, HtmlStringable
 {
 	/** @var array<string, mixed>  element's attributes */
-	public $attrs = [];
+	public array $attrs = [];
 
 	/** void elements */
-	public static $emptyElements = [
+	public static array $emptyElements = [
 		'img' => 1, 'hr' => 1, 'br' => 1, 'input' => 1, 'meta' => 1, 'area' => 1, 'embed' => 1, 'keygen' => 1,
 		'source' => 1, 'base' => 1, 'col' => 1, 'link' => 1, 'param' => 1, 'basefont' => 1, 'frame' => 1,
 		'isindex' => 1, 'wbr' => 1, 'command' => 1, 'track' => 1,
 	];
 
 	/** @var array<int, HtmlStringable|string> nodes */
-	protected $children = [];
+	protected array $children = [];
 
 	/** element's name */
 	private string $name = '';
@@ -531,7 +531,7 @@ class Html implements \ArrayAccess, \Countable, \IteratorAggregate, HtmlStringab
 	/**
 	 * Sets element's HTML content.
 	 */
-	final public function setHtml(HtmlStringable|string $html): static
+	final public function setHtml(mixed $html): static
 	{
 		$this->children = [(string) $html];
 		return $this;
@@ -550,7 +550,7 @@ class Html implements \ArrayAccess, \Countable, \IteratorAggregate, HtmlStringab
 	/**
 	 * Sets element's textual content.
 	 */
-	final public function setText(\Stringable|string $text): static
+	final public function setText(mixed $text): static
 	{
 		if (!$text instanceof HtmlStringable) {
 			$text = htmlspecialchars((string) $text, ENT_NOQUOTES, 'UTF-8');

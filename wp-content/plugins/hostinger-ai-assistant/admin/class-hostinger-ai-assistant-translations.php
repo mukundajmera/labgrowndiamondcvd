@@ -37,12 +37,6 @@ class Hostinger_Frontend_Translations {
             'set_as_content'     => __( 'Insert this image inside content', 'hostinger-ai-assistant' ),
         );
 
-        /* translators: %s: MCP plugin name */
-        $mcp_subtitle    = __( 'To let Kodee manage your site on your behalf, we will install and pre-configure the %s for you. This allows Kodee to perform actions like creating pages or updating settings. You can revoke this permission at any time in your Hostinger Tools settings.', 'hostinger-ai-assistant' );
-        $mcp_plugin_name = '<b>' . __( 'WordPress MCP plugin', 'hostinger-ai-assistant' ) . '</b>';
-        $mcp_subtitle    = sprintf( $mcp_subtitle, $mcp_plugin_name );
-        $mcp_subtitle    = strip_tags( $mcp_subtitle, '<b>' );
-
         $this->chatbot_translations = array(
             'main'            => array(
                 'intro'                                       => __( 'Hi, I\'m Kodee, your personal AI assistant. You can ask me any questions you have regarding WordPress. I\'m still learning, so sometimes can make mistakes. What questions do you have?', 'hostinger-ai-assistant' ),
@@ -109,12 +103,6 @@ class Hostinger_Frontend_Translations {
                 'unavailable'      => __( 'Sorry, the AI Chatbot is currently unavailable. Please try again later.', 'hostinger-ai-assistant' ),
                 'timeout'          => __( 'Sorry, the AI Chatbot request timed out. Please try again later.', 'hostinger-ai-assistant' ),
                 'unclear_question' => __( 'I\'m sorry, I didn\'t understand your question. Could you please rephrase it or ask something different?', 'hostinger-ai-assistant' ),
-            ),
-            'mcp-modal'       => array(
-                'title'    => __( 'Allow Kodee to manage your site', 'hostinger-ai-assistant' ),
-                'subtitle' => $mcp_subtitle,
-                'deny'     => __( 'No, thanks', 'hostinger-ai-assistant' ),
-                'accept'   => __( 'Grant Permission', 'hostinger-ai-assistant' ),
             ),
             'suggestions'     => array(
                 'wpAddPage'            => array(

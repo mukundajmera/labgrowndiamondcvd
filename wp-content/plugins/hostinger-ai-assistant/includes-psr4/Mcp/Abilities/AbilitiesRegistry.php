@@ -4,6 +4,7 @@ namespace Hostinger\AiAssistant\Mcp\Abilities;
 
 use Hostinger\AiAssistant\Mcp\Abilities\Tools\CategoriesTools;
 use Hostinger\AiAssistant\Mcp\Abilities\Tools\CustomPostTypesTools;
+use Hostinger\AiAssistant\Mcp\Abilities\Tools\ElementorTools;
 use Hostinger\AiAssistant\Mcp\Abilities\Tools\HostingerPluginTools;
 use Hostinger\AiAssistant\Mcp\Abilities\Tools\LiteSpeedCacheTools;
 use Hostinger\AiAssistant\Mcp\Abilities\Tools\MediaTools;
@@ -40,6 +41,7 @@ class AbilitiesRegistry {
         WooOrdersTools::class,
         HostingerPluginTools::class,
         LiteSpeedCacheTools::class,
+        ElementorTools::class,
     );
 
     private array $resources = array(

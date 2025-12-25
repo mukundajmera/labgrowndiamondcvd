@@ -209,6 +209,12 @@ abstract class RestEndpointTool {
                     $property['items']['properties'] = $this->filter_complex_types_from_properties( $property['items']['properties'] );
                 }
 
+                if ( $property['type'] === 'array' && empty( $property['items'] ) ) {
+                    $property['items'] = array(
+                        'type' => 'string',
+                    );
+                }
+
                 $properties[ $key ] = $property;
             }
         }
@@ -306,6 +312,10 @@ abstract class RestEndpointTool {
                 if ( $key === 'meta_data' ) {
                     $property['items']['properties'] = $this->filter_complex_types_from_properties( $property['items']['properties'] );
                 }
+            }
+
+            if ( isset( $property['properties'] ) && is_array( $property['properties'] ) && $key === 'meta' ) {
+                $property['properties'] = $this->filter_complex_types_from_properties( $property['properties'] );
             }
 
             if ( isset( $property['properties'] ) && is_array( $property['properties'] ) && empty( $property['properties'] ) ) {

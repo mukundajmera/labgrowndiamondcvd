@@ -3,7 +3,7 @@
         'name' => '__root__',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'cc133749577561c22cec39ae3569c874eb533665',
+        'reference' => 'c83e0e23d3644224095d067033e6266a0b0cca3c',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         '__root__' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'cc133749577561c22cec39ae3569c874eb533665',
+            'reference' => 'c83e0e23d3644224095d067033e6266a0b0cca3c',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -38,18 +38,27 @@
             'dev_requirement' => false,
         ),
         'alleyinteractive/wp-block-converter' => array(
-            'pretty_version' => 'v1.6.0',
-            'version' => '1.6.0.0',
-            'reference' => '6d7c381545c93ca5d6398fa48cebac94d9aa337b',
+            'pretty_version' => 'v1.8.2',
+            'version' => '1.8.2.0',
+            'reference' => '11cafa2898cbe35f1984347ff58a75fb0f7c50c8',
             'type' => 'library',
             'install_path' => __DIR__ . '/../alleyinteractive/wp-block-converter',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'alleyinteractive/wp-bulk-task' => array(
+            'pretty_version' => 'v1.1.0',
+            'version' => '1.1.0.0',
+            'reference' => '527702212f7a847f51e6bbc56a6146a15ee780b2',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../alleyinteractive/wp-bulk-task',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
         'automattic/jetpack-autoloader' => array(
             'pretty_version' => 'dev-trunk',
             'version' => 'dev-trunk',
-            'reference' => '36bda1b09f11ed4c5cac294cff78e6141a7782e8',
+            'reference' => '93ee25013a9c765ab3504e23e4b87f1a6d939880',
             'type' => 'composer-plugin',
             'install_path' => __DIR__ . '/../automattic/jetpack-autoloader',
             'aliases' => array(
@@ -161,11 +170,11 @@
         'league/commonmark' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '6fbb36d44824ed4091adbcf4c7d4a3923cdb3405',
+            'reference' => '4efa10c1e56488e658d10adf7b7b7dcd19940bfb',
             'type' => 'library',
             'install_path' => __DIR__ . '/../league/commonmark',
             'aliases' => array(
-                0 => '2.8.x-dev',
+                0 => '2.9.x-dev',
             ),
             'dev_requirement' => false,
         ),
@@ -183,7 +192,7 @@
         'league/uri' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '3ce3c19061dd78ea1ca2269a7bcdefadd51dce27',
+            'reference' => '9a2eaf6d630b606745f62dd42f562afef2952da1',
             'type' => 'library',
             'install_path' => __DIR__ . '/../league/uri',
             'aliases' => array(
@@ -194,7 +203,7 @@
         'league/uri-interfaces' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'ccbfb51c0445298e7e0b7f4481b942f589665368',
+            'reference' => 'c51db05c6ff47f66ab01fa7cb588ef044ab6bbcf',
             'type' => 'library',
             'install_path' => __DIR__ . '/../league/uri-interfaces',
             'aliases' => array(
@@ -214,7 +223,7 @@
         'mantle-framework/support' => array(
             'pretty_version' => '1.x-dev',
             'version' => '1.9999999.9999999.9999999-dev',
-            'reference' => '93142bbb574f71a57643c3b0459c3e3c5b5cc563',
+            'reference' => 'a55d8e7fa9a31cc33c6a75103a64bf6ed9b6deb9',
             'type' => 'library',
             'install_path' => __DIR__ . '/../mantle-framework/support',
             'aliases' => array(),
@@ -241,7 +250,7 @@
         'nesbot/carbon' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '3302bf5ce479c3b0533a9ecf64a1b935d9d96eed',
+            'reference' => 'fc984f8f25f7e71bbffe1a8f657893db1977d84e',
             'type' => 'library',
             'install_path' => __DIR__ . '/../nesbot/carbon',
             'aliases' => array(
@@ -261,7 +270,7 @@
         'nette/utils' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '0a8ad30f966c6be80b08d8f05cb5718f804401c5',
+            'reference' => 'baa7cb7cb24338cc015229b207573c8cdc3388a3',
             'type' => 'library',
             'install_path' => __DIR__ . '/../nette/utils',
             'aliases' => array(
@@ -370,7 +379,7 @@
         'ramsey/uuid' => array(
             'pretty_version' => '4.x-dev',
             'version' => '4.9999999.9999999.9999999-dev',
-            'reference' => 'cd47a01a1f7c9f54b34b06ec53148a80dc5fe181',
+            'reference' => '8429c78ca35a09f27565311b98101e2826affde0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../ramsey/uuid',
             'aliases' => array(),
@@ -412,9 +421,9 @@
             'dev_requirement' => false,
         ),
         'symfony/dom-crawler' => array(
-            'pretty_version' => '7.4.x-dev',
-            'version' => '7.4.9999999.9999999-dev',
-            'reference' => '8f3e7464fe7e77294686e935956a6a8ccf7442c4',
+            'pretty_version' => '7.3.x-dev',
+            'version' => '7.3.9999999.9999999-dev',
+            'reference' => 'efa076ea0eeff504383ff0dcf827ea5ce15690ba',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/dom-crawler',
             'aliases' => array(),
@@ -468,7 +477,7 @@
         'symfony/translation' => array(
             'pretty_version' => '7.4.x-dev',
             'version' => '7.4.9999999.9999999-dev',
-            'reference' => '2f2de9fa0b9221d663f8bedc9e541fbc489c0f26',
+            'reference' => '2d01ca0da3f092f91eeedb46f24aa30d2fca8f68',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/translation',
             'aliases' => array(),
@@ -477,7 +486,7 @@
         'symfony/translation-contracts' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '65a8bc82080447fae78373aa10f8d13b38338977',
+            'reference' => 'fc01d96846c98ec203048217b00a05dffbc84fce',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/translation-contracts',
             'aliases' => array(

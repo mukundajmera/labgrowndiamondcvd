@@ -60,11 +60,6 @@ const toggleCheck = (integrationId: string, formId: string, checked: boolean): v
 	}
 };
 
-const hasAllChecked = (integration: Integration): boolean =>
-	selected[integration.id]?.size === Object.keys(getForms(integration)).length;
-
-const isEmpty = (integration: Integration): boolean => selected[integration.id]?.size === 0;
-
 const isChecked = (integrationId: string, formId: string): boolean => selected[integrationId]?.has(formId) ?? false;
 
 const getForms = (integration: Integration): ImportSummary | [] => integration.importStatus?.summary ?? [];
@@ -93,6 +88,7 @@ onMounted(() => {
 				@click="handleBackClick"
 			>
 				<HIcon name="ic-chevron-left-16" color="neutral--600" />
+				{{ translate('hostinger_reach_contacts_modal_back') }}
 			</button>
 		</template>
 
@@ -108,17 +104,6 @@ onMounted(() => {
 						</div>
 						<div class="modal__integration-forms">
 							<div class="modal__forms-row modal__forms-heading">
-								<div class="modal__forms-col">
-									<HCheckbox
-										tabindex="0"
-										:label="translate('hostinger_reach_forms_title')"
-										aria-label="Check all forms"
-										color="primary"
-										:checked="hasAllChecked(integration)"
-										:indeterminate="!isEmpty(integration) && !hasAllChecked(integration)"
-										@change="toggleAll(integration, !hasAllChecked(integration))"
-									/>
-								</div>
 								<div class="modal__forms-col">
 									<HText variant="body-2-bold" as="span">
 										{{ translate('hostinger_reach_contacts_contacts_to_sync') }}

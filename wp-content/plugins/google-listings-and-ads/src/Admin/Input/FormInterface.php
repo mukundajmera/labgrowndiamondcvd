@@ -45,17 +45,6 @@ interface FormInterface {
 	public function set_name( string $name ): FormInterface;
 
 	/**
-	 * Validate the form data.
-	 *
-	 * @param mixed $data
-	 *
-	 * @return void
-	 *
-	 * @throws \Exception
-	 */
-	public function validate( $data ): void;
-
-	/**
 	 * Submit the form.
 	 *
 	 * @param array $submitted_data

@@ -1,93 +1,99 @@
-# Copyright (C) 2024 Hostinger
-# This file is distributed under the GPL-2.0+.
 msgid ""
 msgstr ""
 "Project-Id-Version: Hostinger AI 2.0.13\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/hostinger-ai-"
-"assistant\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/hostinger-ai-assistant\n"
 "Last-Translator: \n"
 "Language-Team: Vietnamese\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2024-08-19T12:02:35+00:00\n"
-"PO-Revision-Date: 2025-11-18 07:59+0000\n"
+"PO-Revision-Date: 2025-12-16 08:19+0000\n"
+"Language: vi\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: hostinger-ai-assistant\n"
-"Language: vi\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Loco-Version: 2.8.0; wp-6.8.2; php-8.2.29"
+"X-Loco-Version: 2.8.0; wp-6.8.2; php-8.2.29\n"
+
+#: includes-psr4/Mcp/Abilities/AbilitiesRegistry.php:76
+#, fuzzy
+msgid "Abilities that provide a way of interacting with WordPress site."
+msgstr "Các tính năng cho phép tương tác với trang web WordPress."
 
 #: includes/class-hostinger-ai-assistant-errors.php:14
 msgid "Action Failed. Try again or contact support. Apologies."
 msgstr "Hành động thất bại. Vui lòng thử lại hoặc liên hệ hỗ trợ. Rất xin lỗi."
 
-#: admin/class-hostinger-ai-assistant-translations.php:66
+#: admin/class-hostinger-ai-assistant-translations.php:60
 msgid "Active"
 msgstr "Hoạt động"
 
-#: admin/class-hostinger-ai-assistant-translations.php:119
+#: admin/class-hostinger-ai-assistant-translations.php:111
 #, fuzzy
 msgid "Add a new page to my WordPress website"
 msgstr "Thêm một trang mới vào trang web WordPress của tôi"
 
-#: admin/class-hostinger-ai-assistant-translations.php:139
+#: admin/class-hostinger-ai-assistant-translations.php:131
 #, fuzzy
 msgid "Add a new post to my WordPress website"
 msgstr "Thêm một bài viết mới vào trang web WordPress của tôi"
 
-#: admin/class-hostinger-ai-assistant-translations.php:163
+#: admin/class-hostinger-ai-assistant-translations.php:155
 #, fuzzy
 msgid "Add a new product to your WooCommerce store"
 msgstr "Thêm sản phẩm mới vào cửa hàng WooCommerce của bạn"
 
-#: admin/class-hostinger-ai-assistant-translations.php:162
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:182
+#, fuzzy
+msgid "Add a new WordPress custom post type post"
+msgstr "Thêm một bài viết mới thuộc loại bài viết tùy chỉnh WordPress"
+
+#: admin/class-hostinger-ai-assistant-translations.php:154
 #, fuzzy
 msgid "Add a product"
 msgstr "Thêm sản phẩm"
 
-#: admin/class-hostinger-ai-assistant-translations.php:167
+#: admin/class-hostinger-ai-assistant-translations.php:159
 #, fuzzy
 msgid "Add a product category"
 msgstr "Thêm một danh mục sản phẩm"
 
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:448
-msgid "Add an image inside my content"
-msgstr "Thêm hình ảnh vào nội dung của tôi"
-
-#: admin/class-hostinger-ai-assistant-translations.php:137
+#: admin/class-hostinger-ai-assistant-translations.php:129
 #, fuzzy
 msgid "Add blog post"
 msgstr "Thêm bài viết blog"
 
-#: admin/class-hostinger-ai-assistant-translations.php:117
+#: admin/class-hostinger-ai-assistant-translations.php:74
+#, fuzzy
+msgid "Add Comment"
+msgstr "Thêm bình luận"
+
+#: admin/class-hostinger-ai-assistant-translations.php:109
 #, fuzzy
 msgid "Add WordPress page"
 msgstr "Thêm trang WordPress"
 
-#: admin/class-hostinger-ai-assistant-translations.php:90
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:313
+#, fuzzy
+msgid "Advanced users willing to test and exclude items"
+msgstr "Người dùng nâng cao sẵn sàng thử nghiệm và loại trừ các mục"
+
+#: admin/class-hostinger-ai-assistant-translations.php:88
 msgid "After clearing history you won't be able to access previous chats."
-msgstr ""
-"Sau khi xóa lịch sử, bạn sẽ không thể truy cập vào các cuộc trò chuyện trước "
-"đó."
+msgstr "Sau khi xóa lịch sử, bạn sẽ không thể truy cập vào các cuộc trò chuyện trước đó."
 
-#: admin/class-hostinger-ai-assistant-translations.php:95
-msgid ""
-"After starting new chat, you will be able to access previous chats from the "
-"history."
-msgstr ""
-"Sau khi bắt đầu cuộc trò chuyện mới, bạn có thể truy cập các cuộc trò chuyện "
-"trước đó từ lịch sử."
+#: admin/class-hostinger-ai-assistant-translations.php:93
+msgid "After starting new chat, you will be able to access previous chats from the history."
+msgstr "Sau khi bắt đầu cuộc trò chuyện mới, bạn có thể truy cập các cuộc trò chuyện trước đó từ lịch sử."
 
-#: admin/class-hostinger-ai-assistant-admin.php:178
-#: admin/class-hostinger-ai-assistant-admin.php:179
-#: admin/class-hostinger-ai-assistant-admin.php:192
+#: admin/class-hostinger-ai-assistant-admin.php:144
+#: admin/class-hostinger-ai-assistant-admin.php:145
+#: admin/class-hostinger-ai-assistant-admin.php:158
 #: admin/partials/hostinger-ai-assistant-tab-view.php:24
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/index.js:10
 msgid "AI Content Creator"
 msgstr "Trình tạo nội dung AI"
 
-#: admin/class-hostinger-ai-assistant-translations.php:58
+#: admin/class-hostinger-ai-assistant-translations.php:52
 msgid "AI may produce inaccurate information"
 msgstr "AI có thể tạo thông tin không chính xác"
 
@@ -95,63 +101,96 @@ msgstr "AI có thể tạo thông tin không chính xác"
 msgid "AI-generated image"
 msgstr "Hình ảnh được tạo bởi AI"
 
-#: admin/class-hostinger-ai-assistant-translations.php:110
-msgid "Allow Kodee to manage your site"
-msgstr "Cho phép Kodee quản lý trang web của bạn"
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:217
+#, fuzzy
+msgid "All LiteSpeed caches have been purged successfully."
+msgstr "Tất cả các bộ nhớ đệm LiteSpeed đã được xóa thành công."
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:249
+#, fuzzy
+msgid "All websites, new users, simple websites, or cache-oriented development"
+msgstr "Tất cả các trang web, người dùng mới, trang web đơn giản hoặc phát triển hướng đến bộ nhớ đệm"
 
 #: includes/class-hostinger-ai-assistant-errors.php:17
 msgid "An unexpected error occurred. Please try again or contact support."
-msgstr ""
-"Đã xảy ra lỗi không xác định. Xin vui lòng thử lại hoặc liên hệ hỗ trợ."
+msgstr "Đã xảy ra lỗi không xác định. Xin vui lòng thử lại hoặc liên hệ hỗ trợ."
+
+#: includes-psr4/Mcp/McpServer.php:64
+#, fuzzy
+msgid "API key required"
+msgstr "Yêu cầu khóa API"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:120
+#, fuzzy
+msgid "Apply a predefined optimization preset to LiteSpeed Cache settings. Available presets: basic (minimal optimization), advanced (balanced), aggressive (more optimization), essentials (core features), extreme (maximum optimization). A backup of current settings will be created automatically."
+msgstr "Áp dụng bộ cài đặt tối ưu hóa có sẵn cho cài đặt LiteSpeed Cache. Các bộ cài đặt có sẵn: cơ bản (tối ưu hóa tối thiểu), nâng cao (cân bằng), mạnh mẽ (tối ưu hóa cao hơn), cơ bản (tính năng cốt lõi), cực đoan (tối ưu hóa tối đa). Bản sao lưu của cài đặt hiện tại sẽ được tạo tự động."
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:119
+#, fuzzy
+msgid "Apply LiteSpeed Cache Preset"
+msgstr "Áp dụng cài đặt sẵn bộ nhớ đệm LiteSpeed"
 
 #: admin/partials/hostinger-ai-assistant-tab-view.php:244
 msgid "Are you sure you want to replace your existing content with a new one ?"
 msgstr "Bạn có chắc chắn muốn thay thế nội dung hiện có bằng nội dung mới?"
 
-#: admin/class-hostinger-ai-assistant-translations.php:59
+#: admin/class-hostinger-ai-assistant-translations.php:53
 msgid "Ask Kodee"
 msgstr "Hỏi Kodee"
 
-#. translators: %s: PHP version
-#: admin/class-hostinger-ai-assistant-notices.php:22
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:293
+#, fuzzy
+msgid "Asynchronous CSS Loading with Critical CSS"
+msgstr "Tải CSS không đồng bộ với CSS quan trọng"
+
+#. %s: PHP version
 #: hostinger-ai-assistant.php:131
+#: admin/class-hostinger-ai-assistant-notices.php:22
 msgid "Attention:"
 msgstr "Chú ý:"
 
-#: includes/mcp/class-hostinger-ai-assistant-mcp-jwt-auth.php:224
+#: admin/class-hostinger-ai-assistant-translations.php:72
 #, fuzzy
-msgid ""
-"Authentication required. Please provide a Bearer token or log in as an "
-"administrator."
-msgstr ""
-"Yêu cầu xác thực. Vui lòng cung cấp token Bearer hoặc đăng nhập với tư cách "
-"quản trị viên."
+msgid "Bad response"
+msgstr "Phản hồi không tốt"
 
 #: admin/partials/hostinger-ai-assistant-tab-view.php:139
 msgid "Balances depth and readability, engaging audiences and driving leads."
-msgstr ""
-"Cân bằng giữa chiều sâu và khả năng đọc, hấp dẫn người đọc và thu hút truy "
-"cập."
+msgstr "Cân bằng giữa chiều sâu và khả năng đọc, hấp dẫn người đọc và thu hút truy cập."
 
 #: admin/partials/hostinger-ai-assistant-tab-view.php:205
 msgid "Brewing content with magic"
 msgstr "Pha chế nội dung với phép thuật"
 
-#: admin/class-hostinger-ai-assistant-translations.php:91
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:247
+#, fuzzy
+msgid "Browser Cache"
+msgstr "Bộ nhớ đệm trình duyệt"
+
+#: includes-psr4/Mcp/Abilities/Tools/HostingerPluginTools.php:69
+#, fuzzy
+msgid "Bypass code for maintenance mode"
+msgstr "Mã bỏ qua cho chế độ bảo trì"
+
+#: includes-psr4/Mcp/Abilities/Tools/HostingerPluginTools.php:187
+#, fuzzy
+msgid "Bypass code for maintenance mode. Needed only when maintenance mode is enabled."
+msgstr "Mã bỏ qua cho chế độ bảo trì. Chỉ cần thiết khi chế độ bảo trì được kích hoạt."
+
+#: admin/class-hostinger-ai-assistant-translations.php:89
 #: admin/partials/hostinger-ai-assistant-tab-view.php:251
 msgid "Cancel"
 msgstr "Hủy"
 
-#: admin/class-hostinger-ai-assistant-translations.php:64
+#: admin/class-hostinger-ai-assistant-translations.php:58
 msgid "Cannot restart the chat when Kodee is responding"
 msgstr "Không thể khởi động lại cuộc trò chuyện khi Kodee đang trả lời"
 
-#: admin/class-hostinger-ai-assistant-translations.php:53
+#: admin/class-hostinger-ai-assistant-translations.php:47
 msgid "Cannot restart the chat when talking with the agent"
-msgstr ""
-"Không thể khởi động lại cuộc trò chuyện khi đang trò chuyện với nhân viên"
+msgstr "Không thể khởi động lại cuộc trò chuyện khi đang trò chuyện với nhân viên"
 
-#: admin/class-hostinger-ai-assistant-translations.php:65
+#: admin/class-hostinger-ai-assistant-translations.php:59
 msgid "Cannot start a new chat when Kodee is responding"
 msgstr "Không thể bắt đầu một cuộc trò chuyện mới khi Kodee đang trả lời"
 
@@ -171,27 +210,22 @@ msgstr "Chọn loại nôi dung sẽ tạo"
 msgid "Choose your desired emotional impact on readers"
 msgstr "Chọn cảm xúc bạn muốn tác động đến người đọc "
 
-#: admin/class-hostinger-ai-assistant-translations.php:89
-#: admin/class-hostinger-ai-assistant-translations.php:92
+#: admin/class-hostinger-ai-assistant-translations.php:87
+#: admin/class-hostinger-ai-assistant-translations.php:90
 msgid "Clear chat"
 msgstr "Xóa trò chuyện"
 
 #: admin/partials/hostinger-ai-assistant-tab-view.php:247
-msgid ""
-"Clicking <b>Generate new content</b> will permanently delete your existing "
-"content and generate a new one on your recent inputs."
-msgstr ""
-"Nhấp <b>Tạo nội dung mới</b> sẽ xóa vĩnh viễn nội dung hiện có và tạo nội "
-"dung mới dựa theo những gì bạn vừa nhập."
+msgid "Clicking <b>Generate new content</b> will permanently delete your existing content and generate a new one on your recent inputs."
+msgstr "Nhấp <b>Tạo nội dung mới</b> sẽ xóa vĩnh viễn nội dung hiện có và tạo nội dung mới dựa theo những gì bạn vừa nhập."
 
-#: admin/class-hostinger-ai-assistant-translations.php:55
-#: admin/class-hostinger-ai-assistant-translations.php:102
+#: admin/class-hostinger-ai-assistant-translations.php:49
+#: admin/class-hostinger-ai-assistant-translations.php:100
 msgid "Close"
 msgstr "Đóng"
 
 #: admin/partials/hostinger-ai-assistant-tab-view.php:121
 #: includes/woocommerce/class-hostinger-ai-assistant-product-ai-metabox.php:77
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:431
 msgid "Content length"
 msgstr "Độ dài nội dung"
 
@@ -203,44 +237,118 @@ msgstr "Ý chính nội dung"
 msgid "Content Type"
 msgstr "Loại nội dung"
 
-#: admin/class-hostinger-ai-assistant-translations.php:74
+#: admin/class-hostinger-ai-assistant-translations.php:68
 msgid "Conversation was closed"
 msgstr "Cuộc trò chuyện đã đóng"
 
-#: admin/class-hostinger-ai-assistant-translations.php:168
+#: includes-psr4/Mcp/Abilities/Tools/SettingsTools.php:65
+#, fuzzy
+msgid "Convert emoticons to graphics"
+msgstr "Chuyển đổi biểu tượng cảm xúc thành hình ảnh"
+
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:283
+#, fuzzy
+msgid "Could not determine file type"
+msgstr "Không thể xác định loại tệp"
+
+#: admin/class-hostinger-ai-assistant-translations.php:160
 #, fuzzy
 msgid "Create a new product category in WooCommerce"
 msgstr "Tạo một danh mục sản phẩm mới trong WooCommerce"
 
-#: admin/class-hostinger-ai-assistant-translations.php:169
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:235
+#, fuzzy
+msgid "Create a new WooCommerce product brand. Requires name."
+msgstr "Tạo một thương hiệu sản phẩm WooCommerce mới. Yêu cầu tên."
+
+#: admin/class-hostinger-ai-assistant-translations.php:161
 #, fuzzy
 msgid "Create a new WooCommerce product category for my store"
 msgstr "Tạo một danh mục sản phẩm mới cho cửa hàng WooCommerce của tôi"
 
-#: admin/class-hostinger-ai-assistant-translations.php:164
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:100
+#, fuzzy
+msgid "Create a new WooCommerce product category. Requires name."
+msgstr "Tạo một danh mục sản phẩm mới cho WooCommerce. Yêu cầu tên."
+
+#: admin/class-hostinger-ai-assistant-translations.php:156
 #, fuzzy
 msgid "Create a new WooCommerce product for my store"
 msgstr "Tạo một sản phẩm WooCommerce mới cho cửa hàng của tôi"
 
-#: admin/class-hostinger-ai-assistant-translations.php:178
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:167
+#, fuzzy
+msgid "Create a new WooCommerce product tag. Requires name."
+msgstr "Tạo thẻ sản phẩm mới cho WooCommerce. Yêu cầu tên."
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:42
+#, fuzzy
+msgid "Create a new WooCommerce product. Requires name and other product details."
+msgstr "Tạo sản phẩm mới trên WooCommerce. Yêu cầu tên và các thông tin khác của sản phẩm."
+
+#: includes-psr4/Mcp/Abilities/Tools/PagesTools.php:40
+#, fuzzy
+msgid "Create a new WordPress page. Requires title and content."
+msgstr "Tạo một trang WordPress mới. Yêu cầu tiêu đề và nội dung."
+
+#: includes-psr4/Mcp/Abilities/Tools/CategoriesTools.php:40
+#, fuzzy
+msgid "Create a new WordPress post category. Requires a name."
+msgstr "Tạo một danh mục bài viết mới trên WordPress. Yêu cầu nhập tên."
+
+#: includes-psr4/Mcp/Abilities/Tools/TagsTools.php:40
+#, fuzzy
+msgid "Create a new WordPress post tag. Requires a name."
+msgstr "Tạo thẻ bài viết mới cho WordPress. Yêu cầu nhập tên."
+
+#: includes-psr4/Mcp/Abilities/Tools/PostsTools.php:40
+#, fuzzy
+msgid "Create a new WordPress post. Requires title and content."
+msgstr "Tạo một bài viết mới trên WordPress. Yêu cầu tiêu đề và nội dung."
+
+#: includes-psr4/Mcp/Abilities/Tools/UsersTools.php:58
+#, fuzzy
+msgid "Create a new WordPress user. Requires username and email."
+msgstr "Tạo một người dùng WordPress mới. Yêu cầu tên người dùng và địa chỉ email."
+
+#: admin/class-hostinger-ai-assistant-translations.php:170
 #, fuzzy
 msgid "Create a WooCommerce sales report for a chosen period"
 msgstr "Tạo báo cáo doanh số WooCommerce cho khoảng thời gian đã chọn"
 
-#: admin/class-hostinger-ai-assistant-translations.php:118
+#: admin/class-hostinger-ai-assistant-translations.php:110
 #, fuzzy
 msgid "Create and publish a new page on your WordPress site"
 msgstr "Tạo và đăng một trang mới trên trang web WordPress của bạn"
 
-#: admin/class-hostinger-ai-assistant-translations.php:138
+#: admin/class-hostinger-ai-assistant-translations.php:130
 #, fuzzy
 msgid "Create and publish a new post on your WordPress site"
 msgstr "Tạo và đăng một bài viết mới trên trang WordPress của bạn"
 
+#: includes-psr4/Mcp/Abilities/Tools/CategoriesTools.php:39
+#, fuzzy
+msgid "Create Category"
+msgstr "Tạo danh mục"
+
 #: admin/partials/hostinger-ai-assistant-tab-view.php:195
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:461
 msgid "Create content"
 msgstr "Tạo nội dung"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:181
+#, fuzzy
+msgid "Create Custom Post Type Post"
+msgstr "Tạo loại bài viết tùy chỉnh"
+
+#: includes-psr4/Mcp/Abilities/Tools/PagesTools.php:39
+#, fuzzy
+msgid "Create Page"
+msgstr "Tạo trang"
+
+#: includes-psr4/Mcp/Abilities/Tools/PostsTools.php:39
+#, fuzzy
+msgid "Create Post"
+msgstr "Tạo bài đăng"
 
 #: admin/class-hostinger-ai-assistant-translations.php:33
 msgid "Create Post with AI"
@@ -249,6 +357,191 @@ msgstr "Tạo bài đăng với AI"
 #: includes/woocommerce/class-hostinger-ai-assistant-product-ai-metabox.php:24
 msgid "Create product with AI"
 msgstr "Tạo sản phẩm với AI"
+
+#: includes-psr4/Mcp/Abilities/Tools/TagsTools.php:39
+#, fuzzy
+msgid "Create Tag"
+msgstr "Tạo thẻ"
+
+#: includes-psr4/Mcp/Abilities/Tools/UsersTools.php:57
+#, fuzzy
+msgid "Create User"
+msgstr "Tạo người dùng"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:41
+#, fuzzy
+msgid "Create WooCommerce Product"
+msgstr "Tạo sản phẩm WooCommerce"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:234
+#, fuzzy
+msgid "Create WooCommerce Product Brand"
+msgstr "Tạo thương hiệu sản phẩm WooCommerce"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:99
+#, fuzzy
+msgid "Create WooCommerce Product Category"
+msgstr "Tạo danh mục sản phẩm WooCommerce"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:166
+#, fuzzy
+msgid "Create WooCommerce Product Tag"
+msgstr "Tạo thẻ sản phẩm WooCommerce"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:292
+#, fuzzy
+msgid "CSS & JS Combine"
+msgstr "Kết hợp CSS và JavaScript"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:273
+#, fuzzy
+msgid "CSS, JS and HTML Minification"
+msgstr "Tối ưu hóa CSS, JavaScript và HTML"
+
+#: includes-psr4/Mcp/McpServer.php:42
+#, fuzzy
+msgid "Custom MCP Server for Hostinger AI Assistant."
+msgstr "Máy chủ MCP tùy chỉnh cho Trợ lý AI Hostinger."
+
+#: includes-psr4/Mcp/Abilities/Tools/SettingsTools.php:49
+#, fuzzy
+msgid "Date format"
+msgstr "Định dạng ngày"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:245
+#, fuzzy
+msgid "Default Cache"
+msgstr "Bộ nhớ đệm mặc định"
+
+#: includes-psr4/Mcp/Abilities/Tools/SettingsTools.php:81
+#, fuzzy
+msgid "Default comment status (open/closed)"
+msgstr "Trạng thái bình luận mặc định (mở/đóng)"
+
+#: includes-psr4/Mcp/Abilities/Tools/SettingsTools.php:85
+#, fuzzy
+msgid "Default ping status (open/closed)"
+msgstr "Trạng thái ping mặc định (mở/đóng)"
+
+#: includes-psr4/Mcp/Abilities/Tools/SettingsTools.php:69
+#, fuzzy
+msgid "Default post category"
+msgstr "Danh mục bài viết mặc định"
+
+#: includes-psr4/Mcp/Abilities/Tools/SettingsTools.php:73
+#, fuzzy
+msgid "Default post format"
+msgstr "Định dạng bài viết mặc định"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:261
+#, fuzzy
+msgid "Delete a WooCommerce product brand by ID."
+msgstr "Xóa thương hiệu sản phẩm WooCommerce theo ID."
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:68
+#, fuzzy
+msgid "Delete a WooCommerce product by ID. This action cannot be undone."
+msgstr "Xóa sản phẩm WooCommerce theo ID. Hành động này không thể hoàn tác."
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:126
+#, fuzzy
+msgid "Delete a WooCommerce product category by ID."
+msgstr "Xóa danh mục sản phẩm WooCommerce theo ID."
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:193
+#, fuzzy
+msgid "Delete a WooCommerce product tag by ID."
+msgstr "Xóa thẻ sản phẩm WooCommerce theo ID."
+
+#: includes-psr4/Mcp/Abilities/Tools/CategoriesTools.php:66
+#, fuzzy
+msgid "Delete a WordPress category by ID. This action cannot be undone."
+msgstr "Xóa một danh mục WordPress bằng ID. Hành động này không thể hoàn tác."
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:294
+#, fuzzy
+msgid "Delete a WordPress custom post type post by ID. This action cannot be undone."
+msgstr "Xóa bài viết thuộc loại bài viết tùy chỉnh WordPress theo ID. Hành động này không thể hoàn tác."
+
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:56
+#, fuzzy
+msgid "Delete a WordPress media item permanently. This action cannot be undone."
+msgstr "Xóa vĩnh viễn một mục phương tiện trong WordPress. Hành động này không thể hoàn tác."
+
+#: includes-psr4/Mcp/Abilities/Tools/PagesTools.php:66
+#, fuzzy
+msgid "Delete a WordPress page by ID. This action cannot be undone."
+msgstr "Xóa một trang WordPress bằng ID. Hành động này không thể hoàn tác."
+
+#: includes-psr4/Mcp/Abilities/Tools/PostsTools.php:66
+#, fuzzy
+msgid "Delete a WordPress post by ID. This action cannot be undone."
+msgstr "Xóa bài viết WordPress theo ID. Hành động này không thể hoàn tác."
+
+#: includes-psr4/Mcp/Abilities/Tools/TagsTools.php:66
+#, fuzzy
+msgid "Delete a WordPress tag by ID. This action cannot be undone."
+msgstr "Xóa thẻ WordPress theo ID. Hành động này không thể hoàn tác."
+
+#: includes-psr4/Mcp/Abilities/Tools/UsersTools.php:90
+#, fuzzy
+msgid "Delete a WordPress user by ID. This action cannot be undone."
+msgstr "Xóa người dùng WordPress theo ID. Hành động này không thể hoàn tác."
+
+#: includes-psr4/Mcp/Abilities/Tools/CategoriesTools.php:65
+#, fuzzy
+msgid "Delete Category"
+msgstr "Xóa danh mục"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:293
+#, fuzzy
+msgid "Delete Custom Post Type Post"
+msgstr "Xóa bài viết thuộc loại bài viết tùy chỉnh"
+
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:55
+#, fuzzy
+msgid "Delete Media"
+msgstr "Xóa phương tiện"
+
+#: includes-psr4/Mcp/Abilities/Tools/PagesTools.php:65
+#, fuzzy
+msgid "Delete Page"
+msgstr "Xóa trang"
+
+#: includes-psr4/Mcp/Abilities/Tools/PostsTools.php:65
+#, fuzzy
+msgid "Delete Post"
+msgstr "Xóa bài đăng"
+
+#: includes-psr4/Mcp/Abilities/Tools/TagsTools.php:65
+#, fuzzy
+msgid "Delete Tag"
+msgstr "Xóa thẻ"
+
+#: includes-psr4/Mcp/Abilities/Tools/UsersTools.php:89
+#, fuzzy
+msgid "Delete User"
+msgstr "Xóa người dùng"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:67
+#, fuzzy
+msgid "Delete WooCommerce Product"
+msgstr "Xóa sản phẩm WooCommerce"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:260
+#, fuzzy
+msgid "Delete WooCommerce Product Brand"
+msgstr "Xóa thương hiệu sản phẩm WooCommerce"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:125
+#, fuzzy
+msgid "Delete WooCommerce Product Category"
+msgstr "Xóa danh mục sản phẩm WooCommerce"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:192
+#, fuzzy
+msgid "Delete WooCommerce Product Tag"
+msgstr "Xóa thẻ sản phẩm WooCommerce"
 
 #: includes/woocommerce/class-hostinger-ai-assistant-product-ai-metabox.php:70
 msgid "Describe your product in short"
@@ -262,31 +555,50 @@ msgstr "Mô tả"
 msgid "Description is empty. Please provide a valid description."
 msgstr "Mô tả đang trống. Vui lòng cung cấp mô tả hợp lệ."
 
+#: includes-psr4/Mcp/Abilities/Tools/HostingerPluginTools.php:85
+#, fuzzy
+msgid "Disable authentication password"
+msgstr "Vô hiệu hóa mật khẩu xác thực"
+
+#: includes-psr4/Mcp/Abilities/Tools/HostingerPluginTools.php:203
+#, fuzzy
+msgid "Disable authentication password status"
+msgstr "Tắt trạng thái mật khẩu xác thực"
+
+#: includes-psr4/Mcp/Abilities/Tools/HostingerPluginTools.php:191
+#, fuzzy
+msgid "Disable XML-RPC status"
+msgstr "Tắt trạng thái XML-RPC"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:276
+#, fuzzy
+msgid "DNS Prefetch for static files"
+msgstr "DNS Prefetch cho các tệp tĩnh"
+
 #: includes/class-hostinger-ai-assistant-surveys.php:24
 msgid "Do you have any comments/suggestions to improve our AI tools?"
-msgstr ""
-"Bạn có ý kiến/đề xuất gì để cải thiện các công cụ AI của chúng tôi không?"
+msgstr "Bạn có ý kiến/đề xuất gì để cải thiện các công cụ AI của chúng tôi không?"
 
-#: admin/class-hostinger-ai-assistant-translations.php:60
+#: admin/class-hostinger-ai-assistant-translations.php:54
 msgid "Drop files here"
 msgstr "Thả tệp ở đây"
 
-#: admin/class-hostinger-ai-assistant-translations.php:158
+#: admin/class-hostinger-ai-assistant-translations.php:150
 #, fuzzy
 msgid "Edit a WordPress post category by ID"
 msgstr "Chỉnh sửa danh mục bài viết WordPress theo ID"
 
-#: admin/class-hostinger-ai-assistant-translations.php:153
+#: admin/class-hostinger-ai-assistant-translations.php:145
 #, fuzzy
 msgid "Edit a WordPress post tag (e.g., rename or update it)"
 msgstr "Chỉnh sửa thẻ bài viết WordPress (ví dụ: đổi tên hoặc cập nhật thẻ)"
 
-#: admin/class-hostinger-ai-assistant-translations.php:123
+#: admin/class-hostinger-ai-assistant-translations.php:115
 #, fuzzy
 msgid "Edit an existing WordPress page by its ID"
 msgstr "Chỉnh sửa một trang WordPress hiện có bằng ID của nó"
 
-#: admin/class-hostinger-ai-assistant-translations.php:143
+#: admin/class-hostinger-ai-assistant-translations.php:135
 #, fuzzy
 msgid "Edit an existing WordPress post by its ID"
 msgstr "Chỉnh sửa một bài viết WordPress hiện có bằng ID của nó"
@@ -295,24 +607,70 @@ msgstr "Chỉnh sửa một bài viết WordPress hiện có bằng ID của nó
 msgid "Edit as a draft"
 msgstr "Sửa dưới dạng bản nháp"
 
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:371
-msgid "Edit prompt"
-msgstr "Chỉnh sửa lời nhắc"
-
 #: admin/partials/hostinger-ai-assistant-tab-view.php:48
 msgid "Edit site"
 msgstr "Chỉnh sửa trang"
+
+#: includes-psr4/Mcp/Abilities/Tools/HostingerPluginTools.php:89
+#, fuzzy
+msgid "Enable llms.txt generation"
+msgstr "Bật tính năng tạo tệp llms.txt"
+
+#: includes-psr4/Mcp/Abilities/Tools/HostingerPluginTools.php:207
+#, fuzzy
+msgid "Enable llms.txt status"
+msgstr "Bật trạng thái llms.txt"
+
+#: includes-psr4/Mcp/Abilities/Tools/HostingerPluginTools.php:65
+#, fuzzy
+msgid "Enable or disable maintenance mode"
+msgstr "Bật hoặc tắt chế độ bảo trì"
+
+#: includes-psr4/Mcp/Abilities/Tools/HostingerPluginTools.php:73
+#, fuzzy
+msgid "Enable or disable XML-RPC"
+msgstr "Bật hoặc tắt XML-RPC"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:314
+#, fuzzy
+msgid "Enables the maximum level of optimizations for improved page speed scores. Extensive testing required."
+msgstr "Cho phép tối ưu hóa ở mức cao nhất để cải thiện điểm tốc độ trang. Cần thực hiện các bài kiểm tra kỹ lưỡng."
 
 #: admin/class-hostinger-ai-assistant-translations.php:30
 #: admin/partials/hostinger-ai-assistant-tab-view.php:175
 msgid "Enter at least 10 characters"
 msgstr "Nhập tối thiểu 10 ký tự"
 
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:261
+#, fuzzy
+msgid "Enthusiastic beginners"
+msgstr "Những người mới bắt đầu đầy nhiệt huyết"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:291
+#, fuzzy
+msgid "Everything in Advanced"
+msgstr "Tất cả trong Nâng cao"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:306
+#, fuzzy
+msgid "Everything in Aggressive"
+msgstr "Tất cả mọi thứ trong Aggressive"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:271
+#, fuzzy
+msgid "Everything in Basic"
+msgstr "Tất cả mọi thứ trong Basic"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:257
+#, fuzzy
+msgid "Everything in Essentials"
+msgstr "Tất cả trong Essentials"
+
 #: admin/class-hostinger-ai-assistant-translations.php:29
 msgid "Example: website development, WordPress tutorial, ..."
 msgstr "Ví du: phát triển trang web, hướng dẫn WordPress, ..."
 
-#: admin/class-hostinger-ai-assistant-translations.php:83
+#: admin/class-hostinger-ai-assistant-translations.php:81
 msgid "Excellent"
 msgstr "Tuyệt vời"
 
@@ -324,22 +682,126 @@ msgstr "Hình ảnh nổi bật bên ngoài"
 msgid "External featured image"
 msgstr "Hình ảnh nổi bật bên ngoài"
 
-#: admin/class-hostinger-ai-assistant-translations.php:148
+#. %s: Preset name
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:373
+#, fuzzy,php-format
+msgid "Failed to apply preset: %s"
+msgstr "Không thể áp dụng cài đặt sẵn: %s"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:530
+#, fuzzy
+msgid "Failed to delete post"
+msgstr "Không thể xóa bài đăng"
+
+#. %s: Error message
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:223
+#, fuzzy,php-format
+msgid "Failed to flush cache: %s"
+msgstr "Không thể xóa bộ nhớ cache: %s"
+
+#. %s: Setting name
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:193
+#, fuzzy,php-format
+msgid "Failed to get settings: %s"
+msgstr "Không thể lấy cài đặt: %s"
+
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:265
+#, fuzzy
+msgid "File is required"
+msgstr "Tệp tin là bắt buộc"
+
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:227
+#, fuzzy
+msgid "File not found"
+msgstr "Tệp không tìm thấy"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:99
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:101
+#, fuzzy
+msgid "Filter by author ID"
+msgstr "Lọc theo ID tác giả"
+
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:93
+#, fuzzy
+msgid "Filter by media type (image, video, audio, application)"
+msgstr "Lọc theo loại phương tiện (hình ảnh, video, âm thanh, ứng dụng)"
+
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:97
+#, fuzzy
+msgid "Filter by MIME type (e.g., image/jpeg, video/mp4)"
+msgstr "Lọc theo loại MIME (ví dụ: image/jpeg, video/mp4)"
+
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:105
+#, fuzzy
+msgid "Filter by parent post ID"
+msgstr "Lọc theo ID bài viết cha"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:103
+#, fuzzy
+msgid "Filter by post status (publish, draft, pending, etc.)"
+msgstr "Lọc theo trạng thái bài viết (đã đăng, bản nháp, đang chờ duyệt, v.v.)"
+
+#: admin/class-hostinger-ai-assistant-translations.php:140
 #, fuzzy
 msgid "Find and filter posts with pagination options"
 msgstr "Tìm và lọc bài viết với các tùy chọn phân trang"
 
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:58
+#, fuzzy
+msgid "Flush LiteSpeed Cache"
+msgstr "Xóa bộ nhớ cache LiteSpeed"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:274
+#, fuzzy
+msgid "Font Display Optimization"
+msgstr "Tối ưu hóa hiển thị phông chữ"
+
+#: includes-psr4/Mcp/Abilities/Tools/TagsTools.php:72
+#: includes-psr4/Mcp/Abilities/Tools/CategoriesTools.php:72
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:132
+#, fuzzy
+msgid "Force category deletion"
+msgstr "Xóa danh mục lực"
+
+#: includes-psr4/Mcp/Abilities/Tools/HostingerPluginTools.php:77
+#, fuzzy
+msgid "Force HTTPS redirects"
+msgstr "Bắt buộc chuyển hướng HTTPS"
+
+#: includes-psr4/Mcp/Abilities/Tools/HostingerPluginTools.php:195
+#, fuzzy
+msgid "Force HTTPS status"
+msgstr "Bắt buộc trạng thái HTTPS"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:267
+#, fuzzy
+msgid "Force Product Brand deletion"
+msgstr "Xóa thương hiệu sản phẩm Force"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:199
+#, fuzzy
+msgid "Force tag deletion"
+msgstr "Xóa thẻ bắt buộc"
+
+#: includes-psr4/Mcp/Abilities/Tools/HostingerPluginTools.php:81
+#, fuzzy
+msgid "Force WWW in URLs"
+msgstr "Bắt buộc sử dụng WWW trong URL"
+
+#: includes-psr4/Mcp/Abilities/Tools/HostingerPluginTools.php:199
+#, fuzzy
+msgid "Force WWW status"
+msgstr "Bắt buộc trạng thái WWW"
+
 #: admin/class-hostinger-ai-assistant-translations.php:24
 #: admin/partials/hostinger-ai-assistant-tab-view.php:106
 #: includes/woocommerce/class-hostinger-ai-assistant-product-ai-metabox.php:89
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:135
 msgid "Formal"
 msgstr "Trang trọng"
 
 #: admin/class-hostinger-ai-assistant-translations.php:26
 #: admin/partials/hostinger-ai-assistant-tab-view.php:108
 #: includes/woocommerce/class-hostinger-ai-assistant-product-ai-metabox.php:91
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:143
 msgid "Friendly"
 msgstr "Thân thiện"
 
@@ -347,12 +809,12 @@ msgstr "Thân thiện"
 msgid "Generate new content"
 msgstr "Tạo nội dung mới"
 
-#: admin/class-hostinger-ai-assistant-translations.php:177
+#: admin/class-hostinger-ai-assistant-translations.php:169
 #, fuzzy
 msgid "Generate sales report"
 msgstr "Tạo báo cáo doanh số"
 
-#: admin/class-hostinger-ai-assistant-translations.php:179
+#: admin/class-hostinger-ai-assistant-translations.php:171
 #, fuzzy
 msgid "Generate WooCommerce sales report for my store"
 msgstr "Tạo báo cáo doanh số WooCommerce cho cửa hàng của tôi"
@@ -362,171 +824,523 @@ msgstr "Tạo báo cáo doanh số WooCommerce cho cửa hàng của tôi"
 msgid "Generating content..."
 msgstr "Đang tạo nội dung..."
 
-#: admin/class-hostinger-ai-assistant-translations.php:172
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:91
+#, fuzzy
+msgid "Get a list of all available LiteSpeed Cache optimization presets with their descriptions, features, risk levels, and requirements."
+msgstr "Nhận danh sách tất cả các preset tối ưu hóa LiteSpeed Cache có sẵn kèm theo mô tả, tính năng, mức độ rủi ro và yêu cầu."
+
+#: admin/class-hostinger-ai-assistant-translations.php:164
 #, fuzzy
 msgid "Get a list of orders"
 msgstr "Lấy danh sách các đơn hàng"
 
-#: admin/class-hostinger-ai-assistant-translations.php:127
+#: includes-psr4/Mcp/Abilities/Tools/WooOrdersTools.php:20
+#, fuzzy
+msgid "Get a list of WooCommerce orders with search and filter capabilities. Returns a list of orders matching the criteria."
+msgstr "Lấy danh sách đơn hàng WooCommerce có chức năng tìm kiếm và lọc. Trả về danh sách các đơn hàng phù hợp với tiêu chí đã đặt."
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:31
+#, fuzzy
+msgid "Get a single WooCommerce product by ID. Returns the full product object with all fields."
+msgstr "Lấy một sản phẩm WooCommerce duy nhất theo ID. Trả về đối tượng sản phẩm đầy đủ với tất cả các trường."
+
+#: includes-psr4/Mcp/Abilities/Tools/CategoriesTools.php:29
+#, fuzzy
+msgid "Get a single WordPress category by ID. Returns the full category object with all fields."
+msgstr "Lấy một danh mục WordPress duy nhất theo ID. Trả về đối tượng danh mục đầy đủ với tất cả các trường."
+
+#: includes-psr4/Mcp/Abilities/Tools/PagesTools.php:29
+#, fuzzy
+msgid "Get a single WordPress page by ID. Returns the full page object with all fields."
+msgstr "Lấy một trang WordPress duy nhất theo ID. Trả về đối tượng trang đầy đủ với tất cả các trường."
+
+#: includes-psr4/Mcp/Abilities/Tools/PostsTools.php:29
+#, fuzzy
+msgid "Get a single WordPress post by ID. Returns the full post object with all fields."
+msgstr "Lấy một bài viết WordPress duy nhất theo ID. Trả về đối tượng bài viết đầy đủ với tất cả các trường."
+
+#: includes-psr4/Mcp/Abilities/Tools/TagsTools.php:29
+#, fuzzy
+msgid "Get a single WordPress tag by ID. Returns the full tag object with all fields."
+msgstr "Lấy một thẻ WordPress duy nhất theo ID. Trả về đối tượng thẻ đầy đủ với tất cả các trường."
+
+#: includes-psr4/Mcp/Abilities/Tools/UsersTools.php:44
+#, fuzzy
+msgid "Get a single WordPress user by ID. Returns the full user object with all fields."
+msgstr "Lấy một người dùng WordPress duy nhất theo ID. Trả về đối tượng người dùng đầy đủ với tất cả các trường."
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:142
+#, fuzzy
+msgid "Get a WordPress custom post type post by ID"
+msgstr "Lấy bài viết thuộc loại bài viết tùy chỉnh WordPress theo ID"
+
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:32
+#, fuzzy
+msgid "Get a WordPress media item details by ID. Returns the full media object with all fields."
+msgstr "Lấy thông tin chi tiết của một mục phương tiện WordPress theo ID. Trả về đối tượng phương tiện đầy đủ với tất cả các trường."
+
+#: includes-psr4/Mcp/Abilities/Tools/CategoriesTools.php:28
+#, fuzzy
+msgid "Get Category"
+msgstr "Chọn Danh mục"
+
+#: includes-psr4/Mcp/Abilities/Tools/HostingerPluginTools.php:28
+#, fuzzy
+msgid "Get current Hostinger plugin settings including maintenance mode, XML-RPC, HTTPS, and other security options."
+msgstr "Xem các thiết lập hiện tại của plugin Hostinger, bao gồm chế độ bảo trì, XML-RPC, HTTPS và các tùy chọn bảo mật khác."
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:30
+#, fuzzy
+msgid "Get current LiteSpeed Cache settings including active preset, cache status, and key configuration options."
+msgstr "Xem các thiết lập hiện tại của LiteSpeed Cache, bao gồm preset đang hoạt động, trạng thái bộ nhớ đệm và các tùy chọn cấu hình chính."
+
+#: includes-psr4/Mcp/Abilities/Tools/UsersTools.php:118
+#, fuzzy
+msgid "Get Current User"
+msgstr "Lấy thông tin người dùng hiện tại"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:141
+#, fuzzy
+msgid "Get Custom Post Type Post"
+msgstr "Tạo bài viết theo loại bài viết tùy chỉnh"
+
+#: includes-psr4/Mcp/Abilities/Tools/SettingsTools.php:20
+#, fuzzy
+msgid "Get General Settings"
+msgstr "Cài đặt chung"
+
+#: includes-psr4/Mcp/Abilities/Tools/HostingerPluginTools.php:27
+#, fuzzy
+msgid "Get Hostinger Plugin Settings"
+msgstr "Cài đặt plugin Hostinger"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:29
+#, fuzzy
+msgid "Get LiteSpeed Cache Settings"
+msgstr "Cài đặt bộ nhớ đệm LiteSpeed"
+
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:31
+#, fuzzy
+msgid "Get Media"
+msgstr "Nhận phương tiện truyền thông"
+
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:142
+#, fuzzy
+msgid "Get Media File"
+msgstr "Tải xuống tệp phương tiện"
+
+#: includes-psr4/Mcp/Abilities/Tools/PagesTools.php:28
+#, fuzzy
+msgid "Get Page"
+msgstr "Lấy trang"
+
+#: includes-psr4/Mcp/Abilities/Tools/PostsTools.php:28
+#, fuzzy
+msgid "Get Post"
+msgstr "Nhận bài viết"
+
+#: includes-psr4/Mcp/Abilities/Tools/SiteInfoTools.php:16
+#, fuzzy
+msgid "Get Site Info"
+msgstr "Xem thông tin trang web"
+
+#: includes-psr4/Mcp/Abilities/Tools/TagsTools.php:28
+#, fuzzy
+msgid "Get Tag"
+msgstr "Nhận thẻ"
+
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:143
+#, fuzzy
+msgid "Get the actual file content (blob) of a WordPress media item."
+msgstr "Lấy nội dung thực tế (blob) của một mục phương tiện trong WordPress."
+
+#: includes-psr4/Mcp/Abilities/Tools/UsersTools.php:119
+#, fuzzy
+msgid "Get the current logged-in user information."
+msgstr "Lấy thông tin người dùng hiện đang đăng nhập."
+
+#: includes-psr4/Mcp/Abilities/Tools/UsersTools.php:43
+#, fuzzy
+msgid "Get User"
+msgstr "Lấy thông tin người dùng"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooOrdersTools.php:37
+#, fuzzy
+msgid "Get WooCommerce Coupons Report"
+msgstr "Tải báo cáo mã giảm giá WooCommerce"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooOrdersTools.php:38
+#, fuzzy
+msgid "Get WooCommerce coupons totals report. Returns count of coupons by coupon type."
+msgstr "Tạo báo cáo tổng số phiếu giảm giá WooCommerce. Hiển thị số lượng phiếu giảm giá theo loại phiếu."
+
+#: includes-psr4/Mcp/Abilities/Tools/WooOrdersTools.php:44
+#, fuzzy
+msgid "Get WooCommerce Customers Report"
+msgstr "Tải báo cáo khách hàng WooCommerce"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooOrdersTools.php:45
+#, fuzzy
+msgid "Get WooCommerce customers totals report. Returns statistics about customers."
+msgstr "Xem báo cáo tổng hợp về khách hàng của WooCommerce. Cung cấp thống kê về khách hàng."
+
+#: includes-psr4/Mcp/Abilities/Tools/WooOrdersTools.php:51
+#, fuzzy
+msgid "Get WooCommerce Orders Report"
+msgstr "Tải báo cáo đơn hàng WooCommerce"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooOrdersTools.php:52
+#, fuzzy
+msgid "Get WooCommerce orders totals report. Returns statistics about orders."
+msgstr "Tạo báo cáo tổng số đơn hàng WooCommerce. Cung cấp thống kê về các đơn hàng."
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:30
+#, fuzzy
+msgid "Get WooCommerce Product"
+msgstr "Nhận sản phẩm WooCommerce"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooOrdersTools.php:58
+#, fuzzy
+msgid "Get WooCommerce Products Report"
+msgstr "Tạo Báo cáo Sản phẩm WooCommerce"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooOrdersTools.php:59
+#, fuzzy
+msgid "Get WooCommerce products totals report. Returns statistics about products."
+msgstr "Tạo báo cáo tổng hợp sản phẩm WooCommerce. Cung cấp thống kê về sản phẩm."
+
+#: includes-psr4/Mcp/Abilities/Tools/WooOrdersTools.php:65
+#, fuzzy
+msgid "Get WooCommerce Reviews Report"
+msgstr "Tải báo cáo đánh giá WooCommerce"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooOrdersTools.php:66
+#, fuzzy
+msgid "Get WooCommerce reviews totals report. Returns statistics about product reviews."
+msgstr "Tải báo cáo tổng hợp đánh giá WooCommerce. Cung cấp thống kê về đánh giá sản phẩm."
+
+#: includes-psr4/Mcp/Abilities/Tools/WooOrdersTools.php:72
+#, fuzzy
+msgid "Get WooCommerce Sales Report"
+msgstr "Tải báo cáo doanh số WooCommerce"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooOrdersTools.php:73
+#, fuzzy
+msgid "Get WooCommerce sales report. Returns detailed sales statistics and revenue data."
+msgstr "Tải báo cáo doanh số WooCommerce. Cung cấp chi tiết thống kê doanh số và dữ liệu doanh thu."
+
+#: includes-psr4/Mcp/Abilities/Tools/SettingsTools.php:21
+#, fuzzy
+msgid "Get WordPress general site settings including title, description, timezone, and other configuration options."
+msgstr "Nhận các thiết lập chung của trang web WordPress, bao gồm tiêu đề, mô tả, múi giờ và các tùy chọn cấu hình khác."
+
+#: admin/class-hostinger-ai-assistant-translations.php:119
 #, fuzzy
 msgid "Get WordPress site information"
 msgstr "Lấy thông tin trang web WordPress"
 
-#: admin/class-hostinger-ai-assistant-translations.php:113
-msgid "Grant Permission"
-msgstr "Cấp phép"
+#: admin/class-hostinger-ai-assistant-translations.php:71
+#, fuzzy
+msgid "Good response"
+msgstr "Phản hồi tốt"
 
-#: admin/class-hostinger-ai-assistant-translations.php:70
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:277
+#, fuzzy
+msgid "Gravatar Cache"
+msgstr "Bộ nhớ đệm Gravatar"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:272
+#, fuzzy
+msgid "Guest Mode and Guest Optimization"
+msgstr "Chế độ Khách và Tối ưu hóa cho Khách"
+
+#: admin/class-hostinger-ai-assistant-translations.php:64
 #, fuzzy
 msgid "Hello 👋"
 msgstr "Xin chào 👋"
 
-#: admin/class-hostinger-ai-assistant-translations.php:48
-#| msgid ""
-#| "Hi, I'm your personal AI Assistant. You can ask me any questions you have "
-#| "regarding WordPress. I'm still learning, so sometimes can make mistakes. "
-#| "What questions do you have?"
-msgid ""
-"Hi, I'm Kodee, your personal AI assistant. You can ask me any questions you "
-"have regarding WordPress. I'm still learning, so sometimes can make mistakes."
-" What questions do you have?"
-msgstr ""
-"Xin chào, tôi là Kodee, tôi là trợ lý AI cá nhân của bạn. Bạn có thể hỏi tôi "
-"mọi câu hỏi về WordPress. Tôi vẫn đang học cho nên đôi khi có thể mắc lỗi. "
-"Bạn có câu hỏi nào?"
+#: admin/class-hostinger-ai-assistant-translations.php:42
+msgid "Hi, I'm Kodee, your personal AI assistant. You can ask me any questions you have regarding WordPress. I'm still learning, so sometimes can make mistakes. What questions do you have?"
+msgstr "Xin chào, tôi là Kodee, tôi là trợ lý AI cá nhân của bạn. Bạn có thể hỏi tôi mọi câu hỏi về WordPress. Tôi vẫn đang học cho nên đôi khi có thể mắc lỗi. Bạn có câu hỏi nào?"
 
-#: admin/class-hostinger-ai-assistant-translations.php:56
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:246
+#, fuzzy
+msgid "Higher TTL"
+msgstr "TTL cao hơn"
+
+#: admin/class-hostinger-ai-assistant-translations.php:50
 msgid "History"
 msgstr "Lịch sử"
 
 #. Author of the plugin
-#: hostinger-ai-assistant.php
 msgid "Hostinger"
 msgstr "Hostinger"
 
-#. Plugin Name of the plugin
-#: hostinger-ai-assistant.php
+#. Name of the plugin
 msgid "Hostinger AI"
 msgstr "Hostinger AI"
 
+#: includes-psr4/Mcp/Abilities/AbilitiesRegistry.php:75
+#, fuzzy
+msgid "Hostinger AI Abilities"
+msgstr "Khả năng AI của Hostinger"
+
 #. Description of the plugin
-#: hostinger-ai-assistant.php
 msgid "Hostinger AI plugin for WordPress."
 msgstr "Plugin Hostinger AI cho WordPress."
 
-#: admin/class-hostinger-ai-assistant-translations.php:71
+#: includes-psr4/Mcp/Abilities/Tools/HostingerPluginTools.php:124
+#: includes-psr4/Mcp/Abilities/Tools/HostingerPluginTools.php:139
+#, fuzzy
+msgid "Hostinger plugin settings option not defined"
+msgstr "Tùy chọn cài đặt plugin Hostinger không được định nghĩa"
+
+#: admin/class-hostinger-ai-assistant-translations.php:65
 #, fuzzy
 msgid "How can I help you today?"
 msgstr "Hôm nay tôi có thể giúp gì cho bạn?"
 
-#: admin/class-hostinger-ai-assistant-translations.php:81
+#: admin/class-hostinger-ai-assistant-translations.php:79
 msgid "How can we improve your experience?"
 msgstr "Làm thế nào để chúng tôi cải thiện trải nghiệm của bạn?"
 
 #: includes/class-hostinger-ai-assistant-surveys.php:23
-msgid ""
-"How would you rate your experience using our AI Assistant plugin for content "
-"generation? (Scale 1-10)"
-msgstr ""
-"Bạn đánh giá trải nghiệm sử dụng plugin Trợ lý AI của chúng tôi để tạo nội "
-"dung như thế nào? (Chấm từ 1-10)"
+msgid "How would you rate your experience using our AI Assistant plugin for content generation? (Scale 1-10)"
+msgstr "Bạn đánh giá trải nghiệm sử dụng plugin Trợ lý AI của chúng tôi để tạo nội dung như thế nào? (Chấm từ 1-10)"
 
-#. Plugin URI of the plugin
+#. URI of the plugin
 #. Author URI of the plugin
-#: hostinger-ai-assistant.php
 msgid "https://hostinger.com"
 msgstr "https://hostinger.vn"
 
-#: admin/class-hostinger-ai-assistant-translations.php:107
-msgid ""
-"I'm sorry, I didn't understand your question. Could you please rephrase it "
-"or ask something different?"
-msgstr ""
-"Rất xin lỗi. Tôi không hiểu câu hỏi của bạn. Bạn vui lòng hỏi lại hoặc hỏi "
-"vấn đề khác nhé?"
+#: admin/class-hostinger-ai-assistant-translations.php:105
+msgid "I'm sorry, I didn't understand your question. Could you please rephrase it or ask something different?"
+msgstr "Rất xin lỗi. Tôi không hiểu câu hỏi của bạn. Bạn vui lòng hỏi lại hoặc hỏi vấn đề khác nhé?"
 
 #: admin/partials/hostinger-ai-assistant-tab-view.php:182
-msgid ""
-"If you skip this part, AI will automatically generate keyword suggestions "
-"after you generate the content"
-msgstr ""
-"Nếu bạn bỏ qua phần này, AI sẽ tự động tạo gợi ý từ khóa sau khi bạn tạo nội "
-"dung"
+msgid "If you skip this part, AI will automatically generate keyword suggestions after you generate the content"
+msgstr "Nếu bạn bỏ qua phần này, AI sẽ tự động tạo gợi ý từ khóa sau khi bạn tạo nội dung"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:258
+#, fuzzy
+msgid "Image Optimization"
+msgstr "Tối ưu hóa hình ảnh"
 
 #: includes/content/class-hostinger-ai-assistant-content-filters.php:105
 msgid "Image URL:"
 msgstr "URL hình ảnh:"
 
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:283
+#, fuzzy
+msgid "Includes many optimizations known to improve page speed scores."
+msgstr "Gồm nhiều tối ưu hóa đã được biết đến là giúp cải thiện điểm số tốc độ trang."
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:298
+#, fuzzy
+msgid "Includes many optimizations known to improve page speed scores. Testing recommended."
+msgstr "Gồm nhiều tối ưu hóa đã được biết đến là giúp cải thiện điểm số tốc độ trang. Khuyến nghị thực hiện kiểm tra."
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:262
+#, fuzzy
+msgid "Includes optimizations known to improve site score in page speed measurement tools."
+msgstr "Gồm các tối ưu hóa đã được biết đến là có thể cải thiện điểm số trang web trong các công cụ đo lường tốc độ trang."
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:311
+#, fuzzy
+msgid "Inline CSS added to Combine"
+msgstr "Thêm CSS nội tuyến vào Combine"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:310
+#, fuzzy
+msgid "Inline JS added to Combine"
+msgstr "Mã JavaScript được nhúng đã được thêm vào Combine"
+
 #: admin/class-hostinger-ai-assistant-translations.php:37
 msgid "Insert this image inside content"
 msgstr "Chèn hình này vào trong nội dung"
 
-#: includes/mcp/class-hostinger-ai-assistant-mcp-jwt-auth.php:236
+#: includes-psr4/Mcp/McpServer.php:72
 #, fuzzy
-msgid "Invalid Authorization header format. Expected \"Bearer <token>\"."
-msgstr ""
-"Định dạng tiêu đề ủy quyền không hợp lệ. Được mong đợi là \"Bearer <token>\"."
+msgid "Invalid API key"
+msgstr "Khóa API không hợp lệ"
 
-#: includes/mcp/class-hostinger-ai-assistant-mcp-hooks.php:26
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:275
 #, fuzzy
-msgid ""
-"Invalid post ID, specified post ID could be from different custom post type."
-msgstr ""
-"ID bài viết không hợp lệ, ID bài viết đã chỉ định có thể thuộc loại bài viết "
-"tùy chỉnh khác."
+msgid "Invalid base64 data"
+msgstr "Dữ liệu base64 không hợp lệ"
+
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:222
+#, fuzzy
+msgid "Invalid media ID"
+msgstr "ID phương tiện không hợp lệ"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:354
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:399
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:423
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:459
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:510
+#, fuzzy
+msgid "Invalid post type"
+msgstr "Loại bài viết không hợp lệ"
+
+#. %s: Allowed preset name
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:348
+#, fuzzy,php-format
+msgid "Invalid preset. Allowed presets: %s"
+msgstr "Cài đặt sẵn không hợp lệ. Các cài đặt sẵn được phép: %s"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:275
+#, fuzzy
+msgid "JS Defer for both external and inline JS"
+msgstr "JS Defer cho cả JavaScript bên ngoài và JavaScript nhúng"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:309
+#, fuzzy
+msgid "JS Delayed"
+msgstr "JS Trì hoãn"
 
 #: admin/partials/hostinger-ai-assistant-seo-meta-view.php:9
 msgid "Keywords"
 msgstr "Từ khóa"
 
-#: admin/class-hostinger-ai-assistant-translations.php:49
+#: admin/class-hostinger-ai-assistant-translations.php:43
 msgid "Kodee"
 msgstr "Kodee"
 
-#: admin/class-hostinger-ai-assistant-translations.php:61
+#: admin/class-hostinger-ai-assistant-translations.php:55
 msgid "Kodee only supports JPEG, JPG, PNG, GIF, HEIC, and DNG files"
 msgstr "Kodee chỉ hỗ trợ các định dạng tệp JPEG, JPG, PNG, GIF, HEIC và DNG"
 
-#: admin/class-hostinger-ai-assistant-translations.php:51
-#: admin/class-hostinger-ai-assistant-translations.php:77
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:295
+#, fuzzy
+msgid "Lazy Load for Iframes"
+msgstr "Tải chậm cho Iframes"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:307
+#, fuzzy
+msgid "Lazy Load for Images"
+msgstr "Tải hình ảnh theo cách lười biếng"
+
+#: admin/class-hostinger-ai-assistant-translations.php:45
+#: admin/class-hostinger-ai-assistant-translations.php:75
 msgid "Leave feedback"
 msgstr "Để lại phản hồi"
 
 #: admin/partials/hostinger-ai-assistant-tab-view.php:164
-msgid ""
-"Let us know more about your content idea. For example: Article about how to "
-"use WordPress to dive into website development including tutorials how to "
-"use it in a simple way..."
-msgstr ""
-"Hãy cho chúng tôi biết thêm về ý tưởng nội dung của bạn. Ví dụ: Bài viết về "
-"cách sử dụng WordPress để phát triển trang web bao gồm các hướng dẫn cách để "
-"sử dụng một cách đơn giản..."
+msgid "Let us know more about your content idea. For example: Article about how to use WordPress to dive into website development including tutorials how to use it in a simple way..."
+msgstr "Hãy cho chúng tôi biết thêm về ý tưởng nội dung của bạn. Ví dụ: Bài viết về cách sử dụng WordPress để phát triển trang web bao gồm các hướng dẫn cách để sử dụng một cách đơn giản..."
 
 #: admin/class-hostinger-ai-assistant-translations.php:31
-msgid ""
-"Let us now more about your post idea. Share more details for better results"
-msgstr ""
-"Hãy để chúng tôi biết thêm về ý tưởng bài đăng. Chia sẻ càng chi tiết càng "
-"đạt kết quả tốt hơn"
+msgid "Let us now more about your post idea. Share more details for better results"
+msgstr "Hãy để chúng tôi biết thêm về ý tưởng bài đăng. Chia sẻ càng chi tiết càng đạt kết quả tốt hơn"
 
-#: admin/class-hostinger-ai-assistant-translations.php:132
+#. %s: post type names
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:39
+#, fuzzy,php-format
+msgid "List all available WordPress custom post types including %s"
+msgstr "Danh sách tất cả các loại bài viết tùy chỉnh có sẵn trong WordPress, bao gồm %s"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:224
+#, fuzzy
+msgid "List all WooCommerce product brands. Returns a list of product brands."
+msgstr "Danh sách tất cả các thương hiệu sản phẩm WooCommerce. Trả về danh sách các thương hiệu sản phẩm."
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:89
+#, fuzzy
+msgid "List all WooCommerce product categories. Returns a list of product categories."
+msgstr "Danh sách tất cả các danh mục sản phẩm WooCommerce. Trả về danh sách các danh mục sản phẩm."
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:156
+#, fuzzy
+msgid "List all WooCommerce product tags. Returns a list of product tags."
+msgstr "Danh sách tất cả thẻ sản phẩm WooCommerce. Trả về danh sách các thẻ sản phẩm."
+
+#: includes-psr4/Mcp/Abilities/Tools/CategoriesTools.php:18
+#, fuzzy
+msgid "List all WordPress post categories with pagination and filtering."
+msgstr "Danh sách tất cả các danh mục bài viết WordPress kèm theo phân trang và lọc."
+
+#: includes-psr4/Mcp/Abilities/Tools/TagsTools.php:18
+#, fuzzy
+msgid "List all WordPress post tags with pagination and filtering."
+msgstr "Danh sách tất cả thẻ bài viết WordPress kèm theo phân trang và lọc."
+
+#: includes-psr4/Mcp/Abilities/Tools/CategoriesTools.php:17
+#, fuzzy
+msgid "List Categories"
+msgstr "Danh sách các danh mục"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:90
+#, fuzzy
+msgid "List LiteSpeed Cache Presets"
+msgstr "Danh sách các cài đặt sẵn của LiteSpeed Cache"
+
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:20
+#, fuzzy
+msgid "List Media"
+msgstr "Danh sách phương tiện truyền thông"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:36
+#, fuzzy
+msgid "List Post Types"
+msgstr "Danh sách các loại bài đăng"
+
+#: includes-psr4/Mcp/Abilities/Tools/TagsTools.php:17
+#, fuzzy
+msgid "List Tags"
+msgstr "Danh sách thẻ"
+
+#: admin/class-hostinger-ai-assistant-translations.php:124
 #, fuzzy
 msgid "List users with their roles"
 msgstr "Danh sách người dùng cùng với vai trò của họ"
 
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:223
+#, fuzzy
+msgid "List WooCommerce Product Brands"
+msgstr "Danh sách các thương hiệu sản phẩm WooCommerce"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:88
+#, fuzzy
+msgid "List WooCommerce Product Categories"
+msgstr "Danh sách các danh mục sản phẩm WooCommerce"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:155
+#, fuzzy
+msgid "List WooCommerce Product Tags"
+msgstr "Danh sách thẻ sản phẩm WooCommerce"
+
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:21
+#, fuzzy
+msgid "List WordPress media items with pagination and filtering."
+msgstr "Danh sách các mục phương tiện WordPress với phân trang và lọc."
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:159
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:203
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:233
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:327
+#, fuzzy
+msgid "LiteSpeed Cache plugin is not active"
+msgstr "Plugin LiteSpeed Cache không hoạt động"
+
+#. %s: Preset name
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:365
+#, fuzzy,php-format
+msgid "LiteSpeed Cache preset \"%s\" has been applied successfully. A backup of your previous settings was created automatically."
+msgstr "Cài đặt sẵn bộ nhớ đệm LiteSpeed \"%s\" đã được áp dụng thành công. Bản sao lưu các cài đặt trước đó của bạn đã được tạo tự động."
+
 #: admin/partials/hostinger-ai-assistant-tab-view.php:143
 #: includes/woocommerce/class-hostinger-ai-assistant-product-ai-metabox.php:81
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:124
 msgid "Long"
 msgstr "Dài"
 
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:398
-msgid "Main topic"
-msgstr "Chủ đề chính"
+#: includes-psr4/Mcp/Abilities/Tools/HostingerPluginTools.php:183
+#, fuzzy
+msgid "Maintenance mode status"
+msgstr "Trạng thái chế độ bảo trì"
 
 #: admin/partials/hostinger-ai-assistant-tab-view.php:137
 #: includes/woocommerce/class-hostinger-ai-assistant-product-ai-metabox.php:80
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:120
 msgid "Medium"
 msgstr "Trung bình"
 
@@ -535,43 +1349,97 @@ msgid "Meta description"
 msgstr "Mô tả meta"
 
 #: admin/partials/hostinger-ai-assistant-seo-meta-view.php:30
-msgid ""
-"Meta descriptions offer concise page summaries in search results, aiding "
-"user understanding before clicking."
-msgstr ""
-"Mô tả meta cung cấp tóm tắt trang ngắn gọn trong kết quả tìm kiếm, giúp "
-"người dùng hiểu rõ hơn trước khi nhấp vào."
+msgid "Meta descriptions offer concise page summaries in search results, aiding user understanding before clicking."
+msgstr "Mô tả meta cung cấp tóm tắt trang ngắn gọn trong kết quả tìm kiếm, giúp người dùng hiểu rõ hơn trước khi nhấp vào."
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:259
+#, fuzzy
+msgid "Mobile Cache"
+msgstr "Bộ nhớ đệm di động"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:282
+#, fuzzy
+msgid "Most websites"
+msgstr "Hầu hết các trang web"
 
 #: admin/class-hostinger-ai-assistant-translations.php:23
 #: admin/partials/hostinger-ai-assistant-tab-view.php:105
 #: includes/woocommerce/class-hostinger-ai-assistant-product-ai-metabox.php:88
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:131
 msgid "Neutral"
 msgstr "Trung lập"
 
-#: admin/class-hostinger-ai-assistant-translations.php:112
-msgid "No, thanks"
-msgstr "Không, cảm ơn"
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:114
+#, fuzzy
+msgid "Number of items per page"
+msgstr "Số lượng mục trên mỗi trang"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:112
+#, fuzzy
+msgid "Number of posts per page"
+msgstr "Số bài viết trên mỗi trang"
+
+#: includes-psr4/Mcp/Abilities/Tools/SettingsTools.php:77
+#, fuzzy
+msgid "Number of posts to show per page"
+msgstr "Số lượng bài viết hiển thị trên mỗi trang"
 
 #: admin/partials/hostinger-ai-assistant-tab-view.php:29
 msgid "Open guide"
 msgstr "Mở hướng dẫn"
 
+#: includes-psr4/Mcp/Abilities/Tools/HostingerPluginTools.php:93
+#, fuzzy
+msgid "Opt-in to MCP"
+msgstr "Đăng ký tham gia MCP"
+
+#: includes-psr4/Mcp/Abilities/Tools/HostingerPluginTools.php:211
+#, fuzzy
+msgid "Opt-in Web2Agent MCP status"
+msgstr "Tình trạng tham gia Web2Agent MCP"
+
 #: admin/partials/hostinger-ai-assistant-tab-view.php:179
 msgid "Optional"
 msgstr "Tùy chọn"
 
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:411
-msgid "Personalize your content"
-msgstr "Tùy chỉnh nội dung của bạn"
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:154
+#, fuzzy
+msgid "Optional. The size of the image to retrieve (thumbnail, medium, large, full). Defaults to full/original size."
+msgstr "Tùy chọn. Kích thước hình ảnh cần lấy (thumbnail, trung bình, lớn, đầy đủ). Mặc định là kích thước đầy đủ/ban đầu."
 
-#: admin/class-hostinger-ai-assistant-translations.php:82
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:109
+#, fuzzy
+msgid "Page number for pagination"
+msgstr "Số trang cho việc đánh số trang"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:107
+#, fuzzy
+msgid "Page number for pagination (starts from 1)"
+msgstr "Số trang cho việc đánh số trang (bắt đầu từ 1)"
+
+#: includes-psr4/Mcp/Abilities/Resources/PluginsInfoResource.php:16
+#, fuzzy
+msgid "Plugins Information"
+msgstr "Thông tin về plugin"
+
+#: admin/class-hostinger-ai-assistant-translations.php:80
 msgid "Poor"
 msgstr "Tệ"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:409
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:469
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:520
+#, fuzzy
+msgid "Post not found"
+msgstr "Bài viết không tìm thấy"
 
 #: includes/woocommerce/class-hostinger-ai-assistant-product-ai-metabox.php:38
 msgid "Powered by"
 msgstr "Sức mạnh của"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:335
+#, fuzzy
+msgid "Preset parameter is required"
+msgstr "Tham số mặc định là bắt buộc"
 
 #: admin/partials/hostinger-ai-assistant-tab-view.php:186
 msgid "Press Enter key to finalize a keyword"
@@ -581,207 +1449,463 @@ msgstr "Nhấn phím Enter để hoàn thành từ khóa"
 msgid "Preview site"
 msgstr "Xem trước trang"
 
+#: includes-psr4/Mcp/Abilities/Resources/PluginsInfoResource.php:17
+#, fuzzy
+msgid "Provides detailed information about active and available WordPress plugins"
+msgstr "Cung cấp thông tin chi tiết về các plugin WordPress đang hoạt động và có sẵn"
+
+#: includes-psr4/Mcp/Abilities/Resources/UsersInfoResource.php:17
+#, fuzzy
+msgid "Provides detailed information about registered WordPress users and their roles"
+msgstr "Cung cấp thông tin chi tiết về người dùng WordPress đã đăng ký và vai trò của họ"
+
+#: includes-psr4/Mcp/Abilities/Resources/ThemeInfoResource.php:17
+#, fuzzy
+msgid "Provides detailed information about the active WordPress theme and its parent theme if applicable"
+msgstr "Cung cấp thông tin chi tiết về chủ đề WordPress đang hoạt động và chủ đề cha của nó (nếu có)"
+
+#: includes-psr4/Mcp/Abilities/Tools/SiteInfoTools.php:17
+#, fuzzy
+msgid "Provides detailed information about the WordPress site like site name, url, description, admin email, plugins, themes, users, and more."
+msgstr "Cung cấp thông tin chi tiết về trang web WordPress như tên trang web, URL, mô tả, email quản trị viên, plugin, giao diện, người dùng và nhiều thông tin khác."
+
+#: includes-psr4/Mcp/Abilities/Resources/SiteSettingsResource.php:17
+#, fuzzy
+msgid "Provides detailed information about WordPress site settings including general, reading, discussion, media, permalink, privacy, and writing settings"
+msgstr "Cung cấp thông tin chi tiết về các thiết lập của trang web WordPress, bao gồm các thiết lập chung, đọc, thảo luận, phương tiện, liên kết vĩnh viễn, quyền riêng tư và viết"
+
+#: includes-psr4/Mcp/Abilities/Resources/SiteInfoResource.php:17
+#, fuzzy
+msgid "Provides general information about the WordPress site including site details, plugins, themes, and users"
+msgstr "Cung cấp thông tin tổng quan về trang web WordPress, bao gồm thông tin chi tiết về trang web, các plugin, giao diện và người dùng"
+
 #: admin/partials/hostinger-ai-assistant-tab-view.php:235
 msgid "Publish"
 msgstr "Xuất bản"
 
-#: admin/class-hostinger-ai-assistant-translations.php:52
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:59
+#, fuzzy
+msgid "Purge all LiteSpeed caches including LSCache, CSS/JS, localized resources, object cache, and opcache."
+msgstr "Xóa sạch tất cả bộ nhớ đệm LiteSpeed, bao gồm LSCache, CSS/JS, tài nguyên được bản địa hóa, bộ nhớ đệm đối tượng và opcache."
+
+#: admin/class-hostinger-ai-assistant-translations.php:73
+#, fuzzy
+msgid "Rate your conversation"
+msgstr "Đánh giá cuộc trò chuyện của bạn"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:280
+#, fuzzy
+msgid "Remove Noscript Tags"
+msgstr "Xóa thẻ Noscript"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:278
+#, fuzzy
+msgid "Remove Query Strings from Static Files"
+msgstr "Loại bỏ chuỗi truy vấn khỏi các tệp tĩnh"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:279
+#, fuzzy
+msgid "Remove WordPress Emoji"
+msgstr "Xóa biểu tượng cảm xúc WordPress"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:294
+#, fuzzy
+msgid "Removed Unused CSS for Users"
+msgstr "Đã loại bỏ CSS không sử dụng cho người dùng"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooOrdersTools.php:80
+#, fuzzy
+msgid "Report period. Options: week, month, last_month, year."
+msgstr "Thời gian báo cáo. Các tùy chọn: tuần, tháng, tháng trước, năm."
+
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:239
+#, fuzzy
+msgid "Requested size not found"
+msgstr "Kích thước yêu cầu không được tìm thấy"
+
+#: admin/class-hostinger-ai-assistant-translations.php:46
 msgid "Restart chatbot"
 msgstr "Khởi động lại chatbot"
 
-#: admin/class-hostinger-ai-assistant-translations.php:173
+#: admin/class-hostinger-ai-assistant-translations.php:165
 #, fuzzy
 msgid "Retrieve a list of WooCommerce orders with filters"
 msgstr "Lấy danh sách các đơn hàng WooCommerce với các bộ lọc"
 
-#: admin/class-hostinger-ai-assistant-translations.php:129
+#: admin/class-hostinger-ai-assistant-translations.php:121
 #, fuzzy
 msgid "Retrieve detailed information about my WordPress site"
 msgstr "Tra cứu thông tin chi tiết về trang web WordPress của tôi"
 
-#: admin/class-hostinger-ai-assistant-translations.php:133
+#: includes-psr4/Mcp/Abilities/Tools/WooOrdersTools.php:89
+#, fuzzy
+msgid "Return sales for a specific end date. Format: YYYY-MM-DD."
+msgstr "Doanh số bán hàng cho một ngày kết thúc cụ thể. Định dạng: YYYY-MM-DD."
+
+#: includes-psr4/Mcp/Abilities/Tools/WooOrdersTools.php:85
+#, fuzzy
+msgid "Return sales for a specific start date. Format: YYYY-MM-DD."
+msgstr "Doanh số bán hàng cho một ngày bắt đầu cụ thể. Định dạng: YYYY-MM-DD."
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:20
+#, fuzzy
+msgid "Search and filter WooCommerce products with pagination. Returns a list of products matching the search criteria."
+msgstr "Tìm kiếm và lọc sản phẩm WooCommerce với phân trang. Trả về danh sách các sản phẩm phù hợp với tiêu chí tìm kiếm."
+
+#. %s: post type names
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:82
+#, fuzzy,php-format
+msgid "Search and filter WordPress custom post types posts including %s with pagination"
+msgstr "Tìm kiếm và lọc các bài viết thuộc loại bài viết tùy chỉnh WordPress bao gồm %s với phân trang"
+
+#: includes-psr4/Mcp/Abilities/Tools/PagesTools.php:18
+#, fuzzy
+msgid "Search and filter WordPress pages with pagination. Returns a list of pages matching the search criteria."
+msgstr "Tìm kiếm và lọc các trang WordPress có phân trang. Trả về danh sách các trang phù hợp với tiêu chí tìm kiếm."
+
+#: includes-psr4/Mcp/Abilities/Tools/PostsTools.php:18
+#, fuzzy
+msgid "Search and filter WordPress posts with pagination. Returns a list of posts matching the search criteria."
+msgstr "Tìm kiếm và lọc bài viết WordPress với phân trang. Trả về danh sách các bài viết phù hợp với tiêu chí tìm kiếm."
+
+#: admin/class-hostinger-ai-assistant-translations.php:125
 #, fuzzy
 msgid "Search and filter WordPress users with pagination"
 msgstr "Tìm kiếm và lọc người dùng WordPress với phân trang"
 
-#: admin/class-hostinger-ai-assistant-translations.php:147
+#: includes-psr4/Mcp/Abilities/Tools/UsersTools.php:18
+#, fuzzy
+msgid "Search and filter WordPress users with pagination. Returns a list of users matching the search criteria."
+msgstr "Tìm kiếm và lọc người dùng WordPress với phân trang. Trả về danh sách người dùng phù hợp với tiêu chí tìm kiếm."
+
+#: admin/class-hostinger-ai-assistant-translations.php:139
 #, fuzzy
 msgid "Search blog posts"
 msgstr "Tìm kiếm bài viết trên blog"
 
-#: admin/class-hostinger-ai-assistant-translations.php:149
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:79
+#, fuzzy
+msgid "Search Custom Post Types Posts"
+msgstr "Tìm kiếm bài viết trong các loại bài viết tùy chỉnh"
+
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:81
+#, fuzzy
+msgid "Search Media"
+msgstr "Tìm kiếm phương tiện truyền thông"
+
+#: includes-psr4/Mcp/Abilities/Tools/PagesTools.php:17
+#, fuzzy
+msgid "Search Pages"
+msgstr "Trang Tìm kiếm"
+
+#: includes-psr4/Mcp/Abilities/Tools/PostsTools.php:17
+#, fuzzy
+msgid "Search Posts"
+msgstr "Tìm kiếm bài viết"
+
+#: admin/class-hostinger-ai-assistant-translations.php:141
 #, fuzzy
 msgid "Search posts on my WordPress website"
 msgstr "Tìm kiếm bài viết trên trang web WordPress của tôi"
 
-#: admin/class-hostinger-ai-assistant-translations.php:174
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:89
+#, fuzzy
+msgid "Search term to look for in media titles, captions, and descriptions"
+msgstr "Từ khóa cần tìm kiếm trong tiêu đề, chú thích và mô tả của các nội dung truyền thông"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:95
+#, fuzzy
+msgid "Search term to look for in post titles and content"
+msgstr "Từ khóa cần tìm kiếm trong tiêu đề và nội dung bài viết"
+
+#: includes-psr4/Mcp/Abilities/Tools/UsersTools.php:17
+#, fuzzy
+msgid "Search Users"
+msgstr "Tìm kiếm người dùng"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooOrdersTools.php:19
+#, fuzzy
+msgid "Search WooCommerce Orders"
+msgstr "Tìm kiếm đơn hàng WooCommerce"
+
+#: admin/class-hostinger-ai-assistant-translations.php:166
 #, fuzzy
 msgid "Search WooCommerce orders for my store"
 msgstr "Tìm kiếm đơn hàng WooCommerce cho cửa hàng của tôi"
 
-#: admin/class-hostinger-ai-assistant-translations.php:134
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:19
+#, fuzzy
+msgid "Search WooCommerce Products"
+msgstr "Tìm kiếm sản phẩm WooCommerce"
+
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:82
+#, fuzzy
+msgid "Search WordPress media items by title, caption, or description with filtering options."
+msgstr "Tìm kiếm các mục phương tiện trong WordPress theo tiêu đề, chú thích hoặc mô tả với các tùy chọn lọc."
+
+#: admin/class-hostinger-ai-assistant-translations.php:126
 #, fuzzy
 msgid "Search WordPress users on my website"
 msgstr "Tìm kiếm người dùng WordPress trên trang web của tôi"
 
-#: admin/class-hostinger-ai-assistant-translations.php:62
+#: admin/class-hostinger-ai-assistant-translations.php:56
 msgid "Selected file type is not supported"
 msgstr "Loại tệp đã chọn không được hỗ trợ"
 
-#: admin/class-hostinger-ai-assistant-translations.php:85
+#: admin/class-hostinger-ai-assistant-translations.php:83
 msgid "Send"
 msgstr "Gửi"
 
 #: admin/partials/hostinger-ai-assistant-seo-meta-view.php:10
-msgid ""
-"SEO keywords improve web content visibility on search engines like Google by "
-"being relevant and naturally placed"
-msgstr ""
-"Các từ khóa SEO tăng cường khả năng hiển thị nội dung trang web trên các "
-"công cụ tìm kiếm như Google với các từ khóa liên quan và đặt tự nhiên."
+msgid "SEO keywords improve web content visibility on search engines like Google by being relevant and naturally placed"
+msgstr "Các từ khóa SEO tăng cường khả năng hiển thị nội dung trang web trên các công cụ tìm kiếm như Google với các từ khóa liên quan và đặt tự nhiên."
 
 #: admin/partials/hostinger-ai-assistant-tab-view.php:125
 #: admin/partials/hostinger-ai-assistant-tab-view.php:131
 #: includes/woocommerce/class-hostinger-ai-assistant-product-ai-metabox.php:79
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:116
 msgid "Short"
 msgstr "Ngắn"
 
-#: admin/class-hostinger-ai-assistant-translations.php:105
+#: includes-psr4/Mcp/Abilities/Resources/SiteInfoResource.php:16
+#, fuzzy
+msgid "Site Information"
+msgstr "Thông tin về trang web"
+
+#: includes-psr4/Mcp/Abilities/Tools/SettingsTools.php:61
+#, fuzzy
+msgid "Site language"
+msgstr "Ngôn ngữ trang web"
+
+#: includes-psr4/Mcp/Abilities/Resources/SiteSettingsResource.php:16
+#, fuzzy
+msgid "Site Settings"
+msgstr "Cài đặt trang web"
+
+#: includes-psr4/Mcp/Abilities/Tools/SettingsTools.php:41
+#, fuzzy
+msgid "Site tagline/description"
+msgstr "Khẩu hiệu/Mô tả trang web"
+
+#: includes-psr4/Mcp/Abilities/Tools/SettingsTools.php:45
+#, fuzzy
+msgid "Site timezone"
+msgstr "Múi giờ của trang web"
+
+#: includes-psr4/Mcp/Abilities/Tools/SettingsTools.php:37
+#, fuzzy
+msgid "Site title"
+msgstr "Tiêu đề trang web"
+
+#: admin/class-hostinger-ai-assistant-translations.php:103
 msgid "Sorry, the AI Chatbot is currently unavailable. Please try again later."
 msgstr "Xin lỗi, hiện tại AI Chatbot không khả dụng. Xin vui lòng thử lại sau."
 
-#: admin/class-hostinger-ai-assistant-translations.php:106
+#: admin/class-hostinger-ai-assistant-translations.php:104
 msgid "Sorry, the AI Chatbot request timed out. Please try again later."
-msgstr ""
-"Xin lỗi, yêu cầu chatbot AI đã hết thời gian chờ. Vui lòng thử lại sau."
+msgstr "Xin lỗi, yêu cầu chatbot AI đã hết thời gian chờ. Vui lòng thử lại sau."
 
-#: admin/class-hostinger-ai-assistant-translations.php:54
+#: admin/class-hostinger-ai-assistant-translations.php:48
+#: admin/class-hostinger-ai-assistant-translations.php:92
 #: admin/class-hostinger-ai-assistant-translations.php:94
-#: admin/class-hostinger-ai-assistant-translations.php:96
 msgid "Start new chat"
 msgstr "Bắt đầu cuộc trò chuyện mới"
 
-#: admin/class-hostinger-ai-assistant-translations.php:101
-msgid "Talking to Kodee is in the works, we'll keep you posted once it's out!"
-msgstr ""
-"Trò chuyện với Kodee đang bận, chúng tôi sẽ thông báo cho các bạn ngay khi "
-"có thông tin mới!"
+#: includes-psr4/Mcp/Abilities/Tools/SettingsTools.php:57
+#, fuzzy
+msgid "Start of week (0 = Sunday, 1 = Monday, etc.)"
+msgstr "Đầu tuần (0 = Chủ nhật, 1 = Thứ Hai, v.v.)"
 
-#: admin/class-hostinger-ai-assistant-translations.php:86
+#: admin/class-hostinger-ai-assistant-translations.php:99
+msgid "Talking to Kodee is in the works, we'll keep you posted once it's out!"
+msgstr "Trò chuyện với Kodee đang bận, chúng tôi sẽ thông báo cho các bạn ngay khi có thông tin mới!"
+
+#: admin/class-hostinger-ai-assistant-translations.php:84
 msgid "Thank you for your feedback"
 msgstr "Cám ơn bạn đã phản hồi"
 
-#: admin/class-hostinger-ai-assistant-translations.php:79
+#: admin/class-hostinger-ai-assistant-translations.php:77
 msgid "Thanks for letting us know"
 msgstr "Cảm ơn bạn đã thông báo cho chúng tôi"
 
-#: admin/class-hostinger-ai-assistant-translations.php:78
-msgid ""
-"Thanks for letting us know. Click the button below if you want to leave "
-"additional feedback."
-msgstr ""
-"Cảm ơn bạn đã thông báo cho chúng tôi. Nếu bạn muốn để lại phản hồi bổ sung, "
-"vui lòng nhấp vào nút bên dưới."
+#: admin/class-hostinger-ai-assistant-translations.php:76
+msgid "Thanks for letting us know. Click the button below if you want to leave additional feedback."
+msgstr "Cảm ơn bạn đã thông báo cho chúng tôi. Nếu bạn muốn để lại phản hồi bổ sung, vui lòng nhấp vào nút bên dưới."
 
-#. translators: %s: PHP version
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:197
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:255
+#, fuzzy
+msgid "The content of the post"
+msgstr "Nội dung của bài đăng"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:189
+#, fuzzy
+msgid "The custom post type to create"
+msgstr "Loại bài đăng tùy chỉnh để tạo"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:301
+#, fuzzy
+msgid "The custom post type to delete"
+msgstr "Loại bài viết tùy chỉnh cần xóa"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:149
+#, fuzzy
+msgid "The custom post type to get"
+msgstr "Loại bài viết tùy chỉnh để lấy"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:91
+#, fuzzy
+msgid "The custom post type to search"
+msgstr "Loại bài viết tùy chỉnh để tìm kiếm"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:243
+#, fuzzy
+msgid "The custom post type to update"
+msgstr "Loại bài viết tùy chỉnh để cập nhật"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:201
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:259
+#, fuzzy
+msgid "The excerpt of the post"
+msgstr "Trích đoạn của bài đăng"
+
 #: hostinger-ai-assistant.php:131
 #, php-format
 msgid "The Hostinger AI plugin requires minimum PHP version of <b>%s</b>. "
 msgstr "Plugin Hostinger AI yêu cầu tối thiểu là phiên bản PHP %s."
 
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:248
-msgid "There was an error with your request. Please try again."
-msgstr "Đã xảy ra lỗi với yêu cầu của bạn. Vui lòng thử lại."
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:150
+#, fuzzy
+msgid "The ID of the media item"
+msgstr "Mã định danh của mục phương tiện"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:305
+#, fuzzy
+msgid "The ID of the post to delete"
+msgstr "ID của bài đăng cần xóa"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:153
+#, fuzzy
+msgid "The ID of the post to get"
+msgstr "ID của bài đăng cần lấy"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:247
+#, fuzzy
+msgid "The ID of the post to update"
+msgstr "ID của bài đăng cần cập nhật"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:127
+#, fuzzy
+msgid "The preset to apply"
+msgstr "Cài đặt sẵn để áp dụng"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:205
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:263
+#, fuzzy
+msgid "The status of the post (publish, draft, pending, etc.)"
+msgstr "Trạng thái của bài đăng (đã đăng, bản nháp, đang chờ duyệt, v.v.)"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:193
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:251
+#, fuzzy
+msgid "The title of the post"
+msgstr "Tiêu đề của bài đăng"
+
+#: includes-psr4/Mcp/Abilities/Resources/ThemeInfoResource.php:16
+#, fuzzy
+msgid "Theme Information"
+msgstr "Thông tin về chủ đề"
 
 #: admin/partials/hostinger-ai-assistant-seo-meta-view.php:20
-msgid ""
-"These keywords can help your article and website rank higher in search "
-"engines. You can input up to 5 keywords."
-msgstr ""
-"Các từ khóa này có thể giúp bài viết và trang web của bạn xếp hạng cao hơn "
-"trên các công cụ tìm kiếm. Bạn có thể nhập tối đa 5 từ khóa."
+msgid "These keywords can help your article and website rank higher in search engines. You can input up to 5 keywords."
+msgstr "Các từ khóa này có thể giúp bài viết và trang web của bạn xếp hạng cao hơn trên các công cụ tìm kiếm. Bạn có thể nhập tối đa 5 từ khóa."
 
-#: admin/class-hostinger-ai-assistant-translations.php:67
+#: admin/class-hostinger-ai-assistant-translations.php:61
 #, fuzzy
 msgid "Thinking"
 msgstr "Suy nghĩ"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:254
+#, fuzzy
+msgid "This low-risk preset introduces basic optimizations for speed and user experience. Appropriate for enthusiastic beginners."
+msgstr "Cài đặt sẵn này có rủi ro thấp, cung cấp các tối ưu hóa cơ bản về tốc độ và trải nghiệm người dùng. Phù hợp cho người mới bắt đầu có đam mê."
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:242
+#, fuzzy
+msgid "This no-risk preset is appropriate for all websites. Good for new users, simple websites, or cache-oriented development."
+msgstr "Cài đặt sẵn không rủi ro này phù hợp với tất cả các trang web. Phù hợp cho người dùng mới, trang web đơn giản hoặc phát triển tập trung vào bộ nhớ đệm."
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:303
+#, fuzzy
+msgid "This preset almost certainly will require testing and exclusions for some CSS, JS and Lazy Loaded images. Pay special attention to logos, or HTML-based slider images."
+msgstr "Cài đặt sẵn này rất có thể sẽ yêu cầu kiểm tra và loại trừ đối với một số CSS, JS và hình ảnh tải chậm (Lazy Loaded). Hãy chú ý đặc biệt đến logo hoặc hình ảnh trong trình chiếu (slider) dựa trên HTML."
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:268
+#, fuzzy
+msgid "This preset is good for most websites, and is unlikely to cause conflicts. Any CSS or JS conflicts may be resolved with Page Optimization > Tuning tools."
+msgstr "Cài đặt sẵn này phù hợp với hầu hết các trang web và ít có khả năng gây ra xung đột. Bất kỳ xung đột nào liên quan đến CSS hoặc JS có thể được giải quyết thông qua công cụ tối ưu hóa trang web > Công cụ điều chỉnh."
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:288
+#, fuzzy
+msgid "This preset might work out of the box for some websites, but be sure to test! Some CSS or JS exclusions may be necessary in Page Optimization > Tuning."
+msgstr "Cài đặt sẵn này có thể hoạt động ngay lập tức cho một số trang web, nhưng hãy chắc chắn kiểm tra! Một số ngoại lệ CSS hoặc JS có thể cần thiết trong phần Tối ưu hóa Trang > Điều chỉnh."
 
 #: admin/partials/hostinger-ai-assistant-tab-view.php:270
 msgid "This will only take a moment"
 msgstr "Điều này sẽ mất một lúc"
 
-#. translators: %s: MCP plugin name
-#: admin/class-hostinger-ai-assistant-translations.php:41
-#, php-format
-msgid ""
-"To let Kodee manage your site on your behalf, we will install and pre-"
-"configure the %s for you. This allows Kodee to perform actions like creating "
-"pages or updating settings. You can revoke this permission at any time in "
-"your Hostinger Tools settings."
-msgstr ""
-"Để Kodee quản lý trang web thay mặt bạn, chúng tôi sẽ cài đặt và cấu hình "
-"sẵn %s cho bạn. Điều này cho phép Kodee thực hiện các tác vụ như tạo trang "
-"hoặc cập nhật cài đặt. Bạn có thể thu hồi quyền này bất cứ lúc nào trong "
-"phần cài đặt Công cụ Hostinger."
+#: includes-psr4/Mcp/Abilities/Tools/SettingsTools.php:53
+#, fuzzy
+msgid "Time format"
+msgstr "Định dạng thời gian"
 
 #: admin/class-hostinger-ai-assistant-notices.php:22
-msgid ""
-"To unlock the exclusive features of <b>Hostinger AI</b>, you must possess a "
-"unique API token, which is exclusively provided to Hostinger clients"
-msgstr ""
-"Để mở khóa tính năng độc quyền <b>Hostinger AI</b>, bạn phải sở hữu mã API "
-"duy nhất, mã này được phân phối độc quyền cho khách hàng Hostinger"
+msgid "To unlock the exclusive features of <b>Hostinger AI</b>, you must possess a unique API token, which is exclusively provided to Hostinger clients"
+msgstr "Để mở khóa tính năng độc quyền <b>Hostinger AI</b>, bạn phải sở hữu mã API duy nhất, mã này được phân phối độc quyền cho khách hàng Hostinger"
 
-#. translators: 1: minimum expiration time in seconds, 2: maximum expiration time in seconds
-#: includes/mcp/class-hostinger-ai-assistant-mcp-jwt-auth.php:66
-#, fuzzy, php-format
-msgid ""
-"Token expiration must be between %1$d seconds (1 hour) and %2$d seconds (1 "
-"day)"
-msgstr ""
-"Thời hạn hiệu lực của token phải nằm trong khoảng từ %1$d giây (1 giờ) đến "
-"%2$d giây (1 ngày)"
+#. 1: minimum expiration time in seconds, 2: maximum expiration time in seconds
+#: includes-psr4/Mcp/Rest/JwtAuth.php:66
+#, fuzzy,php-format
+msgid "Token expiration must be between %1$d seconds (1 hour) and %2$d seconds (1 day)"
+msgstr "Thời hạn hiệu lực của token phải nằm trong khoảng từ %1$d giây (1 giờ) đến %2$d giây (1 ngày)"
 
-#: includes/mcp/class-hostinger-ai-assistant-mcp-jwt-auth.php:31
+#: includes-psr4/Mcp/Rest/JwtAuth.php:34
 #, fuzzy
 msgid "Token expiration time in seconds (3600-86400)"
 msgstr "Thời gian hết hạn của token (tính bằng giây) (3600-86400)"
 
-#: includes/mcp/class-hostinger-ai-assistant-mcp-jwt-auth.php:87
+#: includes-psr4/Mcp/Rest/JwtAuth.php:81
 #, fuzzy
 msgid "Token ID is required."
 msgstr "Mã token là bắt buộc."
 
-#: includes/mcp/class-hostinger-ai-assistant-mcp-jwt-auth.php:253
+#: includes-psr4/Mcp/Rest/JwtAuth.php:112
 #, fuzzy
 msgid "Token is invalid, expired, or has been revoked."
 msgstr "Token không hợp lệ, đã hết hạn hoặc đã bị thu hồi."
 
-#: includes/mcp/class-hostinger-ai-assistant-mcp-jwt-auth.php:262
+#: includes-psr4/Mcp/Rest/JwtAuth.php:118
 #, fuzzy
 msgid "Token is malformed: missing user_id."
 msgstr "Token không hợp lệ: thiếu trường user_id."
 
-#: includes/mcp/class-hostinger-ai-assistant-mcp-jwt-auth.php:98
+#: includes-psr4/Mcp/Rest/JwtAuth.php:89
 #, fuzzy
 msgid "Token not found in registry."
 msgstr "Không tìm thấy token trong registry."
 
-#: includes/mcp/class-hostinger-ai-assistant-mcp-jwt-auth.php:110
+#: includes-psr4/Mcp/Rest/JwtAuth.php:99
 #, fuzzy
 msgid "Token revoked successfully."
 msgstr "Token đã bị thu hồi thành công."
 
-#. translators: %s: error message from JWT library
-#: includes/mcp/class-hostinger-ai-assistant-mcp-jwt-auth.php:288
-#, fuzzy, php-format
+#. %s: error message from JWT library
+#: includes-psr4/Mcp/Rest/JwtAuth.php:135
+#, fuzzy,php-format
 msgid "Token validation failed: %s"
 msgstr "Xác thực token thất bại: %s"
 
 #: admin/partials/hostinger-ai-assistant-tab-view.php:100
 #: includes/woocommerce/class-hostinger-ai-assistant-product-ai-metabox.php:86
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:420
 msgid "Tone of voice"
 msgstr "Giọng điệu"
 
@@ -792,66 +1916,213 @@ msgstr "tông đã chọn"
 #: admin/class-hostinger-ai-assistant-translations.php:25
 #: admin/partials/hostinger-ai-assistant-tab-view.php:107
 #: includes/woocommerce/class-hostinger-ai-assistant-product-ai-metabox.php:90
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:139
 msgid "Trustworthy"
 msgstr "Đáng tin cậy"
+
+#: includes-psr4/Mcp/Abilities/Tools/RestEndpointTool.php:104
+#: includes-psr4/Mcp/Abilities/Tools/RestEndpointTool.php:129
+#: includes-psr4/Mcp/Abilities/Tools/RestEndpointTool.php:140
+#, fuzzy
+msgid "Unique identifier for the resource"
+msgstr "Mã định danh duy nhất cho tài nguyên"
 
 #: includes/class-hostinger-ai-assistant-errors.php:36
 msgid "Unknown error code."
 msgstr "Mã lỗi không xác định."
 
-#: admin/class-hostinger-ai-assistant-translations.php:159
+#: admin/class-hostinger-ai-assistant-translations.php:151
 #, fuzzy
 msgid "Update a post category on my WordPress website"
 msgstr "Cập nhật danh mục bài viết trên trang web WordPress của tôi"
 
-#: admin/class-hostinger-ai-assistant-translations.php:154
+#: admin/class-hostinger-ai-assistant-translations.php:146
 #, fuzzy
 msgid "Update a post tag on my WordPress website"
 msgstr "Cập nhật thẻ bài viết trên trang web WordPress của tôi"
 
-#: admin/class-hostinger-ai-assistant-translations.php:124
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:236
+#, fuzzy
+msgid "Update a WordPress custom post type post by ID"
+msgstr "Cập nhật bài viết của loại bài viết tùy chỉnh WordPress theo ID"
+
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:43
+#, fuzzy
+msgid "Update a WordPress media item metadata. Only provided fields will be updated."
+msgstr "Cập nhật thông tin metadata của một mục phương tiện trong WordPress. Chỉ các trường được cung cấp mới được cập nhật."
+
+#: admin/class-hostinger-ai-assistant-translations.php:116
 #, fuzzy
 msgid "Update an existing page on my WordPress website"
 msgstr "Cập nhật một trang hiện có trên trang web WordPress của tôi"
 
-#: admin/class-hostinger-ai-assistant-translations.php:144
+#: admin/class-hostinger-ai-assistant-translations.php:136
 #, fuzzy
 msgid "Update an existing post on my WordPress site"
 msgstr "Cập nhật bài viết hiện có trên trang WordPress của tôi"
 
-#: admin/class-hostinger-ai-assistant-translations.php:142
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:248
+#, fuzzy
+msgid "Update an existing WooCommerce product brand by ID."
+msgstr "Cập nhật thương hiệu của sản phẩm WooCommerce hiện có bằng ID."
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:55
+#, fuzzy
+msgid "Update an existing WooCommerce product by ID. Only provided fields will be updated."
+msgstr "Cập nhật sản phẩm WooCommerce hiện có bằng ID. Chỉ các trường được cung cấp sẽ được cập nhật."
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:113
+#, fuzzy
+msgid "Update an existing WooCommerce product category by ID."
+msgstr "Cập nhật danh mục sản phẩm WooCommerce hiện có bằng ID."
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:180
+#, fuzzy
+msgid "Update an existing WooCommerce product tag by ID."
+msgstr "Cập nhật thẻ sản phẩm WooCommerce hiện có bằng ID."
+
+#: includes-psr4/Mcp/Abilities/Tools/CategoriesTools.php:53
+#, fuzzy
+msgid "Update an existing WordPress category by ID. Only provided fields will be updated."
+msgstr "Cập nhật một danh mục WordPress hiện có bằng ID. Chỉ các trường được cung cấp sẽ được cập nhật."
+
+#: includes-psr4/Mcp/Abilities/Tools/PagesTools.php:53
+#, fuzzy
+msgid "Update an existing WordPress page by ID. Only provided fields will be updated."
+msgstr "Cập nhật một trang WordPress hiện có bằng ID. Chỉ các trường được cung cấp sẽ được cập nhật."
+
+#: includes-psr4/Mcp/Abilities/Tools/PostsTools.php:53
+#, fuzzy
+msgid "Update an existing WordPress post by ID. Only provided fields will be updated."
+msgstr "Cập nhật bài viết WordPress hiện có bằng ID. Chỉ các trường được cung cấp sẽ được cập nhật."
+
+#: includes-psr4/Mcp/Abilities/Tools/TagsTools.php:53
+#, fuzzy
+msgid "Update an existing WordPress tag by ID. Only provided fields will be updated."
+msgstr "Cập nhật thẻ WordPress hiện có bằng ID. Chỉ các trường được cung cấp sẽ được cập nhật."
+
+#: includes-psr4/Mcp/Abilities/Tools/UsersTools.php:74
+#, fuzzy
+msgid "Update an existing WordPress user by ID. Only provided fields will be updated."
+msgstr "Cập nhật người dùng WordPress hiện có bằng ID. Chỉ các trường được cung cấp sẽ được cập nhật."
+
+#: admin/class-hostinger-ai-assistant-translations.php:134
 #, fuzzy
 msgid "Update blog post"
 msgstr "Cập nhật bài viết trên blog"
 
-#: admin/class-hostinger-ai-assistant-translations.php:157
+#: includes-psr4/Mcp/Abilities/Tools/CategoriesTools.php:52
+#, fuzzy
+msgid "Update Category"
+msgstr "Cập nhật Danh mục"
+
+#: includes-psr4/Mcp/Abilities/Tools/UsersTools.php:132
+#, fuzzy
+msgid "Update Current User"
+msgstr "Cập nhật thông tin người dùng hiện tại"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:235
+#, fuzzy
+msgid "Update Custom Post Type Post"
+msgstr "Cập nhật bài viết loại bài viết tùy chỉnh"
+
+#: includes-psr4/Mcp/Abilities/Tools/SettingsTools.php:31
+#, fuzzy
+msgid "Update General Settings"
+msgstr "Cập nhật Cài đặt chung"
+
+#: includes-psr4/Mcp/Abilities/Tools/HostingerPluginTools.php:57
+#, fuzzy
+msgid "Update Hostinger Plugin Settings"
+msgstr "Cập nhật cài đặt plugin Hostinger"
+
+#: includes-psr4/Mcp/Abilities/Tools/HostingerPluginTools.php:58
+#, fuzzy
+msgid "Update Hostinger plugin settings. Only provided fields will be updated."
+msgstr "Cập nhật cài đặt plugin Hostinger. Chỉ các trường được cung cấp sẽ được cập nhật."
+
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:42
+#, fuzzy
+msgid "Update Media"
+msgstr "Cập nhật phương tiện truyền thông"
+
+#: includes-psr4/Mcp/Abilities/Tools/PagesTools.php:52
+#, fuzzy
+msgid "Update Page"
+msgstr "Cập nhật trang"
+
+#: includes-psr4/Mcp/Abilities/Tools/PostsTools.php:52
+#, fuzzy
+msgid "Update Post"
+msgstr "Cập nhật bài đăng"
+
+#: admin/class-hostinger-ai-assistant-translations.php:149
 #, fuzzy
 msgid "Update post category"
 msgstr "Cập nhật danh mục bài viết"
 
-#: admin/class-hostinger-ai-assistant-translations.php:152
+#: admin/class-hostinger-ai-assistant-translations.php:144
 #, fuzzy
 msgid "Update post tag"
 msgstr "Cập nhật thẻ bài viết"
 
-#: admin/class-hostinger-ai-assistant-translations.php:122
+#: includes-psr4/Mcp/Abilities/Tools/TagsTools.php:52
+#, fuzzy
+msgid "Update Tag"
+msgstr "Cập nhật thẻ"
+
+#: includes-psr4/Mcp/Abilities/Tools/UsersTools.php:133
+#, fuzzy
+msgid "Update the current logged-in user information."
+msgstr "Cập nhật thông tin người dùng hiện đang đăng nhập."
+
+#: includes-psr4/Mcp/Abilities/Tools/UsersTools.php:73
+#, fuzzy
+msgid "Update User"
+msgstr "Cập nhật thông tin người dùng"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:54
+#, fuzzy
+msgid "Update WooCommerce Product"
+msgstr "Cập nhật sản phẩm WooCommerce"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:247
+#, fuzzy
+msgid "Update WooCommerce Product Brand"
+msgstr "Cập nhật thương hiệu sản phẩm WooCommerce"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:112
+#, fuzzy
+msgid "Update WooCommerce Product Category"
+msgstr "Cập nhật danh mục sản phẩm WooCommerce"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:179
+#, fuzzy
+msgid "Update WooCommerce Product Tag"
+msgstr "Cập nhật thẻ sản phẩm WooCommerce"
+
+#: includes-psr4/Mcp/Abilities/Tools/SettingsTools.php:32
+#, fuzzy
+msgid "Update WordPress general site settings. Only provided fields will be updated."
+msgstr "Cập nhật cài đặt chung của trang web WordPress. Chỉ các trường được cung cấp mới được cập nhật."
+
+#: admin/class-hostinger-ai-assistant-translations.php:114
 #, fuzzy
 msgid "Update WordPress page"
 msgstr "Cập nhật trang WordPress"
-
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:377
-msgid "Use this content"
-msgstr "Sử dụng nội dung này"
 
 #: admin/class-hostinger-ai-assistant-translations.php:35
 msgid "Use this image as:"
 msgstr "Sử dụng ảnh này như:"
 
-#: includes/mcp/class-hostinger-ai-assistant-mcp-jwt-auth.php:272
+#: includes-psr4/Mcp/Rest/JwtAuth.php:125
 #, fuzzy
 msgid "User associated with token no longer exists."
 msgstr "Người dùng liên kết với token không còn tồn tại."
+
+#: includes-psr4/Mcp/Abilities/Resources/UsersInfoResource.php:16
+#, fuzzy
+msgid "Users Information"
+msgstr "Thông tin người dùng"
 
 #: admin/partials/hostinger-ai-assistant-tab-view.php:133
 msgid "Usually used for video, infographics, or product descriptions"
@@ -859,38 +2130,34 @@ msgstr "Thường dùng cho video, đồ họa thông tin hoặc mô tả sản 
 
 #: admin/partials/hostinger-ai-assistant-tab-view.php:145
 msgid "Usually used to make high-ranked articles that will generate more leads"
-msgstr ""
-"Thường dùng để tạo các bài viết được xếp hạng cao để thu hút nhiều lượt truy "
-"cập"
+msgstr "Thường dùng để tạo các bài viết được xếp hạng cao để thu hút nhiều lượt truy cập"
 
-#: admin/class-hostinger-ai-assistant-translations.php:128
+#: admin/class-hostinger-ai-assistant-translations.php:120
 #, fuzzy
-msgid ""
-"View site details like name, URL, description, admin email, plugins, themes, "
-"and users"
-msgstr ""
-"Xem chi tiết trang web như tên, URL, mô tả, email quản trị viên, plugin, "
-"giao diện và người dùng"
+msgid "View site details like name, URL, description, admin email, plugins, themes, and users"
+msgstr "Xem chi tiết trang web như tên, URL, mô tả, email quản trị viên, plugin, giao diện và người dùng"
 
-#: admin/class-hostinger-ai-assistant-translations.php:100
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:308
+#, fuzzy
+msgid "Viewport Image Generation"
+msgstr "Tạo hình ảnh trong khung nhìn"
+
+#: admin/class-hostinger-ai-assistant-translations.php:98
 msgid "Voice feature is coming soon"
 msgstr "Tính năng giọng nói sẽ sớm ra mắt"
 
 #: includes/class-hostinger-ai-assistant-errors.php:20
-msgid ""
-"We apologize for the inconvenience. The AI content generation process "
-"encountered a server error. Please try again later."
-msgstr ""
-"Chúng tôi xin lỗi vì sự bất tiện. Quá trình tạo nội dung do AI đã xảy ra sự "
-"cố máy chủ. Xin vui lòng thử lại."
+msgid "We apologize for the inconvenience. The AI content generation process encountered a server error. Please try again later."
+msgstr "Chúng tôi xin lỗi vì sự bất tiện. Quá trình tạo nội dung do AI đã xảy ra sự cố máy chủ. Xin vui lòng thử lại."
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:297
+#, fuzzy
+msgid "Websites willing to test and tune settings"
+msgstr "Các trang web sẵn sàng thử nghiệm và tối ưu hóa cài đặt"
 
 #: admin/partials/hostinger-ai-assistant-tab-view.php:179
 msgid "What are the focus keywords of your content?"
 msgstr "Các từ khóa cần chú trọng của nội dung là gì?"
-
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:394
-msgid "What content do you want AI to create today?"
-msgstr "Bạn muốn AI tạo ra nội dung gì hôm nay?"
 
 #: admin/partials/hostinger-ai-assistant-tab-view.php:56
 msgid "What do you want to make today?"
@@ -903,67 +2170,35 @@ msgstr "Nội dung của bạn nói về điều gì?"
 #: admin/class-hostinger-ai-assistant-translations.php:27
 #: admin/partials/hostinger-ai-assistant-tab-view.php:109
 #: includes/woocommerce/class-hostinger-ai-assistant-product-ai-metabox.php:92
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:147
 msgid "Witty"
 msgstr "Hóm hỉnh"
-
-#: admin/class-hostinger-ai-assistant-translations.php:42
-msgid "WordPress MCP plugin"
-msgstr "Plugin WordPress MCP"
 
 #: admin/partials/hostinger-ai-assistant-tab-view.php:220
 msgid "words"
 msgstr "từ"
 
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:154
-msgid "Write a motivational post about..."
-msgstr "Viết bài viết truyền cảm hứng về..."
-
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:153
-msgid "Write a recommendation list of..."
-msgstr "Viết danh sách đề xuất về..."
-
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:152
-msgid "Write a step-by-step tutorial about..."
-msgstr "Viết hướng dẫn chi tiết từng bước về..."
-
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:157
-msgid "Write a summary of..."
-msgstr "Viết tóm tắt về..."
-
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:156
-#: gutenberg-block/src/edit.js:399
-msgid "Write an article about ..."
-msgstr "Viết bài viết về ..."
-
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:155
-msgid "Write promotional content about..."
-msgstr "Viết nội dung quảng cáo về..."
-
-#: admin/class-hostinger-ai-assistant-translations.php:84
+#: admin/class-hostinger-ai-assistant-translations.php:82
 msgid "Write your feedback (optional)"
 msgstr "Viết phản hồi của bạn (tùy chọn)"
 
-#: admin/class-hostinger-ai-assistant-translations.php:57
+#: admin/class-hostinger-ai-assistant-translations.php:51
 msgid "Write your question"
 msgstr "Viết câu hỏi của bạn"
 
-#. translators: %s: PHP version
+#. %s: PHP version
 #: hostinger-ai-assistant.php:135
 #, php-format
 msgid "You are running <b>%s</b> PHP version."
 msgstr "Bạn đang dùng phiên bản PHP <b>%s</b>"
 
-#: admin/class-hostinger-ai-assistant-translations.php:63
+#: admin/class-hostinger-ai-assistant-translations.php:57
 msgid "You can only upload up to 6 files"
 msgstr "Bạn chỉ có thể tải lên tối đa 6 tệp"
 
-#: admin/class-hostinger-ai-assistant-translations.php:80
+#: admin/class-hostinger-ai-assistant-translations.php:78
 msgid "You rated your conversation"
 msgstr "Bạn đã đánh giá cuộc trò chuyện của mình"
 
 #: admin/class-hostinger-ai-assistant-translations.php:32
 msgid "You're good to go, but you can share more details for better results"
-msgstr ""
-"Bạn có thể bắt đầu nhưng bạn có thể chia sẻ chi tiết hơn để đạt kết quả tốt "
-"hơn"
+msgstr "Bạn có thể bắt đầu nhưng bạn có thể chia sẻ chi tiết hơn để đạt kết quả tốt hơn"

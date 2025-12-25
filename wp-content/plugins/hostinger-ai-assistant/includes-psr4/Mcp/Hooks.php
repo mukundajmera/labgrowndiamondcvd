@@ -12,6 +12,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class Hooks {
     public function init(): void {
+        add_filter( 'hostinger_once_per_day_events', array( $this, 'limit_triggered_amplitude_events' ) );
+
         $current_url = $_SERVER['REQUEST_URI'] ?? '';
         if ( ! str_contains( $current_url, HOSTINGER_AI_ASSISTANT_REST_API_BASE . '/mcp' ) ) {
             return;
@@ -33,5 +35,13 @@ class Hooks {
         }
 
         return $response;
+    }
+
+    public function limit_triggered_amplitude_events( array $events ): array {
+        $new_events = array(
+            'wordpress.chatbot.survey_filled',
+        );
+
+        return array_merge( $events, $new_events );
     }
 }

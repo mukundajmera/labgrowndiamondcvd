@@ -47,7 +47,7 @@ return array(
 		'path'    => array( $vendorDir . '/symfony/finder' )
 	),
 	'Symfony\\Component\\DomCrawler\\' => array(
-		'version' => '7.4.9999999.9999999-dev',
+		'version' => '7.3.9999999.9999999-dev',
 		'path'    => array( $vendorDir . '/symfony/dom-crawler' )
 	),
 	'Symfony\\Component\\Clock\\' => array(
@@ -183,7 +183,7 @@ return array(
 		'path'    => array( $vendorDir . '/brick/math/src' )
 	),
 	'Automattic\\Jetpack\\Autoloader\\' => array(
-		'version' => '5.0.13',
+		'version' => '5.0.15',
 		'path'    => array( $vendorDir . '/automattic/jetpack-autoloader/src' )
 	),
 );

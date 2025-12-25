@@ -55,7 +55,7 @@ return array(
 		'path'    => $vendorDir . '/mantle-framework/support/autoload.php'
 	),
 	'b68c986d100cce58b4f7580a7ebd1ae7' => array(
-		'version' => '1.6.0.0',
+		'version' => '1.8.2.0',
 		'path'    => $vendorDir . '/alleyinteractive/wp-block-converter/src/helpers.php'
 	),
 	'2d223b650b5c56928c1affa16ee5cfe2' => array(

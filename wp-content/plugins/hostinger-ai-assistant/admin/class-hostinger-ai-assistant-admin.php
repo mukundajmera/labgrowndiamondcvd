@@ -10,7 +10,6 @@
  * @subpackage Hostinger_Ai_Assistant/admin
  */
 
-use Hostinger\AiAssistant\Mcp\Rest\ToggleMcp;
 use Hostinger\WpMenuManager\Menus;
 use Hostinger\WpHelper\Utils;
 
@@ -197,12 +196,10 @@ class Hostinger_Ai_Assistant_Admin {
             array_merge(
                 $translations->get_chatbot_translations(),
                 array(
-                    'nonce'             => wp_create_nonce( 'wp_rest' ),
-                    'chatbot_uri'       => esc_url_raw( rest_url() ),
-                    'user_id'           => ! empty( $user->ID ) ? $user->ID : 0,
-                    'mcp_choice'        => get_option( ToggleMcp::MCP_CONSENT_OPTION, '' ),
-                    'mcp_plugin_active' => is_plugin_active( 'wordpress-mcp/wordpress-mcp.php' ),
-                    'language'          => $locale,
+                    'nonce'       => wp_create_nonce( 'wp_rest' ),
+                    'chatbot_uri' => esc_url_raw( rest_url() ),
+                    'user_id'     => ! empty( $user->ID ) ? $user->ID : 0,
+                    'language'    => $locale,
                 )
             )
         );

@@ -1,89 +1,99 @@
-# Copyright (C) 2024 Hostinger
-# This file is distributed under the GPL-2.0+.
 msgid ""
 msgstr ""
 "Project-Id-Version: Hostinger AI 2.0.13\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/hostinger-ai-"
-"assistant\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/hostinger-ai-assistant\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2024-08-19T12:02:35+00:00\n"
-"PO-Revision-Date: 2025-11-18 07:58+0000\n"
+"PO-Revision-Date: 2025-12-16 08:15+0000\n"
+"Language: he_IL\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: hostinger-ai-assistant\n"
-"Language: he_IL\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Loco-Version: 2.8.0; wp-6.8.2; php-8.2.29"
+"X-Loco-Version: 2.8.0; wp-6.8.2; php-8.2.29\n"
+
+#: includes-psr4/Mcp/Abilities/AbilitiesRegistry.php:76
+#, fuzzy
+msgid "Abilities that provide a way of interacting with WordPress site."
+msgstr "יכולות המאפשרות אינטראקציה עם אתר WordPress."
 
 #: includes/class-hostinger-ai-assistant-errors.php:14
 msgid "Action Failed. Try again or contact support. Apologies."
 msgstr "הפעולה נכשלה. נסו שוב או פנו לתמיכה. סליחה."
 
-#: admin/class-hostinger-ai-assistant-translations.php:66
+#: admin/class-hostinger-ai-assistant-translations.php:60
 msgid "Active"
 msgstr "פעיל"
 
-#: admin/class-hostinger-ai-assistant-translations.php:119
+#: admin/class-hostinger-ai-assistant-translations.php:111
 #, fuzzy
 msgid "Add a new page to my WordPress website"
 msgstr "הוספת דף חדש לאתר הוורדפרס שלי"
 
-#: admin/class-hostinger-ai-assistant-translations.php:139
+#: admin/class-hostinger-ai-assistant-translations.php:131
 #, fuzzy
 msgid "Add a new post to my WordPress website"
 msgstr "הוסף פוסט חדש לאתר הוורדפרס שלי"
 
-#: admin/class-hostinger-ai-assistant-translations.php:163
+#: admin/class-hostinger-ai-assistant-translations.php:155
 #, fuzzy
 msgid "Add a new product to your WooCommerce store"
 msgstr "הוסף מוצר חדש לחנות WooCommerce שלך"
 
-#: admin/class-hostinger-ai-assistant-translations.php:162
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:182
+#, fuzzy
+msgid "Add a new WordPress custom post type post"
+msgstr "הוסף סוג פוסט מותאם אישית חדש ב-WordPress"
+
+#: admin/class-hostinger-ai-assistant-translations.php:154
 #, fuzzy
 msgid "Add a product"
 msgstr "הוסף מוצר"
 
-#: admin/class-hostinger-ai-assistant-translations.php:167
+#: admin/class-hostinger-ai-assistant-translations.php:159
 #, fuzzy
 msgid "Add a product category"
 msgstr "הוסף קטגוריית מוצרים"
 
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:448
-msgid "Add an image inside my content"
-msgstr "הוסף תמונה בתוך התוכן שלי"
-
-#: admin/class-hostinger-ai-assistant-translations.php:137
+#: admin/class-hostinger-ai-assistant-translations.php:129
 #, fuzzy
 msgid "Add blog post"
 msgstr "הוסף פוסט בבלוג"
 
-#: admin/class-hostinger-ai-assistant-translations.php:117
+#: admin/class-hostinger-ai-assistant-translations.php:74
+#, fuzzy
+msgid "Add Comment"
+msgstr "הוסף תגובה"
+
+#: admin/class-hostinger-ai-assistant-translations.php:109
 #, fuzzy
 msgid "Add WordPress page"
 msgstr "הוסף דף וורדפרס"
 
-#: admin/class-hostinger-ai-assistant-translations.php:90
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:313
+#, fuzzy
+msgid "Advanced users willing to test and exclude items"
+msgstr "משתמשים מתקדמים המעוניינים לבדוק ולכלול פריטים"
+
+#: admin/class-hostinger-ai-assistant-translations.php:88
 msgid "After clearing history you won't be able to access previous chats."
 msgstr "לאחר מחיקת ההיסטוריה לא תוכלו לגשת לצ'אטים קודמים."
 
-#: admin/class-hostinger-ai-assistant-translations.php:95
-msgid ""
-"After starting new chat, you will be able to access previous chats from the "
-"history."
+#: admin/class-hostinger-ai-assistant-translations.php:93
+msgid "After starting new chat, you will be able to access previous chats from the history."
 msgstr "לאחר שתתחילו צ'אט חדש, תוכלו לגשת לצ'אטים קודמים מההיסטוריה."
 
-#: admin/class-hostinger-ai-assistant-admin.php:178
-#: admin/class-hostinger-ai-assistant-admin.php:179
-#: admin/class-hostinger-ai-assistant-admin.php:192
+#: admin/class-hostinger-ai-assistant-admin.php:144
+#: admin/class-hostinger-ai-assistant-admin.php:145
+#: admin/class-hostinger-ai-assistant-admin.php:158
 #: admin/partials/hostinger-ai-assistant-tab-view.php:24
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/index.js:10
 msgid "AI Content Creator"
 msgstr "יוצר תוכן AI"
 
-#: admin/class-hostinger-ai-assistant-translations.php:58
+#: admin/class-hostinger-ai-assistant-translations.php:52
 msgid "AI may produce inaccurate information"
 msgstr "AI עלול להנפיק מידע לא מדויק"
 
@@ -91,34 +101,58 @@ msgstr "AI עלול להנפיק מידע לא מדויק"
 msgid "AI-generated image"
 msgstr "תמונה שנוצרה באמצעות AI"
 
-#: admin/class-hostinger-ai-assistant-translations.php:110
-msgid "Allow Kodee to manage your site"
-msgstr "אפשרו ל-Kodee לנהל את האתר שלכם"
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:217
+#, fuzzy
+msgid "All LiteSpeed caches have been purged successfully."
+msgstr "כל מטמוני LiteSpeed נמחקו בהצלחה."
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:249
+#, fuzzy
+msgid "All websites, new users, simple websites, or cache-oriented development"
+msgstr "כל האתרים, משתמשים חדשים, אתרים פשוטים או פיתוח מכוון מטמון"
 
 #: includes/class-hostinger-ai-assistant-errors.php:17
 msgid "An unexpected error occurred. Please try again or contact support."
 msgstr "אירעה שגיאה בלתי צפויה. נסו שוב או פנו לתמיכה."
 
+#: includes-psr4/Mcp/McpServer.php:64
+#, fuzzy
+msgid "API key required"
+msgstr "נדרש מפתח API"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:120
+#, fuzzy
+msgid "Apply a predefined optimization preset to LiteSpeed Cache settings. Available presets: basic (minimal optimization), advanced (balanced), aggressive (more optimization), essentials (core features), extreme (maximum optimization). A backup of current settings will be created automatically."
+msgstr "החל הגדרת אופטימיזציה מוגדרת מראש על הגדרות LiteSpeed Cache. הגדרות זמינות: בסיסי (אופטימיזציה מינימלית), מתקדם (מאוזן), אגרסיבי (אופטימיזציה רבה יותר), חיוני (תכונות ליבה), קיצוני (אופטימיזציה מקסימלית). גיבוי של ההגדרות הנוכחיות ייווצר באופן אוטומטי."
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:119
+#, fuzzy
+msgid "Apply LiteSpeed Cache Preset"
+msgstr "החל הגדרת קאש LiteSpeed"
+
 #: admin/partials/hostinger-ai-assistant-tab-view.php:244
 msgid "Are you sure you want to replace your existing content with a new one ?"
 msgstr "האם אתם בטוחים שברצונכם להחליף את התוכן הקיים שלכם בתוכן החדש?"
 
-#: admin/class-hostinger-ai-assistant-translations.php:59
+#: admin/class-hostinger-ai-assistant-translations.php:53
 msgid "Ask Kodee"
 msgstr "שאלו את Kodee"
 
-#. translators: %s: PHP version
-#: admin/class-hostinger-ai-assistant-notices.php:22
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:293
+#, fuzzy
+msgid "Asynchronous CSS Loading with Critical CSS"
+msgstr "טעינת CSS אסינכרונית עם CSS קריטי"
+
+#. %s: PHP version
 #: hostinger-ai-assistant.php:131
+#: admin/class-hostinger-ai-assistant-notices.php:22
 msgid "Attention:"
 msgstr "שימו לב:"
 
-#: includes/mcp/class-hostinger-ai-assistant-mcp-jwt-auth.php:224
+#: admin/class-hostinger-ai-assistant-translations.php:72
 #, fuzzy
-msgid ""
-"Authentication required. Please provide a Bearer token or log in as an "
-"administrator."
-msgstr "נדרשת אימות. אנא ספק אסימון נושא או התחבר כמנהל."
+msgid "Bad response"
+msgstr "תגובה גרועה"
 
 #: admin/partials/hostinger-ai-assistant-tab-view.php:139
 msgid "Balances depth and readability, engaging audiences and driving leads."
@@ -128,20 +162,35 @@ msgstr "מאזן בין עומק לזרימת הטקסט, מושך קהל ומנ
 msgid "Brewing content with magic"
 msgstr "מבשלים תוכן בעזרת קסם"
 
-#: admin/class-hostinger-ai-assistant-translations.php:91
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:247
+#, fuzzy
+msgid "Browser Cache"
+msgstr "מטמון הדפדפן"
+
+#: includes-psr4/Mcp/Abilities/Tools/HostingerPluginTools.php:69
+#, fuzzy
+msgid "Bypass code for maintenance mode"
+msgstr "קוד עקיפה למצב תחזוקה"
+
+#: includes-psr4/Mcp/Abilities/Tools/HostingerPluginTools.php:187
+#, fuzzy
+msgid "Bypass code for maintenance mode. Needed only when maintenance mode is enabled."
+msgstr "קוד עקיפה למצב תחזוקה. נדרש רק כאשר מצב התחזוקה מופעל."
+
+#: admin/class-hostinger-ai-assistant-translations.php:89
 #: admin/partials/hostinger-ai-assistant-tab-view.php:251
 msgid "Cancel"
 msgstr "ביטול"
 
-#: admin/class-hostinger-ai-assistant-translations.php:64
+#: admin/class-hostinger-ai-assistant-translations.php:58
 msgid "Cannot restart the chat when Kodee is responding"
 msgstr "לא ניתן להפעיל מחדש את הצ'אט כאשר Kodee מגיב"
 
-#: admin/class-hostinger-ai-assistant-translations.php:53
+#: admin/class-hostinger-ai-assistant-translations.php:47
 msgid "Cannot restart the chat when talking with the agent"
 msgstr "לא ניתן להפעיל מחדש את הצ'אט בעת שיחה עם הנציג"
 
-#: admin/class-hostinger-ai-assistant-translations.php:65
+#: admin/class-hostinger-ai-assistant-translations.php:59
 msgid "Cannot start a new chat when Kodee is responding"
 msgstr "לא ניתן להתחיל צ'אט חדש כאשר Kodee מגיב"
 
@@ -161,27 +210,22 @@ msgstr "בחרו את סוג התוכן שייווצר"
 msgid "Choose your desired emotional impact on readers"
 msgstr "בחרו את ההשפעה הרגשית הרצויה על הקוראים"
 
-#: admin/class-hostinger-ai-assistant-translations.php:89
-#: admin/class-hostinger-ai-assistant-translations.php:92
+#: admin/class-hostinger-ai-assistant-translations.php:87
+#: admin/class-hostinger-ai-assistant-translations.php:90
 msgid "Clear chat"
 msgstr "נקה צ'אט"
 
 #: admin/partials/hostinger-ai-assistant-tab-view.php:247
-msgid ""
-"Clicking <b>Generate new content</b> will permanently delete your existing "
-"content and generate a new one on your recent inputs."
-msgstr ""
-"לחיצה על <b>יצירת תוכן חדש</b> ימחק לצמיתות את התוכן הקיים שלכם וייצור תוכן "
-"חדש בקלט האחרון שלכם"
+msgid "Clicking <b>Generate new content</b> will permanently delete your existing content and generate a new one on your recent inputs."
+msgstr "לחיצה על <b>יצירת תוכן חדש</b> ימחק לצמיתות את התוכן הקיים שלכם וייצור תוכן חדש בקלט האחרון שלכם"
 
-#: admin/class-hostinger-ai-assistant-translations.php:55
-#: admin/class-hostinger-ai-assistant-translations.php:102
+#: admin/class-hostinger-ai-assistant-translations.php:49
+#: admin/class-hostinger-ai-assistant-translations.php:100
 msgid "Close"
 msgstr "סגור"
 
 #: admin/partials/hostinger-ai-assistant-tab-view.php:121
 #: includes/woocommerce/class-hostinger-ai-assistant-product-ai-metabox.php:77
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:431
 msgid "Content length"
 msgstr "אורך תוכן"
 
@@ -193,44 +237,118 @@ msgstr "רעיון מרכזי של התוכן"
 msgid "Content Type"
 msgstr "סוג התוכן"
 
-#: admin/class-hostinger-ai-assistant-translations.php:74
+#: admin/class-hostinger-ai-assistant-translations.php:68
 msgid "Conversation was closed"
 msgstr "השיחה נסגרה"
 
-#: admin/class-hostinger-ai-assistant-translations.php:168
+#: includes-psr4/Mcp/Abilities/Tools/SettingsTools.php:65
+#, fuzzy
+msgid "Convert emoticons to graphics"
+msgstr "המרת סמיילים לגרפיקה"
+
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:283
+#, fuzzy
+msgid "Could not determine file type"
+msgstr "לא ניתן לקבוע את סוג הקובץ"
+
+#: admin/class-hostinger-ai-assistant-translations.php:160
 #, fuzzy
 msgid "Create a new product category in WooCommerce"
 msgstr "יצירת קטגוריית מוצרים חדשה ב-WooCommerce"
 
-#: admin/class-hostinger-ai-assistant-translations.php:169
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:235
+#, fuzzy
+msgid "Create a new WooCommerce product brand. Requires name."
+msgstr "צור מותג מוצר WooCommerce חדש. דורש שם."
+
+#: admin/class-hostinger-ai-assistant-translations.php:161
 #, fuzzy
 msgid "Create a new WooCommerce product category for my store"
 msgstr "צור קטגוריית מוצרים חדשה ב-WooCommerce עבור החנות שלי"
 
-#: admin/class-hostinger-ai-assistant-translations.php:164
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:100
+#, fuzzy
+msgid "Create a new WooCommerce product category. Requires name."
+msgstr "צור קטגוריית מוצרים חדשה ב-WooCommerce. יש להזין שם."
+
+#: admin/class-hostinger-ai-assistant-translations.php:156
 #, fuzzy
 msgid "Create a new WooCommerce product for my store"
 msgstr "צור מוצר WooCommerce חדש לחנות שלי"
 
-#: admin/class-hostinger-ai-assistant-translations.php:178
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:167
+#, fuzzy
+msgid "Create a new WooCommerce product tag. Requires name."
+msgstr "צור תגית מוצר WooCommerce חדשה. דורש שם."
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:42
+#, fuzzy
+msgid "Create a new WooCommerce product. Requires name and other product details."
+msgstr "צור מוצר WooCommerce חדש. נדרש שם ופרטים נוספים על המוצר."
+
+#: includes-psr4/Mcp/Abilities/Tools/PagesTools.php:40
+#, fuzzy
+msgid "Create a new WordPress page. Requires title and content."
+msgstr "צור דף WordPress חדש. נדרש כותרת ותוכן."
+
+#: includes-psr4/Mcp/Abilities/Tools/CategoriesTools.php:40
+#, fuzzy
+msgid "Create a new WordPress post category. Requires a name."
+msgstr "צור קטגוריה חדשה לפוסטים ב-WordPress. יש להזין שם."
+
+#: includes-psr4/Mcp/Abilities/Tools/TagsTools.php:40
+#, fuzzy
+msgid "Create a new WordPress post tag. Requires a name."
+msgstr "צור תגית פוסט חדשה ב-WordPress. דורש שם."
+
+#: includes-psr4/Mcp/Abilities/Tools/PostsTools.php:40
+#, fuzzy
+msgid "Create a new WordPress post. Requires title and content."
+msgstr "צור פוסט חדש ב-WordPress. נדרש כותרת ותוכן."
+
+#: includes-psr4/Mcp/Abilities/Tools/UsersTools.php:58
+#, fuzzy
+msgid "Create a new WordPress user. Requires username and email."
+msgstr "צור משתמש WordPress חדש. נדרש שם משתמש וכתובת דוא\"ל."
+
+#: admin/class-hostinger-ai-assistant-translations.php:170
 #, fuzzy
 msgid "Create a WooCommerce sales report for a chosen period"
 msgstr "צור דוח מכירות WooCommerce לתקופה נבחרת"
 
-#: admin/class-hostinger-ai-assistant-translations.php:118
+#: admin/class-hostinger-ai-assistant-translations.php:110
 #, fuzzy
 msgid "Create and publish a new page on your WordPress site"
 msgstr "צור ופרסם דף חדש באתר WordPress שלך"
 
-#: admin/class-hostinger-ai-assistant-translations.php:138
+#: admin/class-hostinger-ai-assistant-translations.php:130
 #, fuzzy
 msgid "Create and publish a new post on your WordPress site"
 msgstr "צור ופרסם פוסט חדש באתר WordPress שלך"
 
+#: includes-psr4/Mcp/Abilities/Tools/CategoriesTools.php:39
+#, fuzzy
+msgid "Create Category"
+msgstr "צור קטגוריה"
+
 #: admin/partials/hostinger-ai-assistant-tab-view.php:195
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:461
 msgid "Create content"
 msgstr "צור תוכן"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:181
+#, fuzzy
+msgid "Create Custom Post Type Post"
+msgstr "צור סוג פוסט מותאם אישית"
+
+#: includes-psr4/Mcp/Abilities/Tools/PagesTools.php:39
+#, fuzzy
+msgid "Create Page"
+msgstr "צור דף"
+
+#: includes-psr4/Mcp/Abilities/Tools/PostsTools.php:39
+#, fuzzy
+msgid "Create Post"
+msgstr "צור פוסט"
 
 #: admin/class-hostinger-ai-assistant-translations.php:33
 msgid "Create Post with AI"
@@ -239,6 +357,191 @@ msgstr "צרו פוסט באמצעות AI"
 #: includes/woocommerce/class-hostinger-ai-assistant-product-ai-metabox.php:24
 msgid "Create product with AI"
 msgstr "צרו מוצר באמצעות AI"
+
+#: includes-psr4/Mcp/Abilities/Tools/TagsTools.php:39
+#, fuzzy
+msgid "Create Tag"
+msgstr "צור תגית"
+
+#: includes-psr4/Mcp/Abilities/Tools/UsersTools.php:57
+#, fuzzy
+msgid "Create User"
+msgstr "צור משתמש"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:41
+#, fuzzy
+msgid "Create WooCommerce Product"
+msgstr "צור מוצר WooCommerce"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:234
+#, fuzzy
+msgid "Create WooCommerce Product Brand"
+msgstr "צור מותג מוצר WooCommerce"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:99
+#, fuzzy
+msgid "Create WooCommerce Product Category"
+msgstr "צור קטגוריית מוצרים ב-WooCommerce"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:166
+#, fuzzy
+msgid "Create WooCommerce Product Tag"
+msgstr "צור תגית מוצר WooCommerce"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:292
+#, fuzzy
+msgid "CSS & JS Combine"
+msgstr "שילוב CSS ו-JS"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:273
+#, fuzzy
+msgid "CSS, JS and HTML Minification"
+msgstr "מיניפיקציה של CSS, JS ו-HTML"
+
+#: includes-psr4/Mcp/McpServer.php:42
+#, fuzzy
+msgid "Custom MCP Server for Hostinger AI Assistant."
+msgstr "שרת MCP מותאם אישית עבור Hostinger AI Assistant."
+
+#: includes-psr4/Mcp/Abilities/Tools/SettingsTools.php:49
+#, fuzzy
+msgid "Date format"
+msgstr "פורמט תאריך"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:245
+#, fuzzy
+msgid "Default Cache"
+msgstr "מטמון ברירת מחדל"
+
+#: includes-psr4/Mcp/Abilities/Tools/SettingsTools.php:81
+#, fuzzy
+msgid "Default comment status (open/closed)"
+msgstr "סטטוס תגובה ברירת מחדל (פתוח/סגור)"
+
+#: includes-psr4/Mcp/Abilities/Tools/SettingsTools.php:85
+#, fuzzy
+msgid "Default ping status (open/closed)"
+msgstr "סטטוס פינג ברירת מחדל (פתוח/סגור)"
+
+#: includes-psr4/Mcp/Abilities/Tools/SettingsTools.php:69
+#, fuzzy
+msgid "Default post category"
+msgstr "קטגוריית פוסט ברירת מחדל"
+
+#: includes-psr4/Mcp/Abilities/Tools/SettingsTools.php:73
+#, fuzzy
+msgid "Default post format"
+msgstr "פורמט ברירת מחדל לפוסטים"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:261
+#, fuzzy
+msgid "Delete a WooCommerce product brand by ID."
+msgstr "מחק מותג מוצר WooCommerce לפי מזהה."
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:68
+#, fuzzy
+msgid "Delete a WooCommerce product by ID. This action cannot be undone."
+msgstr "מחק מוצר WooCommerce לפי מזהה. פעולה זו אינה ניתנת לביטול."
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:126
+#, fuzzy
+msgid "Delete a WooCommerce product category by ID."
+msgstr "מחק קטגוריית מוצרים של WooCommerce לפי מזהה."
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:193
+#, fuzzy
+msgid "Delete a WooCommerce product tag by ID."
+msgstr "מחק תווית מוצר WooCommerce לפי מזהה."
+
+#: includes-psr4/Mcp/Abilities/Tools/CategoriesTools.php:66
+#, fuzzy
+msgid "Delete a WordPress category by ID. This action cannot be undone."
+msgstr "מחק קטגוריה ב-WordPress לפי מזהה. פעולה זו אינה ניתנת לביטול."
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:294
+#, fuzzy
+msgid "Delete a WordPress custom post type post by ID. This action cannot be undone."
+msgstr "מחק פוסט מסוג מותאם אישית ב-WordPress לפי מזהה. פעולה זו אינה ניתנת לביטול."
+
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:56
+#, fuzzy
+msgid "Delete a WordPress media item permanently. This action cannot be undone."
+msgstr "מחק פריט מדיה מ-WordPress לצמיתות. פעולה זו אינה ניתנת לביטול."
+
+#: includes-psr4/Mcp/Abilities/Tools/PagesTools.php:66
+#, fuzzy
+msgid "Delete a WordPress page by ID. This action cannot be undone."
+msgstr "מחק דף WordPress לפי מזהה. פעולה זו אינה ניתנת לביטול."
+
+#: includes-psr4/Mcp/Abilities/Tools/PostsTools.php:66
+#, fuzzy
+msgid "Delete a WordPress post by ID. This action cannot be undone."
+msgstr "מחק פוסט וורדפרס לפי מזהה. פעולה זו אינה ניתנת לביטול."
+
+#: includes-psr4/Mcp/Abilities/Tools/TagsTools.php:66
+#, fuzzy
+msgid "Delete a WordPress tag by ID. This action cannot be undone."
+msgstr "מחק תגית WordPress לפי מזהה. פעולה זו אינה ניתנת לביטול."
+
+#: includes-psr4/Mcp/Abilities/Tools/UsersTools.php:90
+#, fuzzy
+msgid "Delete a WordPress user by ID. This action cannot be undone."
+msgstr "מחק משתמש WordPress לפי מזהה. פעולה זו אינה ניתנת לביטול."
+
+#: includes-psr4/Mcp/Abilities/Tools/CategoriesTools.php:65
+#, fuzzy
+msgid "Delete Category"
+msgstr "מחק קטגוריה"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:293
+#, fuzzy
+msgid "Delete Custom Post Type Post"
+msgstr "מחק פוסט מסוג מותאם אישית"
+
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:55
+#, fuzzy
+msgid "Delete Media"
+msgstr "מחק מדיה"
+
+#: includes-psr4/Mcp/Abilities/Tools/PagesTools.php:65
+#, fuzzy
+msgid "Delete Page"
+msgstr "מחק דף"
+
+#: includes-psr4/Mcp/Abilities/Tools/PostsTools.php:65
+#, fuzzy
+msgid "Delete Post"
+msgstr "מחק הודעה"
+
+#: includes-psr4/Mcp/Abilities/Tools/TagsTools.php:65
+#, fuzzy
+msgid "Delete Tag"
+msgstr "מחק תגית"
+
+#: includes-psr4/Mcp/Abilities/Tools/UsersTools.php:89
+#, fuzzy
+msgid "Delete User"
+msgstr "מחק משתמש"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:67
+#, fuzzy
+msgid "Delete WooCommerce Product"
+msgstr "מחק מוצר WooCommerce"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:260
+#, fuzzy
+msgid "Delete WooCommerce Product Brand"
+msgstr "מחק את המותג של מוצר WooCommerce"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:125
+#, fuzzy
+msgid "Delete WooCommerce Product Category"
+msgstr "מחק קטגוריית מוצרים ב-WooCommerce"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:192
+#, fuzzy
+msgid "Delete WooCommerce Product Tag"
+msgstr "מחק תווית מוצר WooCommerce"
 
 #: includes/woocommerce/class-hostinger-ai-assistant-product-ai-metabox.php:70
 msgid "Describe your product in short"
@@ -252,31 +555,52 @@ msgstr "תיאור"
 msgid "Description is empty. Please provide a valid description."
 msgstr "התיאור ריק. בבקשה תספקו תיאור תקף."
 
+#: includes-psr4/Mcp/Abilities/Tools/HostingerPluginTools.php:85
+#, fuzzy
+msgid "Disable authentication password"
+msgstr "השבת סיסמת אימות"
+
+#: includes-psr4/Mcp/Abilities/Tools/HostingerPluginTools.php:203
+#, fuzzy
+msgid "Disable authentication password status"
+msgstr "השבת מצב סיסמת אימות"
+
+#: includes-psr4/Mcp/Abilities/Tools/HostingerPluginTools.php:191
+#, fuzzy
+msgid "Disable XML-RPC status"
+msgstr "השבת מצב XML-RPC"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:276
+#, fuzzy
+msgid "DNS Prefetch for static files"
+msgstr "טעינה מראש של DNS עבור קבצים סטטיים"
+
 #: includes/class-hostinger-ai-assistant-surveys.php:24
 msgid "Do you have any comments/suggestions to improve our AI tools?"
 msgstr "האם יש לכם הערות/הצעות לשיפור כלי ה-AI שלנו?"
 
-#: admin/class-hostinger-ai-assistant-translations.php:60
+#: admin/class-hostinger-ai-assistant-translations.php:54
 msgid "Drop files here"
 msgstr ""
 "שחררו קבצים כאן\n"
+""
 
-#: admin/class-hostinger-ai-assistant-translations.php:158
+#: admin/class-hostinger-ai-assistant-translations.php:150
 #, fuzzy
 msgid "Edit a WordPress post category by ID"
 msgstr "ערוך קטגוריית פוסטים ב-WordPress לפי מזהה"
 
-#: admin/class-hostinger-ai-assistant-translations.php:153
+#: admin/class-hostinger-ai-assistant-translations.php:145
 #, fuzzy
 msgid "Edit a WordPress post tag (e.g., rename or update it)"
 msgstr "ערוך תגית פוסט ב-WordPress (למשל, שנה את שמה או עדכן אותה)"
 
-#: admin/class-hostinger-ai-assistant-translations.php:123
+#: admin/class-hostinger-ai-assistant-translations.php:115
 #, fuzzy
 msgid "Edit an existing WordPress page by its ID"
 msgstr "ערוך דף WordPress קיים לפי המזהה שלו"
 
-#: admin/class-hostinger-ai-assistant-translations.php:143
+#: admin/class-hostinger-ai-assistant-translations.php:135
 #, fuzzy
 msgid "Edit an existing WordPress post by its ID"
 msgstr "ערוך פוסט קיים ב-WordPress לפי המזהה שלו"
@@ -285,24 +609,70 @@ msgstr "ערוך פוסט קיים ב-WordPress לפי המזהה שלו"
 msgid "Edit as a draft"
 msgstr "עריכה כטיוטה"
 
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:371
-msgid "Edit prompt"
-msgstr "עריכת פרומפט"
-
 #: admin/partials/hostinger-ai-assistant-tab-view.php:48
 msgid "Edit site"
 msgstr "ערוך אתר"
+
+#: includes-psr4/Mcp/Abilities/Tools/HostingerPluginTools.php:89
+#, fuzzy
+msgid "Enable llms.txt generation"
+msgstr "אפשר יצירת llms.txt"
+
+#: includes-psr4/Mcp/Abilities/Tools/HostingerPluginTools.php:207
+#, fuzzy
+msgid "Enable llms.txt status"
+msgstr "הפעל את מצב llms.txt"
+
+#: includes-psr4/Mcp/Abilities/Tools/HostingerPluginTools.php:65
+#, fuzzy
+msgid "Enable or disable maintenance mode"
+msgstr "הפעל או השבת את מצב התחזוקה"
+
+#: includes-psr4/Mcp/Abilities/Tools/HostingerPluginTools.php:73
+#, fuzzy
+msgid "Enable or disable XML-RPC"
+msgstr "הפעל או השבת XML-RPC"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:314
+#, fuzzy
+msgid "Enables the maximum level of optimizations for improved page speed scores. Extensive testing required."
+msgstr "מאפשר רמת אופטימיזציה מקסימלית לשיפור ציוני מהירות העמוד. נדרשים בדיקות מקיפות."
 
 #: admin/class-hostinger-ai-assistant-translations.php:30
 #: admin/partials/hostinger-ai-assistant-tab-view.php:175
 msgid "Enter at least 10 characters"
 msgstr "הכניסו לפחות 10 תווים"
 
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:261
+#, fuzzy
+msgid "Enthusiastic beginners"
+msgstr "מתחילים נלהבים"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:291
+#, fuzzy
+msgid "Everything in Advanced"
+msgstr "הכל ב-Advanced"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:306
+#, fuzzy
+msgid "Everything in Aggressive"
+msgstr "הכל באגרסיבי"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:271
+#, fuzzy
+msgid "Everything in Basic"
+msgstr "הכל בבסיסי"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:257
+#, fuzzy
+msgid "Everything in Essentials"
+msgstr "הכל ב-Essentials"
+
 #: admin/class-hostinger-ai-assistant-translations.php:29
 msgid "Example: website development, WordPress tutorial, ..."
 msgstr "לדוגמא: פיתוח אתרים, מדריך WordPress, ..."
 
-#: admin/class-hostinger-ai-assistant-translations.php:83
+#: admin/class-hostinger-ai-assistant-translations.php:81
 msgid "Excellent"
 msgstr "מצויין"
 
@@ -314,22 +684,126 @@ msgstr "תמונה חיצונית מובחרת"
 msgid "External featured image"
 msgstr "תמונה נבחרת חיצונית"
 
-#: admin/class-hostinger-ai-assistant-translations.php:148
+#. %s: Preset name
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:373
+#, fuzzy,php-format
+msgid "Failed to apply preset: %s"
+msgstr "נכשל ביישום ההגדרה המוגדרת מראש: %s"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:530
+#, fuzzy
+msgid "Failed to delete post"
+msgstr "לא ניתן למחוק את ההודעה"
+
+#. %s: Error message
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:223
+#, fuzzy,php-format
+msgid "Failed to flush cache: %s"
+msgstr "נכשל בניקוי המטמון: %s"
+
+#. %s: Setting name
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:193
+#, fuzzy,php-format
+msgid "Failed to get settings: %s"
+msgstr "לא הצלחנו להשיג את ההגדרות: %s"
+
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:265
+#, fuzzy
+msgid "File is required"
+msgstr "הקובץ נדרש"
+
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:227
+#, fuzzy
+msgid "File not found"
+msgstr "הקובץ לא נמצא"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:99
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:101
+#, fuzzy
+msgid "Filter by author ID"
+msgstr "סינון לפי מזהה מחבר"
+
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:93
+#, fuzzy
+msgid "Filter by media type (image, video, audio, application)"
+msgstr "סינון לפי סוג מדיה (תמונה, וידאו, אודיו, יישום)"
+
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:97
+#, fuzzy
+msgid "Filter by MIME type (e.g., image/jpeg, video/mp4)"
+msgstr "סינון לפי סוג MIME (לדוגמה, image/jpeg, video/mp4)"
+
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:105
+#, fuzzy
+msgid "Filter by parent post ID"
+msgstr "סינון לפי מזהה פוסט אב"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:103
+#, fuzzy
+msgid "Filter by post status (publish, draft, pending, etc.)"
+msgstr "סינון לפי סטטוס הפוסט (פורסם, טיוטה, בהמתנה וכו')"
+
+#: admin/class-hostinger-ai-assistant-translations.php:140
 #, fuzzy
 msgid "Find and filter posts with pagination options"
 msgstr "חפש וסנן פוסטים עם אפשרויות חלוקה לעמודים"
 
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:58
+#, fuzzy
+msgid "Flush LiteSpeed Cache"
+msgstr "נקה את זיכרון המטמון של LiteSpeed"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:274
+#, fuzzy
+msgid "Font Display Optimization"
+msgstr "אופטימיזציה של תצוגת גופנים"
+
+#: includes-psr4/Mcp/Abilities/Tools/TagsTools.php:72
+#: includes-psr4/Mcp/Abilities/Tools/CategoriesTools.php:72
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:132
+#, fuzzy
+msgid "Force category deletion"
+msgstr "מחיקת קטגוריית כוח"
+
+#: includes-psr4/Mcp/Abilities/Tools/HostingerPluginTools.php:77
+#, fuzzy
+msgid "Force HTTPS redirects"
+msgstr "כפה הפניות HTTPS"
+
+#: includes-psr4/Mcp/Abilities/Tools/HostingerPluginTools.php:195
+#, fuzzy
+msgid "Force HTTPS status"
+msgstr "כפה מצב HTTPS"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:267
+#, fuzzy
+msgid "Force Product Brand deletion"
+msgstr "מחיקת מותג מוצר בכוח"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:199
+#, fuzzy
+msgid "Force tag deletion"
+msgstr "מחיקת תגיות בכוח"
+
+#: includes-psr4/Mcp/Abilities/Tools/HostingerPluginTools.php:81
+#, fuzzy
+msgid "Force WWW in URLs"
+msgstr "כפה WWW בכתובות URL"
+
+#: includes-psr4/Mcp/Abilities/Tools/HostingerPluginTools.php:199
+#, fuzzy
+msgid "Force WWW status"
+msgstr "כפה מצב WWW"
+
 #: admin/class-hostinger-ai-assistant-translations.php:24
 #: admin/partials/hostinger-ai-assistant-tab-view.php:106
 #: includes/woocommerce/class-hostinger-ai-assistant-product-ai-metabox.php:89
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:135
 msgid "Formal"
 msgstr "רשמי"
 
 #: admin/class-hostinger-ai-assistant-translations.php:26
 #: admin/partials/hostinger-ai-assistant-tab-view.php:108
 #: includes/woocommerce/class-hostinger-ai-assistant-product-ai-metabox.php:91
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:143
 msgid "Friendly"
 msgstr "חברותי"
 
@@ -337,12 +811,12 @@ msgstr "חברותי"
 msgid "Generate new content"
 msgstr "יצירת תוכן חדש"
 
-#: admin/class-hostinger-ai-assistant-translations.php:177
+#: admin/class-hostinger-ai-assistant-translations.php:169
 #, fuzzy
 msgid "Generate sales report"
 msgstr "הפקת דוח מכירות"
 
-#: admin/class-hostinger-ai-assistant-translations.php:179
+#: admin/class-hostinger-ai-assistant-translations.php:171
 #, fuzzy
 msgid "Generate WooCommerce sales report for my store"
 msgstr "הפק דוח מכירות WooCommerce עבור החנות שלי"
@@ -352,168 +826,523 @@ msgstr "הפק דוח מכירות WooCommerce עבור החנות שלי"
 msgid "Generating content..."
 msgstr "יוצר תוכן..."
 
-#: admin/class-hostinger-ai-assistant-translations.php:172
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:91
+#, fuzzy
+msgid "Get a list of all available LiteSpeed Cache optimization presets with their descriptions, features, risk levels, and requirements."
+msgstr "קבל רשימה של כל הגדרות ברירת המחדל הזמינות לאופטימיזציה של LiteSpeed Cache, כולל תיאורים, תכונות, רמות סיכון ודרישות."
+
+#: admin/class-hostinger-ai-assistant-translations.php:164
 #, fuzzy
 msgid "Get a list of orders"
 msgstr "קבל רשימת הזמנות"
 
-#: admin/class-hostinger-ai-assistant-translations.php:127
+#: includes-psr4/Mcp/Abilities/Tools/WooOrdersTools.php:20
+#, fuzzy
+msgid "Get a list of WooCommerce orders with search and filter capabilities. Returns a list of orders matching the criteria."
+msgstr "קבל רשימה של הזמנות WooCommerce עם יכולות חיפוש וסינון. מחזיר רשימה של הזמנות התואמות לקריטריונים."
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:31
+#, fuzzy
+msgid "Get a single WooCommerce product by ID. Returns the full product object with all fields."
+msgstr "קבל מוצר WooCommerce בודד לפי מזהה. מחזיר את אובייקט המוצר המלא עם כל השדות."
+
+#: includes-psr4/Mcp/Abilities/Tools/CategoriesTools.php:29
+#, fuzzy
+msgid "Get a single WordPress category by ID. Returns the full category object with all fields."
+msgstr "קבל קטגוריה אחת של WordPress לפי מזהה. מחזיר את אובייקט הקטגוריה המלא עם כל השדות."
+
+#: includes-psr4/Mcp/Abilities/Tools/PagesTools.php:29
+#, fuzzy
+msgid "Get a single WordPress page by ID. Returns the full page object with all fields."
+msgstr "קבל דף WordPress בודד לפי מזהה. מחזיר את אובייקט הדף המלא עם כל השדות."
+
+#: includes-psr4/Mcp/Abilities/Tools/PostsTools.php:29
+#, fuzzy
+msgid "Get a single WordPress post by ID. Returns the full post object with all fields."
+msgstr "קבל פוסט WordPress בודד לפי מזהה. מחזיר את אובייקט הפוסט המלא עם כל השדות."
+
+#: includes-psr4/Mcp/Abilities/Tools/TagsTools.php:29
+#, fuzzy
+msgid "Get a single WordPress tag by ID. Returns the full tag object with all fields."
+msgstr "קבל תג WordPress יחיד לפי מזהה. מחזיר את אובייקט התג המלא עם כל השדות."
+
+#: includes-psr4/Mcp/Abilities/Tools/UsersTools.php:44
+#, fuzzy
+msgid "Get a single WordPress user by ID. Returns the full user object with all fields."
+msgstr "קבל משתמש WordPress יחיד לפי מזהה. מחזיר את אובייקט המשתמש המלא עם כל השדות."
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:142
+#, fuzzy
+msgid "Get a WordPress custom post type post by ID"
+msgstr "קבל פוסט מסוג מותאם אישית של WordPress לפי מזהה"
+
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:32
+#, fuzzy
+msgid "Get a WordPress media item details by ID. Returns the full media object with all fields."
+msgstr "קבל פרטים על פריט מדיה ב-WordPress לפי מזהה. מחזיר את אובייקט המדיה המלא עם כל השדות."
+
+#: includes-psr4/Mcp/Abilities/Tools/CategoriesTools.php:28
+#, fuzzy
+msgid "Get Category"
+msgstr "קבל קטגוריה"
+
+#: includes-psr4/Mcp/Abilities/Tools/HostingerPluginTools.php:28
+#, fuzzy
+msgid "Get current Hostinger plugin settings including maintenance mode, XML-RPC, HTTPS, and other security options."
+msgstr "קבל את הגדרות התוסף הנוכחיות של Hostinger, כולל מצב תחזוקה, XML-RPC, HTTPS ואפשרויות אבטחה אחרות."
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:30
+#, fuzzy
+msgid "Get current LiteSpeed Cache settings including active preset, cache status, and key configuration options."
+msgstr "קבל את הגדרות LiteSpeed Cache הנוכחיות, כולל הגדרות קבועות מראש פעילות, מצב המטמון ואפשרויות תצורת מפתח."
+
+#: includes-psr4/Mcp/Abilities/Tools/UsersTools.php:118
+#, fuzzy
+msgid "Get Current User"
+msgstr "קבל את המשתמש הנוכחי"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:141
+#, fuzzy
+msgid "Get Custom Post Type Post"
+msgstr "קבל פוסט מסוג מותאם אישית"
+
+#: includes-psr4/Mcp/Abilities/Tools/SettingsTools.php:20
+#, fuzzy
+msgid "Get General Settings"
+msgstr "קבל הגדרות כלליות"
+
+#: includes-psr4/Mcp/Abilities/Tools/HostingerPluginTools.php:27
+#, fuzzy
+msgid "Get Hostinger Plugin Settings"
+msgstr "קבל את הגדרות התוסף Hostinger"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:29
+#, fuzzy
+msgid "Get LiteSpeed Cache Settings"
+msgstr "קבל את הגדרות המטמון של LiteSpeed"
+
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:31
+#, fuzzy
+msgid "Get Media"
+msgstr "קבל מדיה"
+
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:142
+#, fuzzy
+msgid "Get Media File"
+msgstr "קבל קובץ מדיה"
+
+#: includes-psr4/Mcp/Abilities/Tools/PagesTools.php:28
+#, fuzzy
+msgid "Get Page"
+msgstr "קבל דף"
+
+#: includes-psr4/Mcp/Abilities/Tools/PostsTools.php:28
+#, fuzzy
+msgid "Get Post"
+msgstr "קבל פוסט"
+
+#: includes-psr4/Mcp/Abilities/Tools/SiteInfoTools.php:16
+#, fuzzy
+msgid "Get Site Info"
+msgstr "קבל מידע על האתר"
+
+#: includes-psr4/Mcp/Abilities/Tools/TagsTools.php:28
+#, fuzzy
+msgid "Get Tag"
+msgstr "קבל תג"
+
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:143
+#, fuzzy
+msgid "Get the actual file content (blob) of a WordPress media item."
+msgstr "קבל את תוכן הקובץ בפועל (blob) של פריט מדיה ב-WordPress."
+
+#: includes-psr4/Mcp/Abilities/Tools/UsersTools.php:119
+#, fuzzy
+msgid "Get the current logged-in user information."
+msgstr "קבל את פרטי המשתמש המחובר כרגע."
+
+#: includes-psr4/Mcp/Abilities/Tools/UsersTools.php:43
+#, fuzzy
+msgid "Get User"
+msgstr "קבל משתמש"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooOrdersTools.php:37
+#, fuzzy
+msgid "Get WooCommerce Coupons Report"
+msgstr "קבל דוח קופונים של WooCommerce"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooOrdersTools.php:38
+#, fuzzy
+msgid "Get WooCommerce coupons totals report. Returns count of coupons by coupon type."
+msgstr "קבל דוח סה\"כ קופונים של WooCommerce. ספירת החזרות לפי סוג קופון."
+
+#: includes-psr4/Mcp/Abilities/Tools/WooOrdersTools.php:44
+#, fuzzy
+msgid "Get WooCommerce Customers Report"
+msgstr "קבל דוח לקוחות WooCommerce"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooOrdersTools.php:45
+#, fuzzy
+msgid "Get WooCommerce customers totals report. Returns statistics about customers."
+msgstr "קבל דוח סכומים של לקוחות WooCommerce. סטטיסטיקות החזרות על לקוחות."
+
+#: includes-psr4/Mcp/Abilities/Tools/WooOrdersTools.php:51
+#, fuzzy
+msgid "Get WooCommerce Orders Report"
+msgstr "קבל דוח הזמנות WooCommerce"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooOrdersTools.php:52
+#, fuzzy
+msgid "Get WooCommerce orders totals report. Returns statistics about orders."
+msgstr "קבל דוח סה\"כ הזמנות WooCommerce. סטטיסטיקות החזרות על הזמנות."
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:30
+#, fuzzy
+msgid "Get WooCommerce Product"
+msgstr "קבל מוצר WooCommerce"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooOrdersTools.php:58
+#, fuzzy
+msgid "Get WooCommerce Products Report"
+msgstr "קבל דוח מוצרי WooCommerce"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooOrdersTools.php:59
+#, fuzzy
+msgid "Get WooCommerce products totals report. Returns statistics about products."
+msgstr "קבל דוח סכומים של מוצרי WooCommerce. החזר סטטיסטיקות על מוצרים."
+
+#: includes-psr4/Mcp/Abilities/Tools/WooOrdersTools.php:65
+#, fuzzy
+msgid "Get WooCommerce Reviews Report"
+msgstr "קבל דוח ביקורות WooCommerce"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooOrdersTools.php:66
+#, fuzzy
+msgid "Get WooCommerce reviews totals report. Returns statistics about product reviews."
+msgstr "קבל דוח סיכומים של ביקורות WooCommerce. מחזיר סטטיסטיקות על ביקורות מוצרים."
+
+#: includes-psr4/Mcp/Abilities/Tools/WooOrdersTools.php:72
+#, fuzzy
+msgid "Get WooCommerce Sales Report"
+msgstr "קבל דוח מכירות WooCommerce"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooOrdersTools.php:73
+#, fuzzy
+msgid "Get WooCommerce sales report. Returns detailed sales statistics and revenue data."
+msgstr "קבל דוח מכירות WooCommerce. מספק נתוני מכירות מפורטים ונתוני הכנסות."
+
+#: includes-psr4/Mcp/Abilities/Tools/SettingsTools.php:21
+#, fuzzy
+msgid "Get WordPress general site settings including title, description, timezone, and other configuration options."
+msgstr "קבל את הגדרות האתר הכלליות של WordPress, כולל כותרת, תיאור, אזור זמן ואפשרויות תצורה אחרות."
+
+#: admin/class-hostinger-ai-assistant-translations.php:119
 #, fuzzy
 msgid "Get WordPress site information"
 msgstr "קבל מידע על אתר WordPress"
 
-#: admin/class-hostinger-ai-assistant-translations.php:113
-msgid "Grant Permission"
-msgstr "הענקת הרשאה"
+#: admin/class-hostinger-ai-assistant-translations.php:71
+#, fuzzy
+msgid "Good response"
+msgstr "תגובה טובה"
 
-#: admin/class-hostinger-ai-assistant-translations.php:70
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:277
+#, fuzzy
+msgid "Gravatar Cache"
+msgstr "מטמון Gravatar"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:272
+#, fuzzy
+msgid "Guest Mode and Guest Optimization"
+msgstr "מצב אורח ואופטימיזציה לאורחים"
+
+#: admin/class-hostinger-ai-assistant-translations.php:64
 #, fuzzy
 msgid "Hello 👋"
 msgstr "שלום 👋"
 
-#: admin/class-hostinger-ai-assistant-translations.php:48
-#| msgid ""
-#| "Hi, I'm your personal AI Assistant. You can ask me any questions you have "
-#| "regarding WordPress. I'm still learning, so sometimes can make mistakes. "
-#| "What questions do you have?"
-msgid ""
-"Hi, I'm Kodee, your personal AI assistant. You can ask me any questions you "
-"have regarding WordPress. I'm still learning, so sometimes can make mistakes."
-" What questions do you have?"
-msgstr ""
-"היי, אני Kodee, עוזר ה-AI האישי שלכם. אתם יכולים לשאול אותי כל שאלה שיש לכם "
-"לגבי WordPress. אני עדיין לומד, אז לפעמים יכול לעשות טעויות. אילו שאלות יש "
-"לכם?"
+#: admin/class-hostinger-ai-assistant-translations.php:42
+msgid "Hi, I'm Kodee, your personal AI assistant. You can ask me any questions you have regarding WordPress. I'm still learning, so sometimes can make mistakes. What questions do you have?"
+msgstr "היי, אני Kodee, עוזר ה-AI האישי שלכם. אתם יכולים לשאול אותי כל שאלה שיש לכם לגבי WordPress. אני עדיין לומד, אז לפעמים יכול לעשות טעויות. אילו שאלות יש לכם?"
 
-#: admin/class-hostinger-ai-assistant-translations.php:56
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:246
+#, fuzzy
+msgid "Higher TTL"
+msgstr "TTL גבוה יותר"
+
+#: admin/class-hostinger-ai-assistant-translations.php:50
 msgid "History"
 msgstr "היסטוריה"
 
 #. Author of the plugin
-#: hostinger-ai-assistant.php
 msgid "Hostinger"
 msgstr "Hostinger"
 
-#. Plugin Name of the plugin
-#: hostinger-ai-assistant.php
+#. Name of the plugin
 msgid "Hostinger AI"
 msgstr "Hostinger AI"
 
+#: includes-psr4/Mcp/Abilities/AbilitiesRegistry.php:75
+#, fuzzy
+msgid "Hostinger AI Abilities"
+msgstr "יכולות ה-AI של Hostinger"
+
 #. Description of the plugin
-#: hostinger-ai-assistant.php
 msgid "Hostinger AI plugin for WordPress."
 msgstr "Hostinger AI פלגין עבור WordPress."
 
-#: admin/class-hostinger-ai-assistant-translations.php:71
+#: includes-psr4/Mcp/Abilities/Tools/HostingerPluginTools.php:124
+#: includes-psr4/Mcp/Abilities/Tools/HostingerPluginTools.php:139
+#, fuzzy
+msgid "Hostinger plugin settings option not defined"
+msgstr "אפשרות הגדרות התוסף Hostinger לא מוגדרת"
+
+#: admin/class-hostinger-ai-assistant-translations.php:65
 #, fuzzy
 msgid "How can I help you today?"
 msgstr "במה אוכל לעזור לך היום?"
 
-#: admin/class-hostinger-ai-assistant-translations.php:81
+#: admin/class-hostinger-ai-assistant-translations.php:79
 msgid "How can we improve your experience?"
 msgstr "כיצד נוכל לשפר את חוויית השימוש שלכם?"
 
 #: includes/class-hostinger-ai-assistant-surveys.php:23
-msgid ""
-"How would you rate your experience using our AI Assistant plugin for content "
-"generation? (Scale 1-10)"
-msgstr ""
-"כיצד הייתם מדרגים את החוויה שלכם באמצעות תוסף AI Assistant שלנו ליצירת תוכן? "
-"(קנה מידה 1-10)"
+msgid "How would you rate your experience using our AI Assistant plugin for content generation? (Scale 1-10)"
+msgstr "כיצד הייתם מדרגים את החוויה שלכם באמצעות תוסף AI Assistant שלנו ליצירת תוכן? (קנה מידה 1-10)"
 
-#. Plugin URI of the plugin
+#. URI of the plugin
 #. Author URI of the plugin
-#: hostinger-ai-assistant.php
 msgid "https://hostinger.com"
 msgstr "https://hostinger.com"
 
-#: admin/class-hostinger-ai-assistant-translations.php:107
-msgid ""
-"I'm sorry, I didn't understand your question. Could you please rephrase it "
-"or ask something different?"
-msgstr ""
-"אני מצטער, לא הבנתי את שאלתכם. אתם יכולים בבקשה לנסח אותה מחדש או לשאול משהו "
-"אחר?"
+#: admin/class-hostinger-ai-assistant-translations.php:105
+msgid "I'm sorry, I didn't understand your question. Could you please rephrase it or ask something different?"
+msgstr "אני מצטער, לא הבנתי את שאלתכם. אתם יכולים בבקשה לנסח אותה מחדש או לשאול משהו אחר?"
 
 #: admin/partials/hostinger-ai-assistant-tab-view.php:182
-msgid ""
-"If you skip this part, AI will automatically generate keyword suggestions "
-"after you generate the content"
-msgstr ""
-"אם תדלגו על החלק הזה, AI ייצור באופן אוטומטי הצעות למילות מפתח לאחר יצירת "
-"התוכן"
+msgid "If you skip this part, AI will automatically generate keyword suggestions after you generate the content"
+msgstr "אם תדלגו על החלק הזה, AI ייצור באופן אוטומטי הצעות למילות מפתח לאחר יצירת התוכן"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:258
+#, fuzzy
+msgid "Image Optimization"
+msgstr "אופטימיזציה של תמונות"
 
 #: includes/content/class-hostinger-ai-assistant-content-filters.php:105
 msgid "Image URL:"
 msgstr "URL תמונה:"
 
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:283
+#, fuzzy
+msgid "Includes many optimizations known to improve page speed scores."
+msgstr "כולל אופטימיזציות רבות הידועות כמשפרות את ציוני מהירות העמוד."
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:298
+#, fuzzy
+msgid "Includes many optimizations known to improve page speed scores. Testing recommended."
+msgstr "כולל אופטימיזציות רבות הידועות כמשפרות את ציוני מהירות העמוד. מומלץ לבצע בדיקה."
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:262
+#, fuzzy
+msgid "Includes optimizations known to improve site score in page speed measurement tools."
+msgstr "כולל אופטימיזציות הידועות כמשפרות את ציון האתר בכלי מדידת מהירות העמוד."
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:311
+#, fuzzy
+msgid "Inline CSS added to Combine"
+msgstr "CSS מוטמע נוסף ל-Combine"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:310
+#, fuzzy
+msgid "Inline JS added to Combine"
+msgstr "JS מוטמע נוסף ל-Combine"
+
 #: admin/class-hostinger-ai-assistant-translations.php:37
 msgid "Insert this image inside content"
 msgstr "הוסיפו את התמונה הזאת לתוך התוכן"
 
-#: includes/mcp/class-hostinger-ai-assistant-mcp-jwt-auth.php:236
+#: includes-psr4/Mcp/McpServer.php:72
 #, fuzzy
-msgid "Invalid Authorization header format. Expected \"Bearer <token>\"."
-msgstr "פורמט כותרת אישור לא חוקי. צפוי \"Bearer <token>\"."
+msgid "Invalid API key"
+msgstr "מפתח API לא חוקי"
 
-#: includes/mcp/class-hostinger-ai-assistant-mcp-hooks.php:26
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:275
 #, fuzzy
-msgid ""
-"Invalid post ID, specified post ID could be from different custom post type."
-msgstr ""
-"מזהה פוסט לא חוקי, מזהה הפוסט שצוין עשוי להיות מסוג פוסט מותאם אישית שונה."
+msgid "Invalid base64 data"
+msgstr "נתוני base64 לא חוקיים"
+
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:222
+#, fuzzy
+msgid "Invalid media ID"
+msgstr "מזהה מדיה לא חוקי"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:354
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:399
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:423
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:459
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:510
+#, fuzzy
+msgid "Invalid post type"
+msgstr "סוג פוסט לא חוקי"
+
+#. %s: Allowed preset name
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:348
+#, fuzzy,php-format
+msgid "Invalid preset. Allowed presets: %s"
+msgstr "הגדרה קבועה מראש לא חוקית. הגדרות קבועות מראש מותרות: %s"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:275
+#, fuzzy
+msgid "JS Defer for both external and inline JS"
+msgstr "JS Defer עבור JS חיצוני ו-JS מוטמע"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:309
+#, fuzzy
+msgid "JS Delayed"
+msgstr "JS מתעכב"
 
 #: admin/partials/hostinger-ai-assistant-seo-meta-view.php:9
 msgid "Keywords"
 msgstr "מילות מפתח"
 
-#: admin/class-hostinger-ai-assistant-translations.php:49
+#: admin/class-hostinger-ai-assistant-translations.php:43
 msgid "Kodee"
 msgstr "Kodee"
 
-#: admin/class-hostinger-ai-assistant-translations.php:61
+#: admin/class-hostinger-ai-assistant-translations.php:55
 msgid "Kodee only supports JPEG, JPG, PNG, GIF, HEIC, and DNG files"
 msgstr "Kodee תומך רק בקבצי JPEG, JPG, PNG, GIF, HEIC ו-DNG"
 
-#: admin/class-hostinger-ai-assistant-translations.php:51
-#: admin/class-hostinger-ai-assistant-translations.php:77
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:295
+#, fuzzy
+msgid "Lazy Load for Iframes"
+msgstr "טעינה איטית עבור Iframes"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:307
+#, fuzzy
+msgid "Lazy Load for Images"
+msgstr "טעינה איטית של תמונות"
+
+#: admin/class-hostinger-ai-assistant-translations.php:45
+#: admin/class-hostinger-ai-assistant-translations.php:75
 msgid "Leave feedback"
 msgstr "השאירו משוב"
 
 #: admin/partials/hostinger-ai-assistant-tab-view.php:164
-msgid ""
-"Let us know more about your content idea. For example: Article about how to "
-"use WordPress to dive into website development including tutorials how to "
-"use it in a simple way..."
-msgstr ""
-"ספרו לנו עוד על רעיון התוכן שלכם. לדוגמה: מאמר על איך להשתמש ב-WordPress כדי "
-"לצלול לתוך פיתוח אתרים, כולל מדריכים איך להשתמש בו באופן פשוט..."
+msgid "Let us know more about your content idea. For example: Article about how to use WordPress to dive into website development including tutorials how to use it in a simple way..."
+msgstr "ספרו לנו עוד על רעיון התוכן שלכם. לדוגמה: מאמר על איך להשתמש ב-WordPress כדי לצלול לתוך פיתוח אתרים, כולל מדריכים איך להשתמש בו באופן פשוט..."
 
 #: admin/class-hostinger-ai-assistant-translations.php:31
-msgid ""
-"Let us now more about your post idea. Share more details for better results"
-msgstr ""
-"תנו לנו עוד מידע על הרעיון שלכם לפוסט. שתפו פרטים נוספים לקבלת תוצאות טובות "
-"יותר"
+msgid "Let us now more about your post idea. Share more details for better results"
+msgstr "תנו לנו עוד מידע על הרעיון שלכם לפוסט. שתפו פרטים נוספים לקבלת תוצאות טובות יותר"
 
-#: admin/class-hostinger-ai-assistant-translations.php:132
+#. %s: post type names
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:39
+#, fuzzy,php-format
+msgid "List all available WordPress custom post types including %s"
+msgstr "הצג את כל סוגי הפוסטים המותאמים אישית הזמינים ב-WordPress, כולל %s"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:224
+#, fuzzy
+msgid "List all WooCommerce product brands. Returns a list of product brands."
+msgstr "הצג את כל מותגי המוצרים של WooCommerce. מחזיר רשימה של מותגי מוצרים."
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:89
+#, fuzzy
+msgid "List all WooCommerce product categories. Returns a list of product categories."
+msgstr "רשימת כל קטגוריות המוצרים של WooCommerce. מחזירה רשימה של קטגוריות מוצרים."
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:156
+#, fuzzy
+msgid "List all WooCommerce product tags. Returns a list of product tags."
+msgstr "רשימת כל תגי המוצרים של WooCommerce. מחזירה רשימה של תגי מוצרים."
+
+#: includes-psr4/Mcp/Abilities/Tools/CategoriesTools.php:18
+#, fuzzy
+msgid "List all WordPress post categories with pagination and filtering."
+msgstr "הצג את כל קטגוריות הפוסטים של WordPress עם חלוקה לעמודים וסינון."
+
+#: includes-psr4/Mcp/Abilities/Tools/TagsTools.php:18
+#, fuzzy
+msgid "List all WordPress post tags with pagination and filtering."
+msgstr "הצג את כל תגיות הפוסטים של WordPress עם חלוקה לעמודים וסינון."
+
+#: includes-psr4/Mcp/Abilities/Tools/CategoriesTools.php:17
+#, fuzzy
+msgid "List Categories"
+msgstr "רשימת קטגוריות"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:90
+#, fuzzy
+msgid "List LiteSpeed Cache Presets"
+msgstr "רשימת הגדרות קבועות מראש של LiteSpeed Cache"
+
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:20
+#, fuzzy
+msgid "List Media"
+msgstr "רשימת מדיה"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:36
+#, fuzzy
+msgid "List Post Types"
+msgstr "סוגי פוסטים ברשימה"
+
+#: includes-psr4/Mcp/Abilities/Tools/TagsTools.php:17
+#, fuzzy
+msgid "List Tags"
+msgstr "תגיות רשימה"
+
+#: admin/class-hostinger-ai-assistant-translations.php:124
 #, fuzzy
 msgid "List users with their roles"
 msgstr "רשימת משתמשים עם תפקידיהם"
 
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:223
+#, fuzzy
+msgid "List WooCommerce Product Brands"
+msgstr "רשימת מותגי מוצרים של WooCommerce"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:88
+#, fuzzy
+msgid "List WooCommerce Product Categories"
+msgstr "רשימת קטגוריות מוצרים ב-WooCommerce"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:155
+#, fuzzy
+msgid "List WooCommerce Product Tags"
+msgstr "רשימת תגיות מוצרים ב-WooCommerce"
+
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:21
+#, fuzzy
+msgid "List WordPress media items with pagination and filtering."
+msgstr "רשימת פריטי מדיה של WordPress עם חלוקה לעמודים וסינון."
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:159
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:203
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:233
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:327
+#, fuzzy
+msgid "LiteSpeed Cache plugin is not active"
+msgstr "התוסף LiteSpeed Cache אינו פעיל"
+
+#. %s: Preset name
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:365
+#, fuzzy,php-format
+msgid "LiteSpeed Cache preset \"%s\" has been applied successfully. A backup of your previous settings was created automatically."
+msgstr "הגדרת ברירת המחדל של LiteSpeed Cache \"%s\" הוחלה בהצלחה. גיבוי של ההגדרות הקודמות שלך נוצר באופן אוטומטי."
+
 #: admin/partials/hostinger-ai-assistant-tab-view.php:143
 #: includes/woocommerce/class-hostinger-ai-assistant-product-ai-metabox.php:81
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:124
 msgid "Long"
 msgstr "ארוך"
 
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:398
-msgid "Main topic"
-msgstr "נושא ראשי"
+#: includes-psr4/Mcp/Abilities/Tools/HostingerPluginTools.php:183
+#, fuzzy
+msgid "Maintenance mode status"
+msgstr "סטטוס מצב תחזוקה"
 
 #: admin/partials/hostinger-ai-assistant-tab-view.php:137
 #: includes/woocommerce/class-hostinger-ai-assistant-product-ai-metabox.php:80
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:120
 msgid "Medium"
 msgstr "בינוני"
 
@@ -522,43 +1351,97 @@ msgid "Meta description"
 msgstr "תיאור מטא"
 
 #: admin/partials/hostinger-ai-assistant-seo-meta-view.php:30
-msgid ""
-"Meta descriptions offer concise page summaries in search results, aiding "
-"user understanding before clicking."
-msgstr ""
-"תיאורי מטא מציעים סיכומי דפים תמציתיים בתוצאות החיפוש, וככה מסייעים להבנת "
-"המשתמש לפני הלחיצה."
+msgid "Meta descriptions offer concise page summaries in search results, aiding user understanding before clicking."
+msgstr "תיאורי מטא מציעים סיכומי דפים תמציתיים בתוצאות החיפוש, וככה מסייעים להבנת המשתמש לפני הלחיצה."
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:259
+#, fuzzy
+msgid "Mobile Cache"
+msgstr "מטמון נייד"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:282
+#, fuzzy
+msgid "Most websites"
+msgstr "רוב האתרים"
 
 #: admin/class-hostinger-ai-assistant-translations.php:23
 #: admin/partials/hostinger-ai-assistant-tab-view.php:105
 #: includes/woocommerce/class-hostinger-ai-assistant-product-ai-metabox.php:88
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:131
 msgid "Neutral"
 msgstr "ניטרלי"
 
-#: admin/class-hostinger-ai-assistant-translations.php:112
-msgid "No, thanks"
-msgstr "לא, תודה"
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:114
+#, fuzzy
+msgid "Number of items per page"
+msgstr "מספר פריטים בעמוד"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:112
+#, fuzzy
+msgid "Number of posts per page"
+msgstr "מספר הפוסטים בעמוד"
+
+#: includes-psr4/Mcp/Abilities/Tools/SettingsTools.php:77
+#, fuzzy
+msgid "Number of posts to show per page"
+msgstr "מספר הפוסטים להציג בכל עמוד"
 
 #: admin/partials/hostinger-ai-assistant-tab-view.php:29
 msgid "Open guide"
 msgstr "פתח מדריך"
 
+#: includes-psr4/Mcp/Abilities/Tools/HostingerPluginTools.php:93
+#, fuzzy
+msgid "Opt-in to MCP"
+msgstr "הצטרפות ל-MCP"
+
+#: includes-psr4/Mcp/Abilities/Tools/HostingerPluginTools.php:211
+#, fuzzy
+msgid "Opt-in Web2Agent MCP status"
+msgstr "סטטוס Web2Agent MCP אופט-אין"
+
 #: admin/partials/hostinger-ai-assistant-tab-view.php:179
 msgid "Optional"
 msgstr "אופציונלי"
 
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:411
-msgid "Personalize your content"
-msgstr "התאימו אישית את התוכן שלכם"
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:154
+#, fuzzy
+msgid "Optional. The size of the image to retrieve (thumbnail, medium, large, full). Defaults to full/original size."
+msgstr "אופציונלי. גודל התמונה שיש לאחזר (תמונה ממוזערת, בינונית, גדולה, מלאה). ברירת המחדל היא גודל מלא/מקורי."
 
-#: admin/class-hostinger-ai-assistant-translations.php:82
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:109
+#, fuzzy
+msgid "Page number for pagination"
+msgstr "מספר עמוד עבור חלוקת עמודים"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:107
+#, fuzzy
+msgid "Page number for pagination (starts from 1)"
+msgstr "מספר עמוד עבור חלוקת עמודים (מתחיל מ-1)"
+
+#: includes-psr4/Mcp/Abilities/Resources/PluginsInfoResource.php:16
+#, fuzzy
+msgid "Plugins Information"
+msgstr "מידע על תוספים"
+
+#: admin/class-hostinger-ai-assistant-translations.php:80
 msgid "Poor"
 msgstr "גרוע"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:409
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:469
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:520
+#, fuzzy
+msgid "Post not found"
+msgstr "הפוסט לא נמצא"
 
 #: includes/woocommerce/class-hostinger-ai-assistant-product-ai-metabox.php:38
 msgid "Powered by"
 msgstr "מופעל על ידי"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:335
+#, fuzzy
+msgid "Preset parameter is required"
+msgstr "נדרש פרמטר קבוע מראש"
 
 #: admin/partials/hostinger-ai-assistant-tab-view.php:186
 msgid "Press Enter key to finalize a keyword"
@@ -568,201 +1451,465 @@ msgstr "הקישו Enter כדי לבחור מילת מפתח"
 msgid "Preview site"
 msgstr "תצוגה-מקדימה לאתר"
 
+#: includes-psr4/Mcp/Abilities/Resources/PluginsInfoResource.php:17
+#, fuzzy
+msgid "Provides detailed information about active and available WordPress plugins"
+msgstr "מספק מידע מפורט אודות תוספים פעילים וזמינים עבור WordPress"
+
+#: includes-psr4/Mcp/Abilities/Resources/UsersInfoResource.php:17
+#, fuzzy
+msgid "Provides detailed information about registered WordPress users and their roles"
+msgstr "מספק מידע מפורט על משתמשי WordPress הרשומים ותפקידיהם"
+
+#: includes-psr4/Mcp/Abilities/Resources/ThemeInfoResource.php:17
+#, fuzzy
+msgid "Provides detailed information about the active WordPress theme and its parent theme if applicable"
+msgstr "מספק מידע מפורט אודות ערכת העיצוב הפעילה של WordPress וערכת העיצוב הראשית שלה, אם רלוונטי"
+
+#: includes-psr4/Mcp/Abilities/Tools/SiteInfoTools.php:17
+#, fuzzy
+msgid "Provides detailed information about the WordPress site like site name, url, description, admin email, plugins, themes, users, and more."
+msgstr "מספק מידע מפורט אודות אתר WordPress, כגון שם האתר, כתובת URL, תיאור, דוא\"ל מנהל, תוספים, ערכות נושא, משתמשים ועוד."
+
+#: includes-psr4/Mcp/Abilities/Resources/SiteSettingsResource.php:17
+#, fuzzy
+msgid "Provides detailed information about WordPress site settings including general, reading, discussion, media, permalink, privacy, and writing settings"
+msgstr "מספק מידע מפורט אודות הגדרות אתר WordPress, כולל הגדרות כלליות, קריאה, דיון, מדיה, קישור קבוע, פרטיות וכתיבה"
+
+#: includes-psr4/Mcp/Abilities/Resources/SiteInfoResource.php:17
+#, fuzzy
+msgid "Provides general information about the WordPress site including site details, plugins, themes, and users"
+msgstr "מספק מידע כללי אודות אתר WordPress, כולל פרטים על האתר, תוספים, ערכות נושא ומשתמשים"
+
 #: admin/partials/hostinger-ai-assistant-tab-view.php:235
 msgid "Publish"
 msgstr "פרסמו"
 
-#: admin/class-hostinger-ai-assistant-translations.php:52
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:59
+#, fuzzy
+msgid "Purge all LiteSpeed caches including LSCache, CSS/JS, localized resources, object cache, and opcache."
+msgstr "נקה את כל מטמוני LiteSpeed, כולל LSCache, CSS/JS, משאבים מקומיים, מטמון אובייקטים ו-opcache."
+
+#: admin/class-hostinger-ai-assistant-translations.php:73
+#, fuzzy
+msgid "Rate your conversation"
+msgstr "דרג את השיחה שלך"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:280
+#, fuzzy
+msgid "Remove Noscript Tags"
+msgstr "הסר תגי Noscript"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:278
+#, fuzzy
+msgid "Remove Query Strings from Static Files"
+msgstr "הסר מחרוזות שאילתה מקבצים סטטיים"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:279
+#, fuzzy
+msgid "Remove WordPress Emoji"
+msgstr "הסר את האמוג'י מ-WordPress"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:294
+#, fuzzy
+msgid "Removed Unused CSS for Users"
+msgstr "הוסר CSS שאינו בשימוש עבור משתמשים"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooOrdersTools.php:80
+#, fuzzy
+msgid "Report period. Options: week, month, last_month, year."
+msgstr "תקופת הדיווח. אפשרויות: שבוע, חודש, חודש_אחרון, שנה."
+
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:239
+#, fuzzy
+msgid "Requested size not found"
+msgstr "הגודל המבוקש לא נמצא"
+
+#: admin/class-hostinger-ai-assistant-translations.php:46
 msgid "Restart chatbot"
 msgstr "התחילו מחדש את הצ'אטבוט"
 
-#: admin/class-hostinger-ai-assistant-translations.php:173
+#: admin/class-hostinger-ai-assistant-translations.php:165
 #, fuzzy
 msgid "Retrieve a list of WooCommerce orders with filters"
 msgstr "אחזר רשימה של הזמנות WooCommerce עם מסננים"
 
-#: admin/class-hostinger-ai-assistant-translations.php:129
+#: admin/class-hostinger-ai-assistant-translations.php:121
 #, fuzzy
 msgid "Retrieve detailed information about my WordPress site"
 msgstr "איתור מידע מפורט אודות אתר WordPress שלי"
 
-#: admin/class-hostinger-ai-assistant-translations.php:133
+#: includes-psr4/Mcp/Abilities/Tools/WooOrdersTools.php:89
+#, fuzzy
+msgid "Return sales for a specific end date. Format: YYYY-MM-DD."
+msgstr "מכירות החזרה לתאריך סיום ספציפי. פורמט: YYYY-MM-DD."
+
+#: includes-psr4/Mcp/Abilities/Tools/WooOrdersTools.php:85
+#, fuzzy
+msgid "Return sales for a specific start date. Format: YYYY-MM-DD."
+msgstr "מכירות החזרה לתאריך התחלה ספציפי. פורמט: YYYY-MM-DD."
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:20
+#, fuzzy
+msgid "Search and filter WooCommerce products with pagination. Returns a list of products matching the search criteria."
+msgstr "חפש וסנן מוצרי WooCommerce עם חלוקה לעמודים. מחזיר רשימה של מוצרים התואמים לקריטריוני החיפוש."
+
+#. %s: post type names
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:82
+#, fuzzy,php-format
+msgid "Search and filter WordPress custom post types posts including %s with pagination"
+msgstr "חפש וסנן פוסטים מסוג פוסטים מותאמים אישית של WordPress, כולל %s עם חלוקה לעמודים"
+
+#: includes-psr4/Mcp/Abilities/Tools/PagesTools.php:18
+#, fuzzy
+msgid "Search and filter WordPress pages with pagination. Returns a list of pages matching the search criteria."
+msgstr "חפש וסנן דפי WordPress עם חלוקה לעמודים. מחזיר רשימה של דפים התואמים לקריטריוני החיפוש."
+
+#: includes-psr4/Mcp/Abilities/Tools/PostsTools.php:18
+#, fuzzy
+msgid "Search and filter WordPress posts with pagination. Returns a list of posts matching the search criteria."
+msgstr "חפש וסנן פוסטים ב-WordPress עם חלוקה לעמודים. מחזיר רשימה של פוסטים התואמים לקריטריוני החיפוש."
+
+#: admin/class-hostinger-ai-assistant-translations.php:125
 #, fuzzy
 msgid "Search and filter WordPress users with pagination"
 msgstr "חיפוש וסינון משתמשי WordPress עם חלוקה לעמודים"
 
-#: admin/class-hostinger-ai-assistant-translations.php:147
+#: includes-psr4/Mcp/Abilities/Tools/UsersTools.php:18
+#, fuzzy
+msgid "Search and filter WordPress users with pagination. Returns a list of users matching the search criteria."
+msgstr "חפש וסנן משתמשי WordPress עם חלוקה לעמודים. מחזיר רשימה של משתמשים התואמים לקריטריוני החיפוש."
+
+#: admin/class-hostinger-ai-assistant-translations.php:139
 #, fuzzy
 msgid "Search blog posts"
 msgstr "חפש פוסטים בבלוג"
 
-#: admin/class-hostinger-ai-assistant-translations.php:149
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:79
+#, fuzzy
+msgid "Search Custom Post Types Posts"
+msgstr "חיפוש פוסטים מסוגים מותאמים אישית"
+
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:81
+#, fuzzy
+msgid "Search Media"
+msgstr "חיפוש מדיה"
+
+#: includes-psr4/Mcp/Abilities/Tools/PagesTools.php:17
+#, fuzzy
+msgid "Search Pages"
+msgstr "דפי חיפוש"
+
+#: includes-psr4/Mcp/Abilities/Tools/PostsTools.php:17
+#, fuzzy
+msgid "Search Posts"
+msgstr "חיפוש פוסטים"
+
+#: admin/class-hostinger-ai-assistant-translations.php:141
 #, fuzzy
 msgid "Search posts on my WordPress website"
 msgstr "חפש פוסטים באתר הוורדפרס שלי"
 
-#: admin/class-hostinger-ai-assistant-translations.php:174
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:89
+#, fuzzy
+msgid "Search term to look for in media titles, captions, and descriptions"
+msgstr "מונח חיפוש שיש לחפש בכותרות, כיתובים ותיאורים בתקשורת"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:95
+#, fuzzy
+msgid "Search term to look for in post titles and content"
+msgstr "מונח חיפוש שיש לחפש בכותרות הפוסטים ובתכנים"
+
+#: includes-psr4/Mcp/Abilities/Tools/UsersTools.php:17
+#, fuzzy
+msgid "Search Users"
+msgstr "חיפוש משתמשים"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooOrdersTools.php:19
+#, fuzzy
+msgid "Search WooCommerce Orders"
+msgstr "חיפוש הזמנות WooCommerce"
+
+#: admin/class-hostinger-ai-assistant-translations.php:166
 #, fuzzy
 msgid "Search WooCommerce orders for my store"
 msgstr "חפש הזמנות WooCommerce עבור החנות שלי"
 
-#: admin/class-hostinger-ai-assistant-translations.php:134
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:19
+#, fuzzy
+msgid "Search WooCommerce Products"
+msgstr "חפש מוצרי WooCommerce"
+
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:82
+#, fuzzy
+msgid "Search WordPress media items by title, caption, or description with filtering options."
+msgstr "חפש פריטי מדיה ב-WordPress לפי כותרת, כיתוב או תיאור באמצעות אפשרויות סינון."
+
+#: admin/class-hostinger-ai-assistant-translations.php:126
 #, fuzzy
 msgid "Search WordPress users on my website"
 msgstr "חפש משתמשי WordPress באתר שלי"
 
-#: admin/class-hostinger-ai-assistant-translations.php:62
+#: admin/class-hostinger-ai-assistant-translations.php:56
 msgid "Selected file type is not supported"
 msgstr "סוג הקובץ הנבחר אינו נתמך"
 
-#: admin/class-hostinger-ai-assistant-translations.php:85
+#: admin/class-hostinger-ai-assistant-translations.php:83
 msgid "Send"
 msgstr "שלח"
 
 #: admin/partials/hostinger-ai-assistant-seo-meta-view.php:10
-msgid ""
-"SEO keywords improve web content visibility on search engines like Google by "
-"being relevant and naturally placed"
-msgstr ""
-"מילות מפתח של SEO משפרות את הופעת תוכן האינטרנט במנועי חיפוש כמו Google על "
-"ידי היותן רלוונטיות וממוקמות באופן טבעי"
+msgid "SEO keywords improve web content visibility on search engines like Google by being relevant and naturally placed"
+msgstr "מילות מפתח של SEO משפרות את הופעת תוכן האינטרנט במנועי חיפוש כמו Google על ידי היותן רלוונטיות וממוקמות באופן טבעי"
 
 #: admin/partials/hostinger-ai-assistant-tab-view.php:125
 #: admin/partials/hostinger-ai-assistant-tab-view.php:131
 #: includes/woocommerce/class-hostinger-ai-assistant-product-ai-metabox.php:79
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:116
 msgid "Short"
 msgstr "קצר"
 
-#: admin/class-hostinger-ai-assistant-translations.php:105
+#: includes-psr4/Mcp/Abilities/Resources/SiteInfoResource.php:16
+#, fuzzy
+msgid "Site Information"
+msgstr "מידע על האתר"
+
+#: includes-psr4/Mcp/Abilities/Tools/SettingsTools.php:61
+#, fuzzy
+msgid "Site language"
+msgstr "שפת האתר"
+
+#: includes-psr4/Mcp/Abilities/Resources/SiteSettingsResource.php:16
+#, fuzzy
+msgid "Site Settings"
+msgstr "הגדרות האתר"
+
+#: includes-psr4/Mcp/Abilities/Tools/SettingsTools.php:41
+#, fuzzy
+msgid "Site tagline/description"
+msgstr "תגית/תיאור האתר"
+
+#: includes-psr4/Mcp/Abilities/Tools/SettingsTools.php:45
+#, fuzzy
+msgid "Site timezone"
+msgstr "אזור זמן האתר"
+
+#: includes-psr4/Mcp/Abilities/Tools/SettingsTools.php:37
+#, fuzzy
+msgid "Site title"
+msgstr "כותרת האתר"
+
+#: admin/class-hostinger-ai-assistant-translations.php:103
 msgid "Sorry, the AI Chatbot is currently unavailable. Please try again later."
 msgstr "מצטערים, ה-AI צ'אט בוט אינו זמין כרגע. נסו שוב מאוחר יותר."
 
-#: admin/class-hostinger-ai-assistant-translations.php:106
+#: admin/class-hostinger-ai-assistant-translations.php:104
 msgid "Sorry, the AI Chatbot request timed out. Please try again later."
 msgstr "מצטערים, בקשת צ'אט ה-AI חרגה מזמן ההמתנה. אנא נסו שוב מאוחר יותר."
 
-#: admin/class-hostinger-ai-assistant-translations.php:54
+#: admin/class-hostinger-ai-assistant-translations.php:48
+#: admin/class-hostinger-ai-assistant-translations.php:92
 #: admin/class-hostinger-ai-assistant-translations.php:94
-#: admin/class-hostinger-ai-assistant-translations.php:96
 msgid "Start new chat"
 msgstr "התחילו צ'אט חדש"
 
-#: admin/class-hostinger-ai-assistant-translations.php:101
+#: includes-psr4/Mcp/Abilities/Tools/SettingsTools.php:57
+#, fuzzy
+msgid "Start of week (0 = Sunday, 1 = Monday, etc.)"
+msgstr "תחילת השבוע (0 = יום ראשון, 1 = יום שני, וכו')"
+
+#: admin/class-hostinger-ai-assistant-translations.php:99
 msgid "Talking to Kodee is in the works, we'll keep you posted once it's out!"
 msgstr ""
 "אנחנו עובדים על היכולת לשוחח עם Kodee – נעדכן אתכם כשתהיה זמינה!\n"
+""
 
-#: admin/class-hostinger-ai-assistant-translations.php:86
+#: admin/class-hostinger-ai-assistant-translations.php:84
 msgid "Thank you for your feedback"
 msgstr "תודה על המשוב שלכם"
 
-#: admin/class-hostinger-ai-assistant-translations.php:79
+#: admin/class-hostinger-ai-assistant-translations.php:77
 msgid "Thanks for letting us know"
 msgstr "תודה ששיתפתם איתנו"
 
-#: admin/class-hostinger-ai-assistant-translations.php:78
-msgid ""
-"Thanks for letting us know. Click the button below if you want to leave "
-"additional feedback."
+#: admin/class-hostinger-ai-assistant-translations.php:76
+msgid "Thanks for letting us know. Click the button below if you want to leave additional feedback."
 msgstr "תודה ששיתפתם איתנו. לחצו על הכפתור למטה אם ברצונכם להשאיר משוב נוסף."
 
-#. translators: %s: PHP version
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:197
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:255
+#, fuzzy
+msgid "The content of the post"
+msgstr "תוכן הפוסט"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:189
+#, fuzzy
+msgid "The custom post type to create"
+msgstr "סוג הפוסט המותאם אישית ליצירה"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:301
+#, fuzzy
+msgid "The custom post type to delete"
+msgstr "סוג הפוסט המותאם אישית שיש למחוק"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:149
+#, fuzzy
+msgid "The custom post type to get"
+msgstr "סוג הפוסט המותאם אישית שיש להשיג"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:91
+#, fuzzy
+msgid "The custom post type to search"
+msgstr "סוג הפוסט המותאם אישית לחיפוש"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:243
+#, fuzzy
+msgid "The custom post type to update"
+msgstr "סוג הפוסט המותאם אישית לעדכון"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:201
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:259
+#, fuzzy
+msgid "The excerpt of the post"
+msgstr "קטע מהפוסט"
+
 #: hostinger-ai-assistant.php:131
 #, php-format
 msgid "The Hostinger AI plugin requires minimum PHP version of <b>%s</b>. "
 msgstr "תוסף ה-AI של Hostinger דורש גרסת PHP מינימלית של <b>%s</b>."
 
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:248
-msgid "There was an error with your request. Please try again."
-msgstr "אירעה שגיאה בבקשתכם. אנא נסו שוב."
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:150
+#, fuzzy
+msgid "The ID of the media item"
+msgstr "ה-ID של פריט המדיה"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:305
+#, fuzzy
+msgid "The ID of the post to delete"
+msgstr "ה-ID של הפוסט שברצונך למחוק"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:153
+#, fuzzy
+msgid "The ID of the post to get"
+msgstr "ה-ID של הפוסט שרוצים להשיג"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:247
+#, fuzzy
+msgid "The ID of the post to update"
+msgstr "ה-ID של הפוסט שיש לעדכן"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:127
+#, fuzzy
+msgid "The preset to apply"
+msgstr "ההגדרה המוגדרת מראש שיש להחיל"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:205
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:263
+#, fuzzy
+msgid "The status of the post (publish, draft, pending, etc.)"
+msgstr "סטטוס הפוסט (פורסם, טיוטה, בהמתנה וכו')"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:193
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:251
+#, fuzzy
+msgid "The title of the post"
+msgstr "כותרת הפוסט"
+
+#: includes-psr4/Mcp/Abilities/Resources/ThemeInfoResource.php:16
+#, fuzzy
+msgid "Theme Information"
+msgstr "מידע על הנושא"
 
 #: admin/partials/hostinger-ai-assistant-seo-meta-view.php:20
-msgid ""
-"These keywords can help your article and website rank higher in search "
-"engines. You can input up to 5 keywords."
-msgstr ""
-"מילות מפתח אלו יכולות לעזור למאמר ולאתר שלכם לדרג גבוה יותר במנועי החיפוש. "
-"אתם יכולים להכניס עד ל- 5 מילות מפתח."
+msgid "These keywords can help your article and website rank higher in search engines. You can input up to 5 keywords."
+msgstr "מילות מפתח אלו יכולות לעזור למאמר ולאתר שלכם לדרג גבוה יותר במנועי החיפוש. אתם יכולים להכניס עד ל- 5 מילות מפתח."
 
-#: admin/class-hostinger-ai-assistant-translations.php:67
+#: admin/class-hostinger-ai-assistant-translations.php:61
 #, fuzzy
 msgid "Thinking"
 msgstr "חשיבה"
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:254
+#, fuzzy
+msgid "This low-risk preset introduces basic optimizations for speed and user experience. Appropriate for enthusiastic beginners."
+msgstr "הגדרה קבועה מראש זו, בעלת סיכון נמוך, מציגה אופטימיזציות בסיסיות עבור מהירות וחוויית משתמש. מתאימה למתחילים נלהבים."
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:242
+#, fuzzy
+msgid "This no-risk preset is appropriate for all websites. Good for new users, simple websites, or cache-oriented development."
+msgstr "הגדרה קבועה מראש זו, ללא סיכון, מתאימה לכל אתרי האינטרנט. מתאימה למשתמשים חדשים, לאתרים פשוטים או לפיתוח המכוון למטמון."
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:303
+#, fuzzy
+msgid "This preset almost certainly will require testing and exclusions for some CSS, JS and Lazy Loaded images. Pay special attention to logos, or HTML-based slider images."
+msgstr "הגדרה זו תדרוש כמעט בוודאות בדיקות וחריגים עבור חלק מה-CSS, JS ותמונות Lazy Loaded. שימו לב במיוחד ללוגואים או לתמונות סליידר מבוססות HTML."
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:268
+#, fuzzy
+msgid "This preset is good for most websites, and is unlikely to cause conflicts. Any CSS or JS conflicts may be resolved with Page Optimization > Tuning tools."
+msgstr "הגדרה זו מתאימה לרוב האתרים, וסביר להניח שלא תגרום לבעיות תאימות. כל בעיה בתאימות CSS או JS ניתנת לפתרון באמצעות 'אופטימיזציה של דף' > 'כלי כוונון'."
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:288
+#, fuzzy
+msgid "This preset might work out of the box for some websites, but be sure to test! Some CSS or JS exclusions may be necessary in Page Optimization > Tuning."
+msgstr "הגדרה זו עשויה לעבוד באופן מיידי עבור אתרים מסוימים, אך הקפד לבדוק זאת! ייתכן שיהיה צורך לבצע כמה החרגות CSS או JS ב'אופטימיזציה של דף' > 'כוונון'."
 
 #: admin/partials/hostinger-ai-assistant-tab-view.php:270
 msgid "This will only take a moment"
 msgstr "זה ייקח רק רגע"
 
-#. translators: %s: MCP plugin name
-#: admin/class-hostinger-ai-assistant-translations.php:41
-#, php-format
-msgid ""
-"To let Kodee manage your site on your behalf, we will install and pre-"
-"configure the %s for you. This allows Kodee to perform actions like creating "
-"pages or updating settings. You can revoke this permission at any time in "
-"your Hostinger Tools settings."
-msgstr ""
-"כדי לאפשר ל-Kodee לנהל את האתר שלכם בשמכם, נתקין ונקבע מראש את %s עבורכם. "
-"הדבר יאפשר ל-Kodee לבצע פעולות כגון יצירת דפים או עדכון הגדרות. תוכלו לבטל "
-"הרשאה זו בכל עת בהגדרות Hostinger Tools."
+#: includes-psr4/Mcp/Abilities/Tools/SettingsTools.php:53
+#, fuzzy
+msgid "Time format"
+msgstr "פורמט זמן"
 
 #: admin/class-hostinger-ai-assistant-notices.php:22
-msgid ""
-"To unlock the exclusive features of <b>Hostinger AI</b>, you must possess a "
-"unique API token, which is exclusively provided to Hostinger clients"
-msgstr ""
-"כדי לקבל התכונות הבלעדיות של <b>Hostinger AI</b>, עליכם להחזיק באסימון API "
-"ייחודי אשר מסופק באופן בלעדי ללקוחות Hostinger"
+msgid "To unlock the exclusive features of <b>Hostinger AI</b>, you must possess a unique API token, which is exclusively provided to Hostinger clients"
+msgstr "כדי לקבל התכונות הבלעדיות של <b>Hostinger AI</b>, עליכם להחזיק באסימון API ייחודי אשר מסופק באופן בלעדי ללקוחות Hostinger"
 
-#. translators: 1: minimum expiration time in seconds, 2: maximum expiration time in seconds
-#: includes/mcp/class-hostinger-ai-assistant-mcp-jwt-auth.php:66
-#, fuzzy, php-format
-msgid ""
-"Token expiration must be between %1$d seconds (1 hour) and %2$d seconds (1 "
-"day)"
-msgstr ""
-"תוקף האסימון חייב להיות בין %1$d שניות (שעה אחת) ל-%2$d שניות (יום אחד)"
+#. 1: minimum expiration time in seconds, 2: maximum expiration time in seconds
+#: includes-psr4/Mcp/Rest/JwtAuth.php:66
+#, fuzzy,php-format
+msgid "Token expiration must be between %1$d seconds (1 hour) and %2$d seconds (1 day)"
+msgstr "תוקף האסימון חייב להיות בין %1$d שניות (שעה אחת) ל-%2$d שניות (יום אחד)"
 
-#: includes/mcp/class-hostinger-ai-assistant-mcp-jwt-auth.php:31
+#: includes-psr4/Mcp/Rest/JwtAuth.php:34
 #, fuzzy
 msgid "Token expiration time in seconds (3600-86400)"
 msgstr "זמן תפוגת האסימון בשניות (3600-86400)"
 
-#: includes/mcp/class-hostinger-ai-assistant-mcp-jwt-auth.php:87
+#: includes-psr4/Mcp/Rest/JwtAuth.php:81
 #, fuzzy
 msgid "Token ID is required."
 msgstr "נדרש מזהה אסימון."
 
-#: includes/mcp/class-hostinger-ai-assistant-mcp-jwt-auth.php:253
+#: includes-psr4/Mcp/Rest/JwtAuth.php:112
 #, fuzzy
 msgid "Token is invalid, expired, or has been revoked."
 msgstr "האסימון אינו חוקי, פג תוקפו או בוטל."
 
-#: includes/mcp/class-hostinger-ai-assistant-mcp-jwt-auth.php:262
+#: includes-psr4/Mcp/Rest/JwtAuth.php:118
 #, fuzzy
 msgid "Token is malformed: missing user_id."
 msgstr "האסימון פגום: חסר user_id."
 
-#: includes/mcp/class-hostinger-ai-assistant-mcp-jwt-auth.php:98
+#: includes-psr4/Mcp/Rest/JwtAuth.php:89
 #, fuzzy
 msgid "Token not found in registry."
 msgstr "אסימון לא נמצא ברישום."
 
-#: includes/mcp/class-hostinger-ai-assistant-mcp-jwt-auth.php:110
+#: includes-psr4/Mcp/Rest/JwtAuth.php:99
 #, fuzzy
 msgid "Token revoked successfully."
 msgstr "האסימון בוטל בהצלחה."
 
-#. translators: %s: error message from JWT library
-#: includes/mcp/class-hostinger-ai-assistant-mcp-jwt-auth.php:288
-#, fuzzy, php-format
+#. %s: error message from JWT library
+#: includes-psr4/Mcp/Rest/JwtAuth.php:135
+#, fuzzy,php-format
 msgid "Token validation failed: %s"
 msgstr "אימות האסימון נכשל: %s"
 
 #: admin/partials/hostinger-ai-assistant-tab-view.php:100
 #: includes/woocommerce/class-hostinger-ai-assistant-product-ai-metabox.php:86
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:420
 msgid "Tone of voice"
 msgstr "טון הדיבור"
 
@@ -773,66 +1920,213 @@ msgstr "הטונים שנבחרו"
 #: admin/class-hostinger-ai-assistant-translations.php:25
 #: admin/partials/hostinger-ai-assistant-tab-view.php:107
 #: includes/woocommerce/class-hostinger-ai-assistant-product-ai-metabox.php:90
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:139
 msgid "Trustworthy"
 msgstr "אמין"
+
+#: includes-psr4/Mcp/Abilities/Tools/RestEndpointTool.php:104
+#: includes-psr4/Mcp/Abilities/Tools/RestEndpointTool.php:129
+#: includes-psr4/Mcp/Abilities/Tools/RestEndpointTool.php:140
+#, fuzzy
+msgid "Unique identifier for the resource"
+msgstr "מזהה ייחודי למשאב"
 
 #: includes/class-hostinger-ai-assistant-errors.php:36
 msgid "Unknown error code."
 msgstr "קוד שגיאה לא ידוע."
 
-#: admin/class-hostinger-ai-assistant-translations.php:159
+#: admin/class-hostinger-ai-assistant-translations.php:151
 #, fuzzy
 msgid "Update a post category on my WordPress website"
 msgstr "עדכון קטגוריית פוסטים באתר הוורדפרס שלי"
 
-#: admin/class-hostinger-ai-assistant-translations.php:154
+#: admin/class-hostinger-ai-assistant-translations.php:146
 #, fuzzy
 msgid "Update a post tag on my WordPress website"
 msgstr "עדכון תגיות פוסט באתר הוורדפרס שלי"
 
-#: admin/class-hostinger-ai-assistant-translations.php:124
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:236
+#, fuzzy
+msgid "Update a WordPress custom post type post by ID"
+msgstr "עדכון פוסט מסוג מותאם אישית ב-WordPress לפי מזהה"
+
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:43
+#, fuzzy
+msgid "Update a WordPress media item metadata. Only provided fields will be updated."
+msgstr "עדכון מטא-נתונים של פריט מדיה ב-WordPress. רק השדות המסופקים יעודכנו."
+
+#: admin/class-hostinger-ai-assistant-translations.php:116
 #, fuzzy
 msgid "Update an existing page on my WordPress website"
 msgstr "עדכון דף קיים באתר הוורדפרס שלי"
 
-#: admin/class-hostinger-ai-assistant-translations.php:144
+#: admin/class-hostinger-ai-assistant-translations.php:136
 #, fuzzy
 msgid "Update an existing post on my WordPress site"
 msgstr "עדכון פוסט קיים באתר הוורדפרס שלי"
 
-#: admin/class-hostinger-ai-assistant-translations.php:142
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:248
+#, fuzzy
+msgid "Update an existing WooCommerce product brand by ID."
+msgstr "עדכן מותג מוצר WooCommerce קיים לפי מזהה."
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:55
+#, fuzzy
+msgid "Update an existing WooCommerce product by ID. Only provided fields will be updated."
+msgstr "עדכן מוצר WooCommerce קיים לפי מזהה. רק השדות שסופקו יעודכנו."
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:113
+#, fuzzy
+msgid "Update an existing WooCommerce product category by ID."
+msgstr "עדכן קטגוריית מוצרים קיימת ב-WooCommerce לפי מזהה."
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:180
+#, fuzzy
+msgid "Update an existing WooCommerce product tag by ID."
+msgstr "עדכן תגית מוצר WooCommerce קיימת לפי מזהה."
+
+#: includes-psr4/Mcp/Abilities/Tools/CategoriesTools.php:53
+#, fuzzy
+msgid "Update an existing WordPress category by ID. Only provided fields will be updated."
+msgstr "עדכן קטגוריה קיימת ב-WordPress לפי מזהה. רק השדות שסופקו יעודכנו."
+
+#: includes-psr4/Mcp/Abilities/Tools/PagesTools.php:53
+#, fuzzy
+msgid "Update an existing WordPress page by ID. Only provided fields will be updated."
+msgstr "עדכן דף WordPress קיים לפי מזהה. רק השדות שסופקו יעודכנו."
+
+#: includes-psr4/Mcp/Abilities/Tools/PostsTools.php:53
+#, fuzzy
+msgid "Update an existing WordPress post by ID. Only provided fields will be updated."
+msgstr "עדכן פוסט WordPress קיים לפי מזהה. רק השדות שסופקו יעודכנו."
+
+#: includes-psr4/Mcp/Abilities/Tools/TagsTools.php:53
+#, fuzzy
+msgid "Update an existing WordPress tag by ID. Only provided fields will be updated."
+msgstr "עדכן תגית WordPress קיימת לפי מזהה. רק השדות שסופקו יעודכנו."
+
+#: includes-psr4/Mcp/Abilities/Tools/UsersTools.php:74
+#, fuzzy
+msgid "Update an existing WordPress user by ID. Only provided fields will be updated."
+msgstr "עדכן משתמש WordPress קיים לפי מזהה. רק השדות שסופקו יעודכנו."
+
+#: admin/class-hostinger-ai-assistant-translations.php:134
 #, fuzzy
 msgid "Update blog post"
 msgstr "עדכון פוסט בבלוג"
 
-#: admin/class-hostinger-ai-assistant-translations.php:157
+#: includes-psr4/Mcp/Abilities/Tools/CategoriesTools.php:52
+#, fuzzy
+msgid "Update Category"
+msgstr "עדכון קטגוריה"
+
+#: includes-psr4/Mcp/Abilities/Tools/UsersTools.php:132
+#, fuzzy
+msgid "Update Current User"
+msgstr "עדכון המשתמש הנוכחי"
+
+#: includes-psr4/Mcp/Abilities/Tools/CustomPostTypesTools.php:235
+#, fuzzy
+msgid "Update Custom Post Type Post"
+msgstr "עדכון סוג פוסט מותאם אישית"
+
+#: includes-psr4/Mcp/Abilities/Tools/SettingsTools.php:31
+#, fuzzy
+msgid "Update General Settings"
+msgstr "עדכון הגדרות כלליות"
+
+#: includes-psr4/Mcp/Abilities/Tools/HostingerPluginTools.php:57
+#, fuzzy
+msgid "Update Hostinger Plugin Settings"
+msgstr "עדכון הגדרות תוסף Hostinger"
+
+#: includes-psr4/Mcp/Abilities/Tools/HostingerPluginTools.php:58
+#, fuzzy
+msgid "Update Hostinger plugin settings. Only provided fields will be updated."
+msgstr "עדכן את הגדרות התוסף Hostinger. רק השדות המסופקים יעודכנו."
+
+#: includes-psr4/Mcp/Abilities/Tools/MediaTools.php:42
+#, fuzzy
+msgid "Update Media"
+msgstr "עדכון מדיה"
+
+#: includes-psr4/Mcp/Abilities/Tools/PagesTools.php:52
+#, fuzzy
+msgid "Update Page"
+msgstr "עדכון דף"
+
+#: includes-psr4/Mcp/Abilities/Tools/PostsTools.php:52
+#, fuzzy
+msgid "Update Post"
+msgstr "עדכון פוסט"
+
+#: admin/class-hostinger-ai-assistant-translations.php:149
 #, fuzzy
 msgid "Update post category"
 msgstr "עדכון קטגוריית פוסט"
 
-#: admin/class-hostinger-ai-assistant-translations.php:152
+#: admin/class-hostinger-ai-assistant-translations.php:144
 #, fuzzy
 msgid "Update post tag"
 msgstr "עדכון תגית פוסט"
 
-#: admin/class-hostinger-ai-assistant-translations.php:122
+#: includes-psr4/Mcp/Abilities/Tools/TagsTools.php:52
+#, fuzzy
+msgid "Update Tag"
+msgstr "עדכון תג"
+
+#: includes-psr4/Mcp/Abilities/Tools/UsersTools.php:133
+#, fuzzy
+msgid "Update the current logged-in user information."
+msgstr "עדכן את פרטי המשתמש המחובר כרגע."
+
+#: includes-psr4/Mcp/Abilities/Tools/UsersTools.php:73
+#, fuzzy
+msgid "Update User"
+msgstr "עדכון משתמש"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:54
+#, fuzzy
+msgid "Update WooCommerce Product"
+msgstr "עדכון מוצר WooCommerce"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:247
+#, fuzzy
+msgid "Update WooCommerce Product Brand"
+msgstr "עדכון מותג מוצר WooCommerce"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:112
+#, fuzzy
+msgid "Update WooCommerce Product Category"
+msgstr "עדכון קטגוריית מוצרים ב-WooCommerce"
+
+#: includes-psr4/Mcp/Abilities/Tools/WooProductsTools.php:179
+#, fuzzy
+msgid "Update WooCommerce Product Tag"
+msgstr "עדכון תגיות מוצר WooCommerce"
+
+#: includes-psr4/Mcp/Abilities/Tools/SettingsTools.php:32
+#, fuzzy
+msgid "Update WordPress general site settings. Only provided fields will be updated."
+msgstr "עדכן את הגדרות האתר הכלליות של WordPress. רק השדות המסופקים יעודכנו."
+
+#: admin/class-hostinger-ai-assistant-translations.php:114
 #, fuzzy
 msgid "Update WordPress page"
 msgstr "עדכון דף וורדפרס"
-
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:377
-msgid "Use this content"
-msgstr "השתמשו בתוכן זה"
 
 #: admin/class-hostinger-ai-assistant-translations.php:35
 msgid "Use this image as:"
 msgstr "השתמשו בתמונה זו כ:"
 
-#: includes/mcp/class-hostinger-ai-assistant-mcp-jwt-auth.php:272
+#: includes-psr4/Mcp/Rest/JwtAuth.php:125
 #, fuzzy
 msgid "User associated with token no longer exists."
 msgstr "המשתמש המשויך לאסימון כבר לא קיים."
+
+#: includes-psr4/Mcp/Abilities/Resources/UsersInfoResource.php:16
+#, fuzzy
+msgid "Users Information"
+msgstr "מידע על המשתמשים"
 
 #: admin/partials/hostinger-ai-assistant-tab-view.php:133
 msgid "Usually used for video, infographics, or product descriptions"
@@ -842,34 +2136,32 @@ msgstr "משמש בדרך כלל עבור סרטוני וידאו, אינפוג�
 msgid "Usually used to make high-ranked articles that will generate more leads"
 msgstr "משמש בדרך כלל ליצירת מאמרים בעלי דירוג גבוה שייצרו יותר לידים"
 
-#: admin/class-hostinger-ai-assistant-translations.php:128
+#: admin/class-hostinger-ai-assistant-translations.php:120
 #, fuzzy
-msgid ""
-"View site details like name, URL, description, admin email, plugins, themes, "
-"and users"
-msgstr ""
-"הצג פרטי אתר כגון שם, כתובת URL, תיאור, דוא\"ל מנהל, תוספים, ערכות נושא "
-"ומשתמשים"
+msgid "View site details like name, URL, description, admin email, plugins, themes, and users"
+msgstr "הצג פרטי אתר כגון שם, כתובת URL, תיאור, דוא\"ל מנהל, תוספים, ערכות נושא ומשתמשים"
 
-#: admin/class-hostinger-ai-assistant-translations.php:100
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:308
+#, fuzzy
+msgid "Viewport Image Generation"
+msgstr "יצירת תמונה בחלון התצוגה"
+
+#: admin/class-hostinger-ai-assistant-translations.php:98
 msgid "Voice feature is coming soon"
 msgstr "פיצ'ר קול מגיע בקרוב"
 
 #: includes/class-hostinger-ai-assistant-errors.php:20
-msgid ""
-"We apologize for the inconvenience. The AI content generation process "
-"encountered a server error. Please try again later."
-msgstr ""
-"אנחנו מתנצלים על אי הנוחות. תהליך יצירת התוכן של AI נתקל בשגיאת שרת. בבקשה "
-"נסו שוב מאוחר יותר."
+msgid "We apologize for the inconvenience. The AI content generation process encountered a server error. Please try again later."
+msgstr "אנחנו מתנצלים על אי הנוחות. תהליך יצירת התוכן של AI נתקל בשגיאת שרת. בבקשה נסו שוב מאוחר יותר."
+
+#: includes-psr4/Mcp/Abilities/Tools/LiteSpeedCacheTools.php:297
+#, fuzzy
+msgid "Websites willing to test and tune settings"
+msgstr "אתרי אינטרנט המעוניינים לבדוק ולכוון הגדרות"
 
 #: admin/partials/hostinger-ai-assistant-tab-view.php:179
 msgid "What are the focus keywords of your content?"
 msgstr "מהן המילות מפתח של התוכן שלכם?"
-
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:394
-msgid "What content do you want AI to create today?"
-msgstr "איזה תוכן אתם רוצים שה-AI ייצור היום?"
 
 #: admin/partials/hostinger-ai-assistant-tab-view.php:56
 msgid "What do you want to make today?"
@@ -882,67 +2174,35 @@ msgstr "על מה התוכן שלכם?"
 #: admin/class-hostinger-ai-assistant-translations.php:27
 #: admin/partials/hostinger-ai-assistant-tab-view.php:109
 #: includes/woocommerce/class-hostinger-ai-assistant-product-ai-metabox.php:92
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:147
 msgid "Witty"
 msgstr "שנון"
-
-#: admin/class-hostinger-ai-assistant-translations.php:42
-msgid "WordPress MCP plugin"
-msgstr "תוסף WordPress MCP"
 
 #: admin/partials/hostinger-ai-assistant-tab-view.php:220
 msgid "words"
 msgstr "מילים"
 
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:154
-msgid "Write a motivational post about..."
-msgstr "כתוב פוסט מעורר השראה על..."
-
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:153
-msgid "Write a recommendation list of..."
-msgstr "כתוב רשימת המלצות של..."
-
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:152
-msgid "Write a step-by-step tutorial about..."
-msgstr "כתוב מדריך מפורט שלב אחר שלב על..."
-
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:157
-msgid "Write a summary of..."
-msgstr "כתוב סיכום של..."
-
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:156
-#: gutenberg-block/src/edit.js:399
-msgid "Write an article about ..."
-msgstr "כתוב מאמר על ..."
-
-#: gutenberg-block/dist/index.js:1 gutenberg-block/src/edit.js:155
-msgid "Write promotional content about..."
-msgstr "כתוב תוכן שיווקי על..."
-
-#: admin/class-hostinger-ai-assistant-translations.php:84
+#: admin/class-hostinger-ai-assistant-translations.php:82
 msgid "Write your feedback (optional)"
 msgstr "כתבו את המשוב שלכם (אופציונלי)"
 
-#: admin/class-hostinger-ai-assistant-translations.php:57
+#: admin/class-hostinger-ai-assistant-translations.php:51
 msgid "Write your question"
 msgstr "רשמו את השאלה שלכם"
 
-#. translators: %s: PHP version
+#. %s: PHP version
 #: hostinger-ai-assistant.php:135
 #, php-format
 msgid "You are running <b>%s</b> PHP version."
 msgstr "אתם מריצים PHP גרסת <b>%s</b>."
 
-#: admin/class-hostinger-ai-assistant-translations.php:63
+#: admin/class-hostinger-ai-assistant-translations.php:57
 msgid "You can only upload up to 6 files"
 msgstr "ניתן להעלות עד 6 קבצים בלבד"
 
-#: admin/class-hostinger-ai-assistant-translations.php:80
+#: admin/class-hostinger-ai-assistant-translations.php:78
 msgid "You rated your conversation"
 msgstr "דירגתם את השיחה שלכם"
 
 #: admin/class-hostinger-ai-assistant-translations.php:32
 msgid "You're good to go, but you can share more details for better results"
-msgstr ""
-"אתם מוכנים לצאת לדרך, אבל בשביל תוצאות טובות יותר אתם יכולים לשתף פרטים "
-"נוספים "
+msgstr "אתם מוכנים לצאת לדרך, אבל בשביל תוצאות טובות יותר אתם יכולים לשתף פרטים נוספים "

@@ -88,6 +88,7 @@
     "vue-router": "^4.5.1"
   },
   "overrides": {
-    "webpack-dev-server": "5.2.1"
+    "webpack-dev-server": "5.2.1",
+    "legacy-javascript": "npm:empty-npm-package@^1.0.0"
   }
 }

@@ -191,28 +191,12 @@ class Form implements FormInterface {
 	}
 
 	/**
-	 * Validate the form data.
-	 *
-	 * @param mixed $data
-	 *
-	 * @throws \Exception
-	 */
-	public function validate( $data ): void {
-		if ( ! empty( $this->children ) ) {
-			foreach ( $this->children as $key => $child ) {
-				$child_data = isset( $data[ $key ] ) ? $data[ $key ] : null;
-				$child->validate( $child_data );
-			}
-		}
-	}
-
-	/**
 	 * Submit the form.
 	 *
 	 * @param array $submitted_data
 	 */
 	public function submit( array $submitted_data = [] ): void {
-		$this->validate( $submitted_data );
+		// todo: add form validation
 		if ( ! $this->is_submitted ) {
 			$this->is_submitted = true;
 			$this->set_data( $submitted_data );

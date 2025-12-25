@@ -2,7 +2,7 @@
 Tags: AI, AI assistant
 Requires PHP: 8.0
 Tested up to: 6.9
-Stable tag: 3.0.19
+Stable tag: 3.0.20
 Requires at least: 5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -404,3 +404,11 @@ This section describes how to install the plugin and get it working.
 
 3.0.19 (2025-12-11)
 - Tweak: Bump Chatbot version
+
+3.0.20 (2025-12-18)
+- Fix: Elementor breaking MCP input schema validation
+- Feature: Implement PHP Compat WP PHP 8.1
+- Feature: Remove MCP consent popup
+- Feature: Update translations
+- Fix: Limit survey filled event
+- Feature: Add Elementor MCP tools
