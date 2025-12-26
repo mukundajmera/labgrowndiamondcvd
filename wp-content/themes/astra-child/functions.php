@@ -33,23 +33,23 @@ function astra_child_enqueue_styles()
     // Enqueue custom CSS files
     wp_enqueue_style('diamond-header-css', get_stylesheet_directory_uri() . '/assets/css/header.css', array(), ASTRA_CHILD_THEME_VERSION);
     wp_enqueue_style('diamond-footer-css', get_stylesheet_directory_uri() . '/assets/css/footer.css', array(), ASTRA_CHILD_THEME_VERSION);
-    
+
     // Conditional loading for page-specific styles
     if (is_front_page()) {
         wp_enqueue_style('diamond-homepage-css', get_stylesheet_directory_uri() . '/assets/css/homepage.css', array(), ASTRA_CHILD_THEME_VERSION);
     }
-    
+
     if (is_shop() || is_product_category() || is_product_tag()) {
         wp_enqueue_style('diamond-plp-css', get_stylesheet_directory_uri() . '/assets/css/plp.css', array(), ASTRA_CHILD_THEME_VERSION);
     }
-    
+
     if (is_product()) {
         wp_enqueue_style('diamond-pdp-css', get_stylesheet_directory_uri() . '/assets/css/pdp.css', array(), ASTRA_CHILD_THEME_VERSION);
     }
-    
+
     // Mobile enhancements - loaded globally for all pages
     wp_enqueue_style('diamond-mobile-enhancements', get_stylesheet_directory_uri() . '/assets/css/mobile-enhancements.css', array(), ASTRA_CHILD_THEME_VERSION);
-    
+
     wp_enqueue_style('diamond-custom-css', get_stylesheet_directory_uri() . '/assets/css/custom.css', array(), ASTRA_CHILD_THEME_VERSION);
 
     // Enqueue Google Fonts - Playfair Display for headings and Montserrat for body
@@ -64,7 +64,7 @@ function astra_child_enqueue_scripts()
 {
     // Enqueue header JS
     wp_enqueue_script('diamond-header', get_stylesheet_directory_uri() . '/assets/js/header.js', array('jquery'), ASTRA_CHILD_THEME_VERSION, true);
-    
+
     // Enqueue diamond search widget JS
     wp_enqueue_script('diamond-search', get_stylesheet_directory_uri() . '/assets/js/diamond-search.js', array('jquery'), ASTRA_CHILD_THEME_VERSION, true);
 
@@ -76,12 +76,12 @@ function astra_child_enqueue_scripts()
 
     // Enqueue mobile interactions JS
     wp_enqueue_script('mobile-interactions', get_stylesheet_directory_uri() . '/assets/js/mobile.js', array('jquery'), ASTRA_CHILD_THEME_VERSION, true);
-    
+
     // Conditional loading for page-specific scripts
     if (is_shop() || is_product_category() || is_product_tag()) {
         wp_enqueue_script('diamond-plp', get_stylesheet_directory_uri() . '/assets/js/plp.js', array('jquery'), ASTRA_CHILD_THEME_VERSION, true);
     }
-    
+
     if (is_product()) {
         wp_enqueue_script('diamond-pdp', get_stylesheet_directory_uri() . '/assets/js/pdp.js', array('jquery'), ASTRA_CHILD_THEME_VERSION, true);
     }
@@ -113,6 +113,10 @@ require_once ASTRA_CHILD_THEME_DIR . '/inc/b2b-portal.php';
 require_once ASTRA_CHILD_THEME_DIR . '/inc/diamond-filters.php';
 require_once ASTRA_CHILD_THEME_DIR . '/inc/custom-post-types.php';
 require_once ASTRA_CHILD_THEME_DIR . '/inc/ajax-handlers.php';
+
+// LGD Automator - Business Logic Brain
+require_once get_stylesheet_directory() . '/includes/class-lgd-automator.php';
+new LGD_Automator(); // Initialize the brain
 
 /**
  * Theme setup
@@ -265,25 +269,33 @@ function astra_child_diamond_specifications_callback($post)
                 <select name="diamond_shape" id="diamond_shape" style="width: 100%;">
                     <option value=""><?php _e('Select Shape', 'astra-child-diamond'); ?></option>
                     <option value="round" <?php selected($shape, 'round'); ?>>
-                        <?php _e('Round', 'astra-child-diamond'); ?></option>
+                        <?php _e('Round', 'astra-child-diamond'); ?>
+                    </option>
                     <option value="princess" <?php selected($shape, 'princess'); ?>>
-                        <?php _e('Princess', 'astra-child-diamond'); ?></option>
+                        <?php _e('Princess', 'astra-child-diamond'); ?>
+                    </option>
                     <option value="cushion" <?php selected($shape, 'cushion'); ?>>
-                        <?php _e('Cushion', 'astra-child-diamond'); ?></option>
+                        <?php _e('Cushion', 'astra-child-diamond'); ?>
+                    </option>
                     <option value="oval" <?php selected($shape, 'oval'); ?>><?php _e('Oval', 'astra-child-diamond'); ?>
                     </option>
                     <option value="emerald" <?php selected($shape, 'emerald'); ?>>
-                        <?php _e('Emerald', 'astra-child-diamond'); ?></option>
+                        <?php _e('Emerald', 'astra-child-diamond'); ?>
+                    </option>
                     <option value="pear" <?php selected($shape, 'pear'); ?>><?php _e('Pear', 'astra-child-diamond'); ?>
                     </option>
                     <option value="marquise" <?php selected($shape, 'marquise'); ?>>
-                        <?php _e('Marquise', 'astra-child-diamond'); ?></option>
+                        <?php _e('Marquise', 'astra-child-diamond'); ?>
+                    </option>
                     <option value="radiant" <?php selected($shape, 'radiant'); ?>>
-                        <?php _e('Radiant', 'astra-child-diamond'); ?></option>
+                        <?php _e('Radiant', 'astra-child-diamond'); ?>
+                    </option>
                     <option value="asscher" <?php selected($shape, 'asscher'); ?>>
-                        <?php _e('Asscher', 'astra-child-diamond'); ?></option>
+                        <?php _e('Asscher', 'astra-child-diamond'); ?>
+                    </option>
                     <option value="heart" <?php selected($shape, 'heart'); ?>>
-                        <?php _e('Heart', 'astra-child-diamond'); ?></option>
+                        <?php _e('Heart', 'astra-child-diamond'); ?>
+                    </option>
                 </select>
             </td>
         </tr>
@@ -326,9 +338,11 @@ function astra_child_diamond_specifications_callback($post)
                 <select name="diamond_cut" id="diamond_cut" style="width: 100%;">
                     <option value=""><?php _e('Select Cut', 'astra-child-diamond'); ?></option>
                     <option value="excellent" <?php selected($cut, 'excellent'); ?>>
-                        <?php _e('Excellent', 'astra-child-diamond'); ?></option>
+                        <?php _e('Excellent', 'astra-child-diamond'); ?>
+                    </option>
                     <option value="very-good" <?php selected($cut, 'very-good'); ?>>
-                        <?php _e('Very Good', 'astra-child-diamond'); ?></option>
+                        <?php _e('Very Good', 'astra-child-diamond'); ?>
+                    </option>
                     <option value="good" <?php selected($cut, 'good'); ?>><?php _e('Good', 'astra-child-diamond'); ?>
                     </option>
                 </select>
@@ -341,8 +355,8 @@ function astra_child_diamond_specifications_callback($post)
         </tr>
         <tr>
             <th><label for="diamond_symmetry"><?php _e('Symmetry', 'astra-child-diamond'); ?></label></th>
-            <td><input type="text" name="diamond_symmetry" id="diamond_symmetry"
-                    value="<?php echo esc_attr($symmetry); ?>" style="width: 100%;" /></td>
+            <td><input type="text" name="diamond_symmetry" id="diamond_symmetry" value="<?php echo esc_attr($symmetry); ?>"
+                    style="width: 100%;" /></td>
         </tr>
         <tr>
             <th><label for="diamond_fluorescence"><?php _e('Fluorescence', 'astra-child-diamond'); ?></label></th>
@@ -371,11 +385,14 @@ function astra_child_diamond_specifications_callback($post)
                 <select name="diamond_certification" id="diamond_certification" style="width: 100%;">
                     <option value=""><?php _e('Select Certification', 'astra-child-diamond'); ?></option>
                     <option value="gia" <?php selected($certification, 'gia'); ?>>
-                        <?php _e('GIA', 'astra-child-diamond'); ?></option>
+                        <?php _e('GIA', 'astra-child-diamond'); ?>
+                    </option>
                     <option value="igi" <?php selected($certification, 'igi'); ?>>
-                        <?php _e('IGI', 'astra-child-diamond'); ?></option>
+                        <?php _e('IGI', 'astra-child-diamond'); ?>
+                    </option>
                     <option value="other" <?php selected($certification, 'other'); ?>>
-                        <?php _e('Other', 'astra-child-diamond'); ?></option>
+                        <?php _e('Other', 'astra-child-diamond'); ?>
+                    </option>
                 </select>
             </td>
         </tr>
@@ -830,3 +847,434 @@ function astra_child_trust_banner()
     }
 }
 add_action('astra_body_top', 'astra_child_trust_banner');
+
+/**
+ * ==========================================================================
+ * FORENSIC DIAMOND SPECS - ACF FIELD GROUP REGISTRATION
+ * ==========================================================================
+ */
+
+/**
+ * ACF Safety Check - Ensure ACF is active before using ACF functions
+ */
+if (!function_exists('acf_add_local_field_group')) {
+    function lgd_acf_admin_notice()
+    {
+        echo '<div class="notice notice-error"><p>';
+        echo '<strong>Astra Child Theme:</strong> Advanced Custom Fields (ACF) plugin is required for Forensic Diamond Specs functionality.';
+        echo '</p></div>';
+    }
+    add_action('admin_notices', 'lgd_acf_admin_notice');
+}
+
+/**
+ * Register "Forensic Diamond Specs" ACF Field Group
+ * Programmatically registers field group for product post type
+ */
+function lgd_register_forensic_diamond_specs()
+{
+    // Only proceed if ACF is active
+    if (!function_exists('acf_add_local_field_group')) {
+        return;
+    }
+
+    acf_add_local_field_group(array(
+        'key' => 'group_forensic_specs',
+        'title' => 'Forensic Diamond Specs',
+        'fields' => array(
+            // Growth Method - Select (CVD/HPHT)
+            array(
+                'key' => 'field_growth_method',
+                'label' => 'Growth Method',
+                'name' => 'growth_method',
+                'type' => 'select',
+                'instructions' => 'Select the diamond growth method',
+                'required' => 0,
+                'choices' => array(
+                    'CVD' => 'CVD',
+                    'HPHT' => 'HPHT',
+                ),
+                'default_value' => '',
+                'allow_null' => 1,
+                'multiple' => 0,
+                'ui' => 1,
+                'return_format' => 'value',
+            ),
+            // Post-Growth Treatment - Text
+            array(
+                'key' => 'field_post_growth_treatment',
+                'label' => 'Post-Growth Treatment',
+                'name' => 'post_growth_treatment',
+                'type' => 'text',
+                'instructions' => 'Specify any post-growth treatments applied',
+                'required' => 0,
+                'default_value' => '',
+                'placeholder' => 'e.g., None, HPHT Treated',
+            ),
+            // Type IIa - True/False
+            array(
+                'key' => 'field_is_type_iia',
+                'label' => 'Type IIa Diamond',
+                'name' => 'is_type_iia',
+                'type' => 'true_false',
+                'instructions' => 'Is this a Type IIa diamond?',
+                'required' => 0,
+                'message' => 'This is a Type IIa diamond',
+                'default_value' => 0,
+                'ui' => 1,
+            ),
+            // Blue Nuance - True/False
+            array(
+                'key' => 'field_has_blue_nuance',
+                'label' => 'Blue Nuance',
+                'name' => 'has_blue_nuance',
+                'type' => 'true_false',
+                'instructions' => 'Does this diamond have a blue nuance?',
+                'required' => 0,
+                'message' => 'Has blue nuance',
+                'default_value' => 0,
+                'ui' => 1,
+            ),
+            // Brown Tinge - True/False
+            array(
+                'key' => 'field_has_brown_tinge',
+                'label' => 'Brown Tinge',
+                'name' => 'has_brown_tinge',
+                'type' => 'true_false',
+                'instructions' => 'Does this diamond have a brown tinge?',
+                'required' => 0,
+                'message' => 'Has brown tinge',
+                'default_value' => 0,
+                'ui' => 1,
+            ),
+            // HCA Score - Number (step 0.1)
+            array(
+                'key' => 'field_hca_score',
+                'label' => 'HCA Score',
+                'name' => 'hca_score',
+                'type' => 'number',
+                'instructions' => 'Holloway Cut Advisor (HCA) score',
+                'required' => 0,
+                'default_value' => '',
+                'placeholder' => '0.0',
+                'min' => 0,
+                'max' => '',
+                'step' => 0.1,
+            ),
+            // Certificate URL
+            array(
+                'key' => 'field_certificate_url',
+                'label' => 'Certificate URL',
+                'name' => 'certificate_url',
+                'type' => 'url',
+                'instructions' => 'Link to GIA/IGI certificate',
+                'required' => 0,
+                'default_value' => '',
+                'placeholder' => 'https://',
+            ),
+            // Video URL
+            array(
+                'key' => 'field_video_url',
+                'label' => 'Video URL',
+                'name' => 'video_url',
+                'type' => 'url',
+                'instructions' => 'Link to diamond video',
+                'required' => 0,
+                'default_value' => '',
+                'placeholder' => 'https://',
+            ),
+            // Wholesale Cost - Number (hidden or standard)
+            array(
+                'key' => 'field_wholesale_cost',
+                'label' => 'Wholesale Cost',
+                'name' => 'wholesale_cost',
+                'type' => 'number',
+                'instructions' => 'Internal wholesale cost (not visible to customers)',
+                'required' => 0,
+                'default_value' => '',
+                'placeholder' => '0.00',
+                'min' => 0,
+                'step' => 0.01,
+                'wrapper' => array(
+                    'class' => 'lgd-admin-only',
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'product',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => '',
+        'active' => true,
+        'description' => 'High-end forensic specifications for lab-grown diamonds',
+    ));
+}
+add_action('acf/init', 'lgd_register_forensic_diamond_specs');
+
+/**
+ * Helper Function: Display Forensic Data
+ * Outputs ACF forensic diamond specs in an HTML table format
+ * Can be called from WooCommerce templates
+ * 
+ * @param int $product_id Optional product ID, defaults to current post
+ * @return void Echoes HTML table
+ */
+function lgd_display_forensic_data($product_id = null)
+{
+    // Only proceed if ACF is active
+    if (!function_exists('get_field')) {
+        return;
+    }
+
+    // Get product ID
+    if (!$product_id) {
+        $product_id = get_the_ID();
+    }
+
+    // Retrieve all forensic fields
+    $growth_method = get_field('growth_method', $product_id);
+    $post_growth_treatment = get_field('post_growth_treatment', $product_id);
+    $is_type_iia = get_field('is_type_iia', $product_id);
+    $has_blue_nuance = get_field('has_blue_nuance', $product_id);
+    $has_brown_tinge = get_field('has_brown_tinge', $product_id);
+    $hca_score = get_field('hca_score', $product_id);
+    $certificate_url = get_field('certificate_url', $product_id);
+    $video_url = get_field('video_url', $product_id);
+    $wholesale_cost = get_field('wholesale_cost', $product_id);
+
+    // Check if at least one field has data
+    if (!$growth_method && !$post_growth_treatment && !$hca_score && !$certificate_url && !$video_url) {
+        return;
+    }
+
+    // Output HTML table
+    ?>
+    <div class="lgd-forensic-specs">
+        <h3 class="forensic-specs-title"><?php _e('Forensic Diamond Specifications', 'astra-child-diamond'); ?></h3>
+        <table class="forensic-specs-table">
+            <tbody>
+                <?php if ($growth_method): ?>
+                    <tr>
+                        <th><?php _e('Growth Method', 'astra-child-diamond'); ?></th>
+                        <td><strong><?php echo esc_html($growth_method); ?></strong></td>
+                    </tr>
+                <?php endif; ?>
+
+                <?php if ($post_growth_treatment): ?>
+                    <tr>
+                        <th><?php _e('Post-Growth Treatment', 'astra-child-diamond'); ?></th>
+                        <td><?php echo esc_html($post_growth_treatment); ?></td>
+                    </tr>
+                <?php endif; ?>
+
+                <?php if ($is_type_iia): ?>
+                    <tr>
+                        <th><?php _e('Type IIa', 'astra-child-diamond'); ?></th>
+                        <td><span class="badge badge-success"><?php _e('Yes', 'astra-child-diamond'); ?></span></td>
+                    </tr>
+                <?php endif; ?>
+
+                <?php if ($has_blue_nuance): ?>
+                    <tr>
+                        <th><?php _e('Blue Nuance', 'astra-child-diamond'); ?></th>
+                        <td><span class="badge badge-info"><?php _e('Present', 'astra-child-diamond'); ?></span></td>
+                    </tr>
+                <?php endif; ?>
+
+                <?php if ($has_brown_tinge): ?>
+                    <tr>
+                        <th><?php _e('Brown Tinge', 'astra-child-diamond'); ?></th>
+                        <td><span class="badge badge-warning"><?php _e('Present', 'astra-child-diamond'); ?></span></td>
+                    </tr>
+                <?php endif; ?>
+
+                <?php if ($hca_score): ?>
+                    <tr>
+                        <th><?php _e('HCA Score', 'astra-child-diamond'); ?></th>
+                        <td><?php echo esc_html(number_format($hca_score, 1)); ?></td>
+                    </tr>
+                <?php endif; ?>
+
+                <?php if ($certificate_url): ?>
+                    <tr>
+                        <th><?php _e('Certificate', 'astra-child-diamond'); ?></th>
+                        <td><a href="<?php echo esc_url($certificate_url); ?>" target="_blank" rel="noopener noreferrer"
+                                class="btn-certificate"><?php _e('View Certificate', 'astra-child-diamond'); ?></a></td>
+                    </tr>
+                <?php endif; ?>
+
+                <?php if ($video_url): ?>
+                    <tr>
+                        <th><?php _e('Video', 'astra-child-diamond'); ?></th>
+                        <td><a href="<?php echo esc_url($video_url); ?>" target="_blank" rel="noopener noreferrer"
+                                class="btn-video"><?php _e('Watch Video', 'astra-child-diamond'); ?></a></td>
+                    </tr>
+                <?php endif; ?>
+
+                <?php
+                // Only show wholesale cost to admin users
+                if ($wholesale_cost && current_user_can('manage_options')):
+                    ?>
+                    <tr class="admin-only-row">
+                        <th><?php _e('Wholesale Cost', 'astra-child-diamond'); ?></th>
+                        <td><span class="admin-only-value"><?php echo wc_price($wholesale_cost); ?></span></td>
+                    </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+    </div>
+    <?php
+}
+
+/**
+ * ==========================================================================
+ * LGD DIAMOND EXCHANGE - AUTOMATED SITE SETUP
+ * Runs once on theme activation to create pages, menu, and settings
+ * ==========================================================================
+ */
+
+/**
+ * Run automated site setup (one-time only)
+ * Creates pages, sets homepage, and creates primary menu
+ */
+function lgd_automated_site_setup()
+{
+    // Check if setup has already been completed
+    if (get_option('lgd_setup_complete')) {
+        return;
+    }
+
+    // Array of pages to create
+    $pages_to_create = array(
+        'home' => array(
+            'title' => 'Home',
+            'content' => '',
+            'template' => '',
+        ),
+        'about' => array(
+            'title' => 'About Us',
+            'content' => '',
+            'template' => 'page-about.php',
+        ),
+        'education' => array(
+            'title' => 'Education',
+            'content' => '',
+            'template' => 'page-education.php',
+        ),
+    );
+
+    $created_pages = array();
+
+    // Create pages if they don't exist
+    foreach ($pages_to_create as $slug => $page_data) {
+        $existing_page = get_page_by_path($slug);
+
+        if (!$existing_page) {
+            $page_id = wp_insert_post(array(
+                'post_title' => $page_data['title'],
+                'post_name' => $slug,
+                'post_content' => $page_data['content'],
+                'post_status' => 'publish',
+                'post_type' => 'page',
+                'post_author' => 1,
+            ));
+
+            if ($page_id && !is_wp_error($page_id)) {
+                if (!empty($page_data['template'])) {
+                    update_post_meta($page_id, '_wp_page_template', $page_data['template']);
+                }
+                $created_pages[$slug] = $page_id;
+            }
+        } else {
+            $created_pages[$slug] = $existing_page->ID;
+        }
+    }
+
+    // Set the homepage settings
+    if (!empty($created_pages['home'])) {
+        update_option('show_on_front', 'page');
+        update_option('page_on_front', $created_pages['home']);
+    }
+
+    // Create Primary Menu
+    $menu_name = 'Primary Menu';
+    $menu_exists = wp_get_nav_menu_object($menu_name);
+
+    if (!$menu_exists) {
+        $menu_id = wp_create_nav_menu($menu_name);
+
+        if (!is_wp_error($menu_id)) {
+            // Add Home
+            if (!empty($created_pages['home'])) {
+                wp_update_nav_menu_item($menu_id, 0, array(
+                    'menu-item-title' => 'Home',
+                    'menu-item-object' => 'page',
+                    'menu-item-object-id' => $created_pages['home'],
+                    'menu-item-type' => 'post_type',
+                    'menu-item-status' => 'publish',
+                    'menu-item-position' => 1,
+                ));
+            }
+
+            // Add Shop
+            $shop_page_id = wc_get_page_id('shop');
+            if ($shop_page_id > 0) {
+                wp_update_nav_menu_item($menu_id, 0, array(
+                    'menu-item-title' => 'Diamonds',
+                    'menu-item-object' => 'page',
+                    'menu-item-object-id' => $shop_page_id,
+                    'menu-item-type' => 'post_type',
+                    'menu-item-status' => 'publish',
+                    'menu-item-position' => 2,
+                ));
+            }
+
+            // Add About
+            if (!empty($created_pages['about'])) {
+                wp_update_nav_menu_item($menu_id, 0, array(
+                    'menu-item-title' => 'The Surat Advantage',
+                    'menu-item-object' => 'page',
+                    'menu-item-object-id' => $created_pages['about'],
+                    'menu-item-type' => 'post_type',
+                    'menu-item-status' => 'publish',
+                    'menu-item-position' => 3,
+                ));
+            }
+
+            // Add Education
+            if (!empty($created_pages['education'])) {
+                wp_update_nav_menu_item($menu_id, 0, array(
+                    'menu-item-title' => 'CVD vs HPHT',
+                    'menu-item-object' => 'page',
+                    'menu-item-object-id' => $created_pages['education'],
+                    'menu-item-type' => 'post_type',
+                    'menu-item-status' => 'publish',
+                    'menu-item-position' => 4,
+                ));
+            }
+
+            // Assign menu to primary location
+            $locations = get_theme_mod('nav_menu_locations');
+            if (!is_array($locations)) {
+                $locations = array();
+            }
+            $locations['primary'] = $menu_id;
+            set_theme_mod('nav_menu_locations', $locations);
+        }
+    }
+
+    // Mark setup as complete
+    update_option('lgd_setup_complete', true);
+}
+add_action('after_setup_theme', 'lgd_automated_site_setup');
+

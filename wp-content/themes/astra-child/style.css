@@ -12,37 +12,55 @@ Text Domain: astra-child-diamond
 */
 
 /* ==========================================================================
+   GOOGLE FONTS IMPORT - Luxury Typography
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600;700&display=swap');
+
+/* ==========================================================================
    Root Variables - Premium Luxury Palette
    ========================================================================== */
 :root {
     /* -- Premium Brand Colors -- */
-    --color-primary: #0A1628;      /* Deep Navy - Trust & Luxury */
-    --color-primary-light: #1C2A42; /* Lighter Navy for hover */
-    --color-accent: #C9A962;       /* Champagne Gold - Premium Highlights */
-    --color-accent-light: #E8D5A3; /* Gold Light for gradients */
-    --color-surface: #F8F9FA;      /* Platinum/White - Backgrounds */
-    --color-text-main: #2D3748;    /* Charcoal - Body text */
-    --color-text-light: #718096;   /* Grey - Secondary text */
+    --color-primary: #0A1628;
+    /* Deep Navy - Trust & Luxury */
+    --color-primary-light: #1C2A42;
+    /* Lighter Navy for hover */
+    --color-accent: #C9A962;
+    /* Champagne Gold - Premium Highlights */
+    --color-accent-light: #E8D5A3;
+    /* Gold Light for gradients */
+    --color-surface: #F8F9FA;
+    /* Platinum/White - Backgrounds */
+    --color-text-main: #2D3748;
+    /* Charcoal - Body text */
+    --color-text-light: #718096;
+    /* Grey - Secondary text */
     --color-white: #ffffff;
     --color-success: #2ecc71;
     --color-border: rgba(10, 22, 40, 0.1);
 
     /* -- Luxury Overhaul Colors -- */
-    --luxury-navy: #001f3f;        /* Deep Navy */
-    --luxury-cobalt: #0047AB;      /* Electric Cobalt */
-    --luxury-white: #FFFFFF;       /* Crisp White */
-    --luxury-platinum: #E5E4E2;    /* Platinum Grey */
+    --luxury-navy: #001f3f;
+    /* Deep Navy */
+    --luxury-cobalt: #0047AB;
+    /* Electric Cobalt */
+    --luxury-white: #FFFFFF;
+    /* Crisp White */
+    --luxury-platinum: #E5E4E2;
+    /* Platinum Grey */
 
     /* -- Typography -- */
     --font-heading: 'Playfair Display', serif;
-    --font-body: 'Montserrat', sans-serif;
+    --font-body: 'Inter', sans-serif;
 
     /* -- Spacing & Layout -- */
     --spacing-container: 1400px;
     --spacing-section: 6rem;
     --border-radius-card: 12px;
-    --border-radius-btn: 2px; /* Sharp luxury corners */
-    --radius-sharp: 2px; /* Sharp luxury corners for buttons */
+    --border-radius-btn: 2px;
+    /* Sharp luxury corners */
+    --radius-sharp: 2px;
+    /* Sharp luxury corners for buttons */
 
     /* -- Effects -- */
     --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
@@ -51,7 +69,7 @@ Text Domain: astra-child-diamond
     --shadow-elevated: 0 12px 35px rgba(0, 0, 0, 0.15);
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-fast: all 0.2s ease;
-    
+
     /* Legacy Mapping for compatibility */
     --navy: var(--color-primary);
     --gold: var(--color-accent);
@@ -1255,7 +1273,7 @@ select:focus {
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(10,22,40,0.85) 0%, rgba(10,22,40,0.4) 100%);
+    background: linear-gradient(135deg, rgba(10, 22, 40, 0.85) 0%, rgba(10, 22, 40, 0.4) 100%);
     z-index: 1;
 }
 
@@ -1273,7 +1291,7 @@ select:focus {
     line-height: 1.1;
     margin-bottom: 1.5rem;
     color: var(--color-white);
-    text-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .hero-subtitle {
@@ -1333,7 +1351,7 @@ select:focus {
     width: 60px;
     height: 60px;
     object-fit: contain;
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
 }
 
 .shape-name {
@@ -1388,7 +1406,8 @@ select:focus {
 
 .cat-card.large {
     grid-row: span 2;
-    min-height: 632px; /* 2x height + gap */
+    min-height: 632px;
+    /* 2x height + gap */
 }
 
 .trust-section {
@@ -1415,7 +1434,7 @@ select:focus {
 
 .cta-box {
     padding: 4rem 2rem;
-    background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(248,249,250,0.95));
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 249, 250, 0.95));
 }
 
 @media (max-width: 768px) {
@@ -1424,9 +1443,11 @@ select:focus {
         padding: 1rem;
         bottom: 1rem;
     }
+
     .shapes-scroll {
         justify-content: flex-start;
     }
+
     .cat-card.large {
         grid-row: span 1;
         min-height: 300px;
@@ -1812,6 +1833,7 @@ select:focus {
 
 /* Modern browsers with aspect-ratio support */
 @supports (aspect-ratio: 1 / 1) {
+
     .woocommerce ul.products li.product img,
     .woocommerce-page ul.products li.product img,
     .woocommerce div.product div.images img,
@@ -1823,6 +1845,7 @@ select:focus {
 
 /* Fallback for older browsers without aspect-ratio support */
 @supports not (aspect-ratio: 1 / 1) {
+
     .woocommerce ul.products li.product img,
     .woocommerce-page ul.products li.product img,
     .woocommerce div.product div.images img,
@@ -1976,5 +1999,932 @@ input[type="button"]:hover,
 
     .hybrid-split__text {
         font-size: 1rem;
+    }
+}
+
+/* ==========================================================================
+   LGD PAGE TEMPLATE STYLES - About & Education
+   Palette: #05014a (Deep Blue), #c9a961 (Gold), #fafaf5 (Cream)
+   ========================================================================== */
+
+.gold-accent {
+    color: #c9a961 !important;
+}
+
+/* About Hero */
+.lgd-about-hero {
+    background: linear-gradient(135deg, #05014a 0%, #0a0a2e 100%);
+    padding: 8rem 2rem 6rem;
+    text-align: center;
+}
+
+.lgd-about-hero__suptitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #c9a961;
+    margin-bottom: 1rem;
+}
+
+.lgd-about-hero__headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.lgd-about-hero__subheadline {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* About Model Grid */
+.lgd-about-model {
+    padding: 6rem 2rem;
+    background: #fafaf5;
+}
+
+.lgd-about-model__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+@media (max-width: 992px) {
+    .lgd-about-model__grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.lgd-about-model__column {
+    background: #fff;
+    padding: 2.5rem;
+    border-radius: 4px;
+    box-shadow: 0 10px 40px rgba(5, 1, 74, 0.08);
+}
+
+.lgd-about-model__column--problem {
+    border-top: 4px solid #dc3545;
+}
+
+.lgd-about-model__column--solution {
+    border-top: 4px solid #28a745;
+}
+
+.lgd-about-model__tag {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 4px 10px;
+    border-radius: 3px;
+    margin-bottom: 1rem;
+}
+
+.lgd-about-model__tag--problem {
+    background: #fce8e6;
+    color: #dc3545;
+}
+
+.lgd-about-model__tag--solution {
+    background: #d4edda;
+    color: #28a745;
+}
+
+.lgd-about-model__title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #05014a;
+    margin-bottom: 1.5rem;
+}
+
+.lgd-about-model__flow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 4px;
+}
+
+.lgd-about-model__step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0.5rem;
+}
+
+.lgd-about-model__step-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.lgd-about-model__step-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.lgd-about-model__step-markup {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    margin-top: 0.25rem;
+}
+
+.lgd-about-model__step-markup--red {
+    color: #dc3545;
+}
+
+.lgd-about-model__step-markup--green {
+    color: #28a745;
+}
+
+.lgd-about-model__arrow {
+    font-size: 1.25rem;
+    color: #999;
+}
+
+.lgd-about-model__arrow--green {
+    color: #28a745;
+}
+
+.lgd-about-model__text {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.7;
+}
+
+/* Forensic Cards */
+.lgd-about-forensic {
+    padding: 6rem 2rem;
+    background: #fff;
+}
+
+.lgd-about-forensic__header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 4rem;
+}
+
+.lgd-about-forensic__suptitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #c9a961;
+    margin-bottom: 0.75rem;
+}
+
+.lgd-about-forensic__title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #05014a;
+    margin-bottom: 1rem;
+}
+
+.lgd-about-forensic__intro {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.7;
+}
+
+.lgd-about-forensic__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+@media (max-width: 992px) {
+    .lgd-about-forensic__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .lgd-about-forensic__grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.lgd-about-forensic__card {
+    padding: 2rem;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.lgd-about-forensic__card--reject {
+    background: #fef5f5;
+    border: 1px solid #fce8e6;
+}
+
+.lgd-about-forensic__card--accept {
+    background: #f0faf4;
+    border: 1px solid #d4edda;
+}
+
+.lgd-about-forensic__card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.lgd-about-forensic__card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #05014a;
+    margin-bottom: 0.75rem;
+}
+
+.lgd-about-forensic__card-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.lgd-about-forensic__card-list {
+    text-align: left;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: #333;
+    padding-left: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.lgd-about-forensic__card-stat {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 4px 10px;
+    border-radius: 3px;
+    background: #fce8e6;
+    color: #dc3545;
+}
+
+.lgd-about-forensic__card-stat--green {
+    background: #d4edda;
+    color: #28a745;
+}
+
+/* CTA Sections */
+.lgd-about-cta,
+.lgd-edu-cta {
+    padding: 5rem 2rem;
+    background: linear-gradient(135deg, #05014a 0%, #0a0a2e 100%);
+    text-align: center;
+}
+
+.lgd-about-cta__title,
+.lgd-edu-cta__title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.lgd-about-cta__text,
+.lgd-edu-cta__text {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+.lgd-about-cta__buttons,
+.lgd-edu-cta__buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Education Hero */
+.lgd-edu-hero {
+    background: linear-gradient(135deg, #05014a 0%, #0a0a2e 100%);
+    padding: 8rem 2rem 6rem;
+    text-align: center;
+}
+
+.lgd-edu-hero__suptitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #c9a961;
+    margin-bottom: 1rem;
+}
+
+.lgd-edu-hero__headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.lgd-edu-hero__subheadline {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* Methods Grid */
+.lgd-edu-methods {
+    padding: 6rem 2rem;
+    background: #fafaf5;
+}
+
+.lgd-edu-methods__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .lgd-edu-methods__grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.lgd-edu-methods__card {
+    background: #fff;
+    padding: 2.5rem;
+    border-radius: 4px;
+    box-shadow: 0 5px 20px rgba(5, 1, 74, 0.06);
+    text-align: center;
+}
+
+.lgd-edu-methods__card--cvd {
+    border-top: 4px solid #28a745;
+}
+
+.lgd-edu-methods__card--hpht {
+    border-top: 4px solid #c9a961;
+}
+
+.lgd-edu-methods__title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #05014a;
+    margin-bottom: 0.25rem;
+}
+
+.lgd-edu-methods__subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 1.5rem;
+}
+
+.lgd-edu-methods__process {
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.lgd-edu-methods__process ol {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: #555;
+    padding-left: 1.25rem;
+    line-height: 1.7;
+}
+
+/* Comparison Table */
+.lgd-edu-comparison {
+    padding: 6rem 2rem;
+    background: #fff;
+}
+
+.lgd-edu-comparison__header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.lgd-edu-comparison__title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #05014a;
+}
+
+.lgd-edu-comparison__table-wrap {
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow-x: auto;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Inter', sans-serif;
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 1rem 1.25rem;
+    text-align: left;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.comparison-table th {
+    background: #05014a;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.comparison-table th.cvd-col {
+    background: #28a745;
+}
+
+.comparison-table th.hpht-col {
+    background: #c9a961;
+    color: #05014a;
+}
+
+.comparison-table td {
+    font-size: 0.9rem;
+    color: #333;
+    vertical-align: top;
+}
+
+.comparison-table td small {
+    display: block;
+    font-size: 0.8rem;
+    color: #777;
+    margin-top: 0.25rem;
+}
+
+.comparison-table tbody tr:hover {
+    background: #fafaf5;
+}
+
+.comparison-table .badge {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.comparison-table .badge--success {
+    background: #d4edda;
+    color: #28a745;
+}
+
+.comparison-table .badge--warning {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.comparison-table .badge--danger {
+    background: #fce8e6;
+    color: #dc3545;
+}
+
+.comparison-table .badge--neutral {
+    background: #e9ecef;
+    color: #555;
+}
+
+/* Conclusion */
+.lgd-edu-conclusion {
+    padding: 6rem 2rem;
+    background: #fafaf5;
+}
+
+.lgd-edu-conclusion__content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.lgd-edu-conclusion__title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #05014a;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.lgd-edu-conclusion__grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .lgd-edu-conclusion__grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.lgd-edu-conclusion__text {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.8;
+}
+
+.lgd-edu-conclusion__callout-inner {
+    background: linear-gradient(135deg, #05014a 0%, #0a0a2e 100%);
+    padding: 3rem 2rem;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.lgd-edu-conclusion__callout-stat {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: #c9a961;
+    line-height: 1;
+    margin-bottom: 0.75rem;
+}
+
+.lgd-edu-conclusion__callout-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Shared Buttons */
+.lgd-btn {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 1rem 2rem;
+    border-radius: 0;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.lgd-btn--primary {
+    background: #c9a961;
+    color: #05014a;
+    border: 2px solid #c9a961;
+}
+
+.lgd-btn--primary:hover {
+    background: transparent;
+    color: #c9a961;
+}
+
+.lgd-btn--secondary {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+.lgd-btn--secondary:hover {
+    background: #fff;
+    color: #05014a;
+}
+
+/* ==========================================================================
+   FORENSIC TABLE STYLING - Luxury Diamond Specifications
+   ========================================================================== */
+.lgd-forensic-wrapper {
+    margin: 24px 0;
+    padding: 0;
+}
+
+.lgd-forensic-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.lgd-forensic-table th {
+    text-align: left;
+    padding: 14px 16px;
+    background: #f9f9f9;
+    color: #555;
+    font-weight: 600;
+    width: 40%;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.lgd-forensic-table td {
+    padding: 14px 16px;
+    color: #111;
+    font-weight: 500;
+    border-bottom: 1px solid #eee;
+}
+
+.lgd-forensic-table tr:last-child th,
+.lgd-forensic-table tr:last-child td {
+    border-bottom: none;
+}
+
+.lgd-forensic-table tr:hover {
+    background: #fafafa;
+}
+
+/* Certificate and Video Links */
+.lgd-cert-link,
+.lgd-video-link {
+    color: var(--cobalt, #0047AB);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.lgd-cert-link:hover,
+.lgd-video-link:hover {
+    color: var(--navy, #001f3f);
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   FORENSIC BADGES - Quality Indicators
+   ========================================================================== */
+.lgd-forensic-badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.badge-super-ideal {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #05014a;
+    /* Tech Navy */
+    color: white;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-type-iia {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #c9a961;
+    /* Luxury Gold */
+    color: white;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Additional Quality Badges */
+.badge-cvd {
+    background: #28a745;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-hpht {
+    background: #007bff;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-igi,
+.badge-gia {
+    background: #333;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Forensic Table Mobile Responsiveness */
+@media (max-width: 768px) {
+    .lgd-forensic-table {
+        font-size: 13px;
+    }
+
+    .lgd-forensic-table th,
+    .lgd-forensic-table td {
+        padding: 12px;
+    }
+
+    .lgd-forensic-table th {
+        width: 45%;
+        font-size: 12px;
+    }
+
+    .lgd-forensic-badges {
+        margin-bottom: 16px;
+    }
+}
+
+/* ==========================================================================
+   PRODUCT GRID BADGES (Shop Page)
+   ========================================================================== */
+.product-badges {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.product-badges .badge-super-ideal,
+.product-badges .badge-type-iia {
+    font-size: 9px;
+    padding: 3px 6px;
+}
+
+/* ==========================================================================
+   FORENSIC VIDEO INJECTOR BUTTON
+   ========================================================================== */
+.lgd-forensic-video-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 14px 24px;
+    margin-top: 16px;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--cobalt) 100%);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 71, 171, 0.25);
+}
+
+.lgd-forensic-video-btn:hover {
+    background: linear-gradient(135deg, var(--cobalt) 0%, var(--navy) 100%);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 71, 171, 0.35);
+}
+
+.lgd-forensic-video-btn:active {
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   COST-PLUS TRANSPARENT PRICING CARD
+   ========================================================================== */
+.lgd-pricing-card {
+    background: #fafaf5;
+    border: 1px solid rgba(201, 169, 98, 0.3);
+    border-radius: 0px;
+    padding: 20px 24px;
+    margin-top: 20px;
+    box-shadow: 0 2px 8px rgba(201, 169, 98, 0.1);
+}
+
+.lgd-pricing-title {
+    font-family: var(--font-heading);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 0 0 16px 0;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(201, 169, 98, 0.3);
+}
+
+.lgd-pricing-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 8px 0;
+    font-family: var(--font-body);
+    font-size: 14px;
+}
+
+.lgd-pricing-label {
+    color: var(--charcoal);
+}
+
+.lgd-pricing-value {
+    font-weight: 600;
+    color: var(--navy);
+}
+
+.lgd-strikethrough {
+    text-decoration: line-through;
+    color: var(--charcoal);
+    opacity: 0.7;
+}
+
+.lgd-pricing-final {
+    margin-top: 8px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(201, 169, 98, 0.3);
+}
+
+.lgd-pricing-final .lgd-pricing-label {
+    font-weight: 600;
+    color: var(--navy);
+}
+
+.lgd-pricing-final .lgd-pricing-value {
+    font-size: 18px;
+    color: var(--gold);
+}
+
+/* Pricing Card Mobile Responsiveness */
+@media (max-width: 768px) {
+    .lgd-pricing-card {
+        padding: 16px 18px;
+    }
+
+    .lgd-pricing-line {
+        font-size: 13px;
+    }
+
+    .lgd-pricing-final .lgd-pricing-value {
+        font-size: 16px;
+    }
+
+    .lgd-forensic-video-btn {
+        padding: 12px 20px;
+        font-size: 12px;
     }
 }

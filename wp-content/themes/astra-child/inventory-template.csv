@@ -1,0 +1,4 @@
+post_title,regular_price,meta:growth_method,meta:hca_score,meta:is_type_iia,meta:has_blue_nuance,meta:has_brown_tinge,meta:certificate_url,meta:video_url,meta:_diamond_carat,meta:_diamond_shape,meta:_diamond_color,meta:_diamond_clarity,meta:_diamond_cut,meta:_diamond_polish,meta:_diamond_symmetry,meta:_diamond_fluorescence,meta:_diamond_certification
+"1.05ct Round CVD Lab Diamond - D/VVS2",2450,CVD,1.2,yes,no,no,https://example.com/cert/123,https://example.com/video/123,1.05,round,D,VVS2,excellent,excellent,excellent,none,IGI
+"2.01ct Oval HPHT Lab Diamond - E/VS1",4890,HPHT,1.8,yes,yes,no,https://example.com/cert/456,https://example.com/video/456,2.01,oval,E,VS1,excellent,excellent,excellent,faint,IGI
+"0.75ct Princess CVD Lab Diamond - F/VS2",1250,CVD,1.5,no,no,no,https://example.com/cert/789,https://example.com/video/789,0.75,princess,F,VS2,very-good,excellent,very-good,none,GIA
