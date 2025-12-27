@@ -4,10 +4,30 @@ Production-ready WordPress e-commerce solution for lab-grown diamond sales with 
 
 ---
 
+## ⚡ NEW: Automated Deployment (Recommended)
+
+**🎉 Get your site running in 5 minutes!**
+
+We now provide automated initialization scripts for quick setup:
+
+```bash
+# 1. Run initialization script (sets up everything)
+bash wp-init.sh
+
+# 2. Verify installation (checks everything is working)
+php verify-site.php
+```
+
+**See:** [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md) | [SCRIPTS_README.md](SCRIPTS_README.md)
+
+---
+
 ## 🚀 Quick Links
 
 | Document | Purpose | Time Required |
 |----------|---------|---------------|
+| **[DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)** 🆕 | **Automated deployment & setup** | **5 minutes** |
+| **[SCRIPTS_README.md](SCRIPTS_README.md)** 🆕 | **Initialization scripts guide** | **Quick reference** |
 | **[QUICK_START_GUIDE.md](QUICK_START_GUIDE.md)** | Fast 30-minute setup | 30 min - 2 hours |
 | **[WORDPRESS_ECOMMERCE_SETUP.md](WORDPRESS_ECOMMERCE_SETUP.md)** | Complete setup guide | 4-6 hours |
 | **[IMPLEMENTATION_SUMMARY.md](IMPLEMENTATION_SUMMARY.md)** | Overview & roadmap | 5 min read |
@@ -54,6 +74,26 @@ Over **100 pages** of step-by-step guides covering:
 ---
 
 ## 🎯 Getting Started
+
+### Option 0: Automated Setup (5 Minutes) ⭐ RECOMMENDED
+
+For the fastest deployment using our automation scripts:
+
+```bash
+# Navigate to your WordPress directory
+cd /path/to/wordpress
+
+# Run initialization script
+bash wp-init.sh
+
+# Verify everything is working
+php verify-site.php
+```
+
+**Result**: Fully configured WordPress site with theme, plugins, and pages  
+**See**: [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md) for complete instructions
+
+---
 
 ### Option 1: Quick Start (30 Minutes)
 
