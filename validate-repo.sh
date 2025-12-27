@@ -176,7 +176,9 @@ PHP_FILES=(
 )
 
 for php_file in "${PHP_FILES[@]}"; do
-    if php -l "$php_file" > /dev/null 2>&1; then
+    if [ ! -f "$php_file" ]; then
+        log_error "$(basename $php_file) does not exist"
+    elif php -l "$php_file" > /dev/null 2>&1; then
         log_success "$(basename $php_file) syntax OK"
     else
         log_error "$(basename $php_file) has syntax errors"

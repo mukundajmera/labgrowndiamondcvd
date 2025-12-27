@@ -49,9 +49,10 @@ if ! command -v wp &> /dev/null; then
     log_warning "WP-CLI not found. Attempting to download..."
     curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
     chmod +x wp-cli.phar
-    alias wp='php wp-cli.phar'
+    WP_CLI="php wp-cli.phar"
     log_success "WP-CLI downloaded and ready"
 else
+    WP_CLI="wp"
     log_success "WP-CLI found"
 fi
 
@@ -69,7 +70,7 @@ log_success "WordPress installation verified"
 
 log_info "Verifying database connection..."
 
-if wp db check --allow-root 2>/dev/null; then
+if $WP_CLI db check --allow-root 2>/dev/null; then
     log_success "Database connection successful"
 else
     log_warning "Database connection check skipped (may require proper environment)"
@@ -83,7 +84,7 @@ log_info "Activating Astra Child theme..."
 
 # Check if theme exists
 if [ -d "wp-content/themes/astra-child" ]; then
-    wp theme activate astra-child --allow-root 2>/dev/null || log_warning "Theme activation skipped (requires WordPress environment)"
+    $WP_CLI theme activate astra-child --allow-root 2>/dev/null || log_warning "Theme activation skipped (requires WordPress environment)"
     log_success "Astra Child theme ready"
 else
     log_error "Astra Child theme not found in wp-content/themes/"
@@ -104,12 +105,12 @@ install_plugin() {
     log_info "Checking plugin: $plugin_name ($plugin_slug)..."
     
     # Try to activate or install
-    if wp plugin is-installed "$plugin_slug" --allow-root 2>/dev/null; then
-        wp plugin activate "$plugin_slug" --allow-root 2>/dev/null || true
+    if $WP_CLI plugin is-installed "$plugin_slug" --allow-root 2>/dev/null; then
+        $WP_CLI plugin activate "$plugin_slug" --allow-root 2>/dev/null || true
         log_success "$plugin_name is installed and activated"
     else
         log_info "Installing $plugin_name..."
-        wp plugin install "$plugin_slug" --activate --allow-root 2>/dev/null || log_warning "Could not auto-install $plugin_name"
+        $WP_CLI plugin install "$plugin_slug" --activate --allow-root 2>/dev/null || log_warning "Could not auto-install $plugin_name"
     fi
 }
 
@@ -130,17 +131,17 @@ log_success "Essential plugins processed"
 log_info "Configuring WooCommerce..."
 
 # Set store currency
-wp option update woocommerce_currency 'INR' --allow-root 2>/dev/null || log_warning "WooCommerce config skipped"
-wp option update woocommerce_currency_pos 'left' --allow-root 2>/dev/null || true
+$WP_CLI option update woocommerce_currency 'INR' --allow-root 2>/dev/null || log_warning "WooCommerce config skipped"
+$WP_CLI option update woocommerce_currency_pos 'left' --allow-root 2>/dev/null || true
 
 # Enable tax calculations
-wp option update woocommerce_calc_taxes 'yes' --allow-root 2>/dev/null || true
+$WP_CLI option update woocommerce_calc_taxes 'yes' --allow-root 2>/dev/null || true
 
 # Set default country
-wp option update woocommerce_default_country 'IN' --allow-root 2>/dev/null || true
+$WP_CLI option update woocommerce_default_country 'IN' --allow-root 2>/dev/null || true
 
 # Enable product reviews
-wp option update woocommerce_enable_reviews 'yes' --allow-root 2>/dev/null || true
+$WP_CLI option update woocommerce_enable_reviews 'yes' --allow-root 2>/dev/null || true
 
 log_success "WooCommerce basic configuration completed"
 
@@ -150,8 +151,8 @@ log_success "WooCommerce basic configuration completed"
 
 log_info "Setting up pretty permalinks..."
 
-wp rewrite structure '/%postname%/' --allow-root 2>/dev/null || log_warning "Permalink setup skipped"
-wp rewrite flush --allow-root 2>/dev/null || true
+$WP_CLI rewrite structure '/%postname%/' --allow-root 2>/dev/null || log_warning "Permalink setup skipped"
+$WP_CLI rewrite flush --allow-root 2>/dev/null || true
 
 log_success "Permalinks configured"
 
@@ -167,8 +168,8 @@ create_page() {
     local page_content=$3
     
     # Check if page already exists
-    if ! wp post exists --post_type=page --name="$page_slug" --allow-root 2>/dev/null; then
-        wp post create --post_type=page --post_title="$page_title" --post_name="$page_slug" --post_content="$page_content" --post_status=publish --allow-root 2>/dev/null || log_warning "Could not create page: $page_title"
+    if ! $WP_CLI post exists --post_type=page --name="$page_slug" --allow-root 2>/dev/null; then
+        $WP_CLI post create --post_type=page --post_title="$page_title" --post_name="$page_slug" --post_content="$page_content" --post_status=publish --allow-root 2>/dev/null || log_warning "Could not create page: $page_title"
         log_success "Created page: $page_title"
     else
         log_info "Page already exists: $page_title"
@@ -193,29 +194,33 @@ log_success "Essential pages created"
 log_info "Configuring WordPress settings..."
 
 # Set timezone
-wp option update timezone_string 'Asia/Kolkata' --allow-root 2>/dev/null || true
+$WP_CLI option update timezone_string 'Asia/Kolkata' --allow-root 2>/dev/null || true
 
 # Set date format
-wp option update date_format 'F j, Y' --allow-root 2>/dev/null || true
+$WP_CLI option update date_format 'F j, Y' --allow-root 2>/dev/null || true
 
 # Set time format
-wp option update time_format 'g:i a' --allow-root 2>/dev/null || true
+$WP_CLI option update time_format 'g:i a' --allow-root 2>/dev/null || true
 
 # Set homepage
-wp option update show_on_front 'page' --allow-root 2>/dev/null || true
+$WP_CLI option update show_on_front 'page' --allow-root 2>/dev/null || true
 
 # Get homepage ID and set it
-HOME_ID=$(wp post list --post_type=page --name=home --field=ID --allow-root 2>/dev/null || echo "")
-if [ ! -z "$HOME_ID" ]; then
-    wp option update page_on_front "$HOME_ID" --allow-root 2>/dev/null || true
-    log_success "Homepage set"
+HOME_ID=$($WP_CLI post list --post_type=page --name=home --field=ID --allow-root 2>/dev/null)
+if [ $? -eq 0 ] && [ ! -z "$HOME_ID" ]; then
+    $WP_CLI option update page_on_front "$HOME_ID" --allow-root 2>/dev/null || true
+    log_success "Homepage set (ID: $HOME_ID)"
+else
+    log_warning "Homepage not found, will need to be set manually"
 fi
 
 # Get shop page ID and set it
-SHOP_ID=$(wp post list --post_type=page --name=shop --field=ID --allow-root 2>/dev/null || echo "")
-if [ ! -z "$SHOP_ID" ]; then
-    wp option update woocommerce_shop_page_id "$SHOP_ID" --allow-root 2>/dev/null || true
-    log_success "Shop page set"
+SHOP_ID=$($WP_CLI post list --post_type=page --name=shop --field=ID --allow-root 2>/dev/null)
+if [ $? -eq 0 ] && [ ! -z "$SHOP_ID" ]; then
+    $WP_CLI option update woocommerce_shop_page_id "$SHOP_ID" --allow-root 2>/dev/null || true
+    log_success "Shop page set (ID: $SHOP_ID)"
+else
+    log_warning "Shop page not found, will need to be set manually"
 fi
 
 log_success "WordPress settings configured"
@@ -227,22 +232,29 @@ log_success "WordPress settings configured"
 log_info "Creating navigation menu..."
 
 # Create primary menu
-wp menu create "Primary Menu" --allow-root 2>/dev/null || log_info "Menu may already exist"
+$WP_CLI menu create "Primary Menu" --allow-root 2>/dev/null || log_info "Menu may already exist"
 
 # Get menu ID
-MENU_ID=$(wp menu list --allow-root 2>/dev/null | grep "Primary Menu" | awk '{print $1}' || echo "")
+MENU_ID=$($WP_CLI menu list --allow-root 2>/dev/null | grep "Primary Menu" | awk '{print $1}')
 
-if [ ! -z "$MENU_ID" ]; then
-    # Add items to menu
-    wp menu item add-post "$MENU_ID" $(wp post list --post_type=page --name=home --field=ID --allow-root 2>/dev/null) --allow-root 2>/dev/null || true
-    wp menu item add-post "$MENU_ID" $(wp post list --post_type=page --name=shop --field=ID --allow-root 2>/dev/null) --allow-root 2>/dev/null || true
-    wp menu item add-post "$MENU_ID" $(wp post list --post_type=page --name=about --field=ID --allow-root 2>/dev/null) --allow-root 2>/dev/null || true
-    wp menu item add-post "$MENU_ID" $(wp post list --post_type=page --name=contact --field=ID --allow-root 2>/dev/null) --allow-root 2>/dev/null || true
+if [ $? -eq 0 ] && [ ! -z "$MENU_ID" ]; then
+    # Add items to menu (get page IDs first)
+    HOME_PAGE_ID=$($WP_CLI post list --post_type=page --name=home --field=ID --allow-root 2>/dev/null)
+    SHOP_PAGE_ID=$($WP_CLI post list --post_type=page --name=shop --field=ID --allow-root 2>/dev/null)
+    ABOUT_PAGE_ID=$($WP_CLI post list --post_type=page --name=about --field=ID --allow-root 2>/dev/null)
+    CONTACT_PAGE_ID=$($WP_CLI post list --post_type=page --name=contact --field=ID --allow-root 2>/dev/null)
+    
+    [ ! -z "$HOME_PAGE_ID" ] && $WP_CLI menu item add-post "$MENU_ID" "$HOME_PAGE_ID" --allow-root 2>/dev/null || true
+    [ ! -z "$SHOP_PAGE_ID" ] && $WP_CLI menu item add-post "$MENU_ID" "$SHOP_PAGE_ID" --allow-root 2>/dev/null || true
+    [ ! -z "$ABOUT_PAGE_ID" ] && $WP_CLI menu item add-post "$MENU_ID" "$ABOUT_PAGE_ID" --allow-root 2>/dev/null || true
+    [ ! -z "$CONTACT_PAGE_ID" ] && $WP_CLI menu item add-post "$MENU_ID" "$CONTACT_PAGE_ID" --allow-root 2>/dev/null || true
     
     # Assign menu to location
-    wp menu location assign "$MENU_ID" primary --allow-root 2>/dev/null || true
+    $WP_CLI menu location assign "$MENU_ID" primary --allow-root 2>/dev/null || true
     
     log_success "Navigation menu created and assigned"
+else
+    log_warning "Could not find or create menu"
 fi
 
 ###############################################################################
@@ -251,7 +263,7 @@ fi
 
 log_info "Optimizing database..."
 
-wp db optimize --allow-root 2>/dev/null || log_warning "Database optimization skipped"
+$WP_CLI db optimize --allow-root 2>/dev/null || log_warning "Database optimization skipped"
 
 log_success "Database optimized"
 
@@ -262,13 +274,13 @@ log_success "Database optimized"
 log_info "Clearing caches..."
 
 # Flush object cache
-wp cache flush --allow-root 2>/dev/null || true
+$WP_CLI cache flush --allow-root 2>/dev/null || true
 
 # Flush rewrite rules
-wp rewrite flush --allow-root 2>/dev/null || true
+$WP_CLI rewrite flush --allow-root 2>/dev/null || true
 
 # Clear transients
-wp transient delete --all --allow-root 2>/dev/null || true
+$WP_CLI transient delete --all --allow-root 2>/dev/null || true
 
 log_success "Caches cleared"
 

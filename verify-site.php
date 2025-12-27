@@ -176,12 +176,24 @@ $theme_name = $current_theme->get('Name');
 $theme_version = $current_theme->get('Version');
 $template = $current_theme->get('Template');
 
-if ($theme_name === 'Astra Child - Lab Grown Diamond CVD' || strpos($theme_name, 'Astra') !== false) {
+// Define expected theme name as constant at top of validation
+define('EXPECTED_THEME_NAME', 'Astra Child - Lab Grown Diamond CVD');
+define('EXPECTED_PARENT_THEME', 'astra');
+
+// Check theme more specifically
+$is_correct_theme = ($theme_name === EXPECTED_THEME_NAME || 
+                     ($template === EXPECTED_PARENT_THEME && stripos($theme_name, 'astra') !== false && stripos($theme_name, 'child') !== false));
+
+if ($is_correct_theme) {
     log_success("Theme: $theme_name (Version: $theme_version)", $is_cli);
     $results['passed']++;
     
-    if ($template === 'astra') {
+    if ($template === EXPECTED_PARENT_THEME) {
         log_success("Using Astra parent theme correctly", $is_cli);
+        $results['passed']++;
+    } else {
+        log_warning("Parent theme template: $template (expected: " . EXPECTED_PARENT_THEME . ")", $is_cli);
+        $results['warnings']++;
     }
 } else {
     log_warning("Expected 'Astra Child' theme, found: $theme_name", $is_cli);
@@ -206,24 +218,30 @@ $optional_plugins = [
     'updraftplus/updraftplus.php' => 'UpdraftPlus',
 ];
 
-foreach ($required_plugins as $plugin_path => $plugin_name) {
-    if (is_plugin_active($plugin_path)) {
-        log_success("$plugin_name is active", $is_cli);
-        $results['passed']++;
-    } else {
-        log_error("$plugin_name is not active (Required)", $is_cli);
-        $results['failed']++;
+// Only check plugins if WordPress is loaded and function exists
+if (function_exists('is_plugin_active')) {
+    foreach ($required_plugins as $plugin_path => $plugin_name) {
+        if (is_plugin_active($plugin_path)) {
+            log_success("$plugin_name is active", $is_cli);
+            $results['passed']++;
+        } else {
+            log_error("$plugin_name is not active (Required)", $is_cli);
+            $results['failed']++;
+        }
     }
-}
 
-foreach ($optional_plugins as $plugin_path => $plugin_name) {
-    if (is_plugin_active($plugin_path)) {
-        log_success("$plugin_name is active", $is_cli);
-        $results['passed']++;
-    } else {
-        log_warning("$plugin_name is not active (Optional but recommended)", $is_cli);
-        $results['warnings']++;
+    foreach ($optional_plugins as $plugin_path => $plugin_name) {
+        if (is_plugin_active($plugin_path)) {
+            log_success("$plugin_name is active", $is_cli);
+            $results['passed']++;
+        } else {
+            log_warning("$plugin_name is not active (Optional but recommended)", $is_cli);
+            $results['warnings']++;
+        }
     }
+} else {
+    log_error("WordPress not fully loaded - cannot check plugin status", $is_cli);
+    $results['failed']++;
 }
 
 // Test 5: WooCommerce Configuration
