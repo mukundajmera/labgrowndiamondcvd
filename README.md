@@ -43,7 +43,7 @@ php verify-site.php
 
 ### ⚡ Automated Deployment
 - **wp-init.sh** - Complete WordPress initialization in 2-5 minutes
-- **verify-site.php** - Health check and diagnostics (CLI or browser)
+- **verify-site.php** - Health check and diagnostics (CLI only for security)
 - **validate-repo.sh** - Pre-deployment validation (100% pass rate)
 
 ### 📚 Complete Documentation

@@ -4,12 +4,20 @@
  * Lab Grown Diamond CVD
  * 
  * Run this script to verify your WordPress installation is working correctly
- * Usage: php verify-site.php
- * Or access via browser: https://yourdomain.com/verify-site.php
+ * Usage: php verify-site.php (CLI only for security)
+ * 
+ * SECURITY NOTE: This script should only be run via CLI and not accessed via browser
+ * as it exposes sensitive environment information. Delete or restrict access after use.
  */
 
-// Prevent direct execution without WordPress if not in CLI mode
-if (php_sapi_name() !== 'cli' && !defined('ABSPATH')) {
+// Only allow CLI execution for security
+if (php_sapi_name() !== 'cli') {
+    http_response_code(403);
+    die('Access denied. This script can only be run via command line for security reasons.');
+}
+
+// Load WordPress
+if (!defined('ABSPATH')) {
     // Try to load WordPress
     $wp_load_paths = [
         __DIR__ . '/wp-load.php',
@@ -218,7 +226,12 @@ $optional_plugins = [
     'updraftplus/updraftplus.php' => 'UpdraftPlus',
 ];
 
-// Only check plugins if WordPress is loaded and function exists
+// Only check plugins if WordPress is loaded
+// Include plugin.php if needed for is_plugin_active function
+if (!function_exists('is_plugin_active') && defined('ABSPATH')) {
+    require_once(ABSPATH . 'wp-admin/includes/plugin.php');
+}
+
 if (function_exists('is_plugin_active')) {
     foreach ($required_plugins as $plugin_path => $plugin_name) {
         if (is_plugin_active($plugin_path)) {
@@ -280,8 +293,15 @@ log_header("6. Essential Pages", $is_cli);
 $essential_pages = ['Home', 'Shop', 'About', 'Contact', 'Privacy Policy'];
 
 foreach ($essential_pages as $page_title) {
-    $page = get_page_by_title($page_title);
-    if ($page) {
+    // Use get_posts instead of deprecated get_page_by_title
+    $pages = get_posts([
+        'post_type' => 'page',
+        'title' => $page_title,
+        'post_status' => 'any',
+        'numberposts' => 1,
+    ]);
+    
+    if (!empty($pages)) {
         log_success("Page exists: $page_title", $is_cli);
         $results['passed']++;
     } else {

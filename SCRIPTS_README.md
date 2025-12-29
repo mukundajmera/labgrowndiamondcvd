@@ -46,12 +46,11 @@ This will:
 After initialization, verify everything is working:
 
 ```bash
-# Via command line
+# Via command line (CLI only for security)
 php verify-site.php
-
-# OR via browser
-# Navigate to: https://yourdomain.com/verify-site.php
 ```
+
+**Security Note:** This script is restricted to CLI execution only and will not work via browser to prevent exposure of sensitive environment information.
 
 This checks:
 - ✅ WordPress core
@@ -108,25 +107,27 @@ This checks:
 
 ### Change Currency
 
-Edit `wp-init.sh` line ~153:
+### Change Currency
+
+Edit the WooCommerce configuration section in `wp-init.sh`:
 
 ```bash
 # Change from INR to USD
-wp option update woocommerce_currency 'USD' --allow-root
+"$WP_CLI" option update woocommerce_currency 'USD' --allow-root
 ```
 
 ### Change Timezone
 
-Edit `wp-init.sh` line ~189:
+Edit the WordPress settings section in `wp-init.sh`:
 
 ```bash
 # Change to your timezone
-wp option update timezone_string 'America/New_York' --allow-root
+"$WP_CLI" option update timezone_string 'America/New_York' --allow-root
 ```
 
 ### Skip Plugin Installation
 
-Comment out specific plugins in `wp-init.sh` (lines ~129-136):
+Comment out specific plugins in the plugin installation section of `wp-init.sh`:
 
 ```bash
 # install_plugin "wordfence" "Wordfence Security"  # Commented out

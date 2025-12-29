@@ -40,6 +40,18 @@ Before starting, ensure you have:
 - ✅ SSH access to your hosting (for script execution)
 - ✅ PHP 7.4 or higher
 - ✅ MySQL 5.7 or higher / MariaDB 10.3 or higher
+- ✅ **WP-CLI installed** (required for automated deployment)
+
+**Installing WP-CLI:**
+```bash
+# Debian/Ubuntu
+apt-get install wp-cli
+
+# macOS
+brew install wp-cli
+
+# Or see: https://wp-cli.org/#installing
+```
 
 ### Step 1: Upload Files to Server
 
@@ -356,6 +368,13 @@ After deployment, secure your site:
 - [ ] Keep WordPress, themes, and plugins updated
 - [ ] Delete unused themes and plugins
 - [ ] Set proper file permissions (755 for directories, 644 for files)
+- [ ] **Run wp-init.sh with appropriate non-root user permissions in production**
+- [ ] **Delete or restrict access to verify-site.php after initial setup**
+
+**Important Security Notes:**
+- The `wp-init.sh` script uses `--allow-root` flag for WP-CLI commands, which should only be used in development/staging environments
+- For production deployments, ensure the script runs with appropriate non-root user permissions
+- The `verify-site.php` script is restricted to CLI-only access to prevent exposure of sensitive environment information
 
 ---
 
