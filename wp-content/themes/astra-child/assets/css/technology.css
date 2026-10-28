@@ -1,0 +1,389 @@
+/* 
+ * Technology Page CSS
+ * Mobile-first logic, fully responsive layout
+ * High-contrast luxury styling
+ */
+
+/* General Layout & Typography */
+.lgd-technology-page {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.lgd-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.lgd-technology-page section {
+    padding: 60px 0;
+}
+
+.lgd-technology-page h1, 
+.lgd-technology-page h2, 
+.lgd-technology-page h3, 
+.lgd-technology-page h4 {
+    margin-bottom: 20px;
+    color: #111;
+    font-weight: 600;
+}
+
+.lgd-technology-page h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.subheading {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #666;
+    margin-top: -30px;
+    margin-bottom: 40px;
+}
+
+.bg-light {
+    background-color: #f9f9f9;
+}
+
+.mt-lg {
+    margin-top: 60px;
+}
+
+/* SECTION 1: Intro */
+.lgd-tech-intro {
+    background-color: #fff;
+    text-align: center;
+}
+
+.lgd-tech-intro .page-title {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.lgd-tech-intro-content {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+}
+
+/* SECTION 2: 4-Stage Breakdown */
+.cvd-interactive-breakdown {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin: 40px 0;
+}
+
+.cvd-stage {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cvd-stage:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.stage-icon {
+    width: 50px;
+    height: 50px;
+    background: #000;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 auto 20px;
+}
+
+.stage-title {
+    font-size: 1.25rem;
+    margin-bottom: 15px;
+}
+
+.stage-desc {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 0;
+}
+
+.why-cvd-content {
+    background: #f4f6f8;
+    padding: 30px;
+    border-radius: 8px;
+    margin-top: 40px;
+}
+
+.why-cvd-content ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.why-cvd-content li {
+    margin-bottom: 10px;
+}
+
+/* SECTION 3: Tables & Luxury Dark Section */
+.luxury-dark-section {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+}
+
+.luxury-dark-section h2, 
+.luxury-dark-section h3, 
+.luxury-dark-section h4 {
+    color: #fff;
+}
+
+.luxury-dark-section .subheading {
+    color: #ccc;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    margin-bottom: 40px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px; /* Ensure tables don't squish too much on mobile */
+}
+
+/* Purity Table (Dark Theme) */
+.purity-table th, 
+.purity-table td {
+    padding: 15px 20px;
+    text-align: left;
+    border-bottom: 1px solid #333;
+}
+
+.purity-table th {
+    background-color: #2a2a2a;
+    font-weight: 600;
+    color: #d4af37; /* Luxury Gold */
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.purity-table tbody tr:hover {
+    background-color: #252525;
+}
+
+/* Comparison Table (Dark Theme) */
+.comparison-table th, 
+.comparison-table td {
+    padding: 15px 20px;
+    text-align: left;
+    border-bottom: 1px solid #333;
+}
+
+.comparison-table th {
+    background-color: #2a2a2a;
+    color: #d4af37; /* Luxury Gold */
+    font-weight: 600;
+}
+
+.comparison-table tbody tr:nth-child(even) {
+    background-color: #222;
+}
+
+.comparison-table tbody tr:hover {
+    background-color: #2a2a2a;
+}
+
+.highlight-check {
+    color: #4ade80; /* Bright Green */
+    font-weight: bold;
+}
+
+/* Advantages Grid */
+.advantages-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin: 30px 0;
+}
+
+.cvd-advantages, 
+.hpht-advantages {
+    background: #2a2a2a;
+    padding: 25px;
+    border-radius: 8px;
+    border-left: 4px solid #d4af37;
+}
+
+.advantages-grid ul {
+    padding-left: 20px;
+    margin: 0;
+}
+
+.advantages-grid li {
+    margin-bottom: 10px;
+    color: #ddd;
+}
+
+.final-choice-text {
+    font-style: italic;
+    color: #d4af37;
+    text-align: center;
+    font-size: 1.1rem;
+    margin-top: 30px;
+}
+
+/* SECTION 4: Quality */
+.quality-grid {
+    background: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.quality-grid ul {
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+.quality-grid li {
+    margin-bottom: 10px;
+}
+
+/* SECTION 5: Certifications */
+.cert-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.cert-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.cert-card h3 {
+    color: #000;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.columns-2 {
+    columns: 1;
+    padding-left: 20px;
+}
+
+.columns-2 li {
+    margin-bottom: 10px;
+}
+
+/* SECTION 6: Environment */
+.intro-p {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+.env-comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.env-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+}
+
+.env-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.highlight-green {
+    color: #16a34a;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.sustainability-commitment {
+    background: #f4f6f8;
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.sustainability-commitment ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.sustainability-commitment li {
+    margin-bottom: 10px;
+}
+
+.sustainability-closing {
+    font-weight: 600;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.1rem;
+}
+
+
+/* Media Queries for Desktop/Larger Screens */
+@media (min-width: 768px) {
+    .cvd-interactive-breakdown {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .advantages-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .cert-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .columns-2 {
+        columns: 2;
+    }
+    
+    .env-comparison-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 992px) {
+    .cvd-interactive-breakdown {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .env-comparison-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .lgd-technology-page section {
+        padding: 80px 0;
+    }
+    
+    .lgd-tech-intro .page-title {
+        font-size: 3rem;
+    }
+}
