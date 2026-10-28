@@ -1,0 +1,368 @@
+/* 
+ * Custom Jewelry & Bespoke Design Styles
+ */
+
+/* ==========================================================================
+   Base Styles & Layout
+   ========================================================================== */
+
+.lgd-custom-jewelry-page {
+    background-color: var(--ast-global-color-5, #fafafa); /* light background */
+    padding-bottom: 80px;
+}
+
+.lgd-cj-section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 15px;
+    color: var(--ast-global-color-0, #333);
+}
+
+.lgd-cj-section-desc {
+    text-align: center;
+    font-size: 16px;
+    color: var(--ast-global-color-2, #666);
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ==========================================================================
+   Section 1: Introduction
+   ========================================================================== */
+
+.lgd-cj-intro {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 40px;
+}
+
+.lgd-cj-intro__title {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    margin-bottom: 20px;
+    color: var(--ast-global-color-0, #333);
+}
+
+.lgd-cj-intro__text {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--ast-global-color-2, #666);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   Section 2: Bespoke Builder
+   ========================================================================== */
+
+.lgd-cj-builder {
+    padding: 20px 0 60px;
+}
+
+.lgd-cj-builder__form {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.lgd-cj-step {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+    overflow: hidden;
+    border: 1px solid #eaeaea;
+}
+
+.lgd-cj-step__header {
+    background-color: #f9f9f9;
+    padding: 20px 30px;
+    border-bottom: 1px solid #eaeaea;
+    display: flex;
+    align-items: center;
+}
+
+.lgd-cj-step__number {
+    background-color: var(--ast-global-color-0, #333);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-right: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.lgd-cj-step__title {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    margin: 0;
+    color: var(--ast-global-color-0, #333);
+}
+
+.lgd-cj-step__content {
+    padding: 30px;
+}
+
+.lgd-cj-form-group {
+    margin-bottom: 25px;
+}
+
+.lgd-cj-form-group:last-child {
+    margin-bottom: 0;
+}
+
+.lgd-cj-form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--ast-global-color-1, #444);
+    font-size: 15px;
+}
+
+.lgd-cj-form-group select,
+.lgd-cj-form-group input[type="text"],
+.lgd-cj-form-group input[type="email"],
+.lgd-cj-form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fafafa;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.lgd-cj-form-group select:focus,
+.lgd-cj-form-group input[type="text"]:focus,
+.lgd-cj-form-group input[type="email"]:focus,
+.lgd-cj-form-group textarea:focus {
+    border-color: var(--ast-global-color-0, #333);
+    outline: none;
+    background-color: #fff;
+}
+
+.lgd-cj-form-group small {
+    display: block;
+    margin-top: 5px;
+    color: #888;
+    font-size: 12px;
+}
+
+/* Radio Button Grid for Metal & Setting */
+.lgd-cj-radio-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.lgd-cj-radio {
+    display: block;
+    position: relative;
+    cursor: pointer;
+}
+
+.lgd-cj-radio input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.lgd-cj-radio__label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 10px;
+    background-color: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: center;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.lgd-cj-radio:hover input ~ .lgd-cj-radio__label {
+    background-color: #f0f0f0;
+}
+
+.lgd-cj-radio input:checked ~ .lgd-cj-radio__label {
+    background-color: var(--ast-global-color-0, #333);
+    color: #fff;
+    border-color: var(--ast-global-color-0, #333);
+}
+
+.lgd-cj-submit {
+    display: inline-block;
+    width: 100%;
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background-color: var(--ast-global-color-0, #333);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.lgd-cj-submit:hover {
+    background-color: var(--ast-global-color-1, #444);
+}
+
+/* ==========================================================================
+   Section 3: CAD Render Gallery
+   ========================================================================== */
+
+.lgd-cj-cad-gallery {
+    padding: 60px 0;
+    background-color: #fff;
+}
+
+.lgd-cj-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.lgd-cj-gallery-item {
+    text-align: center;
+}
+
+.lgd-cj-gallery-item__placeholder {
+    background-color: #eaeaea;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border: 1px dashed #ccc;
+}
+
+.lgd-cj-gallery-item__caption {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--ast-global-color-0, #333);
+    margin: 0;
+}
+
+/* ==========================================================================
+   Section 4: Customer Showcase
+   ========================================================================== */
+
+.lgd-cj-showcase {
+    padding: 60px 0;
+}
+
+.lgd-cj-showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.lgd-cj-showcase-card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border: 1px solid #eaeaea;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.lgd-cj-showcase-card__image-placeholder {
+    background-color: #eaeaea;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.lgd-cj-showcase-card__content {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.lgd-cj-showcase-card__title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: var(--ast-global-color-0, #333);
+}
+
+.lgd-cj-showcase-card__specs {
+    font-size: 13px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.lgd-cj-showcase-card__quote {
+    font-style: italic;
+    color: var(--ast-global-color-2, #666);
+    margin: 0;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+/* ==========================================================================
+   Responsive Styles
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .lgd-cj-intro__title {
+        font-size: 32px;
+    }
+    
+    .lgd-cj-step__header {
+        padding: 15px 20px;
+    }
+
+    .lgd-cj-step__title {
+        font-size: 20px;
+    }
+
+    .lgd-cj-step__content {
+        padding: 20px;
+    }
+    
+    .lgd-cj-radio-group {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .lgd-cj-radio-group {
+        grid-template-columns: 1fr;
+    }
+}
