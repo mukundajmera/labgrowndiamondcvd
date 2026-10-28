@@ -175,15 +175,19 @@ PHP_FILES=(
     "$THEME_DIR/includes/class-lgd-automator.php"
 )
 
-for php_file in "${PHP_FILES[@]}"; do
-    if [ ! -f "$php_file" ]; then
-        log_error "$(basename $php_file) does not exist"
-    elif php -l "$php_file" > /dev/null 2>&1; then
-        log_success "$(basename $php_file) syntax OK"
-    else
-        log_error "$(basename $php_file) has syntax errors"
-    fi
-done
+if ! command -v php >/dev/null 2>&1; then
+    log_warning "php command not found in PATH; skipping PHP syntax checks"
+else
+    for php_file in "${PHP_FILES[@]}"; do
+        if [ ! -f "$php_file" ]; then
+            log_error "$(basename $php_file) does not exist"
+        elif php -l "$php_file" > /dev/null 2>&1; then
+            log_success "$(basename $php_file) syntax OK"
+        else
+            log_error "$(basename $php_file) has syntax errors"
+        fi
+    done
+fi
 
 # Test 6: Plugins Directory
 log_header "6. Installed Plugins"
