@@ -1,0 +1,293 @@
+/*
+ * About Page Isolated Styles
+ */
+
+/* Heritage Section */
+.lgd-about-heritage {
+    padding: 80px 0;
+    background-color: var(--color-background, #f9f9f9);
+    text-align: center;
+}
+
+.lgd-about-heritage__suptitle {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-accent, #c5a880);
+    margin-bottom: 10px;
+}
+
+.lgd-about-heritage__title {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: var(--color-primary, #111b2b);
+    margin-bottom: 30px;
+}
+
+.lgd-about-heritage__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: left;
+}
+
+@media (min-width: 768px) {
+    .lgd-about-heritage__grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.lgd-about-heritage__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.lgd-about-heritage__content p {
+    font-family: 'Inter', sans-serif;
+    color: #4a4a4a;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.lgd-about-heritage__image-wrapper {
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.lgd-about-heritage__image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Master Cutters */
+.lgd-about-cutters {
+    padding: 80px 0;
+    background-color: #ffffff;
+}
+
+.lgd-about-cutters__title {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: var(--color-primary, #111b2b);
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.lgd-about-cutters__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+@media (min-width: 768px) {
+    .lgd-about-cutters__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.lgd-about-cutter-card {
+    text-align: center;
+    padding: 30px;
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lgd-about-cutter-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+}
+
+.lgd-about-cutter-card__image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 20px;
+    border: 3px solid var(--color-accent, #c5a880);
+}
+
+.lgd-about-cutter-card__name {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--color-primary, #111b2b);
+    margin-bottom: 10px;
+}
+
+.lgd-about-cutter-card__role {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-accent, #c5a880);
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.lgd-about-cutter-card__desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Provenance Section */
+.lgd-about-provenance {
+    padding: 80px 0;
+    background-color: var(--color-primary, #111b2b);
+    color: #ffffff;
+    text-align: center;
+}
+
+.lgd-about-provenance__title {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.lgd-about-provenance__desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    max-width: 800px;
+    margin: 0 auto 50px;
+    line-height: 1.8;
+    color: #cccccc;
+}
+
+.lgd-about-provenance__features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+@media (min-width: 768px) {
+    .lgd-about-provenance__features {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.lgd-about-provenance__feature {
+    padding: 30px;
+    background-color: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 4px;
+}
+
+.lgd-about-provenance__feature-icon {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: var(--color-accent, #c5a880);
+}
+
+.lgd-about-provenance__feature-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.lgd-about-provenance__feature-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: #aaaaaa;
+    line-height: 1.6;
+}
+
+/* Technology Timeline */
+.lgd-about-timeline {
+    padding: 80px 0;
+    background-color: #ffffff;
+}
+
+.lgd-about-timeline__header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.lgd-about-timeline__title {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: var(--color-primary, #111b2b);
+    margin-bottom: 20px;
+}
+
+.lgd-about-timeline__intro {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    color: #4a4a4a;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+.lgd-about-timeline__comparison {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-top: 50px;
+}
+
+@media (min-width: 768px) {
+    .lgd-about-timeline__comparison {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.lgd-about-timeline__card {
+    padding: 40px;
+    border-radius: 8px;
+}
+
+.lgd-about-timeline__card--cvd {
+    background-color: #f4f7f6;
+    border-top: 5px solid var(--color-accent, #c5a880);
+}
+
+.lgd-about-timeline__card--mined {
+    background-color: #fafafa;
+    border-top: 5px solid #d32f2f;
+}
+
+.lgd-about-timeline__card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    margin-bottom: 25px;
+    color: var(--color-primary, #111b2b);
+}
+
+.lgd-about-timeline__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.lgd-about-timeline__list li {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: #4a4a4a;
+    margin-bottom: 15px;
+    padding-left: 30px;
+    position: relative;
+    line-height: 1.6;
+}
+
+.lgd-about-timeline__card--cvd .lgd-about-timeline__list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #2e7d32;
+    font-weight: bold;
+}
+
+.lgd-about-timeline__card--mined .lgd-about-timeline__list li::before {
+    content: "✗";
+    position: absolute;
+    left: 0;
+    color: #d32f2f;
+    font-weight: bold;
+}
