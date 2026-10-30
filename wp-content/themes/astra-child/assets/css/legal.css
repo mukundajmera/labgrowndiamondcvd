@@ -1,0 +1,106 @@
+/* 
+ * Legal Page Styles (Privacy Policy, Terms, etc.)
+ */
+
+.lgd-legal-page {
+    line-height: 1.6;
+    color: #333;
+    padding: 60px 0;
+}
+
+.lgd-legal-header {
+    text-align: center;
+    margin-bottom: 50px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.lgd-legal-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #111;
+    margin-bottom: 10px;
+}
+
+.lgd-legal-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    font-style: italic;
+}
+
+.lgd-legal-content .ast-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.lgd-legal-section {
+    margin-bottom: 40px;
+}
+
+.lgd-legal-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #222;
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.lgd-legal-section p {
+    margin-bottom: 15px;
+}
+
+.lgd-legal-list {
+    margin-bottom: 20px;
+    padding-left: 20px;
+    list-style-type: disc;
+}
+
+.lgd-legal-list li {
+    margin-bottom: 10px;
+}
+
+.lgd-legal-list strong {
+    color: #111;
+}
+
+/* Table styles for Cookie Preferences */
+.table-responsive {
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+.lgd-legal-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 0.95rem;
+}
+
+.lgd-legal-table th,
+.lgd-legal-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.lgd-legal-table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #333;
+}
+
+.lgd-legal-table tr:nth-child(even) {
+    background-color: #fdfdfd;
+}
+
+@media (max-width: 768px) {
+    .lgd-legal-title {
+        font-size: 2rem;
+    }
+    
+    .lgd-legal-section h2 {
+        font-size: 1.5rem;
+    }
+}
