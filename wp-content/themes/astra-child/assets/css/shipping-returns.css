@@ -1,0 +1,335 @@
+/*
+ * Shipping & Returns Styles
+ * Incorporates luxury dark/gold color palette and responsive design
+ */
+
+ .lgd-shipping-returns-page {
+    padding-top: 40px;
+    padding-bottom: 60px;
+    color: var(--color-text-main);
+    font-family: var(--font-body, sans-serif);
+}
+
+/* Typography & General */
+.lgd-shipping-returns-page .section-title {
+    font-family: var(--font-heading, serif);
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.2rem;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.lgd-shipping-returns-page .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-accent);
+}
+
+/* Hero Section */
+.lgd-policy-hero {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-radius: var(--radius-sharp, 0);
+    margin-bottom: 50px;
+}
+
+.lgd-policy-hero__title {
+    font-family: var(--font-heading, serif);
+    color: var(--color-white);
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+}
+
+.lgd-policy-hero__subtitle {
+    font-size: 1.2rem;
+    color: var(--color-accent-light);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Shipping Matrix */
+.lgd-shipping-matrix-section {
+    margin-bottom: 60px;
+}
+
+.lgd-shipping-matrix {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.matrix-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    padding: 40px 30px;
+    text-align: center;
+    border-radius: var(--radius-sharp, 0);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.matrix-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(10, 22, 40, 0.08);
+}
+
+.premium-card {
+    border: 2px solid var(--color-accent);
+    position: relative;
+}
+
+.premium-card::before {
+    content: 'Most Popular';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+    padding: 4px 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.matrix-card__icon {
+    color: var(--color-primary);
+    margin-bottom: 20px;
+}
+
+.premium-card .matrix-card__icon {
+    color: var(--color-accent);
+}
+
+.matrix-card__title {
+    font-family: var(--font-heading, serif);
+    color: var(--color-primary);
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.matrix-card__cost {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--color-text-main);
+    margin-bottom: 5px;
+}
+
+.matrix-card__time {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.matrix-card__features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.matrix-card__features li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    color: var(--color-text-main);
+    font-size: 0.95rem;
+}
+
+.matrix-card__features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-weight: bold;
+}
+
+/* Returns Policy */
+.lgd-returns-policy-section {
+    background-color: var(--color-surface);
+    padding: 60px 40px;
+    border: 1px solid var(--color-border);
+}
+
+.lgd-returns-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    margin-bottom: 40px;
+}
+
+.returns-info h3, .returns-protocol h3 {
+    font-family: var(--font-heading, serif);
+    color: var(--color-primary);
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.returns-info p {
+    color: var(--color-text-light);
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.protocol-steps {
+    padding-left: 20px;
+}
+
+.protocol-steps li {
+    margin-bottom: 15px;
+    color: var(--color-text-light);
+    line-height: 1.6;
+}
+
+.protocol-steps li strong {
+    color: var(--color-text-main);
+    display: block;
+    margin-bottom: 2px;
+}
+
+.ra-action-container {
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-light);
+    color: var(--color-white);
+}
+
+.btn-full {
+    width: 100%;
+}
+
+/* Modal */
+.lgd-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(10, 22, 40, 0.7);
+    backdrop-filter: blur(5px);
+}
+
+.lgd-modal-content {
+    background-color: var(--color-white);
+    margin: 10% auto;
+    padding: 40px;
+    border: 1px solid var(--color-border);
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+}
+
+.lgd-modal-content h2 {
+    font-family: var(--font-heading, serif);
+    color: var(--color-primary);
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+.close-modal {
+    color: var(--color-text-light);
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+/* Form Styles */
+.lgd-ra-form .form-group {
+    margin-bottom: 20px;
+}
+
+.lgd-ra-form label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--color-text-main);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.lgd-ra-form input[type="text"],
+.lgd-ra-form input[type="email"],
+.lgd-ra-form select,
+.lgd-ra-form textarea {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-surface);
+    color: var(--color-text-main);
+    font-family: var(--font-body, sans-serif);
+    transition: border-color 0.3s ease;
+}
+
+.lgd-ra-form input:focus,
+.lgd-ra-form select:focus,
+.lgd-ra-form textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .lgd-returns-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .lgd-returns-policy-section {
+        padding: 40px 20px;
+    }
+
+    .lgd-policy-hero {
+        padding: 40px 20px;
+    }
+
+    .lgd-policy-hero__title {
+        font-size: 2.2rem;
+    }
+}
