@@ -1,0 +1,173 @@
+/* 
+ * Diamond Comparison Styles
+ */
+
+.diamond-compare-container {
+    width: 100%;
+    margin: 2rem 0;
+    font-family: var(--font-primary, 'Inter', sans-serif);
+}
+
+.diamond-compare-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid var(--color-border, rgba(10, 22, 40, 0.1));
+    border-radius: 8px;
+    background: var(--color-white, #ffffff);
+}
+
+.diamond-compare-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    min-width: 600px; /* Ensure horizontal scroll on mobile */
+    text-align: center;
+}
+
+/* Header */
+.diamond-compare-table thead th {
+    background: var(--color-surface, #F8F9FA);
+    border-bottom: 2px solid var(--color-border, rgba(10, 22, 40, 0.1));
+    padding: 1.5rem 1rem;
+    vertical-align: top;
+    min-width: 180px;
+}
+
+.compare-product-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.compare-product-header .product-image img {
+    max-width: 120px;
+    height: auto;
+    border-radius: 4px;
+}
+
+.compare-product-header .product-title {
+    font-family: var(--font-heading, 'Playfair Display', serif);
+    font-size: 1.1rem;
+    color: var(--color-primary, #0A1628);
+    margin: 0.5rem 0 0;
+}
+
+.compare-product-header .product-price {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--color-primary, #0A1628);
+}
+
+/* Price Delta */
+.price-delta {
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    margin-top: 0.25rem;
+}
+
+.price-delta.delta-positive {
+    background-color: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+}
+
+.price-delta.delta-negative {
+    background-color: rgba(46, 204, 113, 0.1);
+    color: var(--color-success, #2ecc71);
+}
+
+.price-delta.delta-neutral {
+    background-color: rgba(10, 22, 40, 0.05);
+    color: var(--color-text-light, #718096);
+}
+
+/* Body rows */
+.diamond-compare-table tbody tr td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--color-border, rgba(10, 22, 40, 0.1));
+    color: var(--color-text-main, #2D3748);
+}
+
+.diamond-compare-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Highlighted Differences */
+.spec-row.has-difference {
+    background-color: rgba(201, 169, 98, 0.03); /* Subtle gold tint for rows with differences */
+}
+
+.spec-value.diff-highlight {
+    font-weight: 600;
+    color: var(--color-primary, #0A1628);
+}
+
+/* Sticky First Column */
+.spec-name-col,
+.spec-label {
+    text-align: left;
+    font-weight: 600;
+    color: var(--color-primary-light, #1C2A42);
+    background: var(--color-surface, #F8F9FA);
+    border-right: 1px solid var(--color-border, rgba(10, 22, 40, 0.1));
+    width: 150px;
+    min-width: 150px;
+    position: sticky;
+    left: 0;
+    z-index: 2; /* Keep above scrolling columns */
+}
+
+/* Footer */
+.diamond-compare-table tfoot td {
+    padding: 1.5rem 1rem;
+    background: var(--color-surface, #F8F9FA);
+    border-top: 2px solid var(--color-border, rgba(10, 22, 40, 0.1));
+}
+
+.view-product-btn {
+    display: inline-block;
+    background-color: var(--color-primary, #0A1628);
+    color: var(--color-white, #ffffff);
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.view-product-btn:hover {
+    background-color: var(--color-primary-light, #1C2A42);
+    color: var(--color-white, #ffffff);
+}
+
+/* Responsive Sticky Headers for Mobile */
+@media (max-width: 768px) {
+    .diamond-compare-table thead th {
+        position: sticky;
+        top: 0;
+        z-index: 1; /* Keep above scrolling rows */
+        background: var(--color-surface, #F8F9FA); /* Ensure background isn't transparent */
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Add subtle shadow to distinguish sticky header */
+    }
+    
+    /* Ensure the top-left corner is above both row and column headers */
+    .diamond-compare-table thead th.spec-name-col {
+        z-index: 3;
+    }
+    
+    .compare-product-header .product-image img {
+        max-width: 80px;
+    }
+    
+    .compare-product-header .product-title {
+        font-size: 0.95rem;
+    }
+    
+    .diamond-compare-table tbody tr td {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+}
