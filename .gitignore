@@ -79,3 +79,5 @@ wp-content/woocommerce-uploads/
 
 # Documentation working files
 *.draft.md
+
+.jules-orchestrator/
