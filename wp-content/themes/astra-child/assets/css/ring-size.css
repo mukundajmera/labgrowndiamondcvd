@@ -1,0 +1,463 @@
+/*
+ * Ring Size Guide Styles
+ * Luxury aesthetics matching front page redesign
+ */
+
+.luxury-page {
+    font-family: 'Montserrat', sans-serif;
+    color: #001f3f;
+    background-color: #FAFAFA;
+}
+
+.ring-size-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.luxury-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.luxury-header h1 {
+    font-family: 'Playfair Display', serif;
+    color: #001f3f;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+.luxury-header p {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.luxury-section {
+    background-color: #FFFFFF;
+    padding: 60px;
+    margin-bottom: 60px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+}
+
+.luxury-section h2 {
+    font-family: 'Playfair Display', serif;
+    color: #001f3f;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.luxury-section p {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Button Styles */
+.luxury-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: 0;
+    transition: all 0.3s ease;
+    text-align: center;
+    border: none;
+}
+
+.luxury-btn.primary {
+    background-color: #0047AB;
+    color: #FFFFFF;
+}
+
+.luxury-btn.primary:hover {
+    background-color: #003380;
+    transform: translateY(-2px);
+}
+
+.luxury-btn.secondary.outline {
+    background-color: transparent;
+    color: #001f3f;
+    border: 2px solid #001f3f;
+}
+
+.luxury-btn.secondary.outline:hover {
+    background-color: #001f3f;
+    color: #FFFFFF;
+    transform: translateY(-2px);
+}
+
+/* Calibration Tool */
+.calibration-instructions {
+    max-width: 600px;
+    margin: 0 auto 40px;
+    font-size: 1.1rem;
+    color: #444;
+    line-height: 1.8;
+}
+
+.calibration-instructions li {
+    margin-bottom: 10px;
+}
+
+.calibration-tool {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.card-outline-container {
+    border: 2px dashed #001f3f;
+    padding: 20px;
+    background-color: #E5E4E2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 150px;
+    min-width: 250px;
+}
+
+.card-outline {
+    /* Standard credit card size is 85.6mm x 53.98mm */
+    width: 85.6mm;
+    height: 53.98mm;
+    background-color: #001f3f;
+    border-radius: 8px; /* Slightly rounded corners for card realistic look */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    transform-origin: center center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.card-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.card-dimensions {
+    font-size: 12px;
+    opacity: 0.7;
+    margin-top: 5px;
+}
+
+.slider-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.slider-container label {
+    font-weight: 600;
+}
+
+.luxury-slider {
+    flex: 1;
+    appearance: none;
+    height: 4px;
+    background: #E5E4E2;
+    outline: none;
+}
+
+.luxury-slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #0047AB;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.calibration-success {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #28a745;
+    font-weight: 600;
+    margin-top: 10px;
+    transition: opacity 0.5s ease;
+}
+
+.calibration-success.hidden {
+    display: none;
+}
+
+.calibration-success.fade-out {
+    opacity: 0;
+}
+
+/* On-Screen Sizer */
+.sizer-warning {
+    background-color: #fff3cd;
+    color: #856404;
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 30px;
+    border-left: 4px solid #ffeeba;
+}
+
+.ring-circles-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+    transition: opacity 0.3s ease;
+}
+
+.ring-circle-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 120px;
+}
+
+.ring-circle {
+    border: 3px solid #001f3f;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    position: relative;
+    transform-origin: center bottom;
+}
+
+.ring-circle::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 1px dashed #ccc;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.ring-size-label {
+    position: absolute;
+    bottom: -30px;
+    font-weight: 600;
+    color: #001f3f;
+    white-space: nowrap;
+}
+
+/* Conversion Chart */
+.table-responsive {
+    overflow-x: auto;
+}
+
+.luxury-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.luxury-table th, .luxury-table td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #E5E4E2;
+}
+
+.luxury-table th {
+    background-color: #001f3f;
+    color: #FFFFFF;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.luxury-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.luxury-table tr:hover {
+    background-color: #f0f4f8;
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 31, 63, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-overlay.hidden {
+    display: none;
+}
+
+.luxury-modal {
+    background-color: #FFFFFF;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    padding: 40px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: #001f3f;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.modal-header h2 {
+    font-family: 'Playfair Display', serif;
+    color: #001f3f;
+    margin-top: 0;
+    border-bottom: 2px solid #E5E4E2;
+    padding-bottom: 20px;
+}
+
+.print-instructions {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-left: 4px solid #0047AB;
+    margin-bottom: 30px;
+}
+
+.print-area {
+    border: 1px solid #E5E4E2;
+    padding: 40px;
+    margin-bottom: 30px;
+}
+
+.print-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.print-scale-check {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.cutout-tool {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.sizer-strip {
+    width: 300px;
+    height: 30px;
+    background-color: #fff;
+    border: 2px solid #001f3f;
+    position: relative;
+    clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 80%);
+}
+
+.sizer-slit {
+    position: absolute;
+    left: 10%;
+    top: 0;
+    height: 100%;
+    border-left: 2px dashed #001f3f;
+    font-size: 10px;
+    writing-mode: vertical-rl;
+    text-align: center;
+    padding-left: 5px;
+}
+
+.sizer-marks {
+    position: absolute;
+    left: 15%;
+    right: 0;
+    top: 0;
+    height: 100%;
+}
+
+.sizer-marks .mark {
+    position: absolute;
+    top: 0;
+    height: 50%;
+    border-left: 1px solid #001f3f;
+    font-size: 10px;
+    padding-left: 2px;
+}
+
+.modal-footer {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+    margin-top: 30px;
+}
+
+/* Print Styles */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    
+    #print-area, #print-area * {
+        visibility: visible;
+    }
+    
+    #print-area {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        border: none;
+        padding: 0;
+    }
+
+    .modal-overlay {
+        position: absolute;
+        background: none;
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .luxury-section {
+        padding: 30px 20px;
+    }
+    
+    .luxury-header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .luxury-table th, .luxury-table td {
+        padding: 10px 5px;
+        font-size: 0.8rem;
+    }
+    
+    .modal-footer {
+        flex-direction: column;
+    }
+    
+    .luxury-btn {
+        width: 100%;
+    }
+}
