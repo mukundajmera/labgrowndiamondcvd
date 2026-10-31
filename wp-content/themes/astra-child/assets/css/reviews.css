@@ -1,0 +1,196 @@
+/* Scoped styling for Diamond Reviews Showcase */
+.diamond-reviews-showcase {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    font-family: 'Inter', sans-serif;
+    color: var(--color-text, #333);
+}
+
+.diamond-reviews-showcase .reviews-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.diamond-reviews-showcase .reviews-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--color-primary, #1a202c);
+    margin-bottom: 10px;
+}
+
+.diamond-reviews-showcase .reviews-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-text-light, #666);
+    margin-bottom: 20px;
+}
+
+.diamond-reviews-showcase .aggregate-rating-summary {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f9f9f9;
+    padding: 15px 30px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.diamond-reviews-showcase .stars {
+    color: var(--color-accent, #d4af37); /* Champagne gold */
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.diamond-reviews-showcase .rating-score {
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.diamond-reviews-showcase .review-count {
+    font-size: 0.9rem;
+    color: #777;
+    margin-top: 4px;
+}
+
+/* Reviews Grid */
+.diamond-reviews-showcase .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 30px;
+}
+
+/* Review Card */
+.diamond-reviews-showcase .review-card {
+    background: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.diamond-reviews-showcase .review-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.05);
+}
+
+.diamond-reviews-showcase .review-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.diamond-reviews-showcase .reviewer-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    margin: 0 0 5px 0;
+    color: var(--color-primary, #1a202c);
+}
+
+.diamond-reviews-showcase .verified-buyer-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #2e7d32; /* Green for verified */
+    background-color: #e8f5e9;
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+.diamond-reviews-showcase .review-rating {
+    color: var(--color-accent, #d4af37);
+    font-size: 1.1rem;
+}
+
+.diamond-reviews-showcase .review-product-info {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.diamond-reviews-showcase .product-purchased {
+    font-size: 0.9rem;
+    color: #555;
+    font-weight: 500;
+}
+
+/* IGI Verification Pill */
+.diamond-reviews-showcase .igi-verification-pill {
+    display: inline-block;
+    align-self: flex-start;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #fff;
+    background-color: var(--color-primary, #1a202c); /* Deep navy */
+    padding: 5px 12px;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.diamond-reviews-showcase .igi-verification-pill:hover {
+    background-color: var(--color-accent, #d4af37);
+    color: #fff;
+}
+
+.diamond-reviews-showcase .review-content {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+/* Media Grid (Thumbnails) */
+.diamond-reviews-showcase .review-media-grid {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.diamond-reviews-showcase .media-thumbnail {
+    display: block;
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    position: relative;
+    border: 1px solid #ddd;
+}
+
+.diamond-reviews-showcase .media-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    color: #888;
+    font-size: 0.8rem;
+    transition: background-color 0.2s;
+}
+
+.diamond-reviews-showcase .media-thumbnail:hover .media-placeholder {
+    background-color: #e0e0e0;
+}
+
+.diamond-reviews-showcase .play-icon {
+    font-size: 1.2rem;
+    color: rgba(0,0,0,0.6);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .diamond-reviews-showcase .reviews-title {
+        font-size: 2rem;
+    }
+    
+    .diamond-reviews-showcase .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+}
